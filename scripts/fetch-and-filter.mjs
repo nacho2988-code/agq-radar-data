@@ -133,10 +133,21 @@ function parseEntryBlock(block){
   };
 }
 
+function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+
+// Coincidencia con límites de palabra (no substring suelto): evita falsos positivos
+// como 'ica' dentro de 'técnica' o 'ler' dentro de 'taller'/'alquiler'. Las letras
+// acentuadas cuentan como parte de la palabra para que los límites no se rompan
+// en medio de términos como 'inspección'.
+function keywordMatches(text, keyword){
+  const re = new RegExp('(^|[^a-zA-Z\u00C0-\u00FF])' + escapeRegex(keyword) + '($|[^a-zA-Z\u00C0-\u00FF])', 'i');
+  return re.test(text);
+}
+
 function isSectorRelevant(entry){
   if(entry.cpv.some(c => cpvCodes.includes(c))) return true;
   const text = (entry.title + ' ' + entry.rawSummary).toLowerCase();
-  return allKeywords.some(k => k && text.includes(k));
+  return allKeywords.some(k => k && keywordMatches(text, k));
 }
 
 function nextLink(xml){
