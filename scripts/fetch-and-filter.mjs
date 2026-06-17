@@ -187,6 +187,10 @@ async function run(){
   try{
     existing = JSON.parse(fs.readFileSync(OUTPUT_PATH, 'utf-8')).entries || [];
   }catch(e){ /* primer arranque: no hay snapshot previo */ }
+  // Reevaluamos las entradas ya guardadas con el filtro VIGENTE (no el de cuando se
+  // guardaron): si cambias config/accreditations.json, las que dejen de cumplir el
+  // criterio se purgan en la siguiente ejecución en vez de quedarse para siempre.
+  existing = existing.filter(isSectorRelevant);
 
   const byId = new Map(existing.map(e => [e.expediente, e]));
   relevant.forEach(e => byId.set(e.expediente, e));
