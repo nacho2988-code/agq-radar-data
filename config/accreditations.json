@@ -3,7 +3,7 @@
     {
       "id": "a1", "norma": "17025", "expediente": "305/LE1322", "titulo": "Laboratorio de ensayo · Medioambiente",
       "matrices": "Aguas de consumo, residuales, continentales y marinas; suelos; residuos; calidad del aire / emisiones / inmisión; ruido; protección radiológica",
-      "keywords": "agua,aguas,residual,vertido,vertidos,suelo,suelos,contaminado,contaminados,residuo,residuos,calidad del aire,emisiones,inmision,inmisión,particulas,partículas,ruido,acustic,plaguicida,metales,dbo,dqo,ph,conductividad,ica,rd 9/2005,rd 817/2015"
+      "keywords": "agua,aguas,residual,vertido,vertidos,suelo,suelos,contaminado,contaminados,residuo,residuos,calidad del aire,emisiones,inmision,inmisión,particulas,partículas,ruido,acustic,plaguicida,metales,dbo,dqo,conductividad,rd 9/2005,rd 817/2015"
     },
     {
       "id": "a2", "norma": "17025", "expediente": "305/LE1323", "titulo": "Laboratorio de ensayo · Alimentos",
