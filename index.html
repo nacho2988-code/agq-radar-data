@@ -1,0 +1,1399 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Radar de Licitaciones · AGQ Labs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<style>
+/* ============================================================
+   TOKENS
+   ============================================================ */
+:root{
+  --paper:#F5F4EF;
+  --paper-dim:#ECEAE2;
+  --card:#FFFFFF;
+  --ink:#1D1B2A;
+  --ink-soft:#5C5A6B;
+  --line:#DAD7CC;
+  --line-strong:#C7C3B4;
+  --agq-purple:#565294;
+  --agq-purple-deep:#3C3A6B;
+  --agq-purple-bg:#EAE9F4;
+  --agq-green:#84BD00;
+  --agq-green-deep:#5E8500;
+  --agq-green-bg:#EEF6DB;
+  --amber:#C97B2E;
+  --amber-bg:#FBEBD9;
+  --terracotta:#A23B3B;
+  --terracotta-bg:#F6E2DF;
+  --slate:#6B7280;
+  --slate-bg:#E9EAEC;
+  --radius-s:4px;
+  --radius-m:8px;
+  --shadow-panel:-12px 0 32px -8px rgba(29,27,42,0.18);
+  --font-display:'Space Grotesk',sans-serif;
+  --font-body:'Inter',sans-serif;
+  --font-mono:'IBM Plex Mono',monospace;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--font-body);
+  font-size:14px;
+  line-height:1.45;
+  -webkit-font-smoothing:antialiased;
+}
+button{font-family:inherit;cursor:pointer;}
+input,textarea,select{font-family:inherit;}
+a{color:var(--agq-purple-deep);}
+::selection{background:var(--agq-purple);color:#fff;}
+
+/* ============================================================
+   LAYOUT SHELL
+   ============================================================ */
+#app{
+  display:flex;
+  flex-direction:column;
+  min-height:100vh;
+}
+header.topbar{
+  background:var(--ink);
+  color:#EFEDF6;
+  display:flex;
+  align-items:center;
+  gap:28px;
+  padding:0 24px;
+  height:64px;
+  flex-shrink:0;
+  position:sticky;
+  top:0;
+  z-index:30;
+}
+.brand{
+  display:flex;
+  align-items:baseline;
+  gap:8px;
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:17px;
+  letter-spacing:0.01em;
+  white-space:nowrap;
+}
+.brand .mark{
+  color:var(--agq-green);
+}
+.brand .sub{
+  font-family:var(--font-mono);
+  font-size:10px;
+  font-weight:400;
+  color:#A6A2C2;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+}
+nav.tabs{
+  display:flex;
+  gap:4px;
+  flex:1;
+  overflow-x:auto;
+}
+nav.tabs button{
+  background:none;
+  border:none;
+  color:#C8C5DD;
+  font-size:13px;
+  font-weight:600;
+  padding:10px 14px;
+  border-radius:var(--radius-s);
+  display:flex;
+  align-items:center;
+  gap:8px;
+  white-space:nowrap;
+}
+nav.tabs button:hover{background:rgba(255,255,255,0.08);color:#fff;}
+nav.tabs button.active{background:var(--agq-purple);color:#fff;}
+nav.tabs button .count{
+  font-family:var(--font-mono);
+  font-size:11px;
+  background:rgba(255,255,255,0.18);
+  padding:1px 6px;
+  border-radius:10px;
+}
+nav.tabs button.active .count{background:rgba(255,255,255,0.28);}
+
+main{
+  flex:1;
+  padding:24px;
+  max-width:1280px;
+  width:100%;
+  margin:0 auto;
+}
+.view{display:none;}
+.view.active{display:block;}
+
+/* ============================================================
+   DASHBOARD STRIP
+   ============================================================ */
+.dash-strip{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1px;
+  background:var(--line);
+  border:1px solid var(--line);
+  border-radius:var(--radius-m);
+  overflow:hidden;
+  margin-bottom:20px;
+}
+.dash-cell{
+  background:var(--card);
+  padding:14px 18px;
+}
+.dash-cell .num{
+  font-family:var(--font-display);
+  font-size:28px;
+  font-weight:700;
+  line-height:1;
+}
+.dash-cell .lbl{
+  font-size:11px;
+  color:var(--ink-soft);
+  text-transform:uppercase;
+  letter-spacing:0.04em;
+  margin-top:4px;
+}
+.dash-cell.acc .num{color:var(--agq-green-deep);}
+.dash-cell.gap .num{color:var(--amber);}
+.dash-cell.urgent .num{color:var(--terracotta);}
+
+/* ============================================================
+   TOOLBAR / FILTERS
+   ============================================================ */
+.toolbar{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  align-items:center;
+  margin-bottom:14px;
+}
+.toolbar input[type="search"]{
+  flex:1;
+  min-width:180px;
+  padding:8px 12px;
+  border:1px solid var(--line-strong);
+  border-radius:var(--radius-s);
+  background:var(--card);
+  font-size:13px;
+}
+.chip{
+  border:1px solid var(--line-strong);
+  background:var(--card);
+  color:var(--ink-soft);
+  font-size:12px;
+  font-weight:600;
+  padding:6px 12px;
+  border-radius:20px;
+  white-space:nowrap;
+}
+.chip.active{
+  background:var(--agq-purple);
+  border-color:var(--agq-purple);
+  color:#fff;
+}
+select.sortsel{
+  padding:7px 10px;
+  border:1px solid var(--line-strong);
+  border-radius:var(--radius-s);
+  background:var(--card);
+  font-size:12px;
+  color:var(--ink-soft);
+}
+
+/* ============================================================
+   TENDER LIST (table-ish rows)
+   ============================================================ */
+.list{
+  border:1px solid var(--line);
+  border-radius:var(--radius-m);
+  overflow:hidden;
+  background:var(--card);
+}
+.row{
+  display:grid;
+  grid-template-columns:6px 54px 1fr 120px 90px;
+  align-items:center;
+  border-bottom:1px solid var(--line);
+  cursor:pointer;
+  transition:background 0.12s;
+}
+.row:last-child{border-bottom:none;}
+.row:hover{background:var(--paper-dim);}
+.row .bar{height:100%;align-self:stretch;}
+.row .bar.ok{background:var(--agq-green);}
+.row .bar.partial{background:var(--amber);}
+.row .bar.gap{background:var(--terracotta);}
+.row .bar.unk{background:var(--slate);}
+.seal{
+  width:38px;height:38px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto;
+  border:2px solid currentColor;
+  font-family:var(--font-mono);
+  font-size:8.5px;
+  font-weight:600;
+  line-height:1.05;
+  text-align:center;
+  padding:2px;
+}
+.seal.ok{color:var(--agq-green-deep);background:var(--agq-green-bg);}
+.seal.partial{color:var(--amber);background:var(--amber-bg);}
+.seal.gap{color:var(--terracotta);background:var(--terracotta-bg);}
+.seal.unk{color:var(--slate);background:var(--slate-bg);}
+.row .main{padding:12px 14px;min-width:0;}
+.row .title{font-weight:600;font-size:13.5px;margin-bottom:3px;}
+.row .meta{font-size:11.5px;color:var(--ink-soft);display:flex;gap:8px;flex-wrap:wrap;}
+.row .meta .cpv{font-family:var(--font-mono);background:var(--slate-bg);padding:1px 5px;border-radius:3px;}
+.row .amount{font-family:var(--font-mono);font-size:12.5px;text-align:right;padding-right:10px;}
+.row .deadline{padding-right:14px;text-align:right;}
+.row .deadline .days{font-family:var(--font-mono);font-weight:700;font-size:13px;}
+.row .deadline .days.urgent{color:var(--terracotta);animation:pulse 2s ease-in-out infinite;}
+.row .deadline .date{font-size:10.5px;color:var(--ink-soft);}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.55;}}
+.empty-state{
+  padding:60px 24px;
+  text-align:center;
+  color:var(--ink-soft);
+}
+.empty-state .big{font-family:var(--font-display);font-size:18px;color:var(--ink);margin-bottom:6px;}
+
+/* ============================================================
+   DETAIL PANEL (slide-over)
+   ============================================================ */
+#overlay{
+  position:fixed;inset:0;background:rgba(29,27,42,0.35);
+  z-index:40;display:none;
+}
+#overlay.show{display:block;}
+#detail-panel{
+  position:fixed;top:0;right:0;height:100vh;
+  width:min(620px,94vw);
+  background:var(--paper);
+  box-shadow:var(--shadow-panel);
+  z-index:41;
+  transform:translateX(100%);
+  transition:transform 0.22s ease;
+  overflow-y:auto;
+}
+#detail-panel.show{transform:translateX(0);}
+.panel-head{
+  background:var(--ink);color:#fff;
+  padding:18px 22px;
+  position:sticky;top:0;
+}
+.panel-head .close-btn{
+  position:absolute;top:14px;right:16px;
+  background:rgba(255,255,255,0.1);border:none;color:#fff;
+  width:28px;height:28px;border-radius:50%;font-size:16px;
+}
+.panel-head h2{font-family:var(--font-display);font-size:17px;margin:0 32px 8px 0;}
+.panel-head .exp{font-family:var(--font-mono);font-size:11.5px;color:#B7B4D2;}
+.panel-body{padding:20px 22px 60px;}
+.section-block{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius-m);
+  padding:16px 18px;margin-bottom:16px;
+}
+.section-block h3{
+  font-family:var(--font-display);font-size:13px;text-transform:uppercase;
+  letter-spacing:0.04em;color:var(--ink-soft);margin:0 0 10px;
+}
+.kv{display:grid;grid-template-columns:130px 1fr;gap:6px 10px;font-size:12.5px;margin-bottom:4px;}
+.kv b{color:var(--ink-soft);font-weight:600;}
+.kv .v{font-family:var(--font-mono);font-size:12px;}
+.match-tag{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:11.5px;font-weight:600;padding:4px 10px;border-radius:14px;
+  margin:2px 4px 2px 0;
+}
+.match-tag.ok{background:var(--agq-green-bg);color:var(--agq-green-deep);}
+.match-tag.partial{background:var(--amber-bg);color:var(--amber);}
+.match-tag.gap{background:var(--terracotta-bg);color:var(--terracotta);}
+.keyword-pill{
+  font-family:var(--font-mono);font-size:10.5px;background:var(--paper-dim);
+  border:1px solid var(--line);padding:1px 6px;border-radius:3px;margin:2px;display:inline-block;
+}
+.btn{
+  border:none;border-radius:var(--radius-s);font-weight:600;font-size:12.5px;
+  padding:9px 16px;display:inline-flex;align-items:center;gap:6px;
+}
+.btn.primary{background:var(--agq-purple);color:#fff;}
+.btn.primary:hover{background:var(--agq-purple-deep);}
+.btn.ghost{background:var(--card);border:1px solid var(--line-strong);color:var(--ink);}
+.btn.ghost:hover{background:var(--paper-dim);}
+.btn:disabled{opacity:0.5;cursor:default;}
+textarea.notearea{
+  width:100%;min-height:64px;border:1px solid var(--line-strong);border-radius:var(--radius-s);
+  padding:8px 10px;font-size:12.5px;resize:vertical;
+}
+.dropzone{
+  border:1.5px dashed var(--line-strong);border-radius:var(--radius-m);
+  padding:20px;text-align:center;color:var(--ink-soft);font-size:12.5px;
+  background:var(--paper-dim);cursor:pointer;
+}
+.dropzone:hover{border-color:var(--agq-purple);}
+.summary-block{font-size:12.5px;margin-top:10px;}
+.summary-block h4{font-size:12px;font-family:var(--font-display);margin:14px 0 6px;color:var(--agq-purple-deep);}
+.summary-block ul{margin:0;padding-left:18px;}
+.summary-block li{margin-bottom:4px;}
+.spinner{
+  width:14px;height:14px;border:2px solid rgba(255,255,255,0.4);border-top-color:#fff;
+  border-radius:50%;display:inline-block;animation:spin 0.7s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg);}}
+.callout{
+  font-size:11.5px;color:var(--ink-soft);background:var(--paper-dim);
+  border-left:3px solid var(--agq-purple);padding:8px 12px;border-radius:0 4px 4px 0;margin-bottom:14px;
+}
+
+/* ============================================================
+   IMPORT VIEW
+   ============================================================ */
+.import-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+@media (max-width:880px){.import-grid{grid-template-columns:1fr;}}
+.import-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-m);padding:18px 20px;}
+.import-card h3{font-family:var(--font-display);font-size:14px;margin:0 0 8px;}
+.import-card p{font-size:12.5px;color:var(--ink-soft);margin:0 0 12px;}
+textarea.bigpaste{
+  width:100%;min-height:160px;border:1px solid var(--line-strong);border-radius:var(--radius-s);
+  padding:10px;font-family:var(--font-mono);font-size:11px;resize:vertical;
+}
+.log-line{font-family:var(--font-mono);font-size:11.5px;padding:3px 0;border-bottom:1px dashed var(--line);}
+#import-log{max-height:220px;overflow-y:auto;margin-top:10px;}
+
+/* ============================================================
+   ACREDITACIONES CONFIG VIEW
+   ============================================================ */
+.accred-card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius-m);
+  padding:16px 18px;margin-bottom:12px;display:grid;grid-template-columns:1fr 1fr 90px;gap:12px;align-items:start;
+}
+.accred-card .norm-badge{
+  font-family:var(--font-mono);font-weight:700;font-size:12px;
+  background:var(--agq-purple-bg);color:var(--agq-purple-deep);padding:3px 8px;border-radius:4px;
+  display:inline-block;margin-bottom:6px;
+}
+.accred-card input, .accred-card textarea{
+  width:100%;border:1px solid var(--line-strong);border-radius:var(--radius-s);
+  padding:6px 8px;font-size:12px;margin-top:3px;
+}
+.field-label{font-size:10.5px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:0.03em;}
+
+/* ============================================================
+   AWARDED VIEW
+   ============================================================ */
+.award-row{
+  display:grid;grid-template-columns:1fr 200px 140px;gap:14px;
+  padding:14px 16px;border-bottom:1px solid var(--line);align-items:center;
+}
+.award-row:last-child{border-bottom:none;}
+.award-row .who{font-weight:700;font-size:13px;}
+.award-row .who.agq{color:var(--agq-green-deep);}
+.award-row .org{font-size:11.5px;color:var(--ink-soft);}
+.tag-agq-win{
+  background:var(--agq-green);color:#fff;font-size:10px;font-weight:700;
+  padding:2px 7px;border-radius:10px;margin-left:8px;letter-spacing:0.03em;
+}
+
+footer.foot{
+  text-align:center;font-size:11px;color:var(--ink-soft);padding:18px;
+}
+</style>
+</head>
+<body>
+<div id="app">
+
+  <header class="topbar">
+    <div class="brand"><span class="mark">●</span> AGQ <span class="sub">Radar de Licitaciones</span></div>
+    <span id="topbar-sync-indicator" style="font-size:10.5px;color:#9D99BD;font-family:var(--font-mono);white-space:nowrap;"></span>
+    <nav class="tabs" id="tabs">
+      <button data-view="abiertas" class="active">Abiertas <span class="count" id="count-abiertas">0</span></button>
+      <button data-view="adjudicadas">Adjudicadas <span class="count" id="count-adjudicadas">0</span></button>
+      <button data-view="importar">Importar datos</button>
+      <button data-view="acreditaciones">Acreditaciones AGQ</button>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ================= VIEW: ABIERTAS ================= -->
+    <section class="view active" id="view-abiertas">
+      <div class="dash-strip">
+        <div class="dash-cell"><div class="num" id="dash-total">0</div><div class="lbl">Licitaciones en seguimiento</div></div>
+        <div class="dash-cell acc"><div class="num" id="dash-cubiertas">0</div><div class="lbl">Cubiertas por acreditación</div></div>
+        <div class="dash-cell gap"><div class="num" id="dash-gap">0</div><div class="lbl">Con posible gap</div></div>
+        <div class="dash-cell urgent"><div class="num" id="dash-urgentes">0</div><div class="lbl">Cierran en ≤5 días</div></div>
+      </div>
+
+      <div class="callout">Clasificación orientativa de primer filtro (CPV + palabras clave del pliego resumido). No sustituye la lectura del pliego técnico real — verifica siempre antes de ofertar.</div>
+
+      <div class="toolbar">
+        <input type="search" id="search-abiertas" placeholder="Buscar por título, órgano, expediente, CPV…">
+        <button class="chip active" data-filter="todas">Todas</button>
+        <button class="chip" data-filter="ok">Cubiertas</button>
+        <button class="chip" data-filter="partial">Posible gap toma de muestra</button>
+        <button class="chip" data-filter="gap">Gap de acreditación</button>
+        <select class="sortsel" id="sort-abiertas">
+          <option value="deadline">Ordenar: fecha límite</option>
+          <option value="importe">Ordenar: importe</option>
+          <option value="pub">Ordenar: fecha publicación</option>
+        </select>
+      </div>
+
+      <div class="list" id="list-abiertas"></div>
+    </section>
+
+    <!-- ================= VIEW: ADJUDICADAS ================= -->
+    <section class="view" id="view-adjudicadas">
+      <div class="callout">Licitaciones del sector ambiental/laboratorio que ya han sido resueltas, con el adjudicatario indicado por la plataforma.</div>
+      <div class="toolbar">
+        <input type="search" id="search-adjudicadas" placeholder="Buscar por adjudicatario, órgano, expediente…">
+      </div>
+      <div class="list" id="list-adjudicadas"></div>
+    </section>
+
+    <!-- ================= VIEW: IMPORTAR ================= -->
+    <section class="view" id="view-importar">
+
+      <div class="import-card" style="border-color:var(--agq-purple);">
+        <h3>Sincronización automática (GitHub Actions) — recomendado</h3>
+        <p>Indica tu repositorio público (el que genera el barrido diario) y la app cargará el último snapshot solo, cada vez que la abras. No hace falta volver a esta pantalla.</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px;">
+          <input type="text" id="gh-repo" placeholder="usuario/nombre-repo" style="flex:2;min-width:180px;padding:8px 10px;border:1px solid var(--line-strong);border-radius:var(--radius-s);">
+          <input type="text" id="gh-branch" placeholder="main" style="flex:1;min-width:80px;padding:8px 10px;border:1px solid var(--line-strong);border-radius:var(--radius-s);">
+        </div>
+        <button class="btn primary" id="btn-save-sync">Guardar y sincronizar ahora</button>
+        <div id="gh-sync-status" style="margin-top:10px;font-size:12px;color:var(--ink-soft);"></div>
+      </div>
+
+      <h3 style="font-family:var(--font-display);font-size:13px;margin:22px 0 10px;text-transform:uppercase;color:var(--ink-soft);">Alternativa manual / primer arranque</h3>
+      <div class="import-grid">
+        <div class="import-card">
+          <h3>1 · Conseguir el fichero oficial</h3>
+          <p>La Plataforma de Contratación del Sector Público publica sus licitaciones como datos abiertos (formato Atom/CODICE). Ábrelo, guárdalo (Ctrl+S) y pégalo o súbelo aquí. Se actualiza a diario.</p>
+          <button class="btn ghost" id="btn-open-feed">Abrir feed oficial ↗</button>
+          <p style="margin-top:10px;font-size:11.5px;">Devuelve hasta 500 licitaciones por página (todas las administraciones, no solo ambiental). El importador filtra automáticamente por sector.</p>
+        </div>
+        <div class="import-card">
+          <h3>2 · Carga directa (experimental)</h3>
+          <p>Intenta traer el feed sin pasos manuales. Puede fallar por CORS según dónde abras esta app — en ese caso usa la extensión "Allow CORS" o el método manual.</p>
+          <button class="btn primary" id="btn-direct-fetch">Intentar carga directa</button>
+          <div id="direct-fetch-status" style="margin-top:10px;font-size:12px;"></div>
+        </div>
+      </div>
+
+      <div class="import-card" style="margin-top:18px;">
+        <h3>Pegar / subir contenido Atom-XML</h3>
+        <p>Pega aquí el contenido del fichero .atom descargado, o súbelo directamente.</p>
+        <input type="file" id="file-import" accept=".atom,.xml,text/xml" style="margin-bottom:10px;">
+        <textarea class="bigpaste" id="paste-xml" placeholder="&lt;feed xmlns=...&gt; … pega aquí el XML completo …"></textarea>
+        <div style="margin-top:10px;display:flex;gap:8px;">
+          <button class="btn primary" id="btn-parse-xml">Procesar e importar</button>
+          <button class="btn ghost" id="btn-clear-data">Vaciar base local</button>
+        </div>
+        <div id="import-log"></div>
+      </div>
+    </section>
+
+    <!-- ================= VIEW: ACREDITACIONES ================= -->
+    <section class="view" id="view-acreditaciones">
+      <div class="callout">Perfil de acreditación de AGQ Labs usado para el motor de comparación. Basado en información pública (ENAC / web de AGQ Labs) — ajusta matrices y palabras clave si detectas un desajuste con un pliego real.</div>
+      <div id="accred-list"></div>
+      <button class="btn ghost" id="btn-add-accred">+ Añadir acreditación</button>
+      <h3 style="font-family:var(--font-display);font-size:13px;margin:26px 0 8px;text-transform:uppercase;color:var(--ink-soft);">CPV de interés para el pre-filtro sectorial</h3>
+      <textarea class="bigpaste" id="cpv-list" style="min-height:90px;"></textarea>
+      <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap;">
+        <button class="btn primary" id="btn-save-config">Guardar configuración</button>
+        <button class="btn ghost" id="btn-export-config">Copiar JSON para config/accreditations.json (GitHub)</button>
+      </div>
+      <div class="callout" id="export-config-box" style="display:none;margin-top:12px;">
+        Pega este contenido en <code>config/accreditations.json</code> de tu repo (sustituye el fichero entero) para que el barrido diario use la misma configuración que tienes aquí.
+        <textarea class="bigpaste" id="export-config-text" readonly style="margin-top:8px;min-height:160px;"></textarea>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="foot">Herramienta interna de apoyo comercial · datos importados manualmente desde la Plataforma de Contratación del Sector Público</footer>
+</div>
+
+<div id="overlay"></div>
+<aside id="detail-panel"></aside>
+
+<script>
+/* ============================================================
+   SCRIPT MODULES (rellenado por pasos)
+   ============================================================ */
+// === [MOD:CONFIG] ===
+const LS_KEYS = {
+  tenders: 'agq_radar_tenders_v1',
+  config: 'agq_radar_config_v1',
+  summaries: 'agq_radar_summaries_v1',
+  githubSync: 'agq_radar_github_sync_v1'
+};
+
+const DEFAULT_ACCREDITATIONS = [
+  {
+    id:'a1', norma:'17025', expediente:'305/LE1322', titulo:'Laboratorio de ensayo · Medioambiente',
+    matrices:'Aguas de consumo, residuales, continentales y marinas; suelos; residuos; calidad del aire / emisiones / inmisión; ruido; protección radiológica',
+    keywords:'agua,aguas,residual,vertido,vertidos,suelo,suelos,contaminado,contaminados,residuo,residuos,calidad del aire,emisiones,inmision,inmisión,particulas,partículas,ruido,acustic,plaguicida,metales,dbo,dqo,conductividad,rd 9/2005,rd 817/2015'
+  },
+  {
+    id:'a2', norma:'17025', expediente:'305/LE1323', titulo:'Laboratorio de ensayo · Alimentos',
+    matrices:'Seguridad alimentaria, residuos de plaguicidas en alimentos, microbiología alimentaria',
+    keywords:'alimentari,alimento,seguridad alimentaria,microbiolog,plaguicida frutas,plaguicida hortalizas'
+  },
+  {
+    id:'a3', norma:'17025', expediente:'229/LE1296', titulo:'Laboratorio de ensayo · Biocidas / Legionella / Toma de muestra',
+    matrices:'Biocidas, cosméticos, Legionella spp., toma de muestra acreditada bajo 17025',
+    keywords:'legionella,legionela,biocida,cosmetic'
+  },
+  {
+    id:'a4', norma:'17025', expediente:'229/LE519', titulo:'Laboratorio de ensayo · Alimentos (centro adicional)',
+    matrices:'Alimentos',
+    keywords:'alimentari,alimento'
+  },
+  {
+    id:'a5', norma:'17020', expediente:'167/EI276', titulo:'Entidad de Inspección · Medioambiente',
+    matrices:'Aguas, sedimentos subacuáticos, residuos, vertederos (RD 646/2020 Anexo III y VII), suelos y aguas subterráneas asociadas — incluye diseño de muestreo y toma de muestra bajo mandato normativo',
+    keywords:'vertedero,vertederos,rd 646/2020,admisibilidad,ler,caracterizacion,caracterización,sedimento,subacuatic,aguas subterraneas,aguas subterráneas,lixiviado,gas de vertedero,inspeccion,inspección,vigilancia ambiental,control y vigilancia'
+  },
+  {
+    id:'a6', norma:'17025/IAS', expediente:'TL-475 / TL-923', titulo:'IAS · Suelos, residuos y alimentos (acreditación complementaria)',
+    matrices:'Suelos y residuos (TL-475); análisis nutricionales/microbiológicos en alimentos y piensos, SARS-CoV-2 en aguas y superficies (TL-923)',
+    keywords:'sars-cov-2,nutricional,pienso,piensos'
+  }
+];
+
+const DEFAULT_CPV = [
+  '90000000 Servicios de alcantarillado, basura, limpieza y medio ambiente',
+  '90700000 Servicios medioambientales',
+  '90711000 Servicios de consultoría de riesgos y gestión medioambiental',
+  '90711400 Servicios de evaluación de riesgos medioambientales',
+  '90712000 Planificación medioambiental',
+  '90713000 Servicios de consultoría sobre problemas medioambientales',
+  '90731000 Servicios relacionados con la contaminación',
+  '90731110 Servicios de control de la contaminación del aire',
+  '90731200 Servicios de seguimiento de la contaminación del agua',
+  '90731300 Servicios de seguimiento de la contaminación del suelo',
+  '90731400 Servicios de control de la contaminación acústica',
+  '90742000 Servicios de seguimiento de la contaminación',
+  '90742100 Servicios de seguimiento de la contaminación del aire',
+  '90742200 Servicios de seguimiento de la contaminación del agua',
+  '90742300 Servicios de seguimiento de la contaminación del suelo',
+  '71600000 Servicios de ensayos técnicos, análisis y consultoría',
+  '71610000 Servicios de análisis y ensayo de composiciones y de pureza',
+  '71620000 Servicios de análisis',
+  '71621000 Servicios de análisis técnico o de ensayo',
+  '73111000 Servicios de laboratorios de investigación',
+  '71900000 Servicios de laboratorio',
+  '90510000 Tratamiento y eliminación de residuos',
+  '90513000 Servicios de tratamiento y eliminación de residuos no peligrosos',
+  '90524000 Servicios relacionados con los residuos sanitarios',
+  '90650000 Servicios de detección de amianto',
+  '71351000 Servicios geológicos, geofísicos y otros servicios de prospección científica'
+];
+
+const ESTADO_LABELS = {
+  PUB:'Publicada / en plazo', EV:'En evaluación', ADJ:'Adjudicada (sin formalizar)',
+  RES:'Resuelta / Formalizada', DES:'Desierta', ANUL:'Anulada', ARCH:'Archivada',
+  PRE:'Anuncio previo', RET:'Retirada'
+};
+
+const FEED_URL = 'https://contrataciondelestado.es/sindicacion/sindicacion_643/licitacionesPerfilesContratanteCompleto3.atom';
+// === [MOD:STORAGE] ===
+var STATE = {
+  tenders: {},      // keyed by expediente id
+  config: { accreditations: DEFAULT_ACCREDITATIONS.slice(), cpv: DEFAULT_CPV.slice() },
+  summaries: {}      // keyed by expediente id -> {administrativo, tecnico, generatedAt}
+};
+
+function loadState(){
+  try{
+    const t = localStorage.getItem(LS_KEYS.tenders);
+    const c = localStorage.getItem(LS_KEYS.config);
+    const s = localStorage.getItem(LS_KEYS.summaries);
+    if(t) STATE.tenders = JSON.parse(t);
+    if(c) STATE.config = JSON.parse(c);
+    if(s) STATE.summaries = JSON.parse(s);
+  }catch(e){ console.warn('No se pudo leer almacenamiento local', e); }
+}
+function persistTenders(){ try{ localStorage.setItem(LS_KEYS.tenders, JSON.stringify(STATE.tenders)); }catch(e){console.warn(e);} }
+function persistConfig(){ try{ localStorage.setItem(LS_KEYS.config, JSON.stringify(STATE.config)); }catch(e){console.warn(e);} }
+function persistSummaries(){ try{ localStorage.setItem(LS_KEYS.summaries, JSON.stringify(STATE.summaries)); }catch(e){console.warn(e);} }
+
+function tendersArray(){ return Object.values(STATE.tenders); }
+// === [MOD:PARSER] ===
+function localName(el){
+  const tn = el.tagName || el.nodeName || '';
+  const idx = tn.indexOf(':');
+  return idx>=0 ? tn.slice(idx+1) : tn;
+}
+function findAll(root, name){
+  const out = [];
+  const all = root.getElementsByTagName('*');
+  for(let i=0;i<all.length;i++){
+    if(localName(all[i]).toLowerCase() === name.toLowerCase()) out.push(all[i]);
+  }
+  return out;
+}
+function findFirst(root, name){ const a = findAll(root,name); return a.length ? a[0] : null; }
+function textOf(el){ return el ? (el.textContent||'').trim() : ''; }
+
+function parseSummaryText(text){
+  const out = {};
+  if(!text) return out;
+  text.split(';').forEach(part=>{
+    const idx = part.indexOf(':');
+    if(idx<0) return;
+    const k = part.slice(0,idx).trim().toLowerCase();
+    const v = part.slice(idx+1).trim();
+    if(k.includes('id licit')) out.expediente = v;
+    else if(k.includes('rgano')) out.organo = v;
+    else if(k.includes('importe')) out.importe = v;
+    else if(k.includes('estado')) out.estado = v;
+  });
+  return out;
+}
+
+function parseEntry(entry){
+  const idEl = findFirst(entry,'id');
+  const titleEl = findFirst(entry,'title');
+  const updatedEl = findFirst(entry,'updated');
+  const linkEl = findFirst(entry,'link');
+  const summaryEl = findFirst(entry,'summary');
+
+  const summaryRaw = textOf(summaryEl);
+  const sp = parseSummaryText(summaryRaw);
+
+  const expedienteRaw = sp.expediente || '';
+  const organo = sp.organo || '';
+  const estado = (sp.estado || '').toUpperCase();
+  const importeRaw = sp.importe || '';
+  const importeMatch = importeRaw.match(/[\d.,]+/);
+  const importe = importeMatch ? (parseFloat(importeMatch[0]) || null) : null;
+
+  const title = textOf(titleEl) || '(sin título)';
+  const link = linkEl ? (linkEl.getAttribute('href') || '') : '';
+  const atomId = textOf(idEl);
+  const updated = textOf(updatedEl);
+
+  // --- CPV codes ---
+  const cpvSet = new Set();
+  findAll(entry,'ItemClassificationCode').forEach(el=>{
+    const v = textOf(el);
+    if(/^\d{8}/.test(v)) cpvSet.add(v.split('-')[0]);
+  });
+  if(cpvSet.size===0){
+    const all = entry.getElementsByTagName('*');
+    for(let i=0;i<all.length;i++){
+      const v = textOf(all[i]);
+      if(/^\d{8}-\d$/.test(v)) cpvSet.add(v.split('-')[0]);
+    }
+  }
+
+  // --- Fecha límite de presentación (heurístico, ver callout en UI) ---
+  let deadline = null, deadlineSource = 'desconocido';
+  const tsdp = findFirst(entry,'TenderSubmissionDeadlinePeriod');
+  if(tsdp){
+    const ed = findFirst(tsdp,'EndDate');
+    if(ed){ deadline = textOf(ed); deadlineSource = 'periodo de presentación'; }
+  }
+  if(!deadline){
+    const prrp = findFirst(entry,'ParticipationRequestReceptionPeriod');
+    if(prrp){
+      const ed = findFirst(prrp,'EndDate');
+      if(ed){ deadline = textOf(ed); deadlineSource = 'periodo de recepción de solicitudes'; }
+    }
+  }
+  if(!deadline){
+    const allEndDates = findAll(entry,'EndDate').map(textOf).filter(Boolean).sort();
+    if(allEndDates.length){ deadline = allEndDates[allEndDates.length-1]; deadlineSource = 'estimado (campo EndDate genérico)'; }
+  }
+
+  // --- Documentos referenciados ---
+  const documentos = [];
+  ['LegalDocumentReference','TechnicalDocumentReference','AdditionalDocumentReference','DocumentReference'].forEach(tag=>{
+    findAll(entry,tag).forEach(docEl=>{
+      const uriEl = findFirst(docEl,'URI');
+      const uri = uriEl ? textOf(uriEl) : '';
+      if(uri) documentos.push({ tipo: tag, url: uri });
+    });
+  });
+
+  // --- Resultado / adjudicatario ---
+  let adjudicatario = '', importeAdjudicacion = null, fechaAdjudicacion = '';
+  const tenderResult = findFirst(entry,'TenderResult');
+  if(tenderResult){
+    const wp = findFirst(tenderResult,'WinningParty');
+    if(wp){
+      const nameEl = findFirst(wp,'Name') || findFirst(wp,'PartyName');
+      adjudicatario = textOf(nameEl);
+    }
+    const amt = findFirst(tenderResult,'PayableAmount') || findFirst(tenderResult,'TaxExclusiveAmount') || findFirst(tenderResult,'TotalAmount');
+    if(amt){ const n = parseFloat(textOf(amt).replace(',','.')); importeAdjudicacion = isNaN(n) ? null : n; }
+    const awardDate = findFirst(tenderResult,'AwardDate');
+    if(awardDate) fechaAdjudicacion = textOf(awardDate);
+  }
+
+  if(!expedienteRaw && !title) return null;
+
+  return {
+    expediente: expedienteRaw || atomId || ('SIN-ID-' + Math.random().toString(36).slice(2,8)),
+    atomId, title, organo,
+    estado, estadoLabel: ESTADO_LABELS[estado] || estado || 'Desconocido',
+    importe, importeRaw,
+    cpv: Array.from(cpvSet),
+    deadline, deadlineSource,
+    documentos, link, updated,
+    adjudicatario, importeAdjudicacion, fechaAdjudicacion,
+    rawSummary: summaryRaw,
+    rawXml: entry.outerHTML ? entry.outerHTML.slice(0, 8000) : '',
+    importedAt: new Date().toISOString()
+  };
+}
+
+function parseAtomFeed(xmlText){
+  const result = { entries: [], errors: [], totalEntries: 0 };
+  let xml;
+  try{
+    const parser = new DOMParser();
+    xml = parser.parseFromString(xmlText, 'text/xml');
+    const perr = xml.getElementsByTagName('parsererror');
+    if(perr.length) throw new Error('el navegador no pudo interpretar el XML (¿fichero incompleto o cortado?)');
+  }catch(e){
+    result.errors.push('No se pudo interpretar el XML: ' + e.message);
+    return result;
+  }
+  const entries = findAll(xml,'entry');
+  result.totalEntries = entries.length;
+  entries.forEach(entry=>{
+    try{
+      const parsed = parseEntry(entry);
+      if(parsed) result.entries.push(parsed);
+    }catch(e){
+      result.errors.push('Entrada omitida por error de parseo: ' + e.message);
+    }
+  });
+  return result;
+}
+// === [MOD:MATCHENGINE] ===
+function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+
+// Coincidencia con límites de palabra (no substring suelto): evita falsos positivos
+// como 'ica' dentro de 'técnica' o 'ler' dentro de 'taller'/'alquiler'.
+function keywordMatches(text, keyword){
+  const re = new RegExp('(^|[^a-zA-Z\u00C0-\u00FF])' + escapeRegex(keyword) + '($|[^a-zA-Z\u00C0-\u00FF])', 'i');
+  return re.test(text);
+}
+
+function configCpvCodes(){
+  return STATE.config.cpv.map(line => (line.match(/^\d{8}/) || [])[0]).filter(Boolean);
+}
+
+function isSectorRelevant(tender){
+  const cpvList = configCpvCodes();
+  if(tender.cpv && tender.cpv.some(c => cpvList.includes(c))) return true;
+  const text = (tender.title + ' ' + tender.rawSummary).toLowerCase();
+  return STATE.config.accreditations.some(acc =>
+    acc.keywords.split(',').some(k => k.trim() && keywordMatches(text, k.trim().toLowerCase()))
+  );
+}
+
+function computeCompatibility(tender){
+  const text = (tender.title + ' ' + tender.rawSummary).toLowerCase();
+  const matched = [];
+  STATE.config.accreditations.forEach(acc=>{
+    const kws = acc.keywords.split(',').map(s=>s.trim()).filter(Boolean);
+    const hits = kws.filter(k => keywordMatches(text, k.toLowerCase()));
+    if(hits.length) matched.push({ accId:acc.id, expediente:acc.expediente, norma:acc.norma, titulo:acc.titulo, hits });
+  });
+
+  const samplingKeywords = ['toma de muestra','muestreo','toma de muestras'];
+  const requiresSampling = samplingKeywords.some(k => keywordMatches(text, k));
+  const samplingCovered17020 = matched.some(m => m.expediente === '167/EI276');
+  const samplingCovered17025 = matched.some(m => m.expediente === '229/LE1296');
+
+  let level, detail;
+  if(matched.length === 0){
+    level = 'gap';
+    detail = 'No se ha detectado ninguna palabra clave que case con el perfil de acreditación de AGQ. Puede ser un falso negativo (terminología distinta del pliego) — revisar manualmente.';
+  } else if(requiresSampling && !samplingCovered17020 && !samplingCovered17025){
+    level = 'partial';
+    detail = 'El objeto menciona toma de muestra / muestreo, pero no se ha confirmado cobertura explícita en el alcance 17020 (167/EI276) ni 17025 (229/LE1296) para este ámbito concreto. Verificar alcance exacto antes de ofertar.';
+  } else {
+    level = 'ok';
+    detail = 'Coincidencia con acreditación(es): ' + matched.map(m=>m.expediente).join(', ') + '.';
+  }
+  return { level, detail, matched, requiresSampling };
+}
+
+function getOpenTenders(){
+  return tendersArray().filter(t => isSectorRelevant(t) && isOpenForSubmission(t));
+}
+function isOpenForSubmission(t){
+  if(t.deadline){
+    const d = new Date(t.deadline);
+    if(!isNaN(d.getTime())){
+      const today = new Date(); today.setHours(0,0,0,0);
+      return d.getTime() >= today.getTime();
+    }
+  }
+  return t.estado === 'PUB' || !t.estado;
+}
+function getAwardedTenders(){
+  return tendersArray().filter(t => isSectorRelevant(t) && (t.estado === 'ADJ' || t.estado === 'RES'));
+}
+// === [MOD:RENDER-LIST] ===
+function escapeHtml(s){
+  return (s==null?'':String(s)).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+const escapeAttr = escapeHtml;
+
+function daysUntil(dateStr){
+  const d = new Date(dateStr); if(isNaN(d.getTime())) return null;
+  const today = new Date(); today.setHours(0,0,0,0);
+  return Math.ceil((d.getTime() - today.getTime()) / 86400000);
+}
+function formatDate(dateStr){
+  const d = new Date(dateStr); if(isNaN(d.getTime())) return dateStr;
+  return d.toLocaleDateString('es-ES', {day:'2-digit',month:'2-digit',year:'numeric'});
+}
+function formatMoney(n){
+  return Number(n).toLocaleString('es-ES',{maximumFractionDigits:0}) + ' €';
+}
+function emptyStateHTML(kind){
+  if(kind === 'abiertas') return '<div class="empty-state"><div class="big">Sin licitaciones que coincidan</div>Importa datos desde "Importar datos" o ajusta los filtros.</div>';
+  if(kind === 'adjudicadas') return '<div class="empty-state"><div class="big">Sin adjudicaciones todavía</div>Aparecerán aquí cuando el feed importado incluya licitaciones resueltas del sector.</div>';
+  return '<div class="empty-state"><div class="big">Todavía no hay datos</div>Importa el feed oficial para empezar.</div>';
+}
+
+let currentFilter = { search:'', compat:'todas', sort:'deadline' };
+
+function rowHTML(t, comp){
+  const days = t.deadline ? daysUntil(t.deadline) : null;
+  const urgent = days !== null && days <= 5 && days >= 0;
+  const sealText = comp.matched.length ? comp.matched[0].expediente : '—';
+  return `<div class="row" data-id="${escapeAttr(t.expediente)}">
+    <div class="bar ${comp.level}"></div>
+    <div><div class="seal ${comp.level}">${escapeHtml(sealText)}</div></div>
+    <div class="main">
+      <div class="title">${escapeHtml(t.title)}</div>
+      <div class="meta">
+        <span>${escapeHtml(t.organo || 'Órgano no indicado')}</span>
+        ${(t.cpv||[]).slice(0,3).map(c=>'<span class="cpv">'+c+'</span>').join('')}
+      </div>
+    </div>
+    <div class="amount">${t.importe ? formatMoney(t.importe) : '—'}</div>
+    <div class="deadline">
+      <div class="days ${urgent?'urgent':''}">${days!==null ? (days>=0 ? days+'d' : 'cerrada') : '?'}</div>
+      <div class="date">${t.deadline ? formatDate(t.deadline) : (t.deadlineSource||'sin fecha')}</div>
+    </div>
+  </div>`;
+}
+
+function updateDashboard(){
+  const all = getOpenTenders().map(t => ({ t, comp: computeCompatibility(t) }));
+  document.getElementById('dash-total').textContent = all.length;
+  document.getElementById('dash-cubiertas').textContent = all.filter(x=>x.comp.level==='ok').length;
+  document.getElementById('dash-gap').textContent = all.filter(x=>x.comp.level==='gap'||x.comp.level==='partial').length;
+  document.getElementById('dash-urgentes').textContent = all.filter(x=>{
+    const d = x.t.deadline ? daysUntil(x.t.deadline) : null;
+    return d !== null && d <= 5 && d >= 0;
+  }).length;
+  document.getElementById('count-abiertas').textContent = String(all.length);
+}
+
+function renderAbiertas(){
+  const container = document.getElementById('list-abiertas');
+  let items = getOpenTenders().map(t => ({ t, comp: computeCompatibility(t) }));
+
+  const q = currentFilter.search.trim().toLowerCase();
+  if(q){
+    items = items.filter(({t}) =>
+      t.title.toLowerCase().includes(q) ||
+      (t.organo||'').toLowerCase().includes(q) ||
+      (t.expediente||'').toLowerCase().includes(q) ||
+      (t.cpv||[]).some(c=>c.includes(q))
+    );
+  }
+  if(currentFilter.compat !== 'todas'){
+    items = items.filter(({comp}) => comp.level === currentFilter.compat);
+  }
+  items.sort((a,b)=>{
+    if(currentFilter.sort === 'importe') return (b.t.importe||0) - (a.t.importe||0);
+    if(currentFilter.sort === 'pub') return new Date(b.t.updated||0) - new Date(a.t.updated||0);
+    const da = a.t.deadline ? new Date(a.t.deadline).getTime() : Infinity;
+    const db = b.t.deadline ? new Date(b.t.deadline).getTime() : Infinity;
+    return da - db;
+  });
+
+  updateDashboard();
+
+  if(items.length === 0){ container.innerHTML = emptyStateHTML('abiertas'); return; }
+  container.innerHTML = items.map(({t,comp}) => rowHTML(t,comp)).join('');
+  container.querySelectorAll('.row').forEach(row => row.addEventListener('click', () => openDetail(row.dataset.id)));
+}
+
+function renderAdjudicadas(){
+  const container = document.getElementById('list-adjudicadas');
+  let items = getAwardedTenders();
+  document.getElementById('count-adjudicadas').textContent = String(items.length);
+
+  const q = (document.getElementById('search-adjudicadas').value || '').trim().toLowerCase();
+  if(q){
+    items = items.filter(t =>
+      (t.adjudicatario||'').toLowerCase().includes(q) ||
+      (t.organo||'').toLowerCase().includes(q) ||
+      (t.expediente||'').toLowerCase().includes(q) ||
+      t.title.toLowerCase().includes(q)
+    );
+  }
+  items.sort((a,b) => new Date(b.fechaAdjudicacion||b.updated||0) - new Date(a.fechaAdjudicacion||a.updated||0));
+
+  if(items.length === 0){ container.innerHTML = emptyStateHTML('adjudicadas'); return; }
+  container.innerHTML = items.map(t=>{
+    const isAgq = (t.adjudicatario||'').toUpperCase().includes('AGQ');
+    return `<div class="award-row" data-id="${escapeAttr(t.expediente)}">
+      <div>
+        <div class="title">${escapeHtml(t.title)}</div>
+        <div class="org">${escapeHtml(t.organo||'')}</div>
+      </div>
+      <div><span class="who ${isAgq?'agq':''}">${escapeHtml(t.adjudicatario||'No indicado en el feed')}</span>${isAgq?'<span class="tag-agq-win">AGQ</span>':''}</div>
+      <div class="amount">${t.importeAdjudicacion ? formatMoney(t.importeAdjudicacion) : (t.importe ? formatMoney(t.importe)+' (lic.)' : '—')}</div>
+    </div>`;
+  }).join('');
+  container.querySelectorAll('.award-row').forEach(row => row.addEventListener('click', () => openDetail(row.dataset.id)));
+}
+// === [MOD:RENDER-DETAIL] ===
+let pendingPliegoText = {};
+
+function openDetail(expediente){
+  const t = STATE.tenders[expediente];
+  if(!t) return;
+  const comp = computeCompatibility(t);
+  const summary = STATE.summaries[expediente];
+  const panel = document.getElementById('detail-panel');
+
+  panel.innerHTML = `
+    <div class="panel-head">
+      <button class="close-btn" id="btn-close-panel">×</button>
+      <h2>${escapeHtml(t.title)}</h2>
+      <div class="exp">Expediente ${escapeHtml(t.expediente)} · ${escapeHtml(t.estadoLabel)}</div>
+    </div>
+    <div class="panel-body">
+
+      <div class="section-block">
+        <h3>Datos generales</h3>
+        <div class="kv"><b>Órgano</b><span>${escapeHtml(t.organo||'—')}</span></div>
+        <div class="kv"><b>Importe</b><span class="v">${t.importe ? formatMoney(t.importe) : '—'}</span></div>
+        <div class="kv"><b>CPV</b><span class="v">${(t.cpv||[]).join(', ') || 'No detectado'}</span></div>
+        <div class="kv"><b>Fecha límite</b><span class="v">${t.deadline ? formatDate(t.deadline)+' · '+t.deadlineSource : 'No detectada — revisar en plataforma'}</span></div>
+        <div class="kv"><b>Última act.</b><span class="v">${t.updated ? formatDate(t.updated) : '—'}</span></div>
+        ${t.link ? `<div style="margin-top:10px;"><a href="${escapeAttr(t.link)}" target="_blank" rel="noopener">Ver expediente en la Plataforma ↗</a></div>` : ''}
+      </div>
+
+      <div class="section-block">
+        <h3>Compatibilidad con acreditación AGQ</h3>
+        ${comp.matched.length ? comp.matched.map(m=>`<span class="match-tag ${comp.level}">${escapeHtml(m.norma)} · ${escapeHtml(m.expediente)}</span>`).join('') : '<span class="match-tag gap">Sin coincidencia detectada</span>'}
+        <p style="font-size:12px;color:var(--ink-soft);margin:10px 0 6px;">${escapeHtml(comp.detail)}</p>
+        ${comp.matched.length ? '<div>'+comp.matched.map(m=>m.hits.map(h=>'<span class="keyword-pill">'+escapeHtml(h)+'</span>').join('')).join('')+'</div>' : ''}
+      </div>
+
+      <div class="section-block">
+        <h3>Documentación de la licitación</h3>
+        ${t.documentos && t.documentos.length
+          ? '<ul style="padding-left:18px;font-size:12.5px;">'+t.documentos.map(d=>`<li><a href="${escapeAttr(d.url)}" target="_blank" rel="noopener">${escapeHtml(d.tipo)}</a></li>`).join('')+'</ul>'
+          : '<p style="font-size:12px;color:var(--ink-soft);">El feed no trae enlaces directos a los pliegos. Descárgalos desde el expediente en la Plataforma y súbelos aquí para generar el resumen.</p>'}
+
+        <div class="dropzone" id="pliego-dropzone" style="margin-top:10px;">📄 Sube el PDF del pliego administrativo y/o técnico (puedes subir varios)</div>
+        <input type="file" id="pliego-files" accept="application/pdf" multiple style="display:none;">
+        <div id="pliego-file-list" style="margin-top:8px;font-size:11.5px;">${(pendingPliegoText[expediente]?.filenames||[]).map(f=>'📎 '+escapeHtml(f)).join('<br>')}</div>
+        <button class="btn primary" id="btn-gen-summary" style="margin-top:12px;">
+          <span id="gen-summary-label">${summary ? 'Regenerar resumen con IA' : 'Generar resumen con IA'}</span>
+        </button>
+        <div id="summary-output" class="summary-block">${summary ? renderSummaryHTML(summary) : ''}</div>
+      </div>
+
+      ${t.adjudicatario ? `<div class="section-block">
+        <h3>Resultado</h3>
+        <div class="kv"><b>Adjudicatario</b><span>${escapeHtml(t.adjudicatario)}</span></div>
+        <div class="kv"><b>Importe adj.</b><span class="v">${t.importeAdjudicacion ? formatMoney(t.importeAdjudicacion) : '—'}</span></div>
+      </div>` : ''}
+
+      <div class="section-block">
+        <h3>Notas internas</h3>
+        <textarea class="notearea" id="tender-notes" placeholder="Notas, contacto, estrategia de oferta…">${escapeHtml(t.notas||'')}</textarea>
+      </div>
+
+    </div>
+  `;
+
+  document.getElementById('btn-close-panel').addEventListener('click', closeDetail);
+  document.getElementById('tender-notes').addEventListener('change', e=>{ t.notas = e.target.value; persistTenders(); });
+  document.getElementById('pliego-dropzone').addEventListener('click', ()=> document.getElementById('pliego-files').click());
+  document.getElementById('pliego-files').addEventListener('change', e=> handlePliegoFiles(expediente, e.target.files));
+  document.getElementById('btn-gen-summary').addEventListener('click', ()=> generateAISummary(expediente));
+
+  document.getElementById('overlay').classList.add('show');
+  panel.classList.add('show');
+}
+
+function closeDetail(){
+  document.getElementById('overlay').classList.remove('show');
+  document.getElementById('detail-panel').classList.remove('show');
+}
+// === [MOD:AI-SUMMARY] ===
+async function extractPdfText(file){
+  const buf = await file.arrayBuffer();
+  const pdf = await pdfjsLib.getDocument({ data: buf }).promise;
+  let text = '';
+  const maxPages = Math.min(pdf.numPages, 60);
+  for(let i=1;i<=maxPages;i++){
+    const page = await pdf.getPage(i);
+    const content = await page.getTextContent();
+    text += content.items.map(it=>it.str).join(' ') + '\n';
+  }
+  return text;
+}
+
+async function handlePliegoFiles(expediente, fileList){
+  const files = Array.from(fileList);
+  const listEl = document.getElementById('pliego-file-list');
+  listEl.innerHTML = '<span class="spinner" style="border-top-color:var(--ink);"></span> Leyendo PDF(s)…';
+  if(!pendingPliegoText[expediente]) pendingPliegoText[expediente] = { text:'', filenames:[] };
+  for(const file of files){
+    try{
+      const text = await extractPdfText(file);
+      pendingPliegoText[expediente].text += `\n\n----- ${file.name} -----\n` + text;
+      pendingPliegoText[expediente].filenames.push(file.name);
+    }catch(e){
+      pendingPliegoText[expediente].filenames.push(file.name + ' (no se pudo leer: ' + e.message + ')');
+    }
+  }
+  listEl.innerHTML = pendingPliegoText[expediente].filenames.map(f=>'📎 '+escapeHtml(f)).join('<br>');
+}
+
+function renderSummaryHTML(s){
+  function sec(title, arr){
+    if(!arr || !arr.length) return '';
+    return '<h4>'+title+'</h4><ul>' + arr.map(x=>'<li>'+escapeHtml(x)+'</li>').join('') + '</ul>';
+  }
+  return sec('Puntos administrativos clave', s.puntos_administrativos) +
+    sec('Puntos técnicos clave', s.puntos_tecnicos) +
+    sec('Parámetros / matrices requeridas', s.parametros_matrices) +
+    sec('Acreditaciones exigidas en el pliego', s.acreditaciones_exigidas) +
+    sec('Plazos y garantías', s.plazos_garantias) +
+    '<p style="font-size:10.5px;color:var(--ink-soft);margin-top:10px;">Generado por IA a partir de: ' + escapeHtml((s.files||[]).join(', ')) + ' · ' + (s.generatedAt ? formatDate(s.generatedAt) : '') + '</p>';
+}
+
+async function generateAISummary(expediente){
+  const t = STATE.tenders[expediente];
+  const pend = pendingPliegoText[expediente];
+  const btn = document.getElementById('btn-gen-summary');
+  const label = document.getElementById('gen-summary-label');
+  const out = document.getElementById('summary-output');
+
+  if(!pend || !pend.text || !pend.text.trim()){
+    out.innerHTML = '<p style="color:var(--terracotta);">Sube primero el PDF del pliego (administrativo y/o técnico) para generar el resumen.</p>';
+    return;
+  }
+
+  btn.disabled = true;
+  label.innerHTML = '<span class="spinner"></span> Generando…';
+  out.innerHTML = '';
+
+  const prompt = `Eres un asistente que ayuda a un comercial técnico de AGQ Labs (laboratorio acreditado ISO 17025 / entidad de inspección ISO 17020 en medioambiente) a evaluar rápidamente una licitación pública española.
+Te paso el texto extraído de los pliegos de la licitación "${t.title}" (expediente ${t.expediente}, órgano: ${t.organo}).
+Responde ÚNICAMENTE con un JSON válido (sin texto adicional, sin markdown, sin backticks) con esta forma exacta:
+{"puntos_administrativos":["..."],"puntos_tecnicos":["..."],"parametros_matrices":["..."],"acreditaciones_exigidas":["..."],"plazos_garantias":["..."]}
+Cada elemento debe ser una frase breve y concreta en español, basada solo en el texto proporcionado. Si una sección no tiene información, devuelve un array vacío para ella.
+
+TEXTO DEL PLIEGO:
+${pend.text.slice(0, 60000)}`;
+
+  try{
+    const resp = await fetch('https://api.anthropic.com/v1/messages', {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ model:'claude-sonnet-4-6', max_tokens:1500, messages:[{role:'user', content: prompt}] })
+    });
+    const data = await resp.json();
+    const textOut = (data.content||[]).map(b=>b.text||'').join('\n');
+    const cleaned = textOut.replace(/```json|```/g,'').trim();
+    const parsed = JSON.parse(cleaned);
+    STATE.summaries[expediente] = Object.assign({}, parsed, { generatedAt: new Date().toISOString(), files: pend.filenames });
+    persistSummaries();
+    out.innerHTML = renderSummaryHTML(STATE.summaries[expediente]);
+  }catch(e){
+    out.innerHTML = '<p style="color:var(--terracotta);">No se ha podido generar el resumen (' + escapeHtml(e.message) + '). Esta función solo funciona dentro de Claude.ai; si abres este archivo fuera, pega el texto del pliego directamente en un chat con Claude.</p>';
+  }
+  label.textContent = 'Regenerar resumen con IA';
+  btn.disabled = false;
+}
+// === [MOD:IMPORT] ===
+function mergeEntries(entries){
+  let added = 0, updated = 0;
+  entries.forEach(e=>{
+    const existing = STATE.tenders[e.expediente];
+    if(!existing){ STATE.tenders[e.expediente] = e; added++; }
+    else{ STATE.tenders[e.expediente] = Object.assign({}, existing, e, { notas: existing.notas }); updated++; }
+  });
+  persistTenders();
+  return { added, updated };
+}
+
+function logImport(msg){
+  const log = document.getElementById('import-log');
+  const line = document.createElement('div');
+  line.className = 'log-line';
+  line.textContent = msg;
+  log.prepend(line);
+}
+
+function runImport(xmlText){
+  document.getElementById('import-log').innerHTML = '';
+  const res = parseAtomFeed(xmlText);
+  logImport('Entradas leídas en el feed: ' + res.totalEntries);
+  const relevant = res.entries.filter(isSectorRelevant);
+  logImport('Relevantes para el sector ambiental/laboratorio: ' + relevant.length);
+  const { added, updated } = mergeEntries(relevant);
+  logImport('Nuevas: ' + added + ' · Actualizadas: ' + updated);
+  if(res.errors.length) res.errors.slice(0,5).forEach(e => logImport('⚠ ' + e));
+  refreshAllViews();
+}
+
+document.getElementById('btn-open-feed').addEventListener('click', ()=> window.open(FEED_URL, '_blank'));
+
+document.getElementById('btn-parse-xml').addEventListener('click', ()=>{
+  const text = document.getElementById('paste-xml').value;
+  if(!text.trim()){ logImport('Pega o sube primero el contenido XML.'); return; }
+  runImport(text);
+});
+
+document.getElementById('file-import').addEventListener('change', async e=>{
+  const file = e.target.files[0];
+  if(!file) return;
+  const text = await file.text();
+  document.getElementById('paste-xml').value = text;
+  runImport(text);
+});
+
+document.getElementById('btn-clear-data').addEventListener('click', ()=>{
+  if(!confirm('¿Vaciar todas las licitaciones importadas? No se puede deshacer.')) return;
+  STATE.tenders = {};
+  persistTenders();
+  refreshAllViews();
+  logImport('Base local vaciada.');
+});
+
+document.getElementById('btn-direct-fetch').addEventListener('click', async ()=>{
+  const statusEl = document.getElementById('direct-fetch-status');
+  statusEl.innerHTML = '<span class="spinner" style="border-top-color:var(--ink);"></span> Probando…';
+  try{
+    const resp = await fetch(FEED_URL);
+    if(!resp.ok) throw new Error('HTTP ' + resp.status);
+    const text = await resp.text();
+    statusEl.innerHTML = '✅ Carga directa correcta.';
+    document.getElementById('paste-xml').value = text;
+    runImport(text);
+  }catch(e){
+    statusEl.innerHTML = '❌ Bloqueado por el navegador (probablemente CORS). Usa la extensión "Allow CORS" o el método manual de la izquierda.<br><span style="color:var(--ink-soft);">Detalle: ' + escapeHtml(e.message) + '</span>';
+  }
+});
+// === [MOD:GITHUB-SYNC] ===
+function loadGithubConfig(){
+  try{
+    const raw = localStorage.getItem(LS_KEYS.githubSync);
+    return raw ? JSON.parse(raw) : { repo:'nacho2988-code/agq-radar-data', branch:'main', lastSync:null, lastCount:null };
+  }catch(e){ return { repo:'nacho2988-code/agq-radar-data', branch:'main', lastSync:null, lastCount:null }; }
+}
+function saveGithubConfig(cfg){
+  try{ localStorage.setItem(LS_KEYS.githubSync, JSON.stringify(cfg)); }catch(e){ console.warn(e); }
+}
+
+function normalizeRemoteEntry(e){
+  // Da forma homogénea a las entradas que llegan del snapshot generado por la Action,
+  // por si en el futuro el script de barrido cambia de formato.
+  return Object.assign({
+    estadoLabel: ESTADO_LABELS[e.estado] || e.estado || 'Desconocido',
+    importedAt: e.importedAt || new Date().toISOString(),
+    rawXml: e.rawXml || ''
+  }, e);
+}
+
+async function autoSyncFromGitHub(showStatus){
+  const cfg = loadGithubConfig();
+  const statusEl = document.getElementById('gh-sync-status');
+  const indicator = document.getElementById('topbar-sync-indicator');
+  if(!cfg.repo){
+    if(showStatus && statusEl) statusEl.textContent = 'Indica tu repositorio (usuario/nombre-repo) para activar la sincronización automática.';
+    return;
+  }
+  if(showStatus && statusEl) statusEl.innerHTML = '<span class="spinner" style="border-top-color:var(--ink);"></span> Sincronizando con ' + escapeHtml(cfg.repo) + '…';
+
+  const url = location.hostname.endsWith('github.io')
+    ? `data/licitaciones.json?_=${Date.now()}`
+    : `https://raw.githubusercontent.com/${cfg.repo}/${cfg.branch || 'main'}/data/licitaciones.json?_=${Date.now()}`;
+  try{
+    const resp = await fetch(url);
+    if(!resp.ok) throw new Error('HTTP ' + resp.status + (resp.status===404 ? ' — todavía no se ha generado el primer snapshot (lanza la Action manualmente una vez desde la pestaña "Actions" de tu repo)' : ''));
+    const data = await resp.json();
+    const entries = (data.entries || []).map(normalizeRemoteEntry);
+    const { added, updated } = mergeEntries(entries);
+
+    cfg.lastSync = new Date().toISOString();
+    cfg.lastCount = entries.length;
+    cfg.lastGenerated = data.generatedAt || null;
+    saveGithubConfig(cfg);
+
+    const msg = `Última sincronización: ${formatDate(cfg.lastSync)} · ${entries.length} licitaciones del sector (nuevas: ${added}, actualizadas: ${updated}) · snapshot generado ${data.generatedAt ? formatDate(data.generatedAt) : '—'}`;
+    if(statusEl) statusEl.innerHTML = '✅ ' + escapeHtml(msg);
+    if(indicator) indicator.textContent = '⟳ sync ' + (cfg.lastGenerated ? formatDate(cfg.lastGenerated) : formatDate(cfg.lastSync));
+    refreshAllViews();
+  }catch(e){
+    const msg = 'No se pudo sincronizar (' + e.message + ').';
+    if(statusEl) statusEl.innerHTML = '❌ ' + escapeHtml(msg);
+    if(indicator) indicator.textContent = '⚠ sin sincronizar';
+  }
+}
+
+document.getElementById('btn-save-sync').addEventListener('click', ()=>{
+  const cfg = loadGithubConfig();
+  cfg.repo = document.getElementById('gh-repo').value.trim().replace(/^https?:\/\/github\.com\//,'').replace(/\/$/,'');
+  cfg.branch = document.getElementById('gh-branch').value.trim() || 'main';
+  saveGithubConfig(cfg);
+  autoSyncFromGitHub(true);
+});
+
+// === [MOD:ACCRED-CONFIG] ===
+function renderAccredConfig(){
+  const container = document.getElementById('accred-list');
+  container.innerHTML = STATE.config.accreditations.map(acc => `
+    <div class="accred-card" data-id="${acc.id}">
+      <div>
+        <div class="field-label">Norma</div>
+        <span class="norm-badge">${escapeHtml(acc.norma)}</span>
+        <div class="field-label" style="margin-top:8px;">Expediente</div>
+        <input type="text" class="f-expediente" value="${escapeAttr(acc.expediente)}">
+        <div class="field-label" style="margin-top:8px;">Título</div>
+        <input type="text" class="f-titulo" value="${escapeAttr(acc.titulo)}">
+      </div>
+      <div>
+        <div class="field-label">Matrices / ámbito cubierto</div>
+        <textarea class="f-matrices" rows="3">${escapeHtml(acc.matrices)}</textarea>
+        <div class="field-label" style="margin-top:6px;">Palabras clave (separadas por comas)</div>
+        <textarea class="f-keywords" rows="2">${escapeHtml(acc.keywords)}</textarea>
+      </div>
+      <div style="text-align:right;">
+        <button class="btn ghost btn-del-accred" style="font-size:11px;padding:5px 9px;">Eliminar</button>
+      </div>
+    </div>
+  `).join('');
+
+  container.querySelectorAll('.btn-del-accred').forEach(btn=>{
+    btn.addEventListener('click', e=>{
+      const card = e.target.closest('.accred-card');
+      STATE.config.accreditations = STATE.config.accreditations.filter(a => a.id !== card.dataset.id);
+      renderAccredConfig();
+    });
+  });
+
+  document.getElementById('cpv-list').value = STATE.config.cpv.join('\n');
+}
+
+function collectAccredFormIntoState(){
+  document.querySelectorAll('.accred-card').forEach(card=>{
+    const acc = STATE.config.accreditations.find(a => a.id === card.dataset.id);
+    if(!acc) return;
+    acc.expediente = card.querySelector('.f-expediente').value;
+    acc.titulo = card.querySelector('.f-titulo').value;
+    acc.matrices = card.querySelector('.f-matrices').value;
+    acc.keywords = card.querySelector('.f-keywords').value;
+  });
+  STATE.config.cpv = document.getElementById('cpv-list').value.split('\n').map(s=>s.trim()).filter(Boolean);
+}
+
+document.getElementById('btn-add-accred').addEventListener('click', ()=>{
+  collectAccredFormIntoState();
+  STATE.config.accreditations.push({ id:'a'+Date.now(), norma:'17025', expediente:'', titulo:'Nueva acreditación', matrices:'', keywords:'' });
+  renderAccredConfig();
+});
+
+document.getElementById('btn-save-config').addEventListener('click', ()=>{
+  collectAccredFormIntoState();
+  persistConfig();
+  refreshAllViews();
+  alert('Configuración guardada.');
+});
+
+document.getElementById('btn-export-config').addEventListener('click', ()=>{
+  collectAccredFormIntoState();
+  const json = JSON.stringify({ accreditations: STATE.config.accreditations, cpv: STATE.config.cpv }, null, 2);
+  const box = document.getElementById('export-config-box');
+  const ta = document.getElementById('export-config-text');
+  ta.value = json;
+  box.style.display = 'block';
+  ta.focus(); ta.select();
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(json).catch(()=>{ /* selección manual como respaldo, ya hecha arriba */ });
+  }
+});
+// === [MOD:NAV-INIT] ===
+function refreshAllViews(){
+  renderAbiertas();
+  renderAdjudicadas();
+  renderAccredConfig();
+}
+
+function switchView(view){
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+  document.getElementById('view-'+view).classList.add('active');
+  document.querySelectorAll('#tabs button').forEach(b=>b.classList.toggle('active', b.dataset.view===view));
+}
+
+document.getElementById('tabs').addEventListener('click', e=>{
+  const btn = e.target.closest('button[data-view]');
+  if(btn) switchView(btn.dataset.view);
+});
+
+document.getElementById('overlay').addEventListener('click', closeDetail);
+
+document.getElementById('search-abiertas').addEventListener('input', e=>{ currentFilter.search = e.target.value; renderAbiertas(); });
+document.getElementById('sort-abiertas').addEventListener('change', e=>{ currentFilter.sort = e.target.value; renderAbiertas(); });
+document.querySelectorAll('.toolbar .chip').forEach(chip=>{
+  chip.addEventListener('click', ()=>{
+    document.querySelectorAll('.toolbar .chip').forEach(c=>c.classList.remove('active'));
+    chip.classList.add('active');
+    currentFilter.compat = chip.dataset.filter;
+    renderAbiertas();
+  });
+});
+document.getElementById('search-adjudicadas').addEventListener('input', renderAdjudicadas);
+
+if(window.pdfjsLib){
+  pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+}
+
+loadState();
+refreshAllViews();
+
+const _ghCfg = loadGithubConfig();
+document.getElementById('gh-repo').value = _ghCfg.repo || '';
+document.getElementById('gh-branch').value = _ghCfg.branch || 'main';
+if(_ghCfg.repo) autoSyncFromGitHub(true);
+</script>
+</body>
+</html>
