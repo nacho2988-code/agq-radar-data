@@ -1,0 +1,33 @@
+name: Barrido diario de licitaciones AGQ
+
+on:
+  schedule:
+    # 05:00 UTC todos los días ≈ 06:00–07:00 hora de España según horario de verano/invierno
+    - cron: '0 5 * * *'
+  workflow_dispatch: {}   # permite lanzarlo a mano desde la pestaña "Actions" para probar
+
+permissions:
+  contents: write   # necesario para que el workflow pueda hacer commit del JSON generado
+
+jobs:
+  sweep:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Preparar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Ejecutar barrido y filtrado
+        run: node scripts/fetch-and-filter.mjs
+
+      - name: Commitear el snapshot si ha cambiado
+        run: |
+          git config user.name "agq-radar-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/licitaciones.json
+          git diff --staged --quiet || git commit -m "Actualización automática $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          git push
