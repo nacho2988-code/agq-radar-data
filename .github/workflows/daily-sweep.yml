@@ -31,6 +31,7 @@ jobs:
 
       - name: Commitear el snapshot si ha cambiado
         run: |
+          mkdir -p data/resumenes
           git config user.name "agq-radar-bot"
           git config user.email "actions@users.noreply.github.com"
           git add data/licitaciones.json data/resumenes/
