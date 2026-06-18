@@ -914,7 +914,7 @@ function rowHTML(t, comp){
     <div class="bar ${comp.level}"></div>
     <div><div class="seal ${comp.level}">${escapeHtml(sealText)}</div></div>
     <div class="main">
-      <div class="title">${escapeHtml(t.title)}</div>
+      <div class="title">${escapeHtml(t.title)} ${t.resumenPdfPath ? '<span title="Resumen automático disponible" style="color:var(--agq-green);font-size:12px;">📄</span>' : ''}</div>
       <div class="meta">
         <span>${escapeHtml(t.organo || 'Órgano no indicado')}</span>
         ${(t.cpv||[]).slice(0,3).map(c=>'<span class="cpv">'+c+'</span>').join('')}
@@ -1042,11 +1042,17 @@ function openDetail(expediente){
           ? '<ul style="padding-left:18px;font-size:12.5px;">'+t.documentos.map(d=>`<li><a href="${escapeAttr(d.url)}" target="_blank" rel="noopener">${escapeHtml(d.tipo)}</a></li>`).join('')+'</ul>'
           : '<p style="font-size:12px;color:var(--ink-soft);">El feed no trae enlaces directos a los pliegos. Descárgalos desde el expediente en la Plataforma y súbelos aquí para generar el resumen.</p>'}
 
-        <div class="dropzone" id="pliego-dropzone" style="margin-top:10px;">📄 Sube el PDF del pliego administrativo y/o técnico (puedes subir varios)</div>
+        ${t.resumenPdfPath ? `
+        <div class="callout" style="margin-top:12px;border-color:var(--agq-green);">
+          <a href="${escapeAttr(resolveRepoAssetUrl(t.resumenPdfPath))}" target="_blank" rel="noopener" style="font-weight:600;">📄 Descargar resumen automático (PDF) ↗</a>
+          <div style="font-size:11px;color:var(--ink-soft);margin-top:4px;">Generado automáticamente a partir del pliego el ${formatDate(t.resumenGeneradoEn)}. Verifica siempre el pliego original antes de presentar oferta.</div>
+        </div>` : ''}
+
+        <div class="dropzone" id="pliego-dropzone" style="margin-top:12px;">📄 Sube el PDF del pliego administrativo y/o técnico (puedes subir varios)</div>
         <input type="file" id="pliego-files" accept="application/pdf" multiple style="display:none;">
         <div id="pliego-file-list" style="margin-top:8px;font-size:11.5px;">${(pendingPliegoText[expediente]?.filenames||[]).map(f=>'📎 '+escapeHtml(f)).join('<br>')}</div>
         <button class="btn primary" id="btn-gen-summary" style="margin-top:12px;">
-          <span id="gen-summary-label">${summary ? 'Regenerar resumen con IA' : 'Generar resumen con IA'}</span>
+          <span id="gen-summary-label">${summary ? 'Regenerar resumen con IA' : 'Generar resumen con IA (manual)'}</span>
         </button>
         <div id="summary-output" class="summary-block">${summary ? renderSummaryHTML(summary) : ''}</div>
       </div>
@@ -1256,6 +1262,13 @@ function normalizeRemoteEntry(e){
     importedAt: e.importedAt || new Date().toISOString(),
     rawXml: e.rawXml || ''
   }, e);
+}
+
+function resolveRepoAssetUrl(relativePath){
+  const cfg = loadGithubConfig();
+  if(location.hostname.endsWith('github.io')) return relativePath;
+  if(cfg.repo) return `https://raw.githubusercontent.com/${cfg.repo}/${cfg.branch || 'main'}/${relativePath}`;
+  return relativePath;
 }
 
 async function autoSyncFromGitHub(showStatus){
