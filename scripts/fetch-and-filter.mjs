@@ -18,6 +18,8 @@ const cpvCodes = config.cpv.map(line => (line.match(/^\d{8}/) || [])[0]).filter(
 const allKeywords = [...new Set(
   config.accreditations.flatMap(a => a.keywords.split(',').map(k => k.trim().toLowerCase()).filter(Boolean))
 )];
+const activityKeywords = (config.activityKeywords || []).map(k => k.toLowerCase());
+const genericAmbiguous = new Set((config.genericAmbiguous || []).map(k => k.toLowerCase()));
 
 const ESTADO_LABELS = {
   PUB:'Publicada / en plazo', EV:'En evaluación', ADJ:'Adjudicada (sin formalizar)',
@@ -147,7 +149,14 @@ function keywordMatches(text, keyword){
 function isSectorRelevant(entry){
   if(entry.cpv.some(c => cpvCodes.includes(c))) return true;
   const text = (entry.title + ' ' + entry.rawSummary).toLowerCase();
-  return allKeywords.some(k => k && keywordMatches(text, k));
+  const matched = allKeywords.filter(k => k && keywordMatches(text, k));
+  if(matched.length === 0) return false;
+  const nonAmbiguous = matched.filter(k => !genericAmbiguous.has(k));
+  if(nonAmbiguous.length > 0) return true;
+  // Solo hay coincidencias de términos ambiguos (agua, suelo, residuos...): exigimos
+  // además una señal de que el contrato es de análisis/inspección, no de obra,
+  // suministro, recogida o concesión de un servicio que simplemente menciona esas palabras.
+  return activityKeywords.some(k => keywordMatches(text, k));
 }
 
 function nextLink(xml){
