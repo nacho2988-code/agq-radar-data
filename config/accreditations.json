@@ -23,7 +23,7 @@
     {
       "id": "a5", "norma": "17020", "expediente": "167/EI276", "titulo": "Entidad de Inspección · Medioambiente",
       "matrices": "Aguas, sedimentos subacuáticos, residuos, vertederos (RD 646/2020 Anexo III y VII), suelos y aguas subterráneas asociadas — incluye diseño de muestreo y toma de muestra bajo mandato normativo",
-      "keywords": "vertedero,vertederos,rd 646/2020,admisibilidad,ler,caracterizacion,caracterización,sedimento,subacuatic,aguas subterraneas,aguas subterráneas,lixiviado,gas de vertedero,inspeccion,inspección,vigilancia ambiental,control y vigilancia"
+      "keywords": "vertedero,vertederos,rd 646/2020,admisibilidad,ler,caracterizacion,caracterización,sedimento,subacuatic,aguas subterraneas,aguas subterráneas,lixiviado,gas de vertedero,vigilancia ambiental,inspeccion,inspección,control y vigilancia,toma de muestra,muestreo"
     },
     {
       "id": "a6", "norma": "17025/IAS", "expediente": "TL-475 / TL-923", "titulo": "IAS · Suelos, residuos y alimentos (acreditación complementaria)",
@@ -32,13 +32,10 @@
     }
   ],
   "cpv": [
-    "90000000 Servicios de alcantarillado, basura, limpieza y medio ambiente",
-    "90700000 Servicios medioambientales",
     "90711000 Servicios de consultoría de riesgos y gestión medioambiental",
     "90711400 Servicios de evaluación de riesgos medioambientales",
     "90712000 Planificación medioambiental",
     "90713000 Servicios de consultoría sobre problemas medioambientales",
-    "90731000 Servicios relacionados con la contaminación",
     "90731110 Servicios de control de la contaminación del aire",
     "90731200 Servicios de seguimiento de la contaminación del agua",
     "90731300 Servicios de seguimiento de la contaminación del suelo",
@@ -53,10 +50,20 @@
     "71621000 Servicios de análisis técnico o de ensayo",
     "73111000 Servicios de laboratorios de investigación",
     "71900000 Servicios de laboratorio",
-    "90510000 Tratamiento y eliminación de residuos",
-    "90513000 Servicios de tratamiento y eliminación de residuos no peligrosos",
-    "90524000 Servicios relacionados con los residuos sanitarios",
     "90650000 Servicios de detección de amianto",
     "71351000 Servicios geológicos, geofísicos y otros servicios de prospección científica"
+  ],
+  "activityKeywords": [
+    "ensayo","ensayos","análisis","analisis","analítica","analitica","analiticos","laboratorio",
+    "caracterización","caracterizacion","muestreo","toma de muestra","control de calidad",
+    "control analítico","control analitico","monitorización","monitorizacion","vigilancia ambiental",
+    "parámetros","parametros","determinación analítica","determinacion analitica",
+    "auditoría ambiental","auditoria ambiental","evaluación ambiental","evaluacion ambiental",
+    "inspección ambiental","inspeccion ambiental","acreditado","acreditación","acreditacion",
+    "enac","iso 17025","iso 17020"
+  ],
+  "genericAmbiguous": [
+    "agua","aguas","residual","vertido","vertidos","suelo","suelos","contaminado","contaminados",
+    "residuo","residuos","emisiones","metales","control y vigilancia","inspeccion","inspección"
   ]
 }
