@@ -26,7 +26,7 @@ jobs:
 
       - name: Ejecutar barrido y filtrado
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: node scripts/fetch-and-filter.mjs
 
       - name: Commitear el snapshot si ha cambiado
