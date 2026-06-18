@@ -4,14 +4,22 @@
 // de Node 18+ y parseo por expresiones regulares (mismo criterio que el
 // parser del navegador: ignora el prefijo de namespace y empareja por
 // nombre local de la etiqueta, para ser tolerante a variaciones de CODICE).
+//
+// Además, para las licitaciones abiertas y relevantes, descarga el pliego
+// administrativo y técnico, pide a Claude un resumen estructurado y genera
+// un PDF de resumen (módulo AI-SUMMARY-PDF, más abajo).
 
 import fs from 'node:fs';
+import { PDFDocument, rgb, StandardFonts } from 'pdf-lib';
 
 const FEED_URL = 'https://contrataciondelestado.es/sindicacion/sindicacion_643/licitacionesPerfilesContratanteCompleto3.atom';
 const MAX_PAGES = 3;            // nº de páginas del feed a seguir cada día (500 entradas/página)
 const STALE_DAYS = 90;          // se purgan del histórico las entradas más antiguas que esto
 const CONFIG_PATH = 'config/accreditations.json';
 const OUTPUT_PATH = 'data/licitaciones.json';
+const RESUMENES_DIR = 'data/resumenes';
+const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY || '';
+const MAX_DOC_BYTES = 20 * 1024 * 1024; // no mandamos pliegos descomunales a la API
 
 const config = JSON.parse(fs.readFileSync(CONFIG_PATH, 'utf-8'));
 const cpvCodes = config.cpv.map(line => (line.match(/^\d{8}/) || [])[0]).filter(Boolean);
@@ -165,12 +173,197 @@ function nextLink(xml){
   return m ? m[1] : null;
 }
 
+function isOpenForSubmission(entry){
+  if(entry.deadline){
+    const d = new Date(entry.deadline);
+    if(!isNaN(d.getTime())){
+      const today = new Date(); today.setHours(0,0,0,0);
+      return d.getTime() >= today.getTime();
+    }
+  }
+  return entry.estado === 'PUB' || !entry.estado;
+}
+
 async function fetchPage(url){
   const resp = await fetch(url, {
     headers: { 'User-Agent': 'AGQ-Radar-Licitaciones/1.0 (uso interno; consumo del dataset de datos abiertos PLACSP)' }
   });
   if(!resp.ok) throw new Error('HTTP ' + resp.status + ' al pedir ' + url);
   return await resp.text();
+}
+
+// === [MOD:AI-SUMMARY-PDF] ===
+async function fetchPdfBuffer(url){
+  const resp = await fetch(url, {
+    headers: { 'User-Agent': 'AGQ-Radar-Licitaciones/1.0 (uso interno; consumo del dataset de datos abiertos PLACSP)' }
+  });
+  if(!resp.ok) throw new Error('HTTP ' + resp.status + ' al descargar pliego');
+  const buf = Buffer.from(await resp.arrayBuffer());
+  if(buf.length > MAX_DOC_BYTES) throw new Error('Pliego demasiado grande (' + buf.length + ' bytes), se omite');
+  if(buf.length < 100) throw new Error('Respuesta vacía o no es un PDF válido');
+  return buf;
+}
+
+async function callClaudeSummary(entry, docs){
+  const content = [{
+    type: 'text',
+    text: `Eres un asistente que ayuda a un comercial técnico de AGQ Labs (laboratorio acreditado ISO 17025 / entidad de inspección ISO 17020 en medioambiente) a evaluar rápidamente una licitación pública española.
+Te paso a continuación el/los pliego(s) de la licitación "${entry.title}" (expediente ${entry.expediente}, órgano: ${entry.organo}).`
+  }];
+  docs.forEach(d=>{
+    content.push({ type:'text', text: 'Documento: ' + d.label });
+    content.push({ type:'document', source:{ type:'base64', media_type:'application/pdf', data: d.buffer.toString('base64') } });
+  });
+  content.push({
+    type: 'text',
+    text: `Responde ÚNICAMENTE con un JSON válido (sin texto adicional, sin markdown, sin backticks) con esta forma exacta:
+{"puntos_administrativos":["..."],"puntos_tecnicos":["..."],"parametros_matrices":["..."],"acreditaciones_exigidas":["..."],"plazos_garantias":["..."]}
+Cada elemento debe ser una frase breve y concreta en español, basada solo en el texto de los pliegos proporcionados. Si una sección no tiene información, devuelve un array vacío para ella. Máximo 6 elementos por sección.`
+  });
+
+  const resp = await fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json',
+      'x-api-key': ANTHROPIC_API_KEY,
+      'anthropic-version': '2023-06-01'
+    },
+    body: JSON.stringify({ model: 'claude-sonnet-4-6', max_tokens: 2000, messages: [{ role:'user', content }] })
+  });
+  if(!resp.ok){
+    const errBody = await resp.text().catch(()=> '');
+    throw new Error('HTTP ' + resp.status + ' de la API de Anthropic: ' + errBody.slice(0,300));
+  }
+  const data = await resp.json();
+  const textOut = (data.content || []).map(b=>b.text || '').join('\n');
+  const cleaned = textOut.replace(/```json|```/g,'').trim();
+  return JSON.parse(cleaned);
+}
+
+const PDF_PURPLE = rgb(0x56/255, 0x52/255, 0x94/255);
+const PDF_GREEN  = rgb(0x84/255, 0xBD/255, 0x00/255);
+const PDF_INK    = rgb(0.13, 0.13, 0.15);
+const PDF_SOFT   = rgb(0.42, 0.42, 0.46);
+const PAGE_W = 595.28, PAGE_H = 841.89, MARGIN = 50;
+
+function wrapText(text, font, size, maxWidth){
+  const words = String(text).split(/\s+/);
+  const lines = []; let line = '';
+  for(const w of words){
+    const test = line ? line + ' ' + w : w;
+    if(font.widthOfTextAtSize(test, size) > maxWidth && line){ lines.push(line); line = w; }
+    else line = test;
+  }
+  if(line) lines.push(line);
+  return lines;
+}
+
+async function generateSummaryPdf(entry, summary, docLabels){
+  const doc = await PDFDocument.create();
+  const fontReg = await doc.embedFont(StandardFonts.Helvetica);
+  const fontBold = await doc.embedFont(StandardFonts.HelveticaBold);
+  let page = doc.addPage([PAGE_W, PAGE_H]);
+  let y = PAGE_H - MARGIN;
+
+  function drawFooter(){
+    page.drawText('AGQ Radar de Licitaciones · Resumen generado automáticamente con IA a partir de: ' + docLabels.join(', ') + ' · verificar siempre el pliego original', {
+      x: MARGIN, y: 28, size: 7, font: fontReg, color: PDF_SOFT
+    });
+  }
+  function newPageIfNeeded(needed){
+    if(y - needed < MARGIN){
+      page = doc.addPage([PAGE_W, PAGE_H]);
+      y = PAGE_H - MARGIN;
+      page.drawRectangle({ x:0, y: PAGE_H - 6, width: PAGE_W, height: 6, color: PDF_PURPLE });
+      y -= 30;
+    }
+  }
+
+  page.drawRectangle({ x:0, y: PAGE_H - 6, width: PAGE_W, height: 6, color: PDF_PURPLE });
+  page.drawText('AGQ RADAR DE LICITACIONES', { x: MARGIN, y, size: 9, font: fontBold, color: PDF_PURPLE });
+  const tag = 'RESUMEN AUTOMÁTICO DE PLIEGO';
+  page.drawText(tag, { x: PAGE_W - MARGIN - fontReg.widthOfTextAtSize(tag, 9), y, size: 9, font: fontReg, color: PDF_GREEN });
+  y -= 22;
+  page.drawLine({ start:{x:MARGIN,y}, end:{x:PAGE_W-MARGIN,y}, thickness:0.75, color: rgb(0.85,0.85,0.87) });
+  y -= 26;
+
+  wrapText(entry.title, fontBold, 14, PAGE_W - 2*MARGIN).forEach(l=>{ page.drawText(l, { x: MARGIN, y, size: 14, font: fontBold, color: PDF_INK }); y -= 18; });
+  y -= 4;
+  page.drawText('Expediente ' + entry.expediente + (entry.organo ? ' · ' + entry.organo : ''), { x: MARGIN, y, size: 10, font: fontReg, color: PDF_SOFT });
+  y -= 28;
+
+  function section(title, items){
+    newPageIfNeeded(40);
+    page.drawText(title.toUpperCase(), { x: MARGIN, y, size: 10.5, font: fontBold, color: PDF_PURPLE });
+    y -= 16;
+    if(!items || !items.length){
+      page.drawText('— Sin información detectada en el pliego —', { x: MARGIN+12, y, size: 9.5, font: fontReg, color: PDF_SOFT });
+      y -= 18; return;
+    }
+    items.forEach(it=>{
+      const lines = wrapText(it, fontReg, 10, PAGE_W - 2*MARGIN - 14);
+      newPageIfNeeded(lines.length*13 + 6);
+      page.drawText('•', { x: MARGIN, y, size: 10, font: fontBold, color: PDF_GREEN });
+      lines.forEach(l=>{ page.drawText(l, { x: MARGIN+14, y, size: 10, font: fontReg, color: PDF_INK }); y -= 13; });
+      y -= 3;
+    });
+    y -= 8;
+  }
+
+  section('Puntos administrativos clave', summary.puntos_administrativos);
+  section('Puntos técnicos clave', summary.puntos_tecnicos);
+  section('Parámetros / matrices requeridas', summary.parametros_matrices);
+  section('Acreditaciones exigidas en el pliego', summary.acreditaciones_exigidas);
+  section('Plazos y garantías', summary.plazos_garantias);
+  drawFooter();
+
+  return Buffer.from(await doc.save());
+}
+
+function sanitizeFilename(s){
+  return String(s).normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-zA-Z0-9_-]+/g,'_').slice(0,80) || 'sin-id';
+}
+
+async function generateSummariesForOpenTenders(entries){
+  if(!ANTHROPIC_API_KEY){
+    console.warn('ANTHROPIC_API_KEY no configurada: se omite la generación de resúmenes PDF.');
+    return;
+  }
+  fs.mkdirSync(RESUMENES_DIR, { recursive: true });
+  const candidates = entries.filter(e => isOpenForSubmission(e) && !e.resumenPdfPath);
+  console.log(`Resúmenes PDF: ${candidates.length} licitación(es) abierta(s) pendiente(s) de resumir.`);
+
+  for(const entry of candidates){
+    try{
+      const legal = (entry.documentos || []).find(d => d.tipo === 'LegalDocumentReference');
+      const tecnico = (entry.documentos || []).find(d => d.tipo === 'TechnicalDocumentReference');
+      const docsToFetch = [];
+      if(legal) docsToFetch.push({ label: 'Pliego administrativo', url: legal.url });
+      if(tecnico) docsToFetch.push({ label: 'Pliego técnico', url: tecnico.url });
+      if(!docsToFetch.length){
+        console.warn(`[${entry.expediente}] sin pliego administrativo/técnico referenciado, se omite.`);
+        continue;
+      }
+
+      const docs = [];
+      for(const d of docsToFetch){
+        try{ docs.push({ label: d.label, buffer: await fetchPdfBuffer(d.url) }); }
+        catch(e){ console.warn(`[${entry.expediente}] no se pudo descargar "${d.label}": ${e.message}`); }
+      }
+      if(!docs.length){ console.warn(`[${entry.expediente}] ningún pliego descargable, se omite.`); continue; }
+
+      const summary = await callClaudeSummary(entry, docs);
+      const pdfBuffer = await generateSummaryPdf(entry, summary, docs.map(d=>d.label));
+      const filename = sanitizeFilename(entry.expediente) + '.pdf';
+      fs.writeFileSync(RESUMENES_DIR + '/' + filename, pdfBuffer);
+      entry.resumenPdfPath = RESUMENES_DIR + '/' + filename;
+      entry.resumenGeneradoEn = new Date().toISOString();
+      console.log(`[${entry.expediente}] resumen PDF generado (${docs.map(d=>d.label).join(' + ')}).`);
+      await new Promise(r => setTimeout(r, 1500)); // ritmo prudente frente a la API y al feed
+    }catch(e){
+      console.warn(`[${entry.expediente}] fallo generando resumen: ${e.message}`);
+    }
+  }
 }
 
 async function run(){
@@ -202,7 +395,14 @@ async function run(){
   existing = existing.filter(isSectorRelevant);
 
   const byId = new Map(existing.map(e => [e.expediente, e]));
-  relevant.forEach(e => byId.set(e.expediente, e));
+  relevant.forEach(e => {
+    const prev = byId.get(e.expediente);
+    if(prev && prev.resumenPdfPath){
+      e.resumenPdfPath = prev.resumenPdfPath;
+      e.resumenGeneradoEn = prev.resumenGeneradoEn;
+    }
+    byId.set(e.expediente, e);
+  });
 
   const cutoff = Date.now() - STALE_DAYS * 86400000;
   const merged = Array.from(byId.values()).filter(e=>{
@@ -211,6 +411,8 @@ async function run(){
     const t = new Date(ref).getTime();
     return isNaN(t) || t >= cutoff;
   });
+
+  await generateSummariesForOpenTenders(merged);
 
   fs.mkdirSync('data', { recursive: true });
   fs.writeFileSync(OUTPUT_PATH, JSON.stringify({
