@@ -21,13 +21,18 @@ jobs:
         with:
           node-version: '20'
 
+      - name: Instalar dependencias
+        run: npm install --no-audit --no-fund
+
       - name: Ejecutar barrido y filtrado
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: node scripts/fetch-and-filter.mjs
 
       - name: Commitear el snapshot si ha cambiado
         run: |
           git config user.name "agq-radar-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data/licitaciones.json
+          git add data/licitaciones.json data/resumenes/
           git diff --staged --quiet || git commit -m "Actualización automática $(date -u +%Y-%m-%dT%H:%M:%SZ)"
           git push
