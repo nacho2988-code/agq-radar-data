@@ -1,0 +1,9 @@
+{
+  "name": "agq-radar-data",
+  "private": true,
+  "type": "module",
+  "description": "Barrido diario de licitaciones AGQ Labs + generación automática de resúmenes PDF de pliegos.",
+  "dependencies": {
+    "pdf-lib": "^1.17.1"
+  }
+}
