@@ -246,8 +246,20 @@ const PDF_INK    = rgb(0.13, 0.13, 0.15);
 const PDF_SOFT   = rgb(0.42, 0.42, 0.46);
 const PAGE_W = 595.28, PAGE_H = 841.89, MARGIN = 50;
 
+function sanitizeForPdf(s){
+  if(s == null) return '';
+  return String(s)
+    .replace(/≤/g, '<=').replace(/≥/g, '>=')
+    .replace(/[–—]/g, '-')
+    .replace(/[‘’]/g, "'").replace(/[“”]/g, '"')
+    .replace(/…/g, '...')
+    .replace(/•/g, '-')
+    .replace(/×/g, 'x').replace(/÷/g, '/')
+    .replace(/[^\x00-\x7F\u00A0-\u00FF]/g, '?'); // resto fuera de Latin-1: mejor "?" que reventar la fuente
+}
+
 function wrapText(text, font, size, maxWidth){
-  const words = String(text).split(/\s+/);
+  const words = sanitizeForPdf(text).split(/\s+/);
   const lines = []; let line = '';
   for(const w of words){
     const test = line ? line + ' ' + w : w;
@@ -289,7 +301,7 @@ async function generateSummaryPdf(entry, summary, docLabels){
 
   wrapText(entry.title, fontBold, 14, PAGE_W - 2*MARGIN).forEach(l=>{ page.drawText(l, { x: MARGIN, y, size: 14, font: fontBold, color: PDF_INK }); y -= 18; });
   y -= 4;
-  page.drawText('Expediente ' + entry.expediente + (entry.organo ? ' · ' + entry.organo : ''), { x: MARGIN, y, size: 10, font: fontReg, color: PDF_SOFT });
+  page.drawText(sanitizeForPdf('Expediente ' + entry.expediente + (entry.organo ? ' · ' + entry.organo : '')), { x: MARGIN, y, size: 10, font: fontReg, color: PDF_SOFT });
   y -= 28;
 
   function section(title, items){
