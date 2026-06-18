@@ -514,6 +514,13 @@ footer.foot{
       <button class="btn ghost" id="btn-add-accred">+ Añadir acreditación</button>
       <h3 style="font-family:var(--font-display);font-size:13px;margin:26px 0 8px;text-transform:uppercase;color:var(--ink-soft);">CPV de interés para el pre-filtro sectorial</h3>
       <textarea class="bigpaste" id="cpv-list" style="min-height:90px;"></textarea>
+
+      <h3 style="font-family:var(--font-display);font-size:13px;margin:22px 0 8px;text-transform:uppercase;color:var(--ink-soft);">Palabras ambiguas (necesitan confirmación)</h3>
+      <p style="font-size:11.5px;color:var(--ink-soft);margin:0 0 8px;">Palabras como "agua" o "suelo" aparecen igual en contratos de obra, suministro o concesión que en trabajos de análisis reales. Si SOLO aparece una de estas, se exige además una palabra de actividad (lista de abajo) para considerarlo relevante.</p>
+      <textarea class="bigpaste" id="ambiguous-list" style="min-height:70px;"></textarea>
+
+      <h3 style="font-family:var(--font-display);font-size:13px;margin:22px 0 8px;text-transform:uppercase;color:var(--ink-soft);">Palabras de actividad (confirman que es trabajo de análisis/inspección)</h3>
+      <textarea class="bigpaste" id="activity-list" style="min-height:90px;"></textarea>
       <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap;">
         <button class="btn primary" id="btn-save-config">Guardar configuración</button>
         <button class="btn ghost" id="btn-export-config">Copiar JSON para config/accreditations.json (GitHub)</button>
@@ -578,13 +585,10 @@ const DEFAULT_ACCREDITATIONS = [
 ];
 
 const DEFAULT_CPV = [
-  '90000000 Servicios de alcantarillado, basura, limpieza y medio ambiente',
-  '90700000 Servicios medioambientales',
   '90711000 Servicios de consultoría de riesgos y gestión medioambiental',
   '90711400 Servicios de evaluación de riesgos medioambientales',
   '90712000 Planificación medioambiental',
   '90713000 Servicios de consultoría sobre problemas medioambientales',
-  '90731000 Servicios relacionados con la contaminación',
   '90731110 Servicios de control de la contaminación del aire',
   '90731200 Servicios de seguimiento de la contaminación del agua',
   '90731300 Servicios de seguimiento de la contaminación del suelo',
@@ -599,11 +603,23 @@ const DEFAULT_CPV = [
   '71621000 Servicios de análisis técnico o de ensayo',
   '73111000 Servicios de laboratorios de investigación',
   '71900000 Servicios de laboratorio',
-  '90510000 Tratamiento y eliminación de residuos',
-  '90513000 Servicios de tratamiento y eliminación de residuos no peligrosos',
-  '90524000 Servicios relacionados con los residuos sanitarios',
   '90650000 Servicios de detección de amianto',
   '71351000 Servicios geológicos, geofísicos y otros servicios de prospección científica'
+];
+
+const DEFAULT_ACTIVITY_KEYWORDS = [
+  'ensayo','ensayos','análisis','analisis','analítica','analitica','analiticos','laboratorio',
+  'caracterización','caracterizacion','muestreo','toma de muestra','control de calidad',
+  'control analítico','control analitico','monitorización','monitorizacion','vigilancia ambiental',
+  'parámetros','parametros','determinación analítica','determinacion analitica',
+  'auditoría ambiental','auditoria ambiental','evaluación ambiental','evaluacion ambiental',
+  'inspección ambiental','inspeccion ambiental','acreditado','acreditación','acreditacion',
+  'enac','iso 17025','iso 17020'
+];
+
+const DEFAULT_GENERIC_AMBIGUOUS = [
+  'agua','aguas','residual','vertido','vertidos','suelo','suelos','contaminado','contaminados',
+  'residuo','residuos','emisiones','metales','control y vigilancia','inspeccion','inspección'
 ];
 
 const ESTADO_LABELS = {
@@ -616,7 +632,7 @@ const FEED_URL = 'https://contrataciondelestado.es/sindicacion/sindicacion_643/l
 // === [MOD:STORAGE] ===
 var STATE = {
   tenders: {},      // keyed by expediente id
-  config: { accreditations: DEFAULT_ACCREDITATIONS.slice(), cpv: DEFAULT_CPV.slice() },
+  config: { accreditations: DEFAULT_ACCREDITATIONS.slice(), cpv: DEFAULT_CPV.slice(), activityKeywords: DEFAULT_ACTIVITY_KEYWORDS.slice(), genericAmbiguous: DEFAULT_GENERIC_AMBIGUOUS.slice() },
   summaries: {}      // keyed by expediente id -> {administrativo, tecnico, generatedAt}
 };
 
@@ -629,6 +645,9 @@ function loadState(){
     if(c) STATE.config = JSON.parse(c);
     if(s) STATE.summaries = JSON.parse(s);
   }catch(e){ console.warn('No se pudo leer almacenamiento local', e); }
+  // Compatibilidad con configuraciones guardadas antes de añadir estas dos listas
+  if(!STATE.config.activityKeywords) STATE.config.activityKeywords = DEFAULT_ACTIVITY_KEYWORDS.slice();
+  if(!STATE.config.genericAmbiguous) STATE.config.genericAmbiguous = DEFAULT_GENERIC_AMBIGUOUS.slice();
 }
 function persistTenders(){ try{ localStorage.setItem(LS_KEYS.tenders, JSON.stringify(STATE.tenders)); }catch(e){console.warn(e);} }
 function persistConfig(){ try{ localStorage.setItem(LS_KEYS.config, JSON.stringify(STATE.config)); }catch(e){console.warn(e);} }
@@ -807,9 +826,14 @@ function isSectorRelevant(tender){
   const cpvList = configCpvCodes();
   if(tender.cpv && tender.cpv.some(c => cpvList.includes(c))) return true;
   const text = (tender.title + ' ' + tender.rawSummary).toLowerCase();
-  return STATE.config.accreditations.some(acc =>
-    acc.keywords.split(',').some(k => k.trim() && keywordMatches(text, k.trim().toLowerCase()))
-  );
+  const allKw = [...new Set(STATE.config.accreditations.flatMap(acc => acc.keywords.split(',').map(k=>k.trim().toLowerCase()).filter(Boolean)))];
+  const matched = allKw.filter(k => keywordMatches(text, k));
+  if(matched.length === 0) return false;
+  const ambiguousSet = new Set((STATE.config.genericAmbiguous || []).map(k=>k.toLowerCase()));
+  const nonAmbiguous = matched.filter(k => !ambiguousSet.has(k));
+  if(nonAmbiguous.length > 0) return true;
+  const activity = STATE.config.activityKeywords || [];
+  return activity.some(k => keywordMatches(text, k.toLowerCase()));
 }
 
 function computeCompatibility(tender){
@@ -1312,6 +1336,8 @@ function renderAccredConfig(){
   });
 
   document.getElementById('cpv-list').value = STATE.config.cpv.join('\n');
+  document.getElementById('ambiguous-list').value = (STATE.config.genericAmbiguous || []).join('\n');
+  document.getElementById('activity-list').value = (STATE.config.activityKeywords || []).join('\n');
 }
 
 function collectAccredFormIntoState(){
@@ -1324,6 +1350,8 @@ function collectAccredFormIntoState(){
     acc.keywords = card.querySelector('.f-keywords').value;
   });
   STATE.config.cpv = document.getElementById('cpv-list').value.split('\n').map(s=>s.trim()).filter(Boolean);
+  STATE.config.genericAmbiguous = document.getElementById('ambiguous-list').value.split('\n').map(s=>s.trim().toLowerCase()).filter(Boolean);
+  STATE.config.activityKeywords = document.getElementById('activity-list').value.split('\n').map(s=>s.trim().toLowerCase()).filter(Boolean);
 }
 
 document.getElementById('btn-add-accred').addEventListener('click', ()=>{
@@ -1341,7 +1369,7 @@ document.getElementById('btn-save-config').addEventListener('click', ()=>{
 
 document.getElementById('btn-export-config').addEventListener('click', ()=>{
   collectAccredFormIntoState();
-  const json = JSON.stringify({ accreditations: STATE.config.accreditations, cpv: STATE.config.cpv }, null, 2);
+  const json = JSON.stringify({ accreditations: STATE.config.accreditations, cpv: STATE.config.cpv, activityKeywords: STATE.config.activityKeywords, genericAmbiguous: STATE.config.genericAmbiguous }, null, 2);
   const box = document.getElementById('export-config-box');
   const ta = document.getElementById('export-config-text');
   ta.value = json;
