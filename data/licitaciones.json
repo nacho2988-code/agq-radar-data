@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-18T09:49:32.096Z",
+  "generatedAt": "2026-06-18T16:47:39.437Z",
   "totalEntriesScanned": 1319,
   "pagesFetched": 3,
   "resumenDiag": {
@@ -43,7 +43,7 @@
       "importeAdjudicacion": 968,
       "fechaAdjudicacion": "2026-06-09",
       "rawSummary": "Id licitación: 470/2026; Órgano de Contratación: Junta de Gobierno Local del Ayuntamiento de La Vilavella; Importe: 1500 EUR; Estado: RES",
-      "importedAt": "2026-06-18T09:49:31.982Z"
+      "importedAt": "2026-06-18T16:47:39.290Z"
     },
     {
       "expediente": "202617320019",
@@ -91,7 +91,7 @@
       "importeAdjudicacion": 137315.95,
       "fechaAdjudicacion": "2026-05-19",
       "rawSummary": "Id licitación: 202617320019; Órgano de Contratación: Dirección General de la Marina Mercante; Importe: 160402.55 EUR; Estado: RES",
-      "importedAt": "2026-06-18T09:48:57.753Z"
+      "importedAt": "2026-06-18T16:47:16.195Z"
     },
     {
       "expediente": "AM-DEMA-2026-002",
@@ -129,7 +129,7 @@
       "importeAdjudicacion": 24200,
       "fechaAdjudicacion": "2026-06-16",
       "rawSummary": "Id licitación: AM-DEMA-2026-002; Órgano de Contratación: Dirección de la Fundación para la Internacionalización de las Administraciones Públicas; Importe: 200000 EUR; Estado: ADJ",
-      "importedAt": "2026-06-18T09:48:57.769Z"
+      "importedAt": "2026-06-18T16:47:16.218Z"
     },
     {
       "expediente": "TEC0007145",
@@ -161,7 +161,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: TEC0007145; Órgano de Contratación: Tecnologías y Servicios Agrarios S.A.,S.M.E., M.P., (TRAGSATEC); Importe: 24612.5 EUR; Estado: PUB",
-      "importedAt": "2026-06-18T09:48:57.776Z",
+      "importedAt": "2026-06-18T16:47:16.226Z",
       "resumenPdfPath": "data/resumenes/TEC0007145.pdf",
       "resumenGeneradoEn": "2026-06-18T08:48:14.378Z"
     },
@@ -215,7 +215,7 @@
       "importeAdjudicacion": 85600,
       "fechaAdjudicacion": "2026-06-17",
       "rawSummary": "Id licitación: 9254/2026; Órgano de Contratación: Consejería Delegada de Gestión y Planeamiento Territorial y Medioambiental, S.A.; Importe: 80000 EUR; Estado: ADJ",
-      "importedAt": "2026-06-18T09:49:15.319Z"
+      "importedAt": "2026-06-18T16:47:29.722Z"
     },
     {
       "expediente": "TSA0083500",
@@ -247,7 +247,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: TSA0083500; Órgano de Contratación: Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA); Importe: 215000 EUR; Estado: EV",
-      "importedAt": "2026-06-18T09:49:15.365Z"
+      "importedAt": "2026-06-18T16:47:29.781Z"
     },
     {
       "expediente": "2943/2026",
@@ -281,7 +281,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 2943/2026; Órgano de Contratación: Comisión Ejecutiva del Patronato Municipal de Deportes del Ayuntamiento de Ayamonte; Importe: 8264.46 EUR; Estado: EV",
-      "importedAt": "2026-06-18T09:49:15.423Z"
+      "importedAt": "2026-06-18T16:47:29.859Z"
     },
     {
       "expediente": "2026/035020",
@@ -322,7 +322,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 2026/035020; Órgano de Contratación: Dirección Gerencia de Gestión Ambiental de Castilla-La Mancha S.A.; Importe: 40214.81 EUR; Estado: PUB",
-      "importedAt": "2026-06-18T09:49:32.028Z",
+      "importedAt": "2026-06-18T16:47:39.347Z",
       "resumenPdfPath": "data/resumenes/2026_035020.pdf",
       "resumenGeneradoEn": "2026-06-18T08:52:20.532Z"
     },
@@ -360,7 +360,7 @@
       "importeAdjudicacion": 21780,
       "fechaAdjudicacion": "2026-06-15",
       "rawSummary": "Id licitación: 582026026500; Órgano de Contratación: Dirección General del INTA; Importe: 20000 EUR; Estado: RES",
-      "importedAt": "2026-06-18T09:49:32.037Z"
+      "importedAt": "2026-06-18T16:47:39.359Z"
     },
     {
       "expediente": "SA0006/2026",
@@ -392,7 +392,7 @@
       "importeAdjudicacion": 47300,
       "fechaAdjudicacion": "2026-05-21",
       "rawSummary": "Id licitación: SA0006/2026; Órgano de Contratación: Secretaría General del Instituto de Salud Carlos III; Importe: 53755 EUR; Estado: RES",
-      "importedAt": "2026-06-18T09:49:32.048Z"
+      "importedAt": "2026-06-18T16:47:39.373Z"
     },
     {
       "expediente": "2912/2024",
@@ -454,7 +454,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 2912/2024; Órgano de Contratación: Pleno del Ayuntamiento de Vera; Importe: 2535000 EUR; Estado: EV",
-      "importedAt": "2026-06-18T09:49:32.086Z",
+      "importedAt": "2026-06-18T16:47:39.423Z",
       "resumenPdfPath": "data/resumenes/2912_2024.pdf",
       "resumenGeneradoEn": "2026-06-18T08:49:53.948Z"
     }
