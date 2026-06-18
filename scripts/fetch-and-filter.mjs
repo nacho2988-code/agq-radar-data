@@ -6,8 +6,9 @@
 // nombre local de la etiqueta, para ser tolerante a variaciones de CODICE).
 //
 // Además, para las licitaciones abiertas y relevantes, descarga el pliego
-// administrativo y técnico, pide a Claude un resumen estructurado y genera
-// un PDF de resumen (módulo AI-SUMMARY-PDF, más abajo).
+// administrativo y técnico, pide a Google Gemini (nivel gratuito de Google
+// AI Studio, sin tarjeta) un resumen estructurado y genera un PDF de resumen
+// (módulo AI-SUMMARY-PDF, más abajo).
 
 import fs from 'node:fs';
 import { PDFDocument, rgb, StandardFonts } from 'pdf-lib';
@@ -18,7 +19,8 @@ const STALE_DAYS = 90;          // se purgan del histórico las entradas más an
 const CONFIG_PATH = 'config/accreditations.json';
 const OUTPUT_PATH = 'data/licitaciones.json';
 const RESUMENES_DIR = 'data/resumenes';
-const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY || '';
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY || '';
+const GEMINI_MODEL = 'gemini-2.5-flash'; // nivel gratuito de Google AI Studio, sin tarjeta, admite PDF nativo
 const MAX_DOC_BYTES = 20 * 1024 * 1024; // no mandamos pliegos descomunales a la API
 
 const config = JSON.parse(fs.readFileSync(CONFIG_PATH, 'utf-8'));
@@ -204,38 +206,36 @@ async function fetchPdfBuffer(url){
   return buf;
 }
 
-async function callClaudeSummary(entry, docs){
-  const content = [{
-    type: 'text',
+async function callGeminiSummary(entry, docs){
+  const parts = [{
     text: `Eres un asistente que ayuda a un comercial técnico de AGQ Labs (laboratorio acreditado ISO 17025 / entidad de inspección ISO 17020 en medioambiente) a evaluar rápidamente una licitación pública española.
 Te paso a continuación el/los pliego(s) de la licitación "${entry.title}" (expediente ${entry.expediente}, órgano: ${entry.organo}).`
   }];
   docs.forEach(d=>{
-    content.push({ type:'text', text: 'Documento: ' + d.label });
-    content.push({ type:'document', source:{ type:'base64', media_type:'application/pdf', data: d.buffer.toString('base64') } });
+    parts.push({ text: 'Documento: ' + d.label });
+    parts.push({ inline_data: { mime_type: 'application/pdf', data: d.buffer.toString('base64') } });
   });
-  content.push({
-    type: 'text',
+  parts.push({
     text: `Responde ÚNICAMENTE con un JSON válido (sin texto adicional, sin markdown, sin backticks) con esta forma exacta:
 {"puntos_administrativos":["..."],"puntos_tecnicos":["..."],"parametros_matrices":["..."],"acreditaciones_exigidas":["..."],"plazos_garantias":["..."]}
 Cada elemento debe ser una frase breve y concreta en español, basada solo en el texto de los pliegos proporcionados. Si una sección no tiene información, devuelve un array vacío para ella. Máximo 6 elementos por sección.`
   });
 
-  const resp = await fetch('https://api.anthropic.com/v1/messages', {
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`;
+  const resp = await fetch(url, {
     method: 'POST',
-    headers: {
-      'content-type': 'application/json',
-      'x-api-key': ANTHROPIC_API_KEY,
-      'anthropic-version': '2023-06-01'
-    },
-    body: JSON.stringify({ model: 'claude-sonnet-4-6', max_tokens: 2000, messages: [{ role:'user', content }] })
+    headers: { 'content-type': 'application/json' },
+    body: JSON.stringify({
+      contents: [{ parts }],
+      generationConfig: { responseMimeType: 'application/json' }
+    })
   });
   if(!resp.ok){
     const errBody = await resp.text().catch(()=> '');
-    throw new Error('HTTP ' + resp.status + ' de la API de Anthropic: ' + errBody.slice(0,300));
+    throw new Error('HTTP ' + resp.status + ' de la API de Gemini: ' + errBody.slice(0,300));
   }
   const data = await resp.json();
-  const textOut = (data.content || []).map(b=>b.text || '').join('\n');
+  const textOut = ((data.candidates || [])[0]?.content?.parts || []).map(p=>p.text || '').join('\n');
   const cleaned = textOut.replace(/```json|```/g,'').trim();
   return JSON.parse(cleaned);
 }
@@ -325,8 +325,8 @@ function sanitizeFilename(s){
 }
 
 async function generateSummariesForOpenTenders(entries){
-  if(!ANTHROPIC_API_KEY){
-    console.warn('ANTHROPIC_API_KEY no configurada: se omite la generación de resúmenes PDF.');
+  if(!GEMINI_API_KEY){
+    console.warn('GEMINI_API_KEY no configurada: se omite la generación de resúmenes PDF.');
     return;
   }
   fs.mkdirSync(RESUMENES_DIR, { recursive: true });
@@ -352,7 +352,7 @@ async function generateSummariesForOpenTenders(entries){
       }
       if(!docs.length){ console.warn(`[${entry.expediente}] ningún pliego descargable, se omite.`); continue; }
 
-      const summary = await callClaudeSummary(entry, docs);
+      const summary = await callGeminiSummary(entry, docs);
       const pdfBuffer = await generateSummaryPdf(entry, summary, docs.map(d=>d.label));
       const filename = sanitizeFilename(entry.expediente) + '.pdf';
       fs.writeFileSync(RESUMENES_DIR + '/' + filename, pdfBuffer);
