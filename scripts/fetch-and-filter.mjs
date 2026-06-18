@@ -325,12 +325,14 @@ function sanitizeFilename(s){
 }
 
 async function generateSummariesForOpenTenders(entries){
+  const diag = { geminiKeyPresent: !!GEMINI_API_KEY, candidatos: 0, generados: 0, errores: [] };
   if(!GEMINI_API_KEY){
     console.warn('GEMINI_API_KEY no configurada: se omite la generación de resúmenes PDF.');
-    return;
+    return diag;
   }
   fs.mkdirSync(RESUMENES_DIR, { recursive: true });
   const candidates = entries.filter(e => isOpenForSubmission(e) && !e.resumenPdfPath);
+  diag.candidatos = candidates.length;
   console.log(`Resúmenes PDF: ${candidates.length} licitación(es) abierta(s) pendiente(s) de resumir.`);
 
   for(const entry of candidates){
@@ -342,6 +344,7 @@ async function generateSummariesForOpenTenders(entries){
       if(tecnico) docsToFetch.push({ label: 'Pliego técnico', url: tecnico.url });
       if(!docsToFetch.length){
         console.warn(`[${entry.expediente}] sin pliego administrativo/técnico referenciado, se omite.`);
+        diag.errores.push({ expediente: entry.expediente, motivo: 'sin pliego referenciado' });
         continue;
       }
 
@@ -350,7 +353,11 @@ async function generateSummariesForOpenTenders(entries){
         try{ docs.push({ label: d.label, buffer: await fetchPdfBuffer(d.url) }); }
         catch(e){ console.warn(`[${entry.expediente}] no se pudo descargar "${d.label}": ${e.message}`); }
       }
-      if(!docs.length){ console.warn(`[${entry.expediente}] ningún pliego descargable, se omite.`); continue; }
+      if(!docs.length){
+        console.warn(`[${entry.expediente}] ningún pliego descargable, se omite.`);
+        diag.errores.push({ expediente: entry.expediente, motivo: 'ningún pliego descargable' });
+        continue;
+      }
 
       const summary = await callGeminiSummary(entry, docs);
       const pdfBuffer = await generateSummaryPdf(entry, summary, docs.map(d=>d.label));
@@ -358,12 +365,15 @@ async function generateSummariesForOpenTenders(entries){
       fs.writeFileSync(RESUMENES_DIR + '/' + filename, pdfBuffer);
       entry.resumenPdfPath = RESUMENES_DIR + '/' + filename;
       entry.resumenGeneradoEn = new Date().toISOString();
+      diag.generados++;
       console.log(`[${entry.expediente}] resumen PDF generado (${docs.map(d=>d.label).join(' + ')}).`);
       await new Promise(r => setTimeout(r, 1500)); // ritmo prudente frente a la API y al feed
     }catch(e){
       console.warn(`[${entry.expediente}] fallo generando resumen: ${e.message}`);
+      diag.errores.push({ expediente: entry.expediente, motivo: e.message.slice(0,200) });
     }
   }
+  return diag;
 }
 
 async function run(){
@@ -412,13 +422,14 @@ async function run(){
     return isNaN(t) || t >= cutoff;
   });
 
-  await generateSummariesForOpenTenders(merged);
+  const resumenDiag = await generateSummariesForOpenTenders(merged);
 
   fs.mkdirSync('data', { recursive: true });
   fs.writeFileSync(OUTPUT_PATH, JSON.stringify({
     generatedAt: new Date().toISOString(),
     totalEntriesScanned: totalEntries,
     pagesFetched: pages,
+    resumenDiag,
     entries: merged
   }, null, 2));
 
