@@ -14,7 +14,14 @@ import fs from 'node:fs';
 import { PDFDocument, rgb, StandardFonts } from 'pdf-lib';
 
 const FEED_URL = 'https://contrataciondelestado.es/sindicacion/sindicacion_643/licitacionesPerfilesContratanteCompleto3.atom';
-const MAX_PAGES = 3;            // nº de páginas del feed a seguir cada día (500 entradas/página)
+// El feed está ordenado por fecha de actualización (más reciente primero), encadenado
+// en páginas de 500 entradas vía <link rel="next">. Un nº fijo de páginas se queda corto
+// en días de mucha actividad en PLACSP (miles de cambios en todo el sector público
+// español), enterrando licitaciones legítimas bajo actualizaciones de otros organismos.
+// En su lugar, seguimos paginando hasta cubrir COVERAGE_HOURS hacia atrás en el tiempo,
+// con un tope de páginas de seguridad para no entrar en bucle si el feed fallara.
+const COVERAGE_HOURS = 48;
+const SAFETY_MAX_PAGES = 40; // 40 × 500 = 20.000 entradas como límite absoluto por ejecución
 const STALE_DAYS = 90;          // se purgan del histórico las entradas más antiguas que esto
 const CONFIG_PATH = 'config/accreditations.json';
 const OUTPUT_PATH = 'data/licitaciones.json';
@@ -392,19 +399,32 @@ async function run(){
   let url = FEED_URL;
   const relevant = [];
   let pages = 0, totalEntries = 0;
+  const coverageCutoff = Date.now() - COVERAGE_HOURS * 3600000;
+  let oldestSeen = Date.now();
 
-  while(url && pages < MAX_PAGES){
+  while(url && pages < SAFETY_MAX_PAGES){
     const xml = await fetchPage(url);
     const blocks = xml.match(/<entry[\s\S]*?<\/entry>/g) || [];
     totalEntries += blocks.length;
     blocks.forEach(b=>{
       try{
         const entry = parseEntryBlock(b);
+        if(entry.updated){
+          const t = new Date(entry.updated).getTime();
+          if(!isNaN(t) && t < oldestSeen) oldestSeen = t;
+        }
         if(isSectorRelevant(entry)) relevant.push(entry);
       }catch(e){ console.warn('Entrada omitida por error de parseo:', e.message); }
     });
     pages++;
     url = nextLink(xml);
+    if(oldestSeen <= coverageCutoff){
+      console.log(`Cobertura de ${COVERAGE_HOURS}h alcanzada tras ${pages} página(s) (${totalEntries} entradas).`);
+      break;
+    }
+  }
+  if(pages >= SAFETY_MAX_PAGES){
+    console.warn(`Se alcanzó el tope de seguridad de ${SAFETY_MAX_PAGES} páginas sin cubrir ${COVERAGE_HOURS}h completas; la entrada más antigua vista es de ${new Date(oldestSeen).toISOString()}.`);
   }
 
   let existing = [];
@@ -441,11 +461,13 @@ async function run(){
     generatedAt: new Date().toISOString(),
     totalEntriesScanned: totalEntries,
     pagesFetched: pages,
+    coverageHoursTarget: COVERAGE_HOURS,
+    oldestEntrySeen: new Date(oldestSeen).toISOString(),
     resumenDiag,
     entries: merged
   }, null, 2));
 
-  console.log(`OK: ${merged.length} licitaciones relevantes en el snapshot (${totalEntries} entradas escaneadas en ${pages} página(s)).`);
+  console.log(`OK: ${merged.length} licitaciones relevantes en el snapshot (${totalEntries} entradas escaneadas en ${pages} página(s), hasta ${new Date(oldestSeen).toISOString()}).`);
 }
 
 run().catch(e => { console.error('Fallo en el barrido:', e); process.exit(1); });
