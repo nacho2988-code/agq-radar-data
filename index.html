@@ -982,11 +982,36 @@ function renderAbiertas(){
   }));
 }
 
-function togglePresentarLocal(expediente, marcada){
+// URL del proxy seguro (Cloudflare Worker) que escribe data/seleccion.json sin exponer
+// ningún token de GitHub al navegador. Se rellena tras desplegarlo (ver instrucciones).
+const SELECCION_PROXY_URL = 'https://agq-radar-proxy.nacho2988.workers.dev';
+const SELECCION_PROXY_SECRET = 'agq-radar-2026';
+
+async function togglePresentarLocal(expediente, marcada){
   const t = STATE.tenders[expediente];
   if(!t) return;
   t.presentarLocal = marcada;
   t.presentarLocalEn = marcada ? new Date().toISOString() : null;
+  t.presentarSyncStatus = SELECCION_PROXY_URL ? 'sincronizando' : 'sin-proxy';
+  persistTenders();
+  renderAbiertas();
+  if(document.getElementById('detail-panel') && document.getElementById('detail-panel').classList.contains('show')){
+    openDetail(expediente);
+  }
+
+  if(!SELECCION_PROXY_URL) return; // todavía no desplegado: queda solo en local
+
+  try{
+    const resp = await fetch(SELECCION_PROXY_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ secret: SELECCION_PROXY_SECRET, expediente, seleccionado: marcada })
+    });
+    const data = await resp.json().catch(()=>({}));
+    t.presentarSyncStatus = resp.ok && data.ok ? 'sincronizada' : 'error';
+  }catch(e){
+    t.presentarSyncStatus = 'error';
+  }
   persistTenders();
   renderAbiertas();
   if(document.getElementById('detail-panel') && document.getElementById('detail-panel').classList.contains('show')){
@@ -1054,7 +1079,13 @@ function openDetail(expediente){
           const txt = d===null ? '' : (d<0 ? 'Plazo cerrado' : d===0 ? 'Hoy es el último día' : `Quedan ${d} día${d===1?'':'s'}`);
           return `<p style="font-size:13px;margin:8px 0 0;color:${color};font-weight:600;">⏱ ${txt} (hasta ${formatDate(t.deadline)})</p>`;
         })()}
-        <p style="font-size:11px;color:var(--ink-soft);margin:8px 0 0;">El check se guarda solo en este dispositivo. Para activar el aviso automático por correo a medioambiente.esp@agqlabs.com (3 días antes del cierre), indícaselo a Claude en el chat.</p>
+        <p style="font-size:11px;color:var(--ink-soft);margin:8px 0 0;">${(() => {
+          if(!t.presentarLocal) return 'El check se sincroniza con todo el equipo; el aviso por correo se envía automáticamente 3 días antes del cierre.';
+          if(t.presentarSyncStatus === 'sincronizando') return '⏳ Sincronizando con el equipo…';
+          if(t.presentarSyncStatus === 'sincronizada') return '✅ Sincronizada — el aviso por correo llegará a medioambiente.esp@agqlabs.com 3 días antes del cierre.';
+          if(t.presentarSyncStatus === 'error') return '⚠️ No se pudo sincronizar con el equipo (revisa tu conexión). Queda marcada solo en este dispositivo por ahora.';
+          return '⚠️ Sincronización con el equipo aún no configurada en esta app.';
+        })()}</p>
       </div>
 
       <div class="section-block">
@@ -1339,6 +1370,30 @@ async function autoSyncFromGitHub(showStatus){
       }
     });
     if(purged) persistTenders();
+
+    // Sincronizar también la selección compartida del equipo (data/seleccion.json),
+    // que es la fuente de verdad: si alguien marcó/desmarcó desde otro dispositivo,
+    // debe reflejarse aquí también.
+    try{
+      const selUrl = location.hostname.endsWith('github.io')
+        ? `data/seleccion.json?_=${Date.now()}`
+        : `https://raw.githubusercontent.com/${cfg.repo}/${cfg.branch || 'main'}/data/seleccion.json?_=${Date.now()}`;
+      const selResp = await fetch(selUrl);
+      if(selResp.ok){
+        const seleccion = await selResp.json();
+        Object.keys(STATE.tenders).forEach(id=>{
+          const sel = seleccion[id];
+          const t = STATE.tenders[id];
+          const marcadaRemoto = !!(sel && sel.seleccionado);
+          if(t.presentarLocal !== marcadaRemoto){
+            t.presentarLocal = marcadaRemoto;
+            t.presentarLocalEn = sel ? sel.marcadoEn : null;
+            t.presentarSyncStatus = 'sincronizada';
+          }
+        });
+        persistTenders();
+      }
+    }catch(e){ /* si falla, mantenemos el estado local tal cual estaba */ }
 
     cfg.lastSync = new Date().toISOString();
     cfg.lastCount = entries.length;
