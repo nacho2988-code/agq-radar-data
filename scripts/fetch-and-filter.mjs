@@ -20,7 +20,7 @@ const FEED_URL = 'https://contrataciondelestado.es/sindicacion/sindicacion_643/l
 // español), enterrando licitaciones legítimas bajo actualizaciones de otros organismos.
 // En su lugar, seguimos paginando hasta cubrir COVERAGE_HOURS hacia atrás en el tiempo,
 // con un tope de páginas de seguridad para no entrar en bucle si el feed fallara.
-const COVERAGE_HOURS = 48;
+const COVERAGE_HOURS = 72; // colchón de seguridad: si el cron se retrasa o falla un día, igualmente cubrimos lo publicado
 const SAFETY_MAX_PAGES = 40; // 40 × 500 = 20.000 entradas como límite absoluto por ejecución
 const STALE_DAYS = 90;          // se purgan del histórico las entradas más antiguas que esto
 const CONFIG_PATH = 'config/accreditations.json';
