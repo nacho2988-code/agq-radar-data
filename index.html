@@ -224,12 +224,15 @@ select.sortsel{
 }
 .row{
   display:grid;
-  grid-template-columns:6px 54px 1fr 120px 90px;
+  grid-template-columns:6px 28px 54px 1fr 120px 90px;
   align-items:center;
   border-bottom:1px solid var(--line);
   cursor:pointer;
   transition:background 0.12s;
 }
+.row.marcada-presentar{background:rgba(86,82,148,0.05);}
+.check-presentar{display:flex;align-items:center;justify-content:center;cursor:pointer;height:100%;}
+.check-presentar input{width:17px;height:17px;accent-color:var(--agq-purple);cursor:pointer;}
 .row:last-child{border-bottom:none;}
 .row:hover{background:var(--paper-dim);}
 .row .bar{height:100%;align-self:stretch;}
@@ -911,11 +914,15 @@ function rowHTML(t, comp){
   const days = t.deadline ? daysUntil(t.deadline) : null;
   const urgent = days !== null && days <= 5 && days >= 0;
   const sealText = comp.matched.length ? comp.matched[0].expediente : '—';
-  return `<div class="row" data-id="${escapeAttr(t.expediente)}">
+  const marcada = !!t.presentarLocal;
+  return `<div class="row ${marcada?'marcada-presentar':''}" data-id="${escapeAttr(t.expediente)}">
     <div class="bar ${comp.level}"></div>
+    <label class="check-presentar" title="Marcar para presentar" onclick="event.stopPropagation();">
+      <input type="checkbox" class="chk-presentar" data-id="${escapeAttr(t.expediente)}" ${marcada?'checked':''}>
+    </label>
     <div><div class="seal ${comp.level}">${escapeHtml(sealText)}</div></div>
     <div class="main">
-      <div class="title">${escapeHtml(t.title)} ${t.resumenPdfPath ? '<span title="Resumen automático disponible" style="color:var(--agq-green);font-size:12px;">📄</span>' : ''}</div>
+      <div class="title">${escapeHtml(t.title)} ${t.resumenPdfPath ? '<span title="Resumen automático disponible" style="color:var(--agq-green);font-size:12px;">📄</span>' : ''} ${marcada ? '<span title="Marcada para presentar" style="color:var(--agq-purple);font-size:12px;">📌</span>' : ''}</div>
       <div class="meta">
         <span>${escapeHtml(t.organo || 'Órgano no indicado')}</span>
         ${(t.cpv||[]).slice(0,3).map(c=>'<span class="cpv">'+c+'</span>').join('')}
@@ -970,6 +977,21 @@ function renderAbiertas(){
   if(items.length === 0){ container.innerHTML = emptyStateHTML('abiertas'); return; }
   container.innerHTML = items.map(({t,comp}) => rowHTML(t,comp)).join('');
   container.querySelectorAll('.row').forEach(row => row.addEventListener('click', () => openDetail(row.dataset.id)));
+  container.querySelectorAll('.chk-presentar').forEach(chk => chk.addEventListener('change', (e)=>{
+    togglePresentarLocal(e.target.dataset.id, e.target.checked);
+  }));
+}
+
+function togglePresentarLocal(expediente, marcada){
+  const t = STATE.tenders[expediente];
+  if(!t) return;
+  t.presentarLocal = marcada;
+  t.presentarLocalEn = marcada ? new Date().toISOString() : null;
+  persistTenders();
+  renderAbiertas();
+  if(document.getElementById('detail-panel') && document.getElementById('detail-panel').classList.contains('show')){
+    openDetail(expediente);
+  }
 }
 
 function renderAdjudicadas(){
@@ -1019,6 +1041,21 @@ function openDetail(expediente){
       <div class="exp">Expediente ${escapeHtml(t.expediente)} · ${escapeHtml(t.estadoLabel)}</div>
     </div>
     <div class="panel-body">
+
+      <div class="section-block" style="background:rgba(86,82,148,0.05);border-radius:8px;padding:12px;">
+        <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-weight:600;font-size:13px;">
+          <input type="checkbox" id="detail-chk-presentar" ${t.presentarLocal?'checked':''} style="width:18px;height:18px;accent-color:var(--agq-purple);">
+          📌 Quiero presentar esta licitación
+        </label>
+        ${(() => {
+          if(!t.deadline) return '<p style="font-size:11.5px;color:var(--ink-soft);margin:8px 0 0;">Sin fecha límite detectada.</p>';
+          const d = daysUntil(t.deadline);
+          const color = d===null ? 'var(--ink-soft)' : (d<0 ? 'var(--terracotta)' : d<=3 ? 'var(--terracotta)' : d<=7 ? 'var(--amber)' : 'var(--agq-green)');
+          const txt = d===null ? '' : (d<0 ? 'Plazo cerrado' : d===0 ? 'Hoy es el último día' : `Quedan ${d} día${d===1?'':'s'}`);
+          return `<p style="font-size:13px;margin:8px 0 0;color:${color};font-weight:600;">⏱ ${txt} (hasta ${formatDate(t.deadline)})</p>`;
+        })()}
+        <p style="font-size:11px;color:var(--ink-soft);margin:8px 0 0;">El check se guarda solo en este dispositivo. Para activar el aviso automático por correo a medioambiente.esp@agqlabs.com (3 días antes del cierre), indícaselo a Claude en el chat.</p>
+      </div>
 
       <div class="section-block">
         <h3>Datos generales</h3>
@@ -1074,6 +1111,7 @@ function openDetail(expediente){
 
   document.getElementById('btn-close-panel').addEventListener('click', closeDetail);
   document.getElementById('tender-notes').addEventListener('change', e=>{ t.notas = e.target.value; persistTenders(); });
+  document.getElementById('detail-chk-presentar').addEventListener('change', e=>{ togglePresentarLocal(expediente, e.target.checked); });
   document.getElementById('pliego-dropzone').addEventListener('click', ()=> document.getElementById('pliego-files').click());
   document.getElementById('pliego-files').addEventListener('change', e=> handlePliegoFiles(expediente, e.target.files));
   document.getElementById('btn-gen-summary').addEventListener('click', ()=> generateAISummary(expediente));
@@ -1180,7 +1218,7 @@ function mergeEntries(entries){
   entries.forEach(e=>{
     const existing = STATE.tenders[e.expediente];
     if(!existing){ STATE.tenders[e.expediente] = e; added++; }
-    else{ STATE.tenders[e.expediente] = Object.assign({}, existing, e, { notas: existing.notas }); updated++; }
+    else{ STATE.tenders[e.expediente] = Object.assign({}, existing, e, { notas: existing.notas, presentarLocal: existing.presentarLocal, presentarLocalEn: existing.presentarLocalEn }); updated++; }
   });
   persistTenders();
   return { added, updated };
@@ -1295,7 +1333,7 @@ async function autoSyncFromGitHub(showStatus){
     let purged = 0;
     Object.keys(STATE.tenders).forEach(id=>{
       const t = STATE.tenders[id];
-      if(!remoteIds.has(id) && !(t.notas && t.notas.trim())){
+      if(!remoteIds.has(id) && !(t.notas && t.notas.trim()) && !t.presentarLocal){
         delete STATE.tenders[id];
         purged++;
       }
