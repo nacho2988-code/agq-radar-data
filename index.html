@@ -619,7 +619,8 @@ const DEFAULT_ACTIVITY_KEYWORDS = [
 
 const DEFAULT_GENERIC_AMBIGUOUS = [
   'agua','aguas','residual','vertido','vertidos','suelo','suelos','contaminado','contaminados',
-  'residuo','residuos','emisiones','metales','control y vigilancia','inspeccion','inspección'
+  'residuo','residuos','emisiones','metales','control y vigilancia','inspeccion','inspección',
+  'alimentari','alimento','pienso','piensos','nutricional'
 ];
 
 const ESTADO_LABELS = {
@@ -1290,13 +1291,23 @@ async function autoSyncFromGitHub(showStatus){
     const data = await resp.json();
     const entries = (data.entries || []).map(normalizeRemoteEntry);
     const { added, updated } = mergeEntries(entries);
+    const remoteIds = new Set(entries.map(e => e.expediente));
+    let purged = 0;
+    Object.keys(STATE.tenders).forEach(id=>{
+      const t = STATE.tenders[id];
+      if(!remoteIds.has(id) && !(t.notas && t.notas.trim())){
+        delete STATE.tenders[id];
+        purged++;
+      }
+    });
+    if(purged) persistTenders();
 
     cfg.lastSync = new Date().toISOString();
     cfg.lastCount = entries.length;
     cfg.lastGenerated = data.generatedAt || null;
     saveGithubConfig(cfg);
 
-    const msg = `Última sincronización: ${formatDate(cfg.lastSync)} · ${entries.length} licitaciones del sector (nuevas: ${added}, actualizadas: ${updated}) · snapshot generado ${data.generatedAt ? formatDate(data.generatedAt) : '—'}`;
+    const msg = `Última sincronización: ${formatDate(cfg.lastSync)} · ${entries.length} licitaciones del sector (nuevas: ${added}, actualizadas: ${updated}${purged ? ', retiradas por filtro: ' + purged : ''}) · snapshot generado ${data.generatedAt ? formatDate(data.generatedAt) : '—'}`;
     if(statusEl) statusEl.innerHTML = '✅ ' + escapeHtml(msg);
     if(indicator) indicator.textContent = '⟳ sync ' + (cfg.lastGenerated ? formatDate(cfg.lastGenerated) : formatDate(cfg.lastSync));
     refreshAllViews();
