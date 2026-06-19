@@ -29,7 +29,7 @@ const OUTPUT_PATH = 'data/licitaciones.json';
 const RESUMENES_DIR = 'data/resumenes';
 const SELECCION_PATH = 'data/seleccion.json';
 const ALERT_RECIPIENT = 'medioambiente.esp@agqlabs.com';
-const ALERT_DAYS_THRESHOLD = 3;
+const ALERT_DAYS_THRESHOLD = 5; // TEMPORAL: prueba real de envío, volver a 3 después
 const GMAIL_USER = process.env.GMAIL_USER || '';
 const GMAIL_APP_PASSWORD = process.env.GMAIL_APP_PASSWORD || '';
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY || '';
@@ -416,7 +416,7 @@ async function sendAlertEmail(transporter, entry, daysRemaining){
   const importeTxt = entry.importe != null ? entry.importe.toLocaleString('es-ES',{maximumFractionDigits:2}) + ' €' : (entry.importeRaw || 'No especificado');
   const urgenciaTxt = daysRemaining < 0 ? 'EL PLAZO YA HA FINALIZADO' : daysRemaining === 0 ? 'HOY ES EL ÚLTIMO DÍA' : `Quedan ${daysRemaining} día(s)`;
 
-  const subject = `⏱ Cierre de plazo en ${daysRemaining<=0?'breve':daysRemaining+' día(s)'}: ${entry.title.slice(0,80)}`;
+  const subject = `Aviso, vencimiento plazo licitación: ${entry.title.slice(0,140)}`;
   const html = `
     <div style="font-family:Arial,sans-serif;max-width:600px;">
       <div style="background:#565294;color:#fff;padding:14px 18px;font-weight:bold;">AGQ Radar de Licitaciones · Aviso de cierre de plazo</div>
