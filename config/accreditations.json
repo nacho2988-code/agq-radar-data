@@ -64,6 +64,7 @@
   ],
   "genericAmbiguous": [
     "agua","aguas","residual","vertido","vertidos","suelo","suelos","contaminado","contaminados",
-    "residuo","residuos","emisiones","metales","control y vigilancia","inspeccion","inspección"
+    "residuo","residuos","emisiones","metales","control y vigilancia","inspeccion","inspección",
+    "alimentari","alimento","pienso","piensos","nutricional"
   ]
 }
