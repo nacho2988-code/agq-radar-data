@@ -12,6 +12,7 @@
 
 import fs from 'node:fs';
 import { PDFDocument, rgb, StandardFonts } from 'pdf-lib';
+import nodemailer from 'nodemailer';
 
 const FEED_URL = 'https://contrataciondelestado.es/sindicacion/sindicacion_643/licitacionesPerfilesContratanteCompleto3.atom';
 // El feed está ordenado por fecha de actualización (más reciente primero), encadenado
@@ -26,6 +27,11 @@ const STALE_DAYS = 90;          // se purgan del histórico las entradas más an
 const CONFIG_PATH = 'config/accreditations.json';
 const OUTPUT_PATH = 'data/licitaciones.json';
 const RESUMENES_DIR = 'data/resumenes';
+const SELECCION_PATH = 'data/seleccion.json';
+const ALERT_RECIPIENT = 'medioambiente.esp@agqlabs.com';
+const ALERT_DAYS_THRESHOLD = 3;
+const GMAIL_USER = process.env.GMAIL_USER || '';
+const GMAIL_APP_PASSWORD = process.env.GMAIL_APP_PASSWORD || '';
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY || '';
 const GEMINI_MODEL = 'gemini-2.5-flash'; // nivel gratuito de Google AI Studio, sin tarjeta, admite PDF nativo
 const MAX_DOC_BYTES = 20 * 1024 * 1024; // no mandamos pliegos descomunales a la API
@@ -183,6 +189,9 @@ function nextLink(xml){
 }
 
 function isOpenForSubmission(entry){
+  // El estado manda: si el feed dice que ya está resuelta/adjudicada/desierta, no está
+  // abierta aunque arrastre algún campo de fecha residual en el pliego.
+  if(entry.estado && entry.estado !== 'PUB') return false;
   if(entry.deadline){
     const d = new Date(entry.deadline);
     if(!isNaN(d.getTime())){
@@ -190,7 +199,7 @@ function isOpenForSubmission(entry){
       return d.getTime() >= today.getTime();
     }
   }
-  return entry.estado === 'PUB' || !entry.estado;
+  return true; // estado PUB (o sin estado informado) y sin fecha límite detectada: la tratamos como abierta
 }
 
 async function fetchPage(url){
@@ -224,8 +233,11 @@ Te paso a continuación el/los pliego(s) de la licitación "${entry.title}" (exp
   });
   parts.push({
     text: `Responde ÚNICAMENTE con un JSON válido (sin texto adicional, sin markdown, sin backticks) con esta forma exacta:
-{"descripcion_objeto":"...","puntos_administrativos":["..."],"puntos_tecnicos":["..."],"parametros_matrices":["..."],"acreditaciones_exigidas":["..."],"plazos_garantias":["..."]}
-"descripcion_objeto" es un párrafo breve (2-4 frases) que explique en lenguaje claro qué se contrata, para quién y con qué finalidad, basado en el objeto del contrato del pliego. El resto de campos son listas: cada elemento debe ser una frase breve y concreta en español, basada solo en el texto de los pliegos proporcionados. Si una sección no tiene información, devuelve un array vacío para ella (o cadena vacía para descripcion_objeto). Máximo 6 elementos por sección.`
+{"descripcion_objeto":"...","aspectos_administrativos":["..."],"aspectos_tecnicos":["..."]}
+"descripcion_objeto" es un párrafo breve (2-4 frases) que explique en lenguaje claro qué se contrata, para quién y con qué finalidad, basado en el objeto del contrato del pliego.
+"aspectos_administrativos" es una lista de los puntos administrativos a tener en cuenta antes de presentar oferta: criterios de valoración y su ponderación, documentación a aportar, garantías (provisional/definitiva), solvencia económica exigida, plazo y forma de presentación, criterios de desempate, y cualquier otro requisito administrativo relevante.
+"aspectos_tecnicos" es una lista de los aspectos técnicos necesarios para poder ejecutar el contrato: alcance técnico del servicio, parámetros/matrices/ensayos requeridos, acreditaciones o habilitaciones técnicas exigidas (ISO 17025, ISO 17020, ENAC, registros sectoriales...), medios materiales o personal técnico exigido, plazos de ejecución y entrega de resultados, y cualquier otro requisito técnico relevante.
+Cada elemento de las listas debe ser una frase breve y concreta en español, basada solo en el texto de los pliegos proporcionados. Si una sección no tiene información, devuelve un array vacío para ella (o cadena vacía para descripcion_objeto). Máximo 8 elementos por lista.`
   });
 
   const url = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`;
@@ -277,6 +289,23 @@ function wrapText(text, font, size, maxWidth){
   return lines;
 }
 
+function formatImporteEs(entry){
+  if(entry.importe != null && !isNaN(entry.importe)){
+    return entry.importe.toLocaleString('es-ES', { maximumFractionDigits: 2 }) + ' €';
+  }
+  return entry.importeRaw ? sanitizeForPdf(entry.importeRaw) : 'No especificado en el feed';
+}
+
+function formatDeadlineEs(entry){
+  if(!entry.deadline) return 'No especificada';
+  const d = new Date(entry.deadline);
+  if(isNaN(d.getTime())) return sanitizeForPdf(entry.deadline);
+  const fecha = d.toLocaleDateString('es-ES', { day:'2-digit', month:'2-digit', year:'numeric' });
+  const tieneHora = entry.deadline.includes('T') && !/T00:00:00/.test(entry.deadline);
+  const hora = tieneHora ? d.toLocaleTimeString('es-ES', { hour:'2-digit', minute:'2-digit' }) + 'h' : '';
+  return fecha + (hora ? ' · ' + hora : '') + (entry.deadlineSource ? ' (' + sanitizeForPdf(entry.deadlineSource) + ')' : '');
+}
+
 async function generateSummaryPdf(entry, summary, docLabels){
   const doc = await PDFDocument.create();
   const fontReg = await doc.embedFont(StandardFonts.Helvetica);
@@ -298,6 +327,7 @@ async function generateSummaryPdf(entry, summary, docLabels){
     }
   }
 
+  // 1) Cabecera de marca
   page.drawRectangle({ x:0, y: PAGE_H - 6, width: PAGE_W, height: 6, color: PDF_PURPLE });
   page.drawText('AGQ RADAR DE LICITACIONES', { x: MARGIN, y, size: 9, font: fontBold, color: PDF_PURPLE });
   const tag = 'RESUMEN AUTOMÁTICO DE PLIEGO';
@@ -306,19 +336,36 @@ async function generateSummaryPdf(entry, summary, docLabels){
   page.drawLine({ start:{x:MARGIN,y}, end:{x:PAGE_W-MARGIN,y}, thickness:0.75, color: rgb(0.85,0.85,0.87) });
   y -= 26;
 
+  // 2) Título
   wrapText(entry.title, fontBold, 14, PAGE_W - 2*MARGIN).forEach(l=>{ page.drawText(l, { x: MARGIN, y, size: 14, font: fontBold, color: PDF_INK }); y -= 18; });
   y -= 4;
   page.drawText(sanitizeForPdf('Expediente ' + entry.expediente + (entry.organo ? ' · ' + entry.organo : '')), { x: MARGIN, y, size: 10, font: fontReg, color: PDF_SOFT });
-  y -= 28;
+  y -= 24;
 
+  // 3) Ficha rápida: importe + fecha límite, en una caja de dos columnas
+  const fichaH = 46;
+  newPageIfNeeded(fichaH + 12);
+  const colW = (PAGE_W - 2*MARGIN) / 2;
+  page.drawRectangle({ x: MARGIN, y: y - fichaH, width: PAGE_W - 2*MARGIN, height: fichaH, color: rgb(0.96,0.96,0.97) });
+  page.drawText('IMPORTE DE LA LICITACIÓN', { x: MARGIN+12, y: y-16, size: 8, font: fontBold, color: PDF_PURPLE });
+  page.drawText(formatImporteEs(entry), { x: MARGIN+12, y: y-34, size: 12.5, font: fontBold, color: PDF_INK });
+  page.drawText('FECHA LÍMITE DE PRESENTACIÓN', { x: MARGIN+colW+12, y: y-16, size: 8, font: fontBold, color: PDF_PURPLE });
+  page.drawText(formatDeadlineEs(entry), { x: MARGIN+colW+12, y: y-34, size: 12.5, font: fontBold, color: PDF_INK });
+  page.drawLine({ start:{x:MARGIN+colW, y:y-8}, end:{x:MARGIN+colW, y:y-fichaH+8}, thickness:0.75, color: rgb(0.85,0.85,0.87) });
+  y -= (fichaH + 22);
+
+  // 4) Resumen del objeto de la licitación
   if(summary.descripcion_objeto && summary.descripcion_objeto.trim()){
+    newPageIfNeeded(30);
+    page.drawText('RESUMEN DEL OBJETO DE LA LICITACIÓN', { x: MARGIN, y, size: 10.5, font: fontBold, color: PDF_PURPLE });
+    y -= 16;
     const descLines = wrapText(summary.descripcion_objeto, fontReg, 10.5, PAGE_W - 2*MARGIN - 16);
     newPageIfNeeded(descLines.length*14 + 18);
-    const boxTop = y + 8;
+    const boxTop = y + 6;
     descLines.forEach(l=>{ page.drawText(l, { x: MARGIN+8, y, size: 10.5, font: fontReg, color: PDF_INK }); y -= 14; });
     const boxBottom = y + 2;
     page.drawRectangle({ x: MARGIN, y: boxBottom, width: 3, height: boxTop - boxBottom, color: PDF_GREEN });
-    y -= 18;
+    y -= 20;
   }
 
   function section(title, items){
@@ -339,11 +386,10 @@ async function generateSummaryPdf(entry, summary, docLabels){
     y -= 8;
   }
 
-  section('Puntos administrativos clave', summary.puntos_administrativos);
-  section('Puntos técnicos clave', summary.puntos_tecnicos);
-  section('Parámetros / matrices requeridas', summary.parametros_matrices);
-  section('Acreditaciones exigidas en el pliego', summary.acreditaciones_exigidas);
-  section('Plazos y garantías', summary.plazos_garantias);
+  // 5) Aspectos administrativos a considerar
+  section('Aspectos administrativos a considerar', summary.aspectos_administrativos);
+  // 6) Aspectos técnicos necesarios
+  section('Aspectos técnicos necesarios', summary.aspectos_tecnicos);
   drawFooter();
 
   return Buffer.from(await doc.save());
@@ -351,6 +397,98 @@ async function generateSummaryPdf(entry, summary, docLabels){
 
 function sanitizeFilename(s){
   return String(s).normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-zA-Z0-9_-]+/g,'_').slice(0,80) || 'sin-id';
+}
+
+// === [MOD:DEADLINE-ALERTS] ===
+// Lee data/seleccion.json (mantenido manualmente: Ignacio le pide a Claude que marque/
+// desmarque expedientes ahí, ya que la app no escribe en GitHub directamente para no
+// guardar un token con permiso de escritura en el navegador). Para cada expediente
+// marcado como seleccionado, abierto y a ALERT_DAYS_THRESHOLD días o menos de su cierre,
+// envía un único aviso por correo (vía Gmail SMTP) y registra que ya se envió para no
+// repetirlo en ejecuciones futuras.
+function escapeHtmlMail(s){ return String(s||'').replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+async function sendAlertEmail(transporter, entry, daysRemaining){
+  const fecha = entry.deadline ? new Date(entry.deadline) : null;
+  const fechaTxt = fecha && !isNaN(fecha.getTime())
+    ? fecha.toLocaleDateString('es-ES',{day:'2-digit',month:'2-digit',year:'numeric'}) + (entry.deadline.includes('T') && !/T00:00:00/.test(entry.deadline) ? ' a las ' + fecha.toLocaleTimeString('es-ES',{hour:'2-digit',minute:'2-digit'}) + 'h' : '')
+    : 'No especificada';
+  const importeTxt = entry.importe != null ? entry.importe.toLocaleString('es-ES',{maximumFractionDigits:2}) + ' €' : (entry.importeRaw || 'No especificado');
+  const urgenciaTxt = daysRemaining < 0 ? 'EL PLAZO YA HA FINALIZADO' : daysRemaining === 0 ? 'HOY ES EL ÚLTIMO DÍA' : `Quedan ${daysRemaining} día(s)`;
+
+  const subject = `⏱ Cierre de plazo en ${daysRemaining<=0?'breve':daysRemaining+' día(s)'}: ${entry.title.slice(0,80)}`;
+  const html = `
+    <div style="font-family:Arial,sans-serif;max-width:600px;">
+      <div style="background:#565294;color:#fff;padding:14px 18px;font-weight:bold;">AGQ Radar de Licitaciones · Aviso de cierre de plazo</div>
+      <div style="padding:18px;border:1px solid #e0e0e0;border-top:none;">
+        <p style="font-size:15px;font-weight:bold;color:#c0392b;margin:0 0 14px;">${urgenciaTxt}</p>
+        <h2 style="font-size:16px;margin:0 0 10px;">${escapeHtmlMail(entry.title)}</h2>
+        <table style="font-size:13px;border-collapse:collapse;width:100%;">
+          <tr><td style="padding:4px 0;color:#666;width:160px;">Expediente</td><td style="padding:4px 0;"><b>${escapeHtmlMail(entry.expediente)}</b></td></tr>
+          <tr><td style="padding:4px 0;color:#666;">Órgano</td><td style="padding:4px 0;">${escapeHtmlMail(entry.organo||'—')}</td></tr>
+          <tr><td style="padding:4px 0;color:#666;">Importe</td><td style="padding:4px 0;"><b>${escapeHtmlMail(importeTxt)}</b></td></tr>
+          <tr><td style="padding:4px 0;color:#666;">Fecha y hora límite</td><td style="padding:4px 0;"><b>${escapeHtmlMail(fechaTxt)}</b></td></tr>
+        </table>
+        ${entry.link ? `<p style="margin:18px 0 0;"><a href="${escapeHtmlMail(entry.link)}" style="background:#84BD00;color:#fff;padding:10px 16px;text-decoration:none;border-radius:4px;font-size:13px;display:inline-block;">Ver licitación en la Plataforma de Contratación ↗</a></p>` : ''}
+        <p style="font-size:11px;color:#999;margin-top:24px;">Aviso automático de AGQ Radar de Licitaciones. Esta licitación fue marcada para presentar oferta.</p>
+      </div>
+    </div>`;
+
+  await transporter.sendMail({
+    from: `"AGQ Radar de Licitaciones" <${GMAIL_USER}>`,
+    to: ALERT_RECIPIENT,
+    subject,
+    html
+  });
+}
+
+async function sendDeadlineAlerts(merged){
+  const diag = { seleccionFileFound: false, seleccionadas: 0, alertasEnviadas: 0, smtpConfigured: !!(GMAIL_USER && GMAIL_APP_PASSWORD), errores: [] };
+  let seleccion = {};
+  try{
+    seleccion = JSON.parse(fs.readFileSync(SELECCION_PATH, 'utf-8'));
+    diag.seleccionFileFound = true;
+  }catch(e){ return diag; } // sin fichero de selección todavía: nada que hacer
+
+  const seleccionadas = Object.entries(seleccion).filter(([,s]) => s && s.seleccionado);
+  diag.seleccionadas = seleccionadas.length;
+  if(!seleccionadas.length) return diag;
+
+  if(!diag.smtpConfigured){
+    console.warn('GMAIL_USER/GMAIL_APP_PASSWORD no configurados: se omiten las alertas de cierre de plazo.');
+    return diag;
+  }
+
+  const byId = new Map(merged.map(e => [e.expediente, e]));
+  let transporter = null;
+  let changed = false;
+
+  for(const [expediente, sel] of seleccionadas){
+    if(sel.alertaEnviada) continue;
+    const entry = byId.get(expediente);
+    if(!entry || !entry.deadline) continue;
+    if(!isOpenForSubmission(entry)) continue;
+    const deadlineMs = new Date(entry.deadline).getTime();
+    if(isNaN(deadlineMs)) continue;
+    const daysRemaining = Math.ceil((deadlineMs - Date.now()) / 86400000);
+    if(daysRemaining > ALERT_DAYS_THRESHOLD) continue;
+    try{
+      if(!transporter){
+        transporter = nodemailer.createTransport({ service: 'gmail', auth: { user: GMAIL_USER, pass: GMAIL_APP_PASSWORD } });
+      }
+      await sendAlertEmail(transporter, entry, daysRemaining);
+      sel.alertaEnviada = new Date().toISOString();
+      changed = true;
+      diag.alertasEnviadas++;
+      console.log(`[${expediente}] alerta de cierre de plazo enviada a ${ALERT_RECIPIENT} (${daysRemaining} día(s) restantes).`);
+    }catch(e){
+      console.warn(`[${expediente}] fallo enviando alerta: ${e.message}`);
+      diag.errores.push({ expediente, motivo: e.message.slice(0,200) });
+    }
+  }
+
+  if(changed) fs.writeFileSync(SELECCION_PATH, JSON.stringify(seleccion, null, 2));
+  return diag;
 }
 
 async function generateSummariesForOpenTenders(entries){
@@ -465,6 +603,7 @@ async function run(){
   });
 
   const resumenDiag = await generateSummariesForOpenTenders(merged);
+  const alertasDiag = await sendDeadlineAlerts(merged);
 
   fs.mkdirSync('data', { recursive: true });
   fs.writeFileSync(OUTPUT_PATH, JSON.stringify({
@@ -474,6 +613,7 @@ async function run(){
     coverageHoursTarget: COVERAGE_HOURS,
     oldestEntrySeen: new Date(oldestSeen).toISOString(),
     resumenDiag,
+    alertasDiag,
     entries: merged
   }, null, 2));
 
