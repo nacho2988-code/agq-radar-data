@@ -224,8 +224,8 @@ Te paso a continuación el/los pliego(s) de la licitación "${entry.title}" (exp
   });
   parts.push({
     text: `Responde ÚNICAMENTE con un JSON válido (sin texto adicional, sin markdown, sin backticks) con esta forma exacta:
-{"puntos_administrativos":["..."],"puntos_tecnicos":["..."],"parametros_matrices":["..."],"acreditaciones_exigidas":["..."],"plazos_garantias":["..."]}
-Cada elemento debe ser una frase breve y concreta en español, basada solo en el texto de los pliegos proporcionados. Si una sección no tiene información, devuelve un array vacío para ella. Máximo 6 elementos por sección.`
+{"descripcion_objeto":"...","puntos_administrativos":["..."],"puntos_tecnicos":["..."],"parametros_matrices":["..."],"acreditaciones_exigidas":["..."],"plazos_garantias":["..."]}
+"descripcion_objeto" es un párrafo breve (2-4 frases) que explique en lenguaje claro qué se contrata, para quién y con qué finalidad, basado en el objeto del contrato del pliego. El resto de campos son listas: cada elemento debe ser una frase breve y concreta en español, basada solo en el texto de los pliegos proporcionados. Si una sección no tiene información, devuelve un array vacío para ella (o cadena vacía para descripcion_objeto). Máximo 6 elementos por sección.`
   });
 
   const url = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`;
@@ -310,6 +310,16 @@ async function generateSummaryPdf(entry, summary, docLabels){
   y -= 4;
   page.drawText(sanitizeForPdf('Expediente ' + entry.expediente + (entry.organo ? ' · ' + entry.organo : '')), { x: MARGIN, y, size: 10, font: fontReg, color: PDF_SOFT });
   y -= 28;
+
+  if(summary.descripcion_objeto && summary.descripcion_objeto.trim()){
+    const descLines = wrapText(summary.descripcion_objeto, fontReg, 10.5, PAGE_W - 2*MARGIN - 16);
+    newPageIfNeeded(descLines.length*14 + 18);
+    const boxTop = y + 8;
+    descLines.forEach(l=>{ page.drawText(l, { x: MARGIN+8, y, size: 10.5, font: fontReg, color: PDF_INK }); y -= 14; });
+    const boxBottom = y + 2;
+    page.drawRectangle({ x: MARGIN, y: boxBottom, width: 3, height: boxTop - boxBottom, color: PDF_GREEN });
+    y -= 18;
+  }
 
   function section(title, items){
     newPageIfNeeded(40);
