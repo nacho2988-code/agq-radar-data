@@ -169,13 +169,26 @@ function keywordMatches(text, keyword){
   return re.test(text);
 }
 
+// Detecta si el TIPO de contrato es un suministro/adquisición/renting de material o
+// equipo (frecuente en organismos que compran reactivos, equipos o vehículos para su
+// propio laboratorio interno, no que contratan un servicio de análisis a un proveedor
+// externo como AGQ). En ese caso, palabras como "laboratorio" o "agua" ya no bastan
+// como señal de actividad: exigimos una señal fuerte de que también incluye un
+// servicio de análisis/inspección realmente prestado, no solo material/equipo.
+const SUPPLY_TYPE_RE = /\bsuministros?\s+(de|del|de\s+los|de\s+las|y|e)\b|\badquisici[oó]n\s+de\b|\bsistema\s+din[aá]mico\s+de\s+adquisici[oó]n\b|\brenting\b|\barrendamiento\b/i;
+const STRONG_SERVICE_KEYWORDS = ['ensayo','ensayos','análisis','analisis','analítica','analitica','control analítico','control analitico','servicio de análisis','externalizacion','externalización','subcontratacion','subcontratación','muestreo','toma de muestra','vigilancia ambiental','auditoría ambiental','auditoria ambiental','evaluación ambiental','evaluacion ambiental','inspección ambiental','inspeccion ambiental'];
+
 function isSectorRelevant(entry){
   if(entry.cpv.some(c => cpvCodes.includes(c))) return true;
   const text = (entry.title + ' ' + entry.rawSummary).toLowerCase();
   const matched = allKeywords.filter(k => k && keywordMatches(text, k));
   if(matched.length === 0) return false;
+  const esSuministro = SUPPLY_TYPE_RE.test(entry.title);
   const nonAmbiguous = matched.filter(k => !genericAmbiguous.has(k));
-  if(nonAmbiguous.length > 0) return true;
+  if(nonAmbiguous.length > 0 && !esSuministro) return true;
+  if(esSuministro){
+    return STRONG_SERVICE_KEYWORDS.some(k => keywordMatches(text, k));
+  }
   // Solo hay coincidencias de términos ambiguos (agua, suelo, residuos...): exigimos
   // además una señal de que el contrato es de análisis/inspección, no de obra,
   // suministro, recogida o concesión de un servicio que simplemente menciona esas palabras.
