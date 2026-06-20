@@ -922,6 +922,9 @@ function configCpvCodes(){
   return STATE.config.cpv.map(line => (line.match(/^\d{8}/) || [])[0]).filter(Boolean);
 }
 
+const SUPPLY_TYPE_RE = /\bsuministros?\s+(de|del|de\s+los|de\s+las|y|e)\b|\badquisici[oó]n\s+de\b|\bsistema\s+din[aá]mico\s+de\s+adquisici[oó]n\b|\brenting\b|\barrendamiento\b/i;
+const STRONG_SERVICE_KEYWORDS = ['ensayo','ensayos','análisis','analisis','analítica','analitica','control analítico','control analitico','servicio de análisis','externalizacion','externalización','subcontratacion','subcontratación','muestreo','toma de muestra','vigilancia ambiental','auditoría ambiental','auditoria ambiental','evaluación ambiental','evaluacion ambiental','inspección ambiental','inspeccion ambiental'];
+
 function isSectorRelevant(tender){
   const cpvList = configCpvCodes();
   if(tender.cpv && tender.cpv.some(c => cpvList.includes(c))) return true;
@@ -929,9 +932,13 @@ function isSectorRelevant(tender){
   const allKw = [...new Set(STATE.config.accreditations.flatMap(acc => acc.keywords.split(',').map(k=>k.trim().toLowerCase()).filter(Boolean)))];
   const matched = allKw.filter(k => keywordMatches(text, k));
   if(matched.length === 0) return false;
+  const esSuministro = SUPPLY_TYPE_RE.test(tender.title || '');
   const ambiguousSet = new Set((STATE.config.genericAmbiguous || []).map(k=>k.toLowerCase()));
   const nonAmbiguous = matched.filter(k => !ambiguousSet.has(k));
-  if(nonAmbiguous.length > 0) return true;
+  if(nonAmbiguous.length > 0 && !esSuministro) return true;
+  if(esSuministro){
+    return STRONG_SERVICE_KEYWORDS.some(k => keywordMatches(text, k));
+  }
   const activity = STATE.config.activityKeywords || [];
   return activity.some(k => keywordMatches(text, k.toLowerCase()));
 }
