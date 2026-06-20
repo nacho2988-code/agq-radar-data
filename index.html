@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
 <style>
 /* ============================================================
    TOKENS
@@ -231,6 +232,20 @@ select.sortsel{
   transition:background 0.12s;
 }
 .row.marcada-presentar{background:rgba(86,82,148,0.05);}
+
+.pipeline-board{display:flex;gap:12px;overflow-x:auto;padding-bottom:12px;}
+.pipeline-col{flex:0 0 240px;background:var(--paper-dim);border-radius:10px;padding:10px;min-height:120px;}
+.pipeline-col h4{font-family:var(--font-display);font-size:12px;text-transform:uppercase;margin:0 0 8px;padding-bottom:8px;border-bottom:2px solid currentColor;display:flex;justify-content:space-between;align-items:center;}
+.pipeline-card{background:#fff;border:1px solid var(--line);border-radius:8px;padding:8px 10px;margin-bottom:8px;cursor:pointer;font-size:12px;}
+.pipeline-card:hover{border-color:var(--agq-purple);}
+.pipeline-card .t{font-weight:600;margin-bottom:4px;line-height:1.3;}
+.pipeline-card .m{color:var(--ink-soft);font-size:11px;}
+.pipeline-card select{margin-top:6px;width:100%;font-size:11px;padding:4px;border-radius:5px;border:1px solid var(--line);}
+.tabla-rank{width:100%;border-collapse:collapse;font-size:12.5px;}
+.tabla-rank th{text-align:left;padding:6px 8px;color:var(--ink-soft);font-weight:600;border-bottom:1px solid var(--line);font-size:11px;text-transform:uppercase;}
+.tabla-rank td{padding:7px 8px;border-bottom:1px solid var(--line);}
+.tabla-rank tr.agq-row{background:rgba(132,189,0,0.08);font-weight:600;}
+.pipeline-badge{display:inline-block;font-size:10px;padding:2px 7px;border-radius:10px;color:#fff;font-weight:600;}
 .check-presentar{display:flex;align-items:center;justify-content:center;cursor:pointer;height:100%;}
 .check-presentar input{width:17px;height:17px;accent-color:var(--agq-purple);cursor:pointer;}
 .row:last-child{border-bottom:none;}
@@ -423,7 +438,9 @@ footer.foot{
     <span id="topbar-sync-indicator" style="font-size:10.5px;color:#9D99BD;font-family:var(--font-mono);white-space:nowrap;"></span>
     <nav class="tabs" id="tabs">
       <button data-view="abiertas" class="active">Abiertas <span class="count" id="count-abiertas">0</span></button>
+      <button data-view="pipeline">Pipeline <span class="count" id="count-pipeline">0</span></button>
       <button data-view="adjudicadas">Adjudicadas <span class="count" id="count-adjudicadas">0</span></button>
+      <button data-view="analitica">Analítica</button>
       <button data-view="importar">Importar datos</button>
       <button data-view="acreditaciones">Acreditaciones AGQ</button>
     </nav>
@@ -455,7 +472,45 @@ footer.foot{
         </select>
       </div>
 
+      <div class="toolbar" style="margin-top:8px;flex-wrap:wrap;gap:8px;">
+        <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--ink-soft);">
+          <span>Importe</span>
+          <input type="number" id="filtro-importe-min" placeholder="mín €" style="width:90px;padding:6px 8px;border:1px solid var(--line);border-radius:6px;font-size:12px;">
+          <span>–</span>
+          <input type="number" id="filtro-importe-max" placeholder="máx €" style="width:90px;padding:6px 8px;border:1px solid var(--line);border-radius:6px;font-size:12px;">
+        </div>
+        <select class="sortsel" id="filtro-matriz">
+          <option value="">Matriz: todas</option>
+        </select>
+        <select class="sortsel" id="filtro-provincia">
+          <option value="">Provincia/CCAA: todas</option>
+        </select>
+        <select class="sortsel" id="filtro-pipeline">
+          <option value="">Pipeline: todos</option>
+          <option value="__sin_marcar__">Sin marcar</option>
+        </select>
+        <button class="btn ghost" id="btn-limpiar-filtros-finos" style="font-size:12px;padding:6px 10px;">Limpiar filtros</button>
+      </div>
+
       <div class="list" id="list-abiertas"></div>
+    </section>
+
+    <!-- ================= VIEW: PIPELINE ================= -->
+    <section class="view" id="view-pipeline">
+      <div class="callout">Seguimiento del estado de cada licitación marcada para presentar, compartido con todo el equipo. Arrastra mentalmente de izquierda a derecha según avanza la oferta.</div>
+      <div class="toolbar" style="margin-bottom:4px;">
+        <input type="text" id="autor-name-input" placeholder="Tu nombre (para firmar notas y cambios de estado)" style="flex:1;min-width:200px;padding:8px 10px;border:1px solid var(--line);border-radius:6px;font-size:13px;">
+      </div>
+      <div class="pipeline-board" id="pipeline-board"></div>
+    </section>
+
+    <!-- ================= VIEW: ANALÍTICA ================= -->
+    <section class="view" id="view-analitica">
+      <div class="callout">Estadísticas a partir de las licitaciones adjudicadas detectadas en el sector. Útil para ver quién compite más en cada matriz y a qué importes.</div>
+      <div class="dash-strip" id="analitica-resumen"></div>
+      <h3 style="font-family:var(--font-display);font-size:13px;margin:20px 0 10px;text-transform:uppercase;color:var(--ink-soft);">Ranking de adjudicatarios</h3>
+      <canvas id="chart-adjudicatarios" height="260"></canvas>
+      <div id="tabla-adjudicatarios" style="margin-top:18px;"></div>
     </section>
 
     <!-- ================= VIEW: ADJUDICADAS ================= -->
@@ -625,6 +680,47 @@ const DEFAULT_GENERIC_AMBIGUOUS = [
   'residuo','residuos','emisiones','metales','control y vigilancia','inspeccion','inspección',
   'alimentari','alimento','pienso','piensos','nutricional'
 ];
+
+// === [MOD:PIPELINE-NOTAS-FILTROS-ANALITICA] ===
+const ESTADOS_PIPELINE = [
+  { id: 'detectada',       label: 'Detectada',       color: '#9a9a9e' },
+  { id: 'en_estudio',      label: 'En estudio',      color: '#5b8def' },
+  { id: 'en_preparacion',  label: 'En preparación',  color: '#d9a441' },
+  { id: 'presentada',      label: 'Presentada',      color: '#565294' },
+  { id: 'ganada',          label: 'Ganada',          color: '#84BD00' },
+  { id: 'perdida',         label: 'Perdida',         color: '#b5483d' }
+];
+function pipelineMeta(id){ return ESTADOS_PIPELINE.find(e=>e.id===id) || ESTADOS_PIPELINE[0]; }
+
+const MATRIZ_GROUPS = [
+  { id:'agua', label:'Agua', keywords:['agua','aguas','residual','vertido','vertidos','dbo','dqo','conductividad','aguas subterraneas','aguas subterráneas'] },
+  { id:'suelo', label:'Suelo', keywords:['suelo','suelos','contaminado','contaminados','ler','caracterizacion','caracterización','rd 9/2005'] },
+  { id:'aire', label:'Aire / Ruido', keywords:['calidad del aire','emisiones','inmision','inmisión','particulas','partículas','ruido','acustic'] },
+  { id:'residuos', label:'Residuos / Vertederos', keywords:['vertedero','vertederos','rd 646/2020','lixiviado','gas de vertedero','admisibilidad'] },
+  { id:'legionela', label:'Legionela / Biocidas', keywords:['legionella','legionela','biocida','cosmetic'] },
+  { id:'alimentos', label:'Alimentos', keywords:['alimentari','alimento','seguridad alimentaria','microbiolog','plaguicida frutas','plaguicida hortalizas'] },
+  { id:'amianto', label:'Amianto', keywords:['amianto'] }
+];
+function detectMatrices(t){
+  const text = ((t.title||'') + ' ' + (t.rawSummary||'')).toLowerCase();
+  return MATRIZ_GROUPS.filter(g => g.keywords.some(k => keywordMatches(text, k))).map(g=>g.id);
+}
+
+// Detección aproximada de provincia/CCAA a partir del nombre del órgano contratante.
+// Es una heurística basada en texto (el feed no trae un campo de provincia estructurado),
+// así que puede fallar con organismos de ámbito nacional o nombres poco habituales.
+const PROVINCIAS_ES = ['Álava','Albacete','Alicante','Almería','Asturias','Ávila','Badajoz','Barcelona','Burgos','Cáceres','Cádiz','Cantabria','Castellón','Ciudad Real','Córdoba','Cuenca','Gerona','Girona','Granada','Guadalajara','Guipúzcoa','Huelva','Huesca','Jaén','La Coruña','A Coruña','La Rioja','Las Palmas','León','Lérida','Lleida','Lugo','Madrid','Málaga','Murcia','Navarra','Orense','Ourense','Palencia','Pontevedra','Salamanca','Segovia','Sevilla','Soria','Tarragona','Tenerife','Teruel','Toledo','Valencia','Valladolid','Vizcaya','Bizkaia','Zamora','Zaragoza','Ceuta','Melilla'];
+const CCAA_ES = ['Andalucía','Aragón','Asturias','Baleares','Canarias','Cantabria','Castilla-La Mancha','Castilla y León','Cataluña','Catalunya','Extremadura','Galicia','La Rioja','Madrid','Murcia','Navarra','País Vasco','Euskadi','Comunidad Valenciana'];
+function detectProvincia(t){
+  const text = (t.organo||'') + ' ' + (t.title||'');
+  for(const p of PROVINCIAS_ES){ if(keywordMatches(text, p.toLowerCase())) return p; }
+  return null;
+}
+function detectCCAA(t){
+  const text = (t.organo||'') + ' ' + (t.title||'');
+  for(const c of CCAA_ES){ if(keywordMatches(text, c.toLowerCase())) return c; }
+  return null;
+}
 
 const ESTADO_LABELS = {
   PUB:'Publicada / en plazo', EV:'En evaluación', ADJ:'Adjudicada (sin formalizar)',
@@ -908,7 +1004,7 @@ function emptyStateHTML(kind){
   return '<div class="empty-state"><div class="big">Todavía no hay datos</div>Importa el feed oficial para empezar.</div>';
 }
 
-let currentFilter = { search:'', compat:'todas', sort:'deadline' };
+let currentFilter = { search:'', compat:'todas', sort:'deadline', importeMin:null, importeMax:null, matriz:'', provincia:'', pipeline:'' };
 
 function rowHTML(t, comp){
   const days = t.deadline ? daysUntil(t.deadline) : null;
@@ -922,7 +1018,7 @@ function rowHTML(t, comp){
     </label>
     <div><div class="seal ${comp.level}">${escapeHtml(sealText)}</div></div>
     <div class="main">
-      <div class="title">${escapeHtml(t.title)} ${t.resumenPdfPath ? '<span title="Resumen automático disponible" style="color:var(--agq-green);font-size:12px;">📄</span>' : ''} ${marcada ? '<span title="Marcada para presentar" style="color:var(--agq-purple);font-size:12px;">📌</span>' : ''}</div>
+      <div class="title">${escapeHtml(t.title)} ${t.resumenPdfPath ? '<span title="Resumen automático disponible" style="color:var(--agq-green);font-size:12px;">📄</span>' : ''} ${marcada ? '<span title="Marcada para presentar" style="color:var(--agq-purple);font-size:12px;">📌</span>' : ''} ${marcada && t.estadoPipeline ? `<span class="pipeline-badge" style="background:${pipelineMeta(t.estadoPipeline).color};">${pipelineMeta(t.estadoPipeline).label}</span>` : ''}</div>
       <div class="meta">
         <span>${escapeHtml(t.organo || 'Órgano no indicado')}</span>
         ${(t.cpv||[]).slice(0,3).map(c=>'<span class="cpv">'+c+'</span>').join('')}
@@ -964,6 +1060,25 @@ function renderAbiertas(){
   if(currentFilter.compat !== 'todas'){
     items = items.filter(({comp}) => comp.level === currentFilter.compat);
   }
+  if(currentFilter.importeMin != null){
+    items = items.filter(({t}) => (t.importe||0) >= currentFilter.importeMin);
+  }
+  if(currentFilter.importeMax != null){
+    items = items.filter(({t}) => (t.importe||0) <= currentFilter.importeMax);
+  }
+  if(currentFilter.matriz){
+    items = items.filter(({t}) => detectMatrices(t).includes(currentFilter.matriz));
+  }
+  if(currentFilter.provincia){
+    items = items.filter(({t}) => detectProvincia(t) === currentFilter.provincia || detectCCAA(t) === currentFilter.provincia);
+  }
+  if(currentFilter.pipeline){
+    if(currentFilter.pipeline === '__sin_marcar__'){
+      items = items.filter(({t}) => !t.presentarLocal);
+    } else {
+      items = items.filter(({t}) => t.presentarLocal && (t.estadoPipeline||'detectada') === currentFilter.pipeline);
+    }
+  }
   items.sort((a,b)=>{
     if(currentFilter.sort === 'importe') return (b.t.importe||0) - (a.t.importe||0);
     if(currentFilter.sort === 'pub') return new Date(b.t.updated||0) - new Date(a.t.updated||0);
@@ -983,40 +1098,92 @@ function renderAbiertas(){
 }
 
 // URL del proxy seguro (Cloudflare Worker) que escribe data/seleccion.json sin exponer
-// ningún token de GitHub al navegador. Se rellena tras desplegarlo (ver instrucciones).
+// ningún token de GitHub al navegador.
 const SELECCION_PROXY_URL = 'https://agq-radar-proxy.nacho2988.workers.dev';
 const SELECCION_PROXY_SECRET = 'agq-radar-2026';
+
+function getAutorName(){
+  try{ return localStorage.getItem('agq_radar_autor_v1') || ''; }catch(e){ return ''; }
+}
+function setAutorName(name){
+  try{ localStorage.setItem('agq_radar_autor_v1', name || ''); }catch(e){}
+}
+
+async function syncToProxy(expediente, patch){
+  if(!SELECCION_PROXY_URL) return { ok:false, reason:'sin-proxy' };
+  try{
+    const resp = await fetch(SELECCION_PROXY_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ secret: SELECCION_PROXY_SECRET, expediente, patch: Object.assign({ autor: getAutorName() }, patch) })
+    });
+    const data = await resp.json().catch(()=>({}));
+    return { ok: resp.ok && data.ok, data };
+  }catch(e){
+    return { ok:false, reason:'red', error: e.message };
+  }
+}
+
+function rerenderAfterLocalChange(expediente){
+  renderAbiertas();
+  if(typeof renderPipeline === 'function') renderPipeline();
+  if(document.getElementById('detail-panel') && document.getElementById('detail-panel').classList.contains('show')){
+    openDetail(expediente);
+  }
+}
 
 async function togglePresentarLocal(expediente, marcada){
   const t = STATE.tenders[expediente];
   if(!t) return;
   t.presentarLocal = marcada;
   t.presentarLocalEn = marcada ? new Date().toISOString() : null;
+  if(marcada && !t.estadoPipeline) t.estadoPipeline = 'detectada';
   t.presentarSyncStatus = SELECCION_PROXY_URL ? 'sincronizando' : 'sin-proxy';
   persistTenders();
-  renderAbiertas();
-  if(document.getElementById('detail-panel') && document.getElementById('detail-panel').classList.contains('show')){
-    openDetail(expediente);
-  }
+  rerenderAfterLocalChange(expediente);
 
-  if(!SELECCION_PROXY_URL) return; // todavía no desplegado: queda solo en local
-
-  try{
-    const resp = await fetch(SELECCION_PROXY_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ secret: SELECCION_PROXY_SECRET, expediente, seleccionado: marcada })
-    });
-    const data = await resp.json().catch(()=>({}));
-    t.presentarSyncStatus = resp.ok && data.ok ? 'sincronizada' : 'error';
-  }catch(e){
-    t.presentarSyncStatus = 'error';
-  }
+  const result = await syncToProxy(expediente, { seleccionado: marcada });
+  t.presentarSyncStatus = result.ok ? 'sincronizada' : (SELECCION_PROXY_URL ? 'error' : 'sin-proxy');
   persistTenders();
-  renderAbiertas();
-  if(document.getElementById('detail-panel') && document.getElementById('detail-panel').classList.contains('show')){
-    openDetail(expediente);
-  }
+  rerenderAfterLocalChange(expediente);
+}
+
+async function setPipelineEstado(expediente, estadoId){
+  const t = STATE.tenders[expediente];
+  if(!t) return;
+  t.estadoPipeline = estadoId;
+  t.estadoPipelineEn = new Date().toISOString();
+  t.estadoPipelinePor = getAutorName() || null;
+  t.pipelineSyncStatus = SELECCION_PROXY_URL ? 'sincronizando' : 'sin-proxy';
+  persistTenders();
+  rerenderAfterLocalChange(expediente);
+
+  const result = await syncToProxy(expediente, { estadoPipeline: estadoId });
+  t.pipelineSyncStatus = result.ok ? 'sincronizada' : (SELECCION_PROXY_URL ? 'error' : 'sin-proxy');
+  persistTenders();
+  rerenderAfterLocalChange(expediente);
+}
+
+let notasDebounceTimer = null;
+function saveNotasCompartidas(expediente, texto){
+  const t = STATE.tenders[expediente];
+  if(!t) return;
+  t.notas = texto;
+  t.notasEn = new Date().toISOString();
+  t.notasPor = getAutorName() || null;
+  t.notasSyncStatus = SELECCION_PROXY_URL ? 'sincronizando' : 'sin-proxy';
+  persistTenders();
+  const indicator = document.getElementById('notas-sync-indicator');
+  if(indicator) indicator.textContent = '⏳ Guardando…';
+
+  clearTimeout(notasDebounceTimer);
+  notasDebounceTimer = setTimeout(async ()=>{
+    const result = await syncToProxy(expediente, { notas: texto });
+    t.notasSyncStatus = result.ok ? 'sincronizada' : (SELECCION_PROXY_URL ? 'error' : 'sin-proxy');
+    persistTenders();
+    const ind = document.getElementById('notas-sync-indicator');
+    if(ind) ind.textContent = result.ok ? '✅ Guardado para todo el equipo' : (SELECCION_PROXY_URL ? '⚠️ No se pudo sincronizar' : '');
+  }, 900);
 }
 
 function renderAdjudicadas(){
@@ -1049,6 +1216,103 @@ function renderAdjudicadas(){
   }).join('');
   container.querySelectorAll('.award-row').forEach(row => row.addEventListener('click', () => openDetail(row.dataset.id)));
 }
+// === [MOD:PIPELINE-BOARD] ===
+function renderPipeline(){
+  const board = document.getElementById('pipeline-board');
+  if(!board) return;
+  const marcadas = tendersArray().filter(t => isSectorRelevant(t) && t.presentarLocal);
+  document.getElementById('count-pipeline').textContent = String(marcadas.length);
+
+  board.innerHTML = ESTADOS_PIPELINE.map(estado=>{
+    const items = marcadas.filter(t => (t.estadoPipeline||'detectada') === estado.id);
+    return `<div class="pipeline-col" style="color:${estado.color};">
+      <h4><span>${estado.label}</span><span style="font-family:var(--font-mono);">${items.length}</span></h4>
+      ${items.map(t=>{
+        const days = t.deadline ? daysUntil(t.deadline) : null;
+        return `<div class="pipeline-card" data-id="${escapeAttr(t.expediente)}">
+          <div class="t">${escapeHtml(t.title.slice(0,70))}${t.title.length>70?'…':''}</div>
+          <div class="m">${t.importe?formatMoney(t.importe):'—'} · ${days!==null ? (days>=0?days+'d restantes':'cerrada') : 'sin fecha'}</div>
+          <select data-id="${escapeAttr(t.expediente)}" onclick="event.stopPropagation();">
+            ${ESTADOS_PIPELINE.map(e2=>`<option value="${e2.id}" ${e2.id===estado.id?'selected':''}>${e2.label}</option>`).join('')}
+          </select>
+        </div>`;
+      }).join('') || '<p style="font-size:11px;color:var(--ink-soft);">Vacío</p>'}
+    </div>`;
+  }).join('');
+
+  board.querySelectorAll('.pipeline-card').forEach(card=>{
+    card.addEventListener('click', ()=>openDetail(card.dataset.id));
+  });
+  board.querySelectorAll('.pipeline-card select').forEach(sel=>{
+    sel.addEventListener('change', e=>{ setPipelineEstado(e.target.dataset.id, e.target.value); });
+  });
+}
+
+// === [MOD:ANALITICA] ===
+let chartAdjudicatariosInstance = null;
+function renderAnalitica(){
+  const resumenEl = document.getElementById('analitica-resumen');
+  const tablaEl = document.getElementById('tabla-adjudicatarios');
+  const canvas = document.getElementById('chart-adjudicatarios');
+  if(!resumenEl || !tablaEl || !canvas) return;
+
+  const adjudicadas = getAwardedTenders();
+  const conAdjudicatario = adjudicadas.filter(t => t.adjudicatario && t.adjudicatario.trim());
+
+  const porAdjudicatario = {};
+  conAdjudicatario.forEach(t=>{
+    const nombre = t.adjudicatario.trim();
+    if(!porAdjudicatario[nombre]) porAdjudicatario[nombre] = { nombre, count:0, importeTotal:0 };
+    porAdjudicatario[nombre].count++;
+    porAdjudicatario[nombre].importeTotal += (t.importeAdjudicacion || t.importe || 0);
+  });
+  const ranking = Object.values(porAdjudicatario).sort((a,b)=> b.count - a.count || b.importeTotal - a.importeTotal);
+
+  const agqCount = conAdjudicatario.filter(t=>t.adjudicatario.toUpperCase().includes('AGQ')).length;
+  const pct = conAdjudicatario.length ? Math.round(100*agqCount/conAdjudicatario.length) : 0;
+
+  resumenEl.innerHTML = `
+    <div class="dash-cell"><div class="num">${adjudicadas.length}</div><div class="lbl">Adjudicaciones detectadas</div></div>
+    <div class="dash-cell acc"><div class="num">${agqCount}</div><div class="lbl">Ganadas por AGQ</div></div>
+    <div class="dash-cell"><div class="num">${pct}%</div><div class="lbl">% adjudicado a AGQ (de las que indican adjudicatario)</div></div>
+    <div class="dash-cell"><div class="num">${ranking.length}</div><div class="lbl">Competidores distintos detectados</div></div>
+  `;
+
+  if(!ranking.length){
+    tablaEl.innerHTML = '<p style="font-size:12px;color:var(--ink-soft);">Todavía no hay adjudicaciones con datos suficientes para analizar.</p>';
+    canvas.style.display = 'none';
+  } else {
+    canvas.style.display = 'block';
+    const top = ranking.slice(0, 10);
+    tablaEl.innerHTML = `<table class="tabla-rank">
+      <thead><tr><th>Adjudicatario</th><th>Nº adjudicaciones</th><th>Importe total</th></tr></thead>
+      <tbody>${ranking.map(r=>`<tr class="${r.nombre.toUpperCase().includes('AGQ')?'agq-row':''}">
+        <td>${escapeHtml(r.nombre)}</td><td>${r.count}</td><td>${formatMoney(r.importeTotal)}</td>
+      </tr>`).join('')}</tbody>
+    </table>`;
+
+    if(window.Chart){
+      if(chartAdjudicatariosInstance) chartAdjudicatariosInstance.destroy();
+      chartAdjudicatariosInstance = new Chart(canvas, {
+        type: 'bar',
+        data: {
+          labels: top.map(r => r.nombre.length>22 ? r.nombre.slice(0,22)+'…' : r.nombre),
+          datasets: [{
+            label: 'Nº de adjudicaciones',
+            data: top.map(r=>r.count),
+            backgroundColor: top.map(r=> r.nombre.toUpperCase().includes('AGQ') ? '#84BD00' : '#565294')
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: { legend: { display: false } },
+          scales: { y: { beginAtZero: true, ticks: { precision: 0 } } }
+        }
+      });
+    }
+  }
+}
+
 // === [MOD:RENDER-DETAIL] ===
 let pendingPliegoText = {};
 
@@ -1086,6 +1350,14 @@ function openDetail(expediente){
           if(t.presentarSyncStatus === 'error') return '⚠️ No se pudo sincronizar con el equipo (revisa tu conexión). Queda marcada solo en este dispositivo por ahora.';
           return '⚠️ Sincronización con el equipo aún no configurada en esta app.';
         })()}</p>
+        ${t.presentarLocal ? `
+        <div style="margin-top:12px;">
+          <label style="font-size:11px;color:var(--ink-soft);text-transform:uppercase;font-weight:600;">Estado en el pipeline</label>
+          <select id="detail-pipeline-select" style="width:100%;margin-top:4px;padding:8px;border-radius:6px;border:1px solid var(--line);font-size:13px;">
+            ${ESTADOS_PIPELINE.map(e=>`<option value="${e.id}" ${(t.estadoPipeline||'detectada')===e.id?'selected':''}>${e.label}</option>`).join('')}
+          </select>
+          <p style="font-size:10.5px;color:var(--ink-soft);margin:4px 0 0;">${t.estadoPipelinePor ? 'Última actualización por ' + escapeHtml(t.estadoPipelinePor) + (t.estadoPipelineEn ? ' · ' + formatDate(t.estadoPipelineEn) : '') : ''}</p>
+        </div>` : ''}
       </div>
 
       <div class="section-block">
@@ -1133,16 +1405,20 @@ function openDetail(expediente){
       </div>` : ''}
 
       <div class="section-block">
-        <h3>Notas internas</h3>
+        <h3>Notas del equipo</h3>
+        <p style="font-size:10.5px;color:var(--ink-soft);margin:-4px 0 8px;">${t.notasPor ? 'Última edición de ' + escapeHtml(t.notasPor) + (t.notasEn ? ' · ' + formatDate(t.notasEn) : '') : 'Compartidas con todo el equipo en tiempo real.'}</p>
         <textarea class="notearea" id="tender-notes" placeholder="Notas, contacto, estrategia de oferta…">${escapeHtml(t.notas||'')}</textarea>
+        <div id="notas-sync-indicator" style="font-size:10.5px;color:var(--ink-soft);margin-top:4px;min-height:14px;"></div>
       </div>
 
     </div>
   `;
 
   document.getElementById('btn-close-panel').addEventListener('click', closeDetail);
-  document.getElementById('tender-notes').addEventListener('change', e=>{ t.notas = e.target.value; persistTenders(); });
+  document.getElementById('tender-notes').addEventListener('input', e=>{ saveNotasCompartidas(expediente, e.target.value); });
   document.getElementById('detail-chk-presentar').addEventListener('change', e=>{ togglePresentarLocal(expediente, e.target.checked); });
+  const pipeSel = document.getElementById('detail-pipeline-select');
+  if(pipeSel) pipeSel.addEventListener('change', e=>{ setPipelineEstado(expediente, e.target.value); });
   document.getElementById('pliego-dropzone').addEventListener('click', ()=> document.getElementById('pliego-files').click());
   document.getElementById('pliego-files').addEventListener('change', e=> handlePliegoFiles(expediente, e.target.files));
   document.getElementById('btn-gen-summary').addEventListener('click', ()=> generateAISummary(expediente));
@@ -1384,11 +1660,24 @@ async function autoSyncFromGitHub(showStatus){
         Object.keys(STATE.tenders).forEach(id=>{
           const sel = seleccion[id];
           const t = STATE.tenders[id];
-          const marcadaRemoto = !!(sel && sel.seleccionado);
+          if(!sel) return;
+          const marcadaRemoto = !!sel.seleccionado;
           if(t.presentarLocal !== marcadaRemoto){
             t.presentarLocal = marcadaRemoto;
-            t.presentarLocalEn = sel ? sel.marcadoEn : null;
+            t.presentarLocalEn = sel.marcadoEn || null;
             t.presentarSyncStatus = 'sincronizada';
+          }
+          // El registro remoto es la fuente de verdad para pipeline y notas compartidas
+          // (igual que con la selección): si otro compañero lo cambió, debe reflejarse aquí.
+          if(sel.estadoPipeline && sel.estadoPipeline !== t.estadoPipeline){
+            t.estadoPipeline = sel.estadoPipeline;
+            t.estadoPipelineEn = sel.estadoPipelineEn || null;
+            t.estadoPipelinePor = sel.estadoPipelinePor || null;
+          }
+          if(sel.notas !== undefined && sel.notasEn && sel.notasEn !== t.notasEn){
+            t.notas = sel.notas;
+            t.notasEn = sel.notasEn;
+            t.notasPor = sel.notasPor || null;
           }
         });
         persistTenders();
@@ -1501,12 +1790,16 @@ function refreshAllViews(){
   renderAbiertas();
   renderAdjudicadas();
   renderAccredConfig();
+  renderPipeline();
+  renderAnalitica();
 }
 
 function switchView(view){
   document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
   document.getElementById('view-'+view).classList.add('active');
   document.querySelectorAll('#tabs button').forEach(b=>b.classList.toggle('active', b.dataset.view===view));
+  if(view === 'pipeline') renderPipeline();
+  if(view === 'analitica') renderAnalitica();
 }
 
 document.getElementById('tabs').addEventListener('click', e=>{
@@ -1527,6 +1820,50 @@ document.querySelectorAll('.toolbar .chip').forEach(chip=>{
   });
 });
 document.getElementById('search-adjudicadas').addEventListener('input', renderAdjudicadas);
+
+function initFiltrosFinos(){
+  const selMatriz = document.getElementById('filtro-matriz');
+  MATRIZ_GROUPS.forEach(g=>{
+    const opt = document.createElement('option'); opt.value = g.id; opt.textContent = g.label;
+    selMatriz.appendChild(opt);
+  });
+  const selProv = document.getElementById('filtro-provincia');
+  const provList = [...new Set([...CCAA_ES, ...PROVINCIAS_ES])].sort((a,b)=>a.localeCompare(b,'es'));
+  provList.forEach(p=>{
+    const opt = document.createElement('option'); opt.value = p; opt.textContent = p;
+    selProv.appendChild(opt);
+  });
+  const selPipe = document.getElementById('filtro-pipeline');
+  ESTADOS_PIPELINE.forEach(e=>{
+    const opt = document.createElement('option'); opt.value = e.id; opt.textContent = e.label;
+    selPipe.appendChild(opt);
+  });
+
+  document.getElementById('filtro-importe-min').addEventListener('input', e=>{
+    currentFilter.importeMin = e.target.value === '' ? null : parseFloat(e.target.value);
+    renderAbiertas();
+  });
+  document.getElementById('filtro-importe-max').addEventListener('input', e=>{
+    currentFilter.importeMax = e.target.value === '' ? null : parseFloat(e.target.value);
+    renderAbiertas();
+  });
+  selMatriz.addEventListener('change', e=>{ currentFilter.matriz = e.target.value; renderAbiertas(); });
+  selProv.addEventListener('change', e=>{ currentFilter.provincia = e.target.value; renderAbiertas(); });
+  selPipe.addEventListener('change', e=>{ currentFilter.pipeline = e.target.value; renderAbiertas(); });
+  document.getElementById('btn-limpiar-filtros-finos').addEventListener('click', ()=>{
+    currentFilter.importeMin = null; currentFilter.importeMax = null;
+    currentFilter.matriz = ''; currentFilter.provincia = ''; currentFilter.pipeline = '';
+    document.getElementById('filtro-importe-min').value = '';
+    document.getElementById('filtro-importe-max').value = '';
+    selMatriz.value = ''; selProv.value = ''; selPipe.value = '';
+    renderAbiertas();
+  });
+
+  const autorInput = document.getElementById('autor-name-input');
+  autorInput.value = getAutorName();
+  autorInput.addEventListener('change', e=>setAutorName(e.target.value.trim()));
+}
+initFiltrosFinos();
 
 if(window.pdfjsLib){
   pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
