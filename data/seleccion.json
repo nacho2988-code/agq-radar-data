@@ -1,6 +1,6 @@
 {
   "Servicios  02/2026": {
-    "seleccionado": true,
+    "seleccionado": false,
     "marcadoEn": "2026-06-20T05:54:45.910Z",
     "alertaEnviada": "2026-06-19T21:34:55.924Z",
     "estadoPipeline": "detectada",
