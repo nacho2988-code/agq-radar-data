@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-06-21T01:03:41.496Z",
-  "totalEntriesScanned": 6629,
-  "pagesFetched": 14,
+  "generatedAt": "2026-06-21T07:00:59.355Z",
+  "totalEntriesScanned": 0,
+  "pagesFetched": 1,
   "coverageHoursTarget": 72,
-  "oldestEntrySeen": "2026-06-17T12:40:45.826Z",
+  "oldestEntrySeen": "2026-06-21T07:00:58.680Z",
   "resumenDiag": {
     "geminiKeyPresent": true,
     "candidatos": 0,
