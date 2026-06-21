@@ -1259,6 +1259,21 @@ async function buildOfertaPdfClient(entry, variable, plantilla){
   const doc = await PDFDocument.create();
   const fontReg = await doc.embedFont(StandardFonts.Helvetica);
   const fontBold = await doc.embedFont(StandardFonts.HelveticaBold);
+
+  // Embeber las imágenes de la plantilla (si vienen, ya que son opcionales por si
+  // todavía no se ha configurado la plantilla con imágenes)
+  const imgs = {};
+  if(plantilla.imagenes){
+    for(const key of Object.keys(plantilla.imagenes)){
+      const info = plantilla.imagenes[key];
+      if(!info || !info.base64) continue;
+      try{
+        const bytes = Uint8Array.from(atob(info.base64), c => c.charCodeAt(0));
+        imgs[key] = info.mime === 'image/png' ? await doc.embedPng(bytes) : await doc.embedJpg(bytes);
+      }catch(e){ /* si una imagen falla, seguimos sin ella */ }
+    }
+  }
+
   let page = doc.addPage([PAGE_W, PAGE_H]);
   let y = PAGE_H - MARGIN;
 
@@ -1272,10 +1287,18 @@ async function buildOfertaPdfClient(entry, variable, plantilla){
     if(line) lines.push(line);
     return lines;
   }
+  function drawHeader(){
+    page.drawRectangle({ x:0, y: PAGE_H-6, width: PAGE_W, height: 6, color: PURPLE });
+    if(imgs.logo){
+      const targetH = 22;
+      const scale = targetH / imgs.logo.height;
+      page.drawImage(imgs.logo, { x: PAGE_W - MARGIN - imgs.logo.width*scale, y: PAGE_H - 38, width: imgs.logo.width*scale, height: targetH });
+    }
+  }
   function newPageIfNeeded(needed){
     if(y - needed < MARGIN){
       page = doc.addPage([PAGE_W, PAGE_H]); y = PAGE_H - MARGIN;
-      page.drawRectangle({ x:0, y: PAGE_H-6, width: PAGE_W, height: 6, color: PURPLE }); y -= 30;
+      drawHeader(); y -= 30;
     }
   }
   function heading(num, title){
@@ -1299,8 +1322,17 @@ async function buildOfertaPdfClient(entry, variable, plantilla){
     });
     y -= 8;
   }
+  function imageBlock(imgKey, maxWidth){
+    const img = imgs[imgKey];
+    if(!img) return;
+    const w = maxWidth;
+    const h = img.height * (w / img.width);
+    newPageIfNeeded(h + 14);
+    page.drawImage(img, { x: MARGIN, y: y - h, width: w, height: h });
+    y -= (h + 16);
+  }
 
-  page.drawRectangle({ x:0, y: PAGE_H-6, width: PAGE_W, height: 6, color: PURPLE });
+  drawHeader();
   page.drawText('AGQ RADAR DE LICITACIONES', { x: MARGIN, y, size: 9, font: fontBold, color: PURPLE });
   y -= 22;
   wrapText('BORRADOR DE OFERTA TÉCNICA — GENERADO AUTOMÁTICAMENTE, REVISAR ANTES DE PRESENTAR', fontReg, 8, PAGE_W - 2*MARGIN)
@@ -1315,7 +1347,9 @@ async function buildOfertaPdfClient(entry, variable, plantilla){
   heading('01', 'Objeto del documento'); paragraph(variable.objetoDocumento);
   heading('02', 'Presentación general del licitador'); paragraph(plantilla.secciones.presentacionLicitador);
   paragraph(plantilla.secciones.referenciasGenerales);
+  imageBlock('mapaPresencia', PAGE_W - 2*MARGIN);
   paragraph(plantilla.secciones.instalaciones);
+  imageBlock('fotoInstalaciones', PAGE_W - 2*MARGIN);
   heading('03', 'Acreditaciones, certificaciones y autorizaciones'); bulletList(plantilla.secciones.acreditaciones);
   heading('04', 'Alcance normativo'); paragraph(variable.alcanceNormativo);
   heading('05', 'Alcance técnico: descripción de los trabajos'); paragraph(variable.alcanceTecnico);
