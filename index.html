@@ -1382,7 +1382,7 @@ async function generarOfertaTecnica(expediente){
       body: JSON.stringify({ expediente })
     });
     const data = await resp.json();
-    if(!resp.ok || !data.ok) throw new Error(data.error || ('HTTP ' + resp.status));
+    if(!resp.ok || !data.ok) throw new Error((data.error || ('HTTP ' + resp.status)) + (data.detail ? ' — ' + data.detail : ''));
 
     if(statusEl) statusEl.textContent = '📄 Maquetando el PDF…';
     const pdfBytes = await buildOfertaPdfClient(data.entry, data.variable, data.plantilla);
