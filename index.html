@@ -9,6 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
 <style>
 /* ============================================================
    TOKENS
@@ -1106,8 +1107,19 @@ function renderAbiertas(){
 
 // URL del proxy seguro (Cloudflare Worker) que escribe data/seleccion.json sin exponer
 // ningún token de GitHub al navegador.
-const SELECCION_PROXY_URL = 'https://agq-radar-proxy.nacho2988.workers.dev';
+const WORKER_LOGIN_HOST = 'agq-radar-login.nacho2988.workers.dev';
+const SELECCION_PROXY_URL_LEGACY = 'https://agq-radar-proxy.nacho2988.workers.dev';
 const SELECCION_PROXY_SECRET = 'agq-radar-2026';
+
+function isUnifiedWorkerHost(){
+  return location.hostname === WORKER_LOGIN_HOST;
+}
+function seleccionEndpoint(){
+  return isUnifiedWorkerHost() ? '/api/seleccion' : SELECCION_PROXY_URL_LEGACY;
+}
+function ofertaEndpoint(){
+  return isUnifiedWorkerHost() ? '/api/generar-oferta-tecnica' : null;
+}
 
 function getAutorName(){
   try{ return localStorage.getItem('agq_radar_autor_v1') || ''; }catch(e){ return ''; }
@@ -1117,12 +1129,16 @@ function setAutorName(name){
 }
 
 async function syncToProxy(expediente, patch){
-  if(!SELECCION_PROXY_URL) return { ok:false, reason:'sin-proxy' };
+  const url = seleccionEndpoint();
+  if(!url) return { ok:false, reason:'sin-proxy' };
   try{
-    const resp = await fetch(SELECCION_PROXY_URL, {
+    const payload = isUnifiedWorkerHost()
+      ? { expediente, patch: Object.assign({ autor: getAutorName() }, patch) }
+      : { secret: SELECCION_PROXY_SECRET, expediente, patch: Object.assign({ autor: getAutorName() }, patch) };
+    const resp = await fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ secret: SELECCION_PROXY_SECRET, expediente, patch: Object.assign({ autor: getAutorName() }, patch) })
+      body: JSON.stringify(payload)
     });
     const data = await resp.json().catch(()=>({}));
     return { ok: resp.ok && data.ok, data };
@@ -1145,12 +1161,12 @@ async function togglePresentarLocal(expediente, marcada){
   t.presentarLocal = marcada;
   t.presentarLocalEn = marcada ? new Date().toISOString() : null;
   if(marcada && !t.estadoPipeline) t.estadoPipeline = 'detectada';
-  t.presentarSyncStatus = SELECCION_PROXY_URL ? 'sincronizando' : 'sin-proxy';
+  t.presentarSyncStatus = seleccionEndpoint() ? 'sincronizando' : 'sin-proxy';
   persistTenders();
   rerenderAfterLocalChange(expediente);
 
   const result = await syncToProxy(expediente, { seleccionado: marcada });
-  t.presentarSyncStatus = result.ok ? 'sincronizada' : (SELECCION_PROXY_URL ? 'error' : 'sin-proxy');
+  t.presentarSyncStatus = result.ok ? 'sincronizada' : (seleccionEndpoint() ? 'error' : 'sin-proxy');
   persistTenders();
   rerenderAfterLocalChange(expediente);
 }
@@ -1161,12 +1177,12 @@ async function setPipelineEstado(expediente, estadoId){
   t.estadoPipeline = estadoId;
   t.estadoPipelineEn = new Date().toISOString();
   t.estadoPipelinePor = getAutorName() || null;
-  t.pipelineSyncStatus = SELECCION_PROXY_URL ? 'sincronizando' : 'sin-proxy';
+  t.pipelineSyncStatus = seleccionEndpoint() ? 'sincronizando' : 'sin-proxy';
   persistTenders();
   rerenderAfterLocalChange(expediente);
 
   const result = await syncToProxy(expediente, { estadoPipeline: estadoId });
-  t.pipelineSyncStatus = result.ok ? 'sincronizada' : (SELECCION_PROXY_URL ? 'error' : 'sin-proxy');
+  t.pipelineSyncStatus = result.ok ? 'sincronizada' : (seleccionEndpoint() ? 'error' : 'sin-proxy');
   persistTenders();
   rerenderAfterLocalChange(expediente);
 }
@@ -1178,7 +1194,7 @@ function saveNotasCompartidas(expediente, texto){
   t.notas = texto;
   t.notasEn = new Date().toISOString();
   t.notasPor = getAutorName() || null;
-  t.notasSyncStatus = SELECCION_PROXY_URL ? 'sincronizando' : 'sin-proxy';
+  t.notasSyncStatus = seleccionEndpoint() ? 'sincronizando' : 'sin-proxy';
   persistTenders();
   const indicator = document.getElementById('notas-sync-indicator');
   if(indicator) indicator.textContent = '⏳ Guardando…';
@@ -1186,10 +1202,10 @@ function saveNotasCompartidas(expediente, texto){
   clearTimeout(notasDebounceTimer);
   notasDebounceTimer = setTimeout(async ()=>{
     const result = await syncToProxy(expediente, { notas: texto });
-    t.notasSyncStatus = result.ok ? 'sincronizada' : (SELECCION_PROXY_URL ? 'error' : 'sin-proxy');
+    t.notasSyncStatus = result.ok ? 'sincronizada' : (seleccionEndpoint() ? 'error' : 'sin-proxy');
     persistTenders();
     const ind = document.getElementById('notas-sync-indicator');
-    if(ind) ind.textContent = result.ok ? '✅ Guardado para todo el equipo' : (SELECCION_PROXY_URL ? '⚠️ No se pudo sincronizar' : '');
+    if(ind) ind.textContent = result.ok ? '✅ Guardado para todo el equipo' : (seleccionEndpoint() ? '⚠️ No se pudo sincronizar' : '');
   }, 900);
 }
 
@@ -1224,6 +1240,134 @@ function renderAdjudicadas(){
   container.querySelectorAll('.award-row').forEach(row => row.addEventListener('click', () => openDetail(row.dataset.id)));
 }
 // === [MOD:PIPELINE-BOARD] ===
+// === [MOD:OFERTA-TECNICA] ===
+function sanitizeForPdfClient(s){
+  if(s == null) return '';
+  return String(s)
+    .replace(/≤/g, '<=').replace(/≥/g, '>=')
+    .replace(/[–—]/g, '-').replace(/[''']/g, "'").replace(/[""]/g, '"')
+    .replace(/…/g, '...').replace(/•/g, '-').replace(/×/g, 'x').replace(/÷/g, '/')
+    .replace(/[^\x00-\x7F\u00A0-\u00FF]/g, '?');
+}
+
+async function buildOfertaPdfClient(entry, variable, plantilla){
+  const { PDFDocument, rgb, StandardFonts } = PDFLib;
+  const PURPLE = rgb(0x56/255,0x52/255,0x94/255), GREEN = rgb(0x84/255,0xBD/255,0x00/255);
+  const INK = rgb(0.13,0.13,0.15), SOFT = rgb(0.42,0.42,0.46);
+  const PAGE_W = 595.28, PAGE_H = 841.89, MARGIN = 50;
+
+  const doc = await PDFDocument.create();
+  const fontReg = await doc.embedFont(StandardFonts.Helvetica);
+  const fontBold = await doc.embedFont(StandardFonts.HelveticaBold);
+  let page = doc.addPage([PAGE_W, PAGE_H]);
+  let y = PAGE_H - MARGIN;
+
+  function wrapText(text, font, size, maxWidth){
+    const words = sanitizeForPdfClient(text).split(/\s+/);
+    const lines = []; let line = '';
+    for(const w of words){
+      const test = line ? line + ' ' + w : w;
+      if(font.widthOfTextAtSize(test, size) > maxWidth && line){ lines.push(line); line = w; } else line = test;
+    }
+    if(line) lines.push(line);
+    return lines;
+  }
+  function newPageIfNeeded(needed){
+    if(y - needed < MARGIN){
+      page = doc.addPage([PAGE_W, PAGE_H]); y = PAGE_H - MARGIN;
+      page.drawRectangle({ x:0, y: PAGE_H-6, width: PAGE_W, height: 6, color: PURPLE }); y -= 30;
+    }
+  }
+  function heading(num, title){
+    newPageIfNeeded(40);
+    page.drawText(num, { x: MARGIN, y, size: 13, font: fontBold, color: GREEN });
+    page.drawText(sanitizeForPdfClient(title.toUpperCase()), { x: MARGIN+28, y, size: 13, font: fontBold, color: PURPLE });
+    y -= 20;
+  }
+  function paragraph(text){
+    if(!text) return;
+    const lines = wrapText(text, fontReg, 10, PAGE_W - 2*MARGIN);
+    lines.forEach(l=>{ newPageIfNeeded(16); page.drawText(l, { x: MARGIN, y, size: 10, font: fontReg, color: INK }); y -= 14; });
+    y -= 10;
+  }
+  function bulletList(items){
+    (items||[]).forEach(it=>{
+      const lines = wrapText(it, fontReg, 9.5, PAGE_W - 2*MARGIN - 14);
+      newPageIfNeeded(lines.length*13 + 4);
+      page.drawText('-', { x: MARGIN, y, size: 9.5, font: fontBold, color: GREEN });
+      lines.forEach(l=>{ page.drawText(l, { x: MARGIN+12, y, size: 9.5, font: fontReg, color: INK }); y -= 13; });
+    });
+    y -= 8;
+  }
+
+  page.drawRectangle({ x:0, y: PAGE_H-6, width: PAGE_W, height: 6, color: PURPLE });
+  page.drawText('AGQ RADAR DE LICITACIONES', { x: MARGIN, y, size: 9, font: fontBold, color: PURPLE });
+  y -= 22;
+  wrapText('BORRADOR DE OFERTA TÉCNICA — GENERADO AUTOMÁTICAMENTE, REVISAR ANTES DE PRESENTAR', fontReg, 8, PAGE_W - 2*MARGIN)
+    .forEach(l=>{ page.drawText(l, { x: MARGIN, y, size: 8, font: fontReg, color: GREEN }); y -= 11; });
+  y -= 10;
+  page.drawLine({ start:{x:MARGIN,y}, end:{x:PAGE_W-MARGIN,y}, thickness:0.75, color: rgb(0.85,0.85,0.87) }); y -= 22;
+  wrapText(entry.title, fontBold, 15, PAGE_W - 2*MARGIN).forEach(l=>{ page.drawText(l, { x: MARGIN, y, size: 15, font: fontBold, color: INK }); y -= 19; });
+  y -= 4;
+  page.drawText(sanitizeForPdfClient('Expediente ' + entry.expediente + (entry.organo ? ' · ' + entry.organo : '')), { x: MARGIN, y, size: 10, font: fontReg, color: SOFT });
+  y -= 30;
+
+  heading('01', 'Objeto del documento'); paragraph(variable.objetoDocumento);
+  heading('02', 'Presentación general del licitador'); paragraph(plantilla.secciones.presentacionLicitador);
+  paragraph(plantilla.secciones.referenciasGenerales);
+  paragraph(plantilla.secciones.instalaciones);
+  heading('03', 'Acreditaciones, certificaciones y autorizaciones'); bulletList(plantilla.secciones.acreditaciones);
+  heading('04', 'Alcance normativo'); paragraph(variable.alcanceNormativo);
+  heading('05', 'Alcance técnico: descripción de los trabajos'); paragraph(variable.alcanceTecnico);
+  heading('06', 'Plan de muestreo y toma de muestras'); paragraph(variable.planMuestreo);
+  heading('07', 'Control de calidad de ensayos'); paragraph(plantilla.secciones.controlCalidad);
+  heading('08', 'Aplicación BeSafer (seguimiento en tiempo real)'); paragraph(plantilla.secciones.aplicacionBesafer);
+  paragraph(plantilla.secciones.controlPlazos);
+  heading('09', 'Sistema de gestión medioambiental'); paragraph(plantilla.secciones.sistemaGestionMedioambiental);
+  heading('10', 'Plan de prevención de riesgos laborales'); paragraph(plantilla.secciones.planPrevencionRiesgos);
+  heading('11', 'Notas y plazos de entrega'); paragraph(variable.notasYPlazos);
+  heading('12', 'Anexos a adjuntar manualmente (no generados automáticamente)'); bulletList(plantilla.anexosAAdjuntar);
+
+  return await doc.save();
+}
+
+async function generarOfertaTecnica(expediente){
+  const endpoint = ofertaEndpoint();
+  const btn = document.getElementById('btn-generar-oferta');
+  const statusEl = document.getElementById('oferta-status');
+  if(!endpoint){
+    if(statusEl) statusEl.textContent = '⚠️ Esta función solo está disponible accediendo desde la dirección protegida del equipo.';
+    return;
+  }
+  if(btn){ btn.disabled = true; btn.textContent = 'Generando… (puede tardar 1-2 min)'; }
+  if(statusEl) statusEl.textContent = '⏳ Leyendo el pliego y redactando el borrador con IA…';
+  try{
+    const resp = await fetch(endpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ expediente })
+    });
+    const data = await resp.json();
+    if(!resp.ok || !data.ok) throw new Error(data.error || ('HTTP ' + resp.status));
+
+    if(statusEl) statusEl.textContent = '📄 Maquetando el PDF…';
+    const pdfBytes = await buildOfertaPdfClient(data.entry, data.variable, data.plantilla);
+    const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+    const blobUrl = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = blobUrl;
+    a.download = 'oferta_tecnica_' + expediente.replace(/[^a-zA-Z0-9]/g,'_') + '.pdf';
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(()=>URL.revokeObjectURL(blobUrl), 10000);
+
+    if(statusEl) statusEl.textContent = '✅ Borrador descargado. Revísalo antes de presentar — recuerda adjuntar los anexos indicados al final del documento.';
+  }catch(e){
+    if(statusEl) statusEl.textContent = '⚠️ No se pudo generar: ' + e.message;
+  }finally{
+    if(btn){ btn.disabled = false; btn.textContent = '📄 Generar borrador de oferta técnica'; }
+  }
+}
+
 function renderPipeline(){
   const board = document.getElementById('pipeline-board');
   if(!board) return;
@@ -1364,6 +1508,10 @@ function openDetail(expediente){
             ${ESTADOS_PIPELINE.map(e=>`<option value="${e.id}" ${(t.estadoPipeline||'detectada')===e.id?'selected':''}>${e.label}</option>`).join('')}
           </select>
           <p style="font-size:10.5px;color:var(--ink-soft);margin:4px 0 0;">${t.estadoPipelinePor ? 'Última actualización por ' + escapeHtml(t.estadoPipelinePor) + (t.estadoPipelineEn ? ' · ' + formatDate(t.estadoPipelineEn) : '') : ''}</p>
+        </div>
+        <div style="margin-top:14px;">
+          <button class="btn primary" id="btn-generar-oferta" style="width:100%;">📄 Generar borrador de oferta técnica</button>
+          <p id="oferta-status" style="font-size:10.5px;color:var(--ink-soft);margin:6px 0 0;">${isUnifiedWorkerHost() ? 'Usa el pliego real + la plantilla AGQ para redactar un primer borrador con IA. Revísalo siempre antes de presentar.' : '⚠️ Esta función solo está disponible accediendo desde la dirección protegida del equipo (no desde este enlace).'}</p>
         </div>` : ''}
       </div>
 
@@ -1426,6 +1574,8 @@ function openDetail(expediente){
   document.getElementById('detail-chk-presentar').addEventListener('change', e=>{ togglePresentarLocal(expediente, e.target.checked); });
   const pipeSel = document.getElementById('detail-pipeline-select');
   if(pipeSel) pipeSel.addEventListener('change', e=>{ setPipelineEstado(expediente, e.target.value); });
+  const btnOferta = document.getElementById('btn-generar-oferta');
+  if(btnOferta) btnOferta.addEventListener('click', ()=> generarOfertaTecnica(expediente));
   document.getElementById('pliego-dropzone').addEventListener('click', ()=> document.getElementById('pliego-files').click());
   document.getElementById('pliego-files').addEventListener('change', e=> handlePliegoFiles(expediente, e.target.files));
   document.getElementById('btn-gen-summary').addEventListener('click', ()=> generateAISummary(expediente));
