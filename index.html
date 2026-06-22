@@ -226,7 +226,7 @@ select.sortsel{
 }
 .row{
   display:grid;
-  grid-template-columns:6px 28px 54px 1fr 120px 90px;
+  grid-template-columns:6px 28px 54px 1fr 80px 120px 90px;
   align-items:center;
   border-bottom:1px solid var(--line);
   cursor:pointer;
@@ -246,6 +246,9 @@ select.sortsel{
 .tabla-rank th{text-align:left;padding:6px 8px;color:var(--ink-soft);font-weight:600;border-bottom:1px solid var(--line);font-size:11px;text-transform:uppercase;}
 .tabla-rank td{padding:7px 8px;border-bottom:1px solid var(--line);}
 .tabla-rank tr.agq-row{background:rgba(132,189,0,0.08);font-weight:600;}
+.col-comercial{display:flex;align-items:center;justify-content:center;}
+.sel-comercial{width:64px;padding:4px 2px;font-size:11px;border:1px solid var(--line);border-radius:5px;background:var(--paper-dim);cursor:pointer;text-align:center;}
+.sel-comercial:hover{border-color:var(--agq-purple);}
 .pipeline-badge{display:inline-block;font-size:10px;padding:2px 7px;border-radius:10px;color:#fff;font-weight:600;}
 .check-presentar{display:flex;align-items:center;justify-content:center;cursor:pointer;height:100%;}
 .check-presentar input{width:17px;height:17px;accent-color:var(--agq-purple);cursor:pointer;}
@@ -489,14 +492,6 @@ footer.foot{
         <select class="sortsel" id="filtro-pipeline">
           <option value="">Pipeline: todos</option>
           <option value="__sin_marcar__">Sin marcar</option>
-        </select>
-        <select class="sortsel" id="filtro-comercial">
-          <option value="">Comercial: todos</option>
-          <option value="RSB">RSB</option>
-          <option value="PRF">PRF</option>
-          <option value="MPA">MPA</option>
-          <option value="IBV">IBV</option>
-          <option value="JTG">JTG</option>
         </select>
         <button class="btn ghost" id="btn-limpiar-filtros-finos" style="font-size:12px;padding:6px 10px;">Limpiar filtros</button>
       </div>
@@ -1053,6 +1048,12 @@ function rowHTML(t, comp){
       </div>
     </div>
     <div class="amount">${t.importe ? formatMoney(t.importe) : '—'}</div>
+    <div class="col-comercial" onclick="event.stopPropagation();">
+      <select class="sel-comercial" data-id="${escapeAttr(t.expediente)}" title="Comercial responsable">
+        <option value="">—</option>
+        ${COMERCIALES.map(c=>`<option value="${c}" ${(t.comercial||'')===c?'selected':''}>${c}</option>`).join('')}
+      </select>
+    </div>
     <div class="deadline">
       <div class="days ${urgent?'urgent':''}">${days!==null ? (days>=0 ? days+'d' : 'cerrada') : '?'}</div>
       <div class="date">${t.deadline ? formatDate(t.deadline) : (t.deadlineSource||'sin fecha')}</div>
@@ -1123,6 +1124,16 @@ function renderAbiertas(){
   if(items.length === 0){ container.innerHTML = emptyStateHTML('abiertas'); return; }
   container.innerHTML = items.map(({t,comp}) => rowHTML(t,comp)).join('');
   container.querySelectorAll('.row').forEach(row => row.addEventListener('click', () => openDetail(row.dataset.id)));
+  container.querySelectorAll('.sel-comercial').forEach(sel => sel.addEventListener('change', (e)=>{
+    const id = e.target.dataset.id;
+    const t = STATE.tenders[id];
+    if(!t) return;
+    t.comercial = e.target.value || '';
+    t.presentarLocalEn = new Date().toISOString();
+    persistTenders();
+    renderAbiertas();
+    syncToProxy(id, { comercial: t.comercial });
+  }));
   container.querySelectorAll('.chk-presentar').forEach(chk => chk.addEventListener('change', (e)=>{
     togglePresentarLocal(e.target.dataset.id, e.target.checked);
   }));
@@ -1566,13 +1577,6 @@ function openDetail(expediente){
           </select>
           <p style="font-size:10.5px;color:var(--ink-soft);margin:4px 0 0;">${t.estadoPipelinePor ? 'Última actualización por ' + escapeHtml(t.estadoPipelinePor) + (t.estadoPipelineEn ? ' · ' + formatDate(t.estadoPipelineEn) : '') : ''}</p>
         </div>
-        <div style="margin-top:12px;">
-          <label style="font-size:11px;color:var(--ink-soft);text-transform:uppercase;font-weight:600;">Comercial responsable</label>
-          <select id="detail-comercial-select" style="width:100%;margin-top:4px;padding:8px;border-radius:6px;border:1px solid var(--line);font-size:13px;">
-            <option value="">— Sin asignar —</option>
-            ${COMERCIALES.map(c=>`<option value="${c}" ${(t.comercial||'')===c?'selected':''}>${c}</option>`).join('')}
-          </select>
-        </div>
         <div style="margin-top:14px;">
           <button class="btn primary" id="btn-generar-oferta" style="width:100%;">📄 Generar borrador de oferta técnica</button>
           <p id="oferta-status" style="font-size:10.5px;color:var(--ink-soft);margin:6px 0 0;">${isUnifiedWorkerHost() ? 'Usa el pliego real + la plantilla AGQ para redactar un primer borrador con IA. Revísalo siempre antes de presentar.' : '⚠️ Esta función solo está disponible accediendo desde la dirección protegida del equipo (no desde este enlace).'}</p>
@@ -1638,16 +1642,6 @@ function openDetail(expediente){
   document.getElementById('detail-chk-presentar').addEventListener('change', e=>{ togglePresentarLocal(expediente, e.target.checked); });
   const pipeSel = document.getElementById('detail-pipeline-select');
   if(pipeSel) pipeSel.addEventListener('change', e=>{ setPipelineEstado(expediente, e.target.value); });
-  const comercialSel = document.getElementById('detail-comercial-select');
-  if(comercialSel) comercialSel.addEventListener('change', e=>{
-    t.comercial = e.target.value || '';
-    t.presentarLocalEn = new Date().toISOString(); // actualizar timestamp para evitar que el sync lo revierta
-    persistTenders();
-    renderAbiertas();
-    if(typeof renderPipeline === 'function') renderPipeline();
-    // Sincronizar el comercial al Worker (se guarda en seleccion.json como campo extra)
-    syncToProxy(expediente, { comercial: e.target.value || '' });
-  });
   const btnOferta = document.getElementById('btn-generar-oferta');
   if(btnOferta) btnOferta.addEventListener('click', ()=> generarOfertaTecnica(expediente));
   document.getElementById('pliego-dropzone').addEventListener('click', ()=> document.getElementById('pliego-files').click());
@@ -2096,15 +2090,12 @@ function initFiltrosFinos(){
   selProv.addEventListener('change', e=>{ currentFilter.provincia = e.target.value; renderAbiertas(); });
   selPipe.addEventListener('change', e=>{ currentFilter.pipeline = e.target.value; renderAbiertas(); });
 
-  const selComercial = document.getElementById('filtro-comercial');
-  selComercial.addEventListener('change', e=>{ currentFilter.comercial = e.target.value; renderAbiertas(); });
-
   document.getElementById('btn-limpiar-filtros-finos').addEventListener('click', ()=>{
     currentFilter.importeMin = null; currentFilter.importeMax = null;
     currentFilter.matriz = ''; currentFilter.provincia = ''; currentFilter.pipeline = ''; currentFilter.comercial = '';
     document.getElementById('filtro-importe-min').value = '';
     document.getElementById('filtro-importe-max').value = '';
-    selMatriz.value = ''; selProv.value = ''; selPipe.value = ''; selComercial.value = '';
+    selMatriz.value = ''; selProv.value = ''; selPipe.value = '';
     renderAbiertas();
   });
 
