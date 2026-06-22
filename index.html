@@ -739,7 +739,8 @@ const FEED_URL = 'https://contrataciondelestado.es/sindicacion/sindicacion_643/l
 var STATE = {
   tenders: {},      // keyed by expediente id
   config: { accreditations: DEFAULT_ACCREDITATIONS.slice(), cpv: DEFAULT_CPV.slice(), activityKeywords: DEFAULT_ACTIVITY_KEYWORDS.slice(), genericAmbiguous: DEFAULT_GENERIC_AMBIGUOUS.slice() },
-  summaries: {}      // keyed by expediente id -> {administrativo, tecnico, generatedAt}
+  summaries: {},    // keyed by expediente id -> {administrativo, tecnico, generatedAt}
+  historico: []     // adjudicaciones del backfill histórico (2021-hoy)
 };
 
 function loadState(){
@@ -991,17 +992,19 @@ function isOpenForSubmission(t){
   return t.estado === 'PUB' || !t.estado;
 }
 function getAwardedTenders(){
-  const tresAniosAtras = new Date();
-  tresAniosAtras.setFullYear(tresAniosAtras.getFullYear() - 3);
-  tresAniosAtras.setMonth(0, 1); // 1 de enero de hace 3 años
-  return tendersArray().filter(t => {
+  // Combina: (1) las del snapshot diario (estado ADJ/RES), y (2) el histórico de backfill.
+  // Elimina duplicados por expediente, priorizando el snapshot diario (más actualizado).
+  const desde2021 = new Date('2021-01-01');
+  const fromSnap = tendersArray().filter(t => {
     if(!isSectorRelevant(t)) return false;
     if(t.estado !== 'ADJ' && t.estado !== 'RES') return false;
-    // Incluir si la fecha de adjudicación/actualización es de los últimos 3 años
     const fecha = t.fechaAdjudicacion || t.updated || t.importedAt || '';
-    if(!fecha) return true; // sin fecha: incluir por si acaso
-    return new Date(fecha) >= tresAniosAtras;
+    if(!fecha) return true;
+    return new Date(fecha) >= desde2021;
   });
+  const snapIds = new Set(fromSnap.map(t => t.expediente));
+  const fromHistorico = (STATE.historico || []).filter(e => !snapIds.has(e.expediente));
+  return [...fromSnap, ...fromHistorico];
 }
 // === [MOD:RENDER-LIST] ===
 function escapeHtml(s){
@@ -1922,6 +1925,19 @@ async function autoSyncFromGitHub(showStatus){
         persistTenders();
       }
     }catch(e){ /* si falla, mantenemos el estado local tal cual estaba */ }
+
+    // Cargar el histórico de backfill (adjudicaciones 2021-hoy)
+    try{
+      const histUrl = location.hostname.endsWith('github.io')
+        ? `data/historico_adjudicaciones.json?_=${Date.now()}`
+        : `https://raw.githubusercontent.com/${cfg.repo}/${cfg.branch || 'main'}/data/historico_adjudicaciones.json?_=${Date.now()}`;
+      const histResp = await fetch(histUrl);
+      if(histResp.ok){
+        const hist = await histResp.json();
+        STATE.historico = hist.entries || [];
+        console.log(`Histórico cargado: ${STATE.historico.length} adjudicaciones desde ${hist.fromYear||2021}`);
+      }
+    }catch(e){ /* el fichero todavía no existe si no se ha ejecutado el backfill */ }
 
     cfg.lastSync = new Date().toISOString();
     cfg.lastCount = entries.length;
