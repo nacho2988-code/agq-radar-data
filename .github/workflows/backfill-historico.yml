@@ -36,7 +36,11 @@ jobs:
             | head -5
 
       - name: Ejecutar backfill histórico
-        run: node scripts/backfill-historico.mjs
+        run: node scripts/backfill-historico.mjs 2>&1 | tee /tmp/backfill-output.log; exit ${PIPESTATUS[0]}
+
+      - name: Mostrar últimas líneas del log si hubo error
+        if: failure()
+        run: tail -50 /tmp/backfill-output.log || echo "Sin log disponible"
 
       - name: Commitear el histórico generado
         run: |
