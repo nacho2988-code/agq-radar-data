@@ -23,7 +23,8 @@ const FEED_URL = 'https://contrataciondelestado.es/sindicacion/sindicacion_643/l
 // con un tope de páginas de seguridad para no entrar en bucle si el feed fallara.
 const COVERAGE_HOURS = 72; // colchón de seguridad: si el cron se retrasa o falla un día, igualmente cubrimos lo publicado
 const SAFETY_MAX_PAGES = 40; // 40 × 500 = 20.000 entradas como límite absoluto por ejecución
-const STALE_DAYS = 90;          // se purgan del histórico las entradas más antiguas que esto
+const STALE_DAYS_OPEN = 90;        // abiertas sin actividad: purgar después de 90 días
+const STALE_DAYS_ADJ  = 1096;      // adjudicadas/resueltas: conservar 3 años completos
 const CONFIG_PATH = 'config/accreditations.json';
 const OUTPUT_PATH = 'data/licitaciones.json';
 const RESUMENES_DIR = 'data/resumenes';
@@ -608,8 +609,11 @@ async function run(){
     byId.set(e.expediente, e);
   });
 
-  const cutoff = Date.now() - STALE_DAYS * 86400000;
+  const cutoffOpen = Date.now() - STALE_DAYS_OPEN * 86400000;
+  const cutoffAdj  = Date.now() - STALE_DAYS_ADJ  * 86400000;
   const merged = Array.from(byId.values()).filter(e=>{
+    const esAdj = e.estado === 'ADJ' || e.estado === 'RES';
+    const cutoff = esAdj ? cutoffAdj : cutoffOpen;
     const ref = e.fechaAdjudicacion || e.deadline || e.updated;
     if(!ref) return true;
     const t = new Date(ref).getTime();
