@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-06-22T13:01:32.713Z",
-  "totalEntriesScanned": 644,
-  "pagesFetched": 2,
+  "generatedAt": "2026-06-22T16:01:27.140Z",
+  "totalEntriesScanned": 146,
+  "pagesFetched": 1,
   "coverageHoursTarget": 72,
-  "oldestEntrySeen": "2026-06-19T11:56:43.258Z",
+  "oldestEntrySeen": "2026-06-19T14:26:45.322Z",
   "resumenDiag": {
     "geminiKeyPresent": true,
     "candidatos": 0,
@@ -2967,7 +2967,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 2886902M; Órgano de Contratación: Alcaldía del Ayuntamiento de Alginet; Importe: 28800 EUR; Estado: PUB",
-      "importedAt": "2026-06-22T13:01:20.286Z",
+      "importedAt": "2026-06-22T16:01:27.097Z",
       "resumenPdfPath": "data/resumenes/2886902M.pdf",
       "resumenGeneradoEn": "2026-06-20T19:05:40.616Z"
     }
