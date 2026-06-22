@@ -490,6 +490,14 @@ footer.foot{
           <option value="">Pipeline: todos</option>
           <option value="__sin_marcar__">Sin marcar</option>
         </select>
+        <select class="sortsel" id="filtro-comercial">
+          <option value="">Comercial: todos</option>
+          <option value="RSB">RSB</option>
+          <option value="PRF">PRF</option>
+          <option value="MPA">MPA</option>
+          <option value="IBV">IBV</option>
+          <option value="JTG">JTG</option>
+        </select>
         <button class="btn ghost" id="btn-limpiar-filtros-finos" style="font-size:12px;padding:6px 10px;">Limpiar filtros</button>
       </div>
 
@@ -683,6 +691,8 @@ const DEFAULT_GENERIC_AMBIGUOUS = [
 ];
 
 // === [MOD:PIPELINE-NOTAS-FILTROS-ANALITICA] ===
+const COMERCIALES = ['RSB', 'PRF', 'MPA', 'IBV', 'JTG'];
+
 const ESTADOS_PIPELINE = [
   { id: 'detectada',       label: 'Detectada',       color: '#9a9a9e' },
   { id: 'en_estudio',      label: 'En estudio',      color: '#5b8def' },
@@ -986,7 +996,17 @@ function isOpenForSubmission(t){
   return t.estado === 'PUB' || !t.estado;
 }
 function getAwardedTenders(){
-  return tendersArray().filter(t => isSectorRelevant(t) && (t.estado === 'ADJ' || t.estado === 'RES'));
+  const tresAniosAtras = new Date();
+  tresAniosAtras.setFullYear(tresAniosAtras.getFullYear() - 3);
+  tresAniosAtras.setMonth(0, 1); // 1 de enero de hace 3 años
+  return tendersArray().filter(t => {
+    if(!isSectorRelevant(t)) return false;
+    if(t.estado !== 'ADJ' && t.estado !== 'RES') return false;
+    // Incluir si la fecha de adjudicación/actualización es de los últimos 3 años
+    const fecha = t.fechaAdjudicacion || t.updated || t.importedAt || '';
+    if(!fecha) return true; // sin fecha: incluir por si acaso
+    return new Date(fecha) >= tresAniosAtras;
+  });
 }
 // === [MOD:RENDER-LIST] ===
 function escapeHtml(s){
@@ -1012,7 +1032,7 @@ function emptyStateHTML(kind){
   return '<div class="empty-state"><div class="big">Todavía no hay datos</div>Importa el feed oficial para empezar.</div>';
 }
 
-let currentFilter = { search:'', compat:'todas', sort:'deadline', importeMin:null, importeMax:null, matriz:'', provincia:'', pipeline:'' };
+let currentFilter = { search:'', compat:'todas', sort:'deadline', importeMin:null, importeMax:null, matriz:'', provincia:'', pipeline:'', comercial:'' };
 
 function rowHTML(t, comp){
   const days = t.deadline ? daysUntil(t.deadline) : null;
@@ -1026,7 +1046,7 @@ function rowHTML(t, comp){
     </label>
     <div><div class="seal ${comp.level}">${escapeHtml(sealText)}</div></div>
     <div class="main">
-      <div class="title">${escapeHtml(t.title)} ${t.resumenPdfPath ? '<span title="Resumen automático disponible" style="color:var(--agq-green);font-size:12px;">📄</span>' : ''} ${marcada ? '<span title="Marcada para presentar" style="color:var(--agq-purple);font-size:12px;">📌</span>' : ''} ${marcada && t.estadoPipeline ? `<span class="pipeline-badge" style="background:${pipelineMeta(t.estadoPipeline).color};">${pipelineMeta(t.estadoPipeline).label}</span>` : ''}</div>
+      <div class="title">${escapeHtml(t.title)} ${t.resumenPdfPath ? '<span title="Resumen automático disponible" style="color:var(--agq-green);font-size:12px;">📄</span>' : ''} ${marcada ? '<span title="Marcada para presentar" style="color:var(--agq-purple);font-size:12px;">📌</span>' : ''} ${marcada && t.estadoPipeline ? `<span class="pipeline-badge" style="background:${pipelineMeta(t.estadoPipeline).color};">${pipelineMeta(t.estadoPipeline).label}</span>` : ''} ${t.comercial ? `<span class="pipeline-badge" style="background:var(--agq-purple);opacity:0.8;">${escapeHtml(t.comercial)}</span>` : ''}</div>
       <div class="meta">
         <span>${escapeHtml(t.organo || 'Órgano no indicado')}</span>
         ${(t.cpv||[]).slice(0,3).map(c=>'<span class="cpv">'+c+'</span>').join('')}
@@ -1086,6 +1106,9 @@ function renderAbiertas(){
     } else {
       items = items.filter(({t}) => t.presentarLocal && (t.estadoPipeline||'detectada') === currentFilter.pipeline);
     }
+  }
+  if(currentFilter.comercial){
+    items = items.filter(({t}) => (t.comercial||'') === currentFilter.comercial);
   }
   items.sort((a,b)=>{
     if(currentFilter.sort === 'importe') return (b.t.importe||0) - (a.t.importe||0);
@@ -1543,6 +1566,13 @@ function openDetail(expediente){
           </select>
           <p style="font-size:10.5px;color:var(--ink-soft);margin:4px 0 0;">${t.estadoPipelinePor ? 'Última actualización por ' + escapeHtml(t.estadoPipelinePor) + (t.estadoPipelineEn ? ' · ' + formatDate(t.estadoPipelineEn) : '') : ''}</p>
         </div>
+        <div style="margin-top:12px;">
+          <label style="font-size:11px;color:var(--ink-soft);text-transform:uppercase;font-weight:600;">Comercial responsable</label>
+          <select id="detail-comercial-select" style="width:100%;margin-top:4px;padding:8px;border-radius:6px;border:1px solid var(--line);font-size:13px;">
+            <option value="">— Sin asignar —</option>
+            ${COMERCIALES.map(c=>`<option value="${c}" ${(t.comercial||'')===c?'selected':''}>${c}</option>`).join('')}
+          </select>
+        </div>
         <div style="margin-top:14px;">
           <button class="btn primary" id="btn-generar-oferta" style="width:100%;">📄 Generar borrador de oferta técnica</button>
           <p id="oferta-status" style="font-size:10.5px;color:var(--ink-soft);margin:6px 0 0;">${isUnifiedWorkerHost() ? 'Usa el pliego real + la plantilla AGQ para redactar un primer borrador con IA. Revísalo siempre antes de presentar.' : '⚠️ Esta función solo está disponible accediendo desde la dirección protegida del equipo (no desde este enlace).'}</p>
@@ -1608,6 +1638,16 @@ function openDetail(expediente){
   document.getElementById('detail-chk-presentar').addEventListener('change', e=>{ togglePresentarLocal(expediente, e.target.checked); });
   const pipeSel = document.getElementById('detail-pipeline-select');
   if(pipeSel) pipeSel.addEventListener('change', e=>{ setPipelineEstado(expediente, e.target.value); });
+  const comercialSel = document.getElementById('detail-comercial-select');
+  if(comercialSel) comercialSel.addEventListener('change', e=>{
+    t.comercial = e.target.value || '';
+    t.presentarLocalEn = new Date().toISOString(); // actualizar timestamp para evitar que el sync lo revierta
+    persistTenders();
+    renderAbiertas();
+    if(typeof renderPipeline === 'function') renderPipeline();
+    // Sincronizar el comercial al Worker (se guarda en seleccion.json como campo extra)
+    syncToProxy(expediente, { comercial: e.target.value || '' });
+  });
   const btnOferta = document.getElementById('btn-generar-oferta');
   if(btnOferta) btnOferta.addEventListener('click', ()=> generarOfertaTecnica(expediente));
   document.getElementById('pliego-dropzone').addEventListener('click', ()=> document.getElementById('pliego-files').click());
@@ -1848,18 +1888,29 @@ async function autoSyncFromGitHub(showStatus){
       const selResp = await fetch(selUrl);
       if(selResp.ok){
         const seleccion = await selResp.json();
+        const ahora = Date.now();
+        const UMBRAL_LOCAL_MS = 2 * 60 * 1000; // 2 min: si el usuario cambió el estado hace menos de esto, el local manda
         Object.keys(STATE.tenders).forEach(id=>{
           const sel = seleccion[id];
           const t = STATE.tenders[id];
-          if(!sel) return;
+          // Si el expediente no existe en el remoto: el estado local es el correcto
+          if(!sel){
+            // Si el local dice marcado pero no existe en remoto, puede que se borrara;
+            // solo lo limpiamos si no hubo cambio local reciente
+            if(t.presentarLocal && t.presentarLocalEn){
+              const edadLocal = ahora - new Date(t.presentarLocalEn).getTime();
+              if(edadLocal > UMBRAL_LOCAL_MS) t.presentarLocal = false;
+            }
+            return;
+          }
           const marcadaRemoto = !!sel.seleccionado;
-          if(t.presentarLocal !== marcadaRemoto){
+          // Solo sincronizar con el remoto si el estado local no cambió recientemente
+          const edadLocal = t.presentarLocalEn ? ahora - new Date(t.presentarLocalEn).getTime() : Infinity;
+          if(t.presentarLocal !== marcadaRemoto && edadLocal > UMBRAL_LOCAL_MS){
             t.presentarLocal = marcadaRemoto;
             t.presentarLocalEn = sel.marcadoEn || null;
             t.presentarSyncStatus = 'sincronizada';
           }
-          // El registro remoto es la fuente de verdad para pipeline y notas compartidas
-          // (igual que con la selección): si otro compañero lo cambió, debe reflejarse aquí.
           if(sel.estadoPipeline && sel.estadoPipeline !== t.estadoPipeline){
             t.estadoPipeline = sel.estadoPipeline;
             t.estadoPipelineEn = sel.estadoPipelineEn || null;
@@ -1869,6 +1920,9 @@ async function autoSyncFromGitHub(showStatus){
             t.notas = sel.notas;
             t.notasEn = sel.notasEn;
             t.notasPor = sel.notasPor || null;
+          }
+          if(sel.comercial !== undefined && sel.comercial !== t.comercial){
+            t.comercial = sel.comercial || '';
           }
         });
         persistTenders();
@@ -2041,12 +2095,16 @@ function initFiltrosFinos(){
   selMatriz.addEventListener('change', e=>{ currentFilter.matriz = e.target.value; renderAbiertas(); });
   selProv.addEventListener('change', e=>{ currentFilter.provincia = e.target.value; renderAbiertas(); });
   selPipe.addEventListener('change', e=>{ currentFilter.pipeline = e.target.value; renderAbiertas(); });
+
+  const selComercial = document.getElementById('filtro-comercial');
+  selComercial.addEventListener('change', e=>{ currentFilter.comercial = e.target.value; renderAbiertas(); });
+
   document.getElementById('btn-limpiar-filtros-finos').addEventListener('click', ()=>{
     currentFilter.importeMin = null; currentFilter.importeMax = null;
-    currentFilter.matriz = ''; currentFilter.provincia = ''; currentFilter.pipeline = '';
+    currentFilter.matriz = ''; currentFilter.provincia = ''; currentFilter.pipeline = ''; currentFilter.comercial = '';
     document.getElementById('filtro-importe-min').value = '';
     document.getElementById('filtro-importe-max').value = '';
-    selMatriz.value = ''; selProv.value = ''; selPipe.value = '';
+    selMatriz.value = ''; selProv.value = ''; selPipe.value = ''; selComercial.value = '';
     renderAbiertas();
   });
 
