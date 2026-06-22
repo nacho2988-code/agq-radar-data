@@ -1,14 +1,27 @@
 {
-  "generatedAt": "2026-06-22T16:01:27.140Z",
-  "totalEntriesScanned": 146,
-  "pagesFetched": 1,
+  "generatedAt": "2026-06-22T19:00:23.786Z",
+  "totalEntriesScanned": 3109,
+  "pagesFetched": 7,
   "coverageHoursTarget": 72,
   "oldestEntrySeen": "2026-06-19T14:26:45.322Z",
   "resumenDiag": {
     "geminiKeyPresent": true,
-    "candidatos": 0,
-    "generados": 0,
-    "errores": []
+    "candidatos": 8,
+    "generados": 5,
+    "errores": [
+      {
+        "expediente": "2869898W",
+        "motivo": "ningún pliego descargable"
+      },
+      {
+        "expediente": "UGR/2026/0051",
+        "motivo": "HTTP 503 de la API de Gemini: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"s"
+      },
+      {
+        "expediente": "5810/2026",
+        "motivo": "HTTP 503 de la API de Gemini: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"s"
+      }
+    ]
   },
   "alertasDiag": {
     "seleccionFileFound": true,
@@ -97,12 +110,12 @@
         }
       ],
       "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=tx%2B6yXZ1ynKLAncw3qdZkA%3D%3D",
-      "updated": "2026-06-19T09:30:33.417+02:00",
+      "updated": "2026-06-22T08:05:23.715+02:00",
       "adjudicatario": "INTERTEK IBERICA SPAIN, SLU",
       "importeAdjudicacion": 137315.95,
       "fechaAdjudicacion": "2026-05-19",
       "rawSummary": "Id licitación: 202617320019; Órgano de Contratación: Dirección General de la Marina Mercante; Importe: 160402.55 EUR; Estado: RES",
-      "importedAt": "2026-06-22T07:03:14.211Z"
+      "importedAt": "2026-06-22T18:55:34.399Z"
     },
     {
       "expediente": "AM-DEMA-2026-002",
@@ -181,8 +194,8 @@
       "atomId": "https://contrataciondelestado.es/sindicacion/licitacionesPerfilContratante/19885986",
       "title": "Servicio de asesoramiento científico necesario referente a la actualización de los Decretos leyes de recuperación de La Palma. Estudios térmicos y geotécnicos para las zonas de recuperación afectadas por las coladas de lava de la erupción de 2021.",
       "organo": "Consejería Delegada de Gestión y Planeamiento Territorial y Medioambiental, S.A.",
-      "estado": "ADJ",
-      "estadoLabel": "Adjudicada (sin formalizar)",
+      "estado": "RES",
+      "estadoLabel": "Resuelta / Formalizada",
       "importe": 80000,
       "importeRaw": "80000 EUR",
       "cpv": [
@@ -221,12 +234,12 @@
         }
       ],
       "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=LTgj3Niz6bp4zIRvjBVCSw%3D%3D",
-      "updated": "2026-06-17T14:30:01.171+02:00",
+      "updated": "2026-06-22T14:28:41.655+02:00",
       "adjudicatario": "Instituto Volcanológico de Canarias (INVOLCAN)",
       "importeAdjudicacion": 85600,
       "fechaAdjudicacion": "2026-06-17",
-      "rawSummary": "Id licitación: 9254/2026; Órgano de Contratación: Consejería Delegada de Gestión y Planeamiento Territorial y Medioambiental, S.A.; Importe: 80000 EUR; Estado: ADJ",
-      "importedAt": "2026-06-20T12:16:16.822Z"
+      "rawSummary": "Id licitación: 9254/2026; Órgano de Contratación: Consejería Delegada de Gestión y Planeamiento Territorial y Medioambiental, S.A.; Importe: 80000 EUR; Estado: RES",
+      "importedAt": "2026-06-22T18:54:28.076Z"
     },
     {
       "expediente": "TSA0083500",
@@ -366,12 +379,12 @@
         }
       ],
       "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=5Bvnhr12HseFQ%2FlhRK79lA%3D%3D",
-      "updated": "2026-06-17T12:39:24.488+02:00",
+      "updated": "2026-06-22T08:05:13.091+02:00",
       "adjudicatario": "TECNOLOGIA PARA DIAGNOSTICO E INVESTIGACION, S. A.",
       "importeAdjudicacion": 21780,
       "fechaAdjudicacion": "2026-06-15",
       "rawSummary": "Id licitación: 582026026500; Órgano de Contratación: Dirección General del INTA; Importe: 20000 EUR; Estado: RES",
-      "importedAt": "2026-06-20T06:04:59.579Z"
+      "importedAt": "2026-06-22T18:55:34.404Z"
     },
     {
       "expediente": "2912/2024",
@@ -510,12 +523,12 @@
         }
       ],
       "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=xNirgp45oo%2FE6P%2FuLemXRw%3D%3D",
-      "updated": "2026-06-18T14:01:50.219+02:00",
+      "updated": "2026-06-22T10:39:47.956+02:00",
       "adjudicatario": "",
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 3.26/20830.0054; Órgano de Contratación: ADIF Alta Velocidad - Presidencia; Importe: 3789710.01 EUR; Estado: EV",
-      "importedAt": "2026-06-21T12:26:53.616Z"
+      "importedAt": "2026-06-22T18:55:08.246Z"
     },
     {
       "expediente": "03/2026",
@@ -795,12 +808,12 @@
         }
       ],
       "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=b0ylKMO9c1uS81gZFETWmA%3D%3D",
-      "updated": "2026-06-18T12:09:48.866+02:00",
+      "updated": "2026-06-22T10:14:20.130+02:00",
       "adjudicatario": "",
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 2026000130; Órgano de Contratación: Consejería de Ordenación del Territorio, Urbanismo, Vivienda y Derechos Ciudadanos del Principado de Asturias; Importe: 233653.75 EUR; Estado: EV",
-      "importedAt": "2026-06-21T01:02:58.107Z"
+      "importedAt": "2026-06-22T18:55:21.547Z"
     },
     {
       "expediente": "300/2025/03321",
@@ -1157,12 +1170,12 @@
         }
       ],
       "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=Jirq80aSMh3i0Kd8%2Brcp6w%3D%3D",
-      "updated": "2026-06-18T09:27:57.510+02:00",
+      "updated": "2026-06-22T08:05:28.985+02:00",
       "adjudicatario": "AB SCIEX SPAIN, S.L.",
       "importeAdjudicacion": 229689.56,
       "fechaAdjudicacion": "2026-05-14",
       "rawSummary": "Id licitación: 0100026SR011; Órgano de Contratación: Dirección Ejecutiva de la Agencia Española de Seguridad Alimentaria y Nutrición; Importe: 189826.08 EUR; Estado: RES",
-      "importedAt": "2026-06-21T01:03:31.368Z"
+      "importedAt": "2026-06-22T18:55:34.395Z"
     },
     {
       "expediente": "83/2026",
@@ -1342,12 +1355,12 @@
         }
       ],
       "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=XeGo12O3O%2FmLAncw3qdZkA%3D%3D",
-      "updated": "2026-06-19T09:34:02.900+02:00",
+      "updated": "2026-06-22T09:00:00.000+02:00",
       "adjudicatario": "",
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: C30268926002; Órgano de Contratación: Dirección General de Carreteras; Importe: 2573026.74 EUR; Estado: PUB",
-      "importedAt": "2026-06-22T07:03:14.195Z",
+      "importedAt": "2026-06-22T18:55:21.659Z",
       "resumenPdfPath": "data/resumenes/C30268926002.pdf",
       "resumenGeneradoEn": "2026-06-19T14:23:47.004Z"
     },
@@ -2871,12 +2884,12 @@
         }
       ],
       "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=I78XLGCgn2lVYjgxA4nMUw%3D%3D",
-      "updated": "2026-06-19T08:48:08.832+02:00",
+      "updated": "2026-06-22T11:54:13.505+02:00",
       "adjudicatario": "INETUM ESPAÑA, S.A.",
       "importeAdjudicacion": 3958835.23,
       "fechaAdjudicacion": "2026-06-18",
       "rawSummary": "Id licitación: ITVA/2026/107; Órgano de Contratación: Consejo de Administración de Inspección Técnica de Vehículos de Asturias S.A. (ITVASA); Importe: 3620672.39 EUR; Estado: ADJ",
-      "importedAt": "2026-06-22T07:03:48.286Z"
+      "importedAt": "2026-06-22T18:54:54.227Z"
     },
     {
       "expediente": "2026/ETSAE0226/00002386E",
@@ -2967,9 +2980,1171 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 2886902M; Órgano de Contratación: Alcaldía del Ayuntamiento de Alginet; Importe: 28800 EUR; Estado: PUB",
-      "importedAt": "2026-06-22T16:01:27.097Z",
+      "importedAt": "2026-06-22T18:55:34.449Z",
       "resumenPdfPath": "data/resumenes/2886902M.pdf",
       "resumenGeneradoEn": "2026-06-20T19:05:40.616Z"
+    },
+    {
+      "expediente": "2026/034792",
+      "atomId": "https://contrataciondelestado.es/sindicacion/licitacionesPerfilContratante/19879862",
+      "title": "Servicios de asistencia técnica, por lotes, para el control de legionela, calidad del agua y adecuación de instalaciones eléctricas en Bases del dispositivo INFOCAM, en la provincia de Albacete. Expediente Nº: 103-TT-0-032-26/SE10",
+      "organo": "Dirección Gerencia de Gestión Ambiental de Castilla-La Mancha S.A.",
+      "estado": "PUB",
+      "estadoLabel": "Publicada / en plazo",
+      "importe": 34074.7,
+      "importeRaw": "34074.7 EUR",
+      "cpv": [
+        "90920000",
+        "45315600"
+      ],
+      "deadline": "2026-06-24",
+      "deadlineSource": "periodo de presentación",
+      "documentos": [
+        {
+          "tipo": "LegalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=db4dGufGDHugcEOHowq2JA/LYXTBOcKJdB%2BGE5m6rTcMMEi7PITsD6pEtvuj9ORV/7oVhIJ02UyMpvBdOLK3Ghw4JsLUKACCghi%2Bbijez2Zt/o8fNevwsujgRzaBbugn"
+        },
+        {
+          "tipo": "TechnicalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=N%2B0AfReln0vY4L2bP21%2B1X4eotzDXvUWdu1plwTaCqT%2ByGDn2Fq4v/0rB7T0a6tFfdaZ33evBA4WiMhUNI/vj%2BdIPCdgOgVz8heFj2SpxHT6CYyL7SIrUOBFfNf52ZqA"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=S91qK55bUgK8YdNj7kDpNqoiMuzGXrt0NH7mxTavaoKVHCFzVXd4Y5IqXwCswg7S/TfNRF4yLa0y3%2BxRCTPjGp1AChSLciII4LkSAsDNq5H3GVhXrFFqN7yFncy7YfRK"
+        }
+      ],
+      "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=oxE5QTdcAg4wYTJJ03sHog%3D%3D",
+      "updated": "2026-06-22T17:25:19.341+02:00",
+      "adjudicatario": "",
+      "importeAdjudicacion": null,
+      "fechaAdjudicacion": "",
+      "rawSummary": "Id licitación: 2026/034792; Órgano de Contratación: Dirección Gerencia de Gestión Ambiental de Castilla-La Mancha S.A.; Importe: 34074.7 EUR; Estado: PUB",
+      "importedAt": "2026-06-22T18:54:15.130Z",
+      "resumenPdfPath": "data/resumenes/2026_034792.pdf",
+      "resumenGeneradoEn": "2026-06-22T18:56:23.702Z"
+    },
+    {
+      "expediente": "2024_CCSAB_00005",
+      "atomId": "https://contrataciondelestado.es/sindicacion/licitacionesPerfilContratante/15294747",
+      "title": "Prestación del servicio de seguimiento, recogida, transporte y depósito en planta de tratamiento, de los lixiviados del vertedero clausurado de residuos sólidos urbanos “El Berrueco”, en el término municipal de Medina Sidonia",
+      "organo": "Diputación Provincial de Cádiz",
+      "estado": "RES",
+      "estadoLabel": "Resuelta / Formalizada",
+      "importe": 158400,
+      "importeRaw": "158400 EUR",
+      "cpv": [
+        "90513700"
+      ],
+      "deadline": "2024-08-12",
+      "deadlineSource": "periodo de presentación",
+      "documentos": [
+        {
+          "tipo": "LegalDocumentReference",
+          "url": "https://contrataciondelestado.es/wps/wcm/connect/PLACE_es/Site/area/docAccCmpnt?srv=cmpnt&cmpntname=GetDocumentsById&source=library&DocumentIdParam=0fdf5e81-8fef-449e-8415-c1237bceebe3"
+        },
+        {
+          "tipo": "TechnicalDocumentReference",
+          "url": "https://contrataciondelestado.es/wps/wcm/connect/PLACE_es/Site/area/docAccCmpnt?srv=cmpnt&cmpntname=GetDocumentsById&source=library&DocumentIdParam=6a315032-9360-41f2-bf0d-466d80ef4086"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/wps/wcm/connect/PLACE_es/Site/area/docAccCmpnt?srv=cmpnt&cmpntname=GetDocumentsById&source=library&DocumentIdParam=6089eaac-0ad8-4779-87a6-047d75aff384"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/wps/wcm/connect/PLACE_es/Site/area/docAccCmpnt?srv=cmpnt&cmpntname=GetDocumentsById&source=library&DocumentIdParam=0dd38664-4f20-41ca-9b28-89a0d7518e5b"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/wps/wcm/connect/PLACE_es/Site/area/docAccCmpnt?srv=cmpnt&cmpntname=GetDocumentsById&source=library&DocumentIdParam=8c3663bc-4102-428e-a10f-1c8a69b9521e"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/wps/wcm/connect/PLACE_es/Site/area/docAccCmpnt?srv=cmpnt&cmpntname=GetDocumentsById&source=library&DocumentIdParam=b9fc71da-a6ad-462e-8453-d3edbcfbdd6f"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/wps/wcm/connect/PLACE_es/Site/area/docAccCmpnt?srv=cmpnt&cmpntname=GetDocumentsById&source=library&DocumentIdParam=7f9e577f-aed6-47fe-9c4c-b715d07880fb"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/wps/wcm/connect/PLACE_es/Site/area/docAccCmpnt?srv=cmpnt&cmpntname=GetDocumentsById&source=library&DocumentIdParam=cf6c13b7-24eb-4222-9b22-af87fb4a7116"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/wps/wcm/connect/PLACE_es/Site/area/docAccCmpnt?srv=cmpnt&cmpntname=GetDocumentsById&source=library&DocumentIdParam=20218747-048d-426f-8b0f-0e95680b0165"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/wps/wcm/connect/PLACE_es/Site/area/docAccCmpnt?srv=cmpnt&cmpntname=GetDocumentsById&source=library&DocumentIdParam=29003645-5f4a-4086-8e82-61086a765cc9"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/wps/wcm/connect/PLACE_es/Site/area/docAccCmpnt?srv=cmpnt&cmpntname=GetDocumentsById&source=library&DocumentIdParam=3dc6dc48-b92f-400f-be73-7efe409a7b99"
+        }
+      ],
+      "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=N5nICc2r8izpxJFXpLZ%2B2A%3D%3D",
+      "updated": "2026-06-22T17:12:46.838+02:00",
+      "adjudicatario": "CLEMENTE RODRIGUEZ TOCINO",
+      "importeAdjudicacion": 126498.24,
+      "fechaAdjudicacion": "2024-10-29",
+      "rawSummary": "Id licitación: 2024_CCSAB_00005; Órgano de Contratación: Diputación Provincial de Cádiz; Importe: 158400 EUR; Estado: RES",
+      "importedAt": "2026-06-22T18:54:15.134Z"
+    },
+    {
+      "expediente": "2025Z7Z00123",
+      "atomId": "https://contrataciondelestado.es/sindicacion/licitacionesPerfilContratante/19404009",
+      "title": "Servicio gestionado de monitorización y respuesta continua del centro de proceso de datos del Centro de Estudios Hidrográficos y la herramienta WISKI para la Dirección General del Agua.",
+      "organo": "Centro de Estudios y Experimentación de Obras Públicas (CEDEX)",
+      "estado": "EV",
+      "estadoLabel": "En evaluación",
+      "importe": 180000,
+      "importeRaw": "180000 EUR",
+      "cpv": [
+        "72211000"
+      ],
+      "deadline": "2026-05-10",
+      "deadlineSource": "periodo de presentación",
+      "documentos": [
+        {
+          "tipo": "LegalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=1HXgEOweSI2kn7%2BoOtRF/flHQhP9LExbUWe57pt/HT0JQCT7b%2B3n3RjH0VtkS9hU%2B3qzCGaOPnVA/dHmOwv8hO0S4nJMeiZcMhY7XWDpVfJ45ClyWkoJ44mKM70IFcOu"
+        },
+        {
+          "tipo": "TechnicalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=AOoph1R9IlLqjeHh7s48IhKZTQtLu7dRsl4W%2BdQv6/da7z%2BXnVZsk0JrOy8px9lyont821ucI4vRoMn1DYv9paL%2B8uIZngTG6i21BUomi8JJOVDbGCDM%2BMigrvuVS7Rv"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=qe2DTUAXyOWg1I5na6sHgQ9iCDhwaDHSI8JhnExJ/x8urjgQfIejql2P4GJb4ko%2BNwXwAO87optOJ3SQxNf1A2p5mCThi4sCd5xEOqcru9oZyAJWGsSt0OzTSTyw9JAs"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=/T7F2iR1vuTSzpaEH1GhfACPA8Y/cdmBxKrq1z8KDQAAhfEksE1nORn9ofwKN36K1rHpxkxXSzRtMA0g8803LCBAIzCeoTumzq7A8PfLV7HVTD3T98KC0nSgQFM0q%2B5s"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=ZVc5MXWU1WVBFCHr8HtiRZ8ZGECQzmP5rNJ88qdYleEGLuclb1UPPO3bsYnuByy8W3l%2BHDy64o%2BR1XLuogXxxwL7aaRVQDM3gToIzrcJGGNt/o8fNevwsujgRzaBbugn"
+        }
+      ],
+      "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=SKCFMStJkZ2S81gZFETWmA%3D%3D",
+      "updated": "2026-06-22T16:17:53.494+02:00",
+      "adjudicatario": "",
+      "importeAdjudicacion": null,
+      "fechaAdjudicacion": "",
+      "rawSummary": "Id licitación: 2025Z7Z00123; Órgano de Contratación: Centro de Estudios y Experimentación de Obras Públicas (CEDEX); Importe: 180000 EUR; Estado: EV",
+      "importedAt": "2026-06-22T18:54:28.002Z"
+    },
+    {
+      "expediente": "TSA0082445",
+      "atomId": "https://contrataciondelestado.es/sindicacion/licitacionesPerfilContratante/19371274",
+      "title": "Servicio para el estudio de flora y fauna en las actuaciones de control de la especie exótica invasora Nenufar mejicano (Nymphaea mexicana) en la cuenca del Guadiana. Fase 1: Paraje Sagrajas en el arroyo de la Cabrera-Puente de la Autonomía (Badajoz). Obra financiada con fondos FEDER",
+      "organo": "Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA)",
+      "estado": "EV",
+      "estadoLabel": "En evaluación",
+      "importe": 55660.5,
+      "importeRaw": "55660.5 EUR",
+      "cpv": [
+        "73200000",
+        "90713000"
+      ],
+      "deadline": "2026-04-17",
+      "deadlineSource": "periodo de presentación",
+      "documentos": [
+        {
+          "tipo": "LegalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=05qoQOblBl3%2Bj%2BsJRohXAAB00xvOkKCioXJvfdKW28JIrEp2ppORQGWgX9jeaBGn20ToaZbadWGJC3TJ3M%2BVy1rxaBM5RiYBUe%2BfThgWHpu1aXEvq3KHa/AEHgtDrQw0"
+        },
+        {
+          "tipo": "TechnicalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=/f9ttDI41kg35jrbzPkClj7wgdFFWFVza2xFjkUZlwbjwzLKy3YqRuucK3VRFb9%2BzYR8fi6u/e15zzWbwoOYdg%2BMix9QL5moamCZRNYj2qCHAj0WEJrB5sP7amrh2jBD"
+        }
+      ],
+      "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=xA5HHxivq1jkY6rls5tG9A%3D%3D",
+      "updated": "2026-06-22T15:03:44.128+02:00",
+      "adjudicatario": "",
+      "importeAdjudicacion": null,
+      "fechaAdjudicacion": "",
+      "rawSummary": "Id licitación: TSA0082445; Órgano de Contratación: Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA); Importe: 55660.5 EUR; Estado: EV",
+      "importedAt": "2026-06-22T18:54:28.039Z"
+    },
+    {
+      "expediente": "G-2026/17",
+      "atomId": "https://contrataciondelestado.es/sindicacion/licitacionesPerfilContratante/19910335",
+      "title": "Caracterización bionómica de fondos, hábitats y especies marinas en el área de influencia de las aguas portuarias exteriores del Puerto de Las Palmas.",
+      "organo": "Presidencia de la Autoridad Portuaria de Las Palmas",
+      "estado": "PUB",
+      "estadoLabel": "Publicada / en plazo",
+      "importe": 83550,
+      "importeRaw": "83550 EUR",
+      "cpv": [
+        "71313000"
+      ],
+      "deadline": "2026-07-28",
+      "deadlineSource": "periodo de presentación",
+      "documentos": [
+        {
+          "tipo": "LegalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=FRhxvk4sK2/cqqpLVe9hdn7THWYb1xs51zqne47F24UvpRQOisSaVBFEsSfdt8bpuhrVz/5m11YFmxG/7Rj3IbuzKfV6ffucl5o/9WVOUmR45ClyWkoJ44mKM70IFcOu"
+        },
+        {
+          "tipo": "TechnicalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=7vQuKLSEv5kR0lB1HLUL6tB2tgEIxQgn6k8JyqY%2Be542i2wR5JnxOq9LEkBYk1IWqsUEd/mmJTSnl1ysHJNg7fhs4D/EJRG9g6rLnCgBkfn3GVhXrFFqN7yFncy7YfRK"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=FJuCxfaqujafc8n52GofCXuVz/55yAE4pgqvltNN03R2MX%2BTyr2u66ej7NrUGOpQ8NVgm6W4qEy5QIZxOM8S5Lr1bsGRCVUC/0L8BLKCd4S1aXEvq3KHa/AEHgtDrQw0"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=davgFVydCe5lNGQf%2Blx3%2BW876oHoKF/%2BEMQzdS9tSGwLqopzac44VK76xH/mCOmOXdhOxhIyB%2BuMLMUNZgro%2BeBJrWZHaRr12tumRd/G/Gk//q7NB2iMZvNyf0xrJmjt"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=JgsY1J6kp66dTzdItyBqQqALqwtOYyvTlnO7anNclb3Lw2Lp6V%2BKyhfWjoxLuXkZt2D%2B04p2BGsVngNdjxRj0rWSAHrj3vnD4W/l/n7HzwgZyAJWGsSt0OzTSTyw9JAs"
+        }
+      ],
+      "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=wlm%2FuwSWAMnVGIpKDxgsAQ%3D%3D",
+      "updated": "2026-06-22T14:50:31.298+02:00",
+      "adjudicatario": "",
+      "importeAdjudicacion": null,
+      "fechaAdjudicacion": "",
+      "rawSummary": "Id licitación: G-2026/17; Órgano de Contratación: Presidencia de la Autoridad Portuaria de Las Palmas; Importe: 83550 EUR; Estado: PUB",
+      "importedAt": "2026-06-22T18:54:28.052Z",
+      "resumenPdfPath": "data/resumenes/G-2026_17.pdf",
+      "resumenGeneradoEn": "2026-06-22T18:56:55.370Z"
+    },
+    {
+      "expediente": "217/2026",
+      "atomId": "https://contrataciondelestado.es/sindicacion/licitacionesPerfilContratante/19542408",
+      "title": "Contratación de servicios de analíticas de agua de abastecimiento humano y piscinas municipales de Laguna de Duero",
+      "organo": "Alcaldía del Ayuntamiento de Laguna de Duero",
+      "estado": "ADJ",
+      "estadoLabel": "Adjudicada (sin formalizar)",
+      "importe": 28129.14,
+      "importeRaw": "28129.14 EUR",
+      "cpv": [
+        "71620000"
+      ],
+      "deadline": "2026-05-07",
+      "deadlineSource": "periodo de presentación",
+      "documentos": [
+        {
+          "tipo": "LegalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=1VycsAYBSlGCNBJvKq/nNBwF15ZEUn//izikrjqv3IUcZBq7XTGF9iZZWJyCAK1uSgTIYQzpaBjh9AWwdUk5Fixfw%2B6R348mgx1x7g5ZEVUZyAJWGsSt0OzTSTyw9JAs"
+        },
+        {
+          "tipo": "TechnicalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=KpZgvl2a4JCxqZWCwReyHMjv2rQIDzb20QrelYGXxfS/n5CtlvAXoVc5hLtKUQx73DHNtg1HqrXeeTIRR6JmatwlS7CNo3XbYuCIq0JemJLfdyQgZAdTm3EfcUAC7CJ6"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=a9zDHHY4elAm%2B3jvoAMRVnuRYShY%2B6gBsCetZaeLUDFdLTsjLbs43vc32PFvpXgISLtx4hxcvoYCC5K1Y7KUiIr7L/ZKq9QJUnEi1RrlAFgC1/zDIE0Kw/PWNnLS0Z0z"
+        }
+      ],
+      "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=D5VKGIWLkeXXOjazN1Dw9Q%3D%3D",
+      "updated": "2026-06-22T13:12:45.065+02:00",
+      "adjudicatario": "LABORATORIO DE GESTIÓN AMBIENTAL S.L.",
+      "importeAdjudicacion": 19741.03,
+      "fechaAdjudicacion": "2026-06-22",
+      "rawSummary": "Id licitación: 217/2026; Órgano de Contratación: Alcaldía del Ayuntamiento de Laguna de Duero; Importe: 28129.14 EUR; Estado: ADJ",
+      "importedAt": "2026-06-22T18:54:41.652Z"
+    },
+    {
+      "expediente": "CONTR 2026/2694",
+      "atomId": "https://contrataciondelestado.es/sindicacion/licitacionesPerfilContratante/19217478",
+      "title": "Diseño y redacción de la Estrategia de Economía Circular de las Illes Balears (lote 1), con un proceso participativo que recoja las exigencias de los sectores implicados (lote 2) e incluya propuestas de mejora de la normativa autonómica que hagan factible la implementación real de la estrategia en las islas (lote3).",
+      "organo": "Consejería de Empresa, Autónomos y Energía de las Illes Balears",
+      "estado": "ADJ",
+      "estadoLabel": "Adjudicada (sin formalizar)",
+      "importe": 110736.94,
+      "importeRaw": "110736.94 EUR",
+      "cpv": [
+        "90712000",
+        "79340000",
+        "79320000",
+        "79111000"
+      ],
+      "deadline": "2026-03-26",
+      "deadlineSource": "periodo de presentación",
+      "documentos": [
+        {
+          "tipo": "LegalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=ZC8znC/JH9BV9lmQWspkXROc/Xo2FmGKxjcK9nXE%2B8T5xBNBtPEX0qXUPGu%2BmdRNj6gBiGGvpqn1PrLztopg2R2q/dD1iVQ7hAPbCv80PrgZyAJWGsSt0OzTSTyw9JAs"
+        },
+        {
+          "tipo": "TechnicalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=ZvbViTHfDVGFiaj4SD3uJc1unpUxDsDfdN2SBZs65xsIQqBAqGFQ8Qb2InAuKG4YECoVIPgKPHsTRfnLzyjIcuKg4X2GS12OeBbL/NCWDUYC1/zDIE0Kw/PWNnLS0Z0z"
+        }
+      ],
+      "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=%2B47ag%2BgLqVTVGIpKDxgsAQ%3D%3D",
+      "updated": "2026-06-22T12:42:32.295+02:00",
+      "adjudicatario": "KPMG Asesores, S.L.",
+      "importeAdjudicacion": 54731.02,
+      "fechaAdjudicacion": "2026-06-22",
+      "rawSummary": "Id licitación: CONTR 2026/2694; Órgano de Contratación: Consejería de Empresa, Autónomos y Energía de las Illes Balears; Importe: 110736.94 EUR; Estado: ADJ",
+      "importedAt": "2026-06-22T18:54:54.134Z"
+    },
+    {
+      "expediente": "2026PL002",
+      "atomId": "https://contrataciondelestado.es/sindicacion/licitacionesPerfilContratante/19066790",
+      "title": "Servicio de topografía para la explotación de vertederos de Limpieza de Málaga S.A.M.",
+      "organo": "Dirección Gerencia de Limpieza de Málaga Sociedad Anónima Municipal",
+      "estado": "RES",
+      "estadoLabel": "Resuelta / Formalizada",
+      "importe": 28800,
+      "importeRaw": "28800 EUR",
+      "cpv": [
+        "71353200"
+      ],
+      "deadline": "2026-03-05",
+      "deadlineSource": "periodo de presentación",
+      "documentos": [
+        {
+          "tipo": "LegalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=pBAIGA40Zb8udZ7fEcbhIf66dzvIaaREwa8T%2BWZ58HCvF7iWF4riN6sELY0n5j6iRHzFzdPhzgysOYgdTeYp3jZDeTeQLoeCcIn4RBhDoqY//q7NB2iMZvNyf0xrJmjt"
+        },
+        {
+          "tipo": "TechnicalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=dUoFZz9k7CzQCpHIRQ4K8ZYpjDzmHXUEmK2/N6XeGhLaL2QKpcxN9eR1xxH4blusXLP4AxLBD07E0R5DMJFAUeDAqIluvRfGYfWePD454QWB0nvVKRzfe4rpHcnlPhSZ"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=1Qvu73hr4W9EOk7aR2Si85JQ4CCQszP6rv815lbeqFg6gecEuP9/PrGugAIFAwk2kNwCsMfQDyQP1eUQYF0wUjFrkzUJEyqEVAXcNV4ru12HAj0WEJrB5sP7amrh2jBD"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=a9zDHHY4elAm%2B3jvoAMRVoaKzIxb6wz0G727MfalP/wpXrHib75eldeIjpU%2B5/XT6WBvMQ4FI%2BZySPVIo3XEu2O4BSr35fApSgCLZJjkV4EZyAJWGsSt0OzTSTyw9JAs"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=v1YUNz0IHWlmcI/uqBPWIJYviMwR8XOd1H7i3pSlDb/WMhpvhobA8arackLVTtRtI1CXxrhCY5beYTYGfMrgOUweL7MuWpfBKi9jRhhjCz4ZyAJWGsSt0OzTSTyw9JAs"
+        }
+      ],
+      "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=iL4szjILx9YeC9GJQOEBkQ%3D%3D",
+      "updated": "2026-06-22T12:38:08.641+02:00",
+      "adjudicatario": "FRANCISCO PÉREZ GARRIDO - TOPOGRAFÍA COSTA DEL SOL",
+      "importeAdjudicacion": 30492,
+      "fechaAdjudicacion": "2026-05-13",
+      "rawSummary": "Id licitación: 2026PL002; Órgano de Contratación: Dirección Gerencia de Limpieza de Málaga Sociedad Anónima Municipal; Importe: 28800 EUR; Estado: RES",
+      "importedAt": "2026-06-22T18:54:54.143Z"
+    },
+    {
+      "expediente": "CMAYOR/2025/30Y13/0019",
+      "atomId": "https://contrataciondelestado.es/sindicacion/licitacionesPerfilContratante/19607446",
+      "title": "Servicio de alimentación para los campamentos juveniles Jaume I de Alcossebre y de Navalón, con criterios de seguridad alimentaria y alimentación sostenible y saludable, por lotes.",
+      "organo": "Dirección General del Institut Valencià de la Joventut",
+      "estado": "EV",
+      "estadoLabel": "En evaluación",
+      "importe": 754265,
+      "importeRaw": "754265 EUR",
+      "cpv": [
+        "55322000"
+      ],
+      "deadline": "2026-06-03",
+      "deadlineSource": "periodo de presentación",
+      "documentos": [
+        {
+          "tipo": "LegalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=zb179kB1cbghIoCbN%2BMX8ZxU2rWPh0LtKn4L8Oxr88u/JoA73Thjqvdl8YNPMOCwvIDav73B725ZJroWrntjM%2BELSRLw164oREHmY1oAwmuCx2e6p7hqtlp2aFupgHMr"
+        },
+        {
+          "tipo": "TechnicalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=CMHsG73y6PP%2BHxPn%2BDAeGeZYZs%2BxosYn4%2BGiyJXIem%2BPeDMjjjgSW2//8QyY2wXTP3WWkuCEadf/b6u2jYkCOE0BQlPM2/PTLfSFX8Syg9H3GVhXrFFqN7yFncy7YfRK"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=1L7CEdFicdRJKOjEWL0ItQxi4OYJHqetq9NbgbREsGfluO2OR/KTuUO0%2Bv1oyF0jtJnlxHANddhktj4Fg1ZJ2oBSv9/Q%2Bj7mY3iQ/kfgGtC1aXEvq3KHa/AEHgtDrQw0"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=Tef1kqml9QXDTVc/o438b3NBiegj4/0BD1q/ywweVA8LMJBNJDqsAhoBb5qDOSrA%2BSHpKUL5cGUxEO5F/t84bntIKctSgjw7KE%2B9NJYspQJt/o8fNevwsujgRzaBbugn"
+        }
+      ],
+      "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=6F9AkUEzWho%2B1TMyIiZmzw%3D%3D",
+      "updated": "2026-06-22T12:36:22.116+02:00",
+      "adjudicatario": "",
+      "importeAdjudicacion": null,
+      "fechaAdjudicacion": "",
+      "rawSummary": "Id licitación: CMAYOR/2025/30Y13/0019; Órgano de Contratación: Dirección General del Institut Valencià de la Joventut; Importe: 754265 EUR; Estado: EV",
+      "importedAt": "2026-06-22T18:54:54.150Z"
+    },
+    {
+      "expediente": "C-4468-26/D-3701",
+      "atomId": "https://contrataciondelestado.es/sindicacion/licitacionesPerfilContratante/19799063",
+      "title": "Servicio de laboratorio de análisis clínicos",
+      "organo": "Hulleras del Norte S.A.",
+      "estado": "EV",
+      "estadoLabel": "En evaluación",
+      "importe": 34000,
+      "importeRaw": "34000 EUR",
+      "cpv": [
+        "71620000"
+      ],
+      "deadline": "2026-06-17",
+      "deadlineSource": "periodo de presentación",
+      "documentos": [
+        {
+          "tipo": "LegalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=b3EN11JxF5Tv2KV8mjTIEtoQBSDl7MROXmlVTrUX7bQo32rORjq0fLdVtu/8ucaPqdcEFSC0pEA69FSQmgceUS4KihiPb0sPylk9zVLB/9Vt/o8fNevwsujgRzaBbugn"
+        },
+        {
+          "tipo": "TechnicalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=qiC3AZvngX29f1Apx61IT3IZep%2BluJ6ta8pB%2Beb%2B2uRsXQB03t%2Bt9ANJobm1A56C4EgkH8YMwnejqQ9yUqccMG6ebj7wHsmWpdfTQKkgILN45ClyWkoJ44mKM70IFcOu"
+        }
+      ],
+      "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=6pmn6gwHX4pVkTabT%2FRM8A%3D%3D",
+      "updated": "2026-06-22T12:30:29.078+02:00",
+      "adjudicatario": "",
+      "importeAdjudicacion": null,
+      "fechaAdjudicacion": "",
+      "rawSummary": "Id licitación: C-4468-26/D-3701; Órgano de Contratación: Hulleras del Norte S.A.; Importe: 34000 EUR; Estado: EV",
+      "importedAt": "2026-06-22T18:54:54.162Z"
+    },
+    {
+      "expediente": "CMAYOR/2026/FISAB/0013",
+      "atomId": "https://contrataciondelestado.es/sindicacion/licitacionesPerfilContratante/19512563",
+      "title": "Servicio de extracción de ADN a partir de muestras de hueso antiguo exhumadas de las fosas comunes de la Guerra Civil",
+      "organo": "Junta de Gobierno de la Fundación para el Fomento de la Investigación Sanitaria y Biomédica de la Comunitat Valenciana (FISABIO)",
+      "estado": "EV",
+      "estadoLabel": "En evaluación",
+      "importe": 544000,
+      "importeRaw": "544000 EUR",
+      "cpv": [
+        "71900000"
+      ],
+      "deadline": "2026-05-27",
+      "deadlineSource": "periodo de presentación",
+      "documentos": [
+        {
+          "tipo": "LegalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=4OcMvXVc0SACSsmsuyDgHEsRdDUi3P8PIHBe8DHzJxe0xWnRBrdlEhuOh46NMDht2B/5g5S9CI9%2B5C/Oo1RDa%2BnyS9gI3I9sT/QkO6lN2uB7QB3HKyQaFUExmUVQCerk"
+        },
+        {
+          "tipo": "TechnicalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=rmwjz4nUn9Z7U4oullUZ1nJ4etSFLt%2B7mJTM0omieLTV4Aq7h2OneeFVE7WOHndsARQ5x82jELF%2Bhj1VH1hZhOxrcrmt08K2Um9%2BnynoYYIC1/zDIE0Kw/PWNnLS0Z0z"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=P68Yp5SDrFn9VumTLWj3AWRxiwZPEmzfj44J3E%2B2Td0n%2BmBAcnViu9SW6hMTy6V5rill8KAxty3fKo%2BPHCgoGK5LyG9SH2N3iD4yN%2BcR1Dr6CYyL7SIrUOBFfNf52ZqA"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=zMSD8Ufon43zAJdis6i61bcWmSCiMlBQHqh/fp9C/YtGLQlp8Tfaa1%2BWt9Sjv0z9EmQKIy4%2BncvagtO/7HmQLclrO19OoBVmKqaAMCnUyzGB0nvVKRzfe4rpHcnlPhSZ"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=wRA0lfsCH5Q/CwkinAmzeYiEzqzYuH/iLW7PX119h1P2tTtDBiM3gOyPBDYWvlALvzm9hW/dyOZKr2y1gOZItlCkEDd3YTSsf/N7GB1MzR76CYyL7SIrUOBFfNf52ZqA"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=funxe032b5GUOL2%2Bjq9TbKqLdg0ZyXHYAU3GlnmgvDChO11A/4OoUSIx1oU0kVMu/u60nC%2BJutl2qclK5jO13kHtgclkQKFPSrB7iFUezQOB0nvVKRzfe4rpHcnlPhSZ"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=A6oIeAl%2B48aRD0JutJBzyP8rAA4pQQp8X7jtHST3XLmdI2N/KUk4f5m6PeJlp//jKcNMwio1jE6vvT8ciCOIsKnstWA7XEP1p3epJyuv3n8//q7NB2iMZvNyf0xrJmjt"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=jyKguyq//GRi686%2B08eZy61K9JKly%2BF0SfiMhWPqRJ5d10vhzuDUcd6ppEAH6MdswOvvnzXawLtu4rFGfbLMiBGbZmRJlBDRi/Gw/Xiar6j3GVhXrFFqN7yFncy7YfRK"
+        }
+      ],
+      "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=ythI1H7A9R1%2FR5QFTlaM4A%3D%3D",
+      "updated": "2026-06-22T12:25:36.619+02:00",
+      "adjudicatario": "",
+      "importeAdjudicacion": null,
+      "fechaAdjudicacion": "",
+      "rawSummary": "Id licitación: CMAYOR/2026/FISAB/0013; Órgano de Contratación: Junta de Gobierno de la Fundación para el Fomento de la Investigación Sanitaria y Biomédica de la Comunitat Valenciana (FISABIO); Importe: 544000 EUR; Estado: EV",
+      "importedAt": "2026-06-22T18:54:54.170Z"
+    },
+    {
+      "expediente": "2026/141",
+      "atomId": "https://contrataciondelestado.es/sindicacion/licitacionesPerfilContratante/19636535",
+      "title": "Contrato de servicio de mantenimiento señalización horizontal y vertical de   Mercados Centrales de Abastecimiento de Sevilla, S.A. (Mercasevilla). Expte. 2025/141.",
+      "organo": "Dirección General de Mercados Centrales de Abastecimiento de Sevilla S.A. (MERCASEVILLA S.A.)",
+      "estado": "ADJ",
+      "estadoLabel": "Adjudicada (sin formalizar)",
+      "importe": 50037.64,
+      "importeRaw": "50037.64 EUR",
+      "cpv": [
+        "50232200",
+        "34928471",
+        "71620000",
+        "45233294",
+        "45233290",
+        "45233221",
+        "44423400",
+        "44811000"
+      ],
+      "deadline": "2026-05-22",
+      "deadlineSource": "periodo de presentación",
+      "documentos": [
+        {
+          "tipo": "LegalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=cqaKhlfXY6IUvHhdXdnbvhQ3suRuUBxduDb8s7G6XCUVfMhAj/fSBR1o/j5pezoTtISzlLYvZZ%2B0UiNFt5CULUJw3ifnTCMWOwdL%2BwPssvjVTD3T98KC0nSgQFM0q%2B5s"
+        },
+        {
+          "tipo": "TechnicalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=ytX%2BrL7pPXhbxK7cnb6UDTZJaw/G7BGYbpROUdSOFfSz2/rLRbJXrmgFHd7HH89PmKBOBShNnHa91EkcDdtnA50z5nkGKjulQDI5KLh0U1kC1/zDIE0Kw/PWNnLS0Z0z"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=unsp0xUgmQhRwc65fbiJaCfCefx9ynfBwSxNKh%2BBzlOR3gAw6ugl1wli3iYQWxEMOpMLDznRwfZP%2BI0hkP%2Bz1hlUmOsH5eRdd23L1G%2B5pX0ZyAJWGsSt0OzTSTyw9JAs"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=zjCeV0LKD60DiNMdUQyC4PNo0DTTbSlxP%2BunR/2WcmQ5wdjoNqbT5OuDkvB9jgY7JfDkdVEP59pxle0midPEUXSVtiR9AT0oZmKVzyDM1cnDdQD9RyhUmzT4jZ2In4zL"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=h37amTyaFfYVI%2BfqRxut3UzMiuq1HQvckkKtf%2B4l01vM2M7cqVmuiyHPSpymBiGsn37kH4oPh/02BP24waY1IBfuJOf3fVCHgrZey/XnAlbDdQD9RyhUmzT4jZ2In4zL"
+        }
+      ],
+      "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=mJA9nb0cF31eKgd8LfVV9g%3D%3D",
+      "updated": "2026-06-22T12:17:19.827+02:00",
+      "adjudicatario": "Api Movilidad, S.A.",
+      "importeAdjudicacion": 49463.02,
+      "fechaAdjudicacion": "2026-06-22",
+      "rawSummary": "Id licitación: 2026/141; Órgano de Contratación: Dirección General de Mercados Centrales de Abastecimiento de Sevilla S.A. (MERCASEVILLA S.A.) ; Importe: 50037.64 EUR; Estado: ADJ",
+      "importedAt": "2026-06-22T18:54:54.186Z"
+    },
+    {
+      "expediente": "2869898W",
+      "atomId": "https://contrataciondelestado.es/sindicacion/licitacionesPerfilContratante/19910655",
+      "title": "Toma de muestras y analíticas de calidad de agua de consumo y revisión de los protocolos de autocontrol",
+      "organo": "Alcaldía del Ayuntamiento de Cortes de Pallás",
+      "estado": "PUB",
+      "estadoLabel": "Publicada / en plazo",
+      "importe": 72147.88,
+      "importeRaw": "72147.88 EUR",
+      "cpv": [
+        "71800000",
+        "71900000"
+      ],
+      "deadline": "2026-07-07",
+      "deadlineSource": "periodo de presentación",
+      "documentos": [
+        {
+          "tipo": "LegalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=kJn06zABmJ%2BkrwaKJC%2BI2AQW9g5j3hHTQ5WLg1GwGl9WLfuChm7FbS2RTNfzPwTS7G5IwaFd1Rp2vUinihQis5xiRTVUmfeCvx880KknGIO1aXEvq3KHa/AEHgtDrQw0"
+        },
+        {
+          "tipo": "TechnicalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=t53ldj14wJMkZR05uL4uYuuWytXKuiK9Z98%2BAtB1jWazIjwXQuLj7qPG3xA9DlcK6nIdwn8Qc3OFkwYJljIzFa5WqEMLecHNsjnFZ0QccsRJOVDbGCDM%2BMigrvuVS7Rv"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=voTDc3DgMq7Xdukz2hyII2WMzmp/0EvZSlcr/6u1/VfyWJ73mubgeJXv//ZfNCPG6jMqIbIA40uk4HO%2B6ydz2lbOxyBZ8JGzE8L2I3yOvMOB0nvVKRzfe4rpHcnlPhSZ"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=f4OkZgAvgnCoSaoKSMViATI9KLprAEMlnfUUJ0tV3QYTA3NQ8ScM6ax91crgQ%2BaTRKEMIJr73kSOluh1FnN8OixPnLp4A7hRXVd3MZ9P6mT3GVhXrFFqN7yFncy7YfRK"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=S91qK55bUgK8YdNj7kDpNh4l3NQwFyeXQp%2BOEE8LN5CsUwkqIISX94WrsFh26JPzyri51xAGdkcGM08i36VQ3/7rdb5JoPD%2BqBst7jQInZJt/o8fNevwsujgRzaBbugn"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=VPunzezY5c9%2BZVJ2VfJby/0anGqiaSCqODQ6R4bHI3%2B%2BqdnjR8lj9E28PuOFRCDnI8gyv9xjR9KqxyE9W5GAq8PV7L18417J04dNrlhcghuB0nvVKRzfe4rpHcnlPhSZ"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=4kOXRlqsKdK2RwsDfXDBUyXhaxTT7a4Yzy%2BqLvXEMnNVzfrMvktsaqUO%2BWnjrXO0hfLBNMVVmCsE8%2BtAncBI/1kafBbWzzu8/4DDYuk6Y2a1aXEvq3KHa/AEHgtDrQw0"
+        }
+      ],
+      "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=bWVEsqiapdlJ8Trn0ZPzLw%3D%3D",
+      "updated": "2026-06-22T12:04:24.286+02:00",
+      "adjudicatario": "",
+      "importeAdjudicacion": null,
+      "fechaAdjudicacion": "",
+      "rawSummary": "Id licitación: 2869898W; Órgano de Contratación: Alcaldía del Ayuntamiento de Cortes de Pallás; Importe: 72147.88 EUR; Estado: PUB",
+      "importedAt": "2026-06-22T18:54:54.210Z"
+    },
+    {
+      "expediente": "MY26/RESTPAT/S/25",
+      "atomId": "https://contrataciondelestado.es/sindicacion/licitacionesPerfilContratante/19596223",
+      "title": "Adq. equipo portátil de Fluoresc. de Rayos-X (FRX/XRF) para análisis de obras de arte y bienes del patrimonio histórico artístico de manera no invasiva, sin toma de muestra y sin contacto entre equipo y objeto, con capacidad de mapeado elemental.",
+      "organo": "Rectorado de la Universitat Politècnica de València",
+      "estado": "ADJ",
+      "estadoLabel": "Adjudicada (sin formalizar)",
+      "importe": 73000,
+      "importeRaw": "73000 EUR",
+      "cpv": [
+        "38582000"
+      ],
+      "deadline": "2026-05-18",
+      "deadlineSource": "periodo de presentación",
+      "documentos": [
+        {
+          "tipo": "TechnicalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=UG%2BRhCI4sDnd7/kZmfTpf%2BGBGIM27k5rzH2zBZlFCaWrYMkYJwkJcGf9YQSWK7BQZslSMZW%2B91vGIA8tWBUK6ZuKaEgvZMC9OFmlEYhBqd145ClyWkoJ44mKM70IFcOu"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=wZHwTSabFDVmHqTgQl3LYdgH2kPtvNxlRpv3TYHNmQBMKXjNAO8sCMoY4Vv6YZ56ZJSADWrKucYHXlHqCbaLLxqvzjO8ExBk5fUBklSkTGxt/o8fNevwsujgRzaBbugn"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=LQWSnpD4VLziD93lPvjmj2o7/pQozIBWQxOROwMgaIBY48PXJsJvo4VV9AyW9/sq5Wsl%2B9dDl6koOe84Ed9Bn8f30DOGAdZYlwvGG21TB8D6CYyL7SIrUOBFfNf52ZqA"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=QOzq4IQ8Cbzm6lfOFthGyVoh3xVdU93TfHIE4KUYLNnnoc38r6CMQ51/m%2B5n/FxQHxkFujfy7N8%2BRxLS3R3MtaVK6EjXNODjoE/2trCboIiHAj0WEJrB5sP7amrh2jBD"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=pu6ke1lcIevP/m6wH95P%2BlNc42KPzvclYB8i4A/a6hMLQ4DSeheKhpoPxACnkAWtTtQf/HJTEfWjQ7PzApzz5MDsg42R/SHvJCnibrOZ0lsC1/zDIE0Kw/PWNnLS0Z0z"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=3hggBiDe5HO3sf%2BSZ8ubkjL912JN9tHDLEAdCfYOBpDvdZekkgA%2BQFX5cgocdwpsa9zC3F29cnVH%2B3Cy6nbi9npeAJ4Ry963r11DVKpnVqyCx2e6p7hqtlp2aFupgHMr"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=%2Bf5%2BIM63JEti/Ug2d5rnPlcaXg1Kz6w7GTrTmRobQwsVExWPCcX1ukVrcjJhHRNWSnvOOdLpdHzXAGdOegBm0Ix6m9NXL9VUzBc0/21whDUZyAJWGsSt0OzTSTyw9JAs"
+        }
+      ],
+      "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=mrmtkAh8esDE6P%2FuLemXRw%3D%3D",
+      "updated": "2026-06-22T11:26:39.976+02:00",
+      "adjudicatario": "Bruker Española, S.A.",
+      "importeAdjudicacion": 88209,
+      "fechaAdjudicacion": "2026-06-22",
+      "rawSummary": "Id licitación: MY26/RESTPAT/S/25; Órgano de Contratación: Rectorado de la Universitat Politècnica de València; Importe: 73000 EUR; Estado: ADJ",
+      "importedAt": "2026-06-22T18:55:08.176Z"
+    },
+    {
+      "expediente": "2026/ES/0010",
+      "atomId": "https://contrataciondelestado.es/sindicacion/licitacionesPerfilContratante/19910728",
+      "title": "Programa de garantía externa de calidad para hematología y bioquímica",
+      "organo": "Centro Nacional de Investigaciones Cardiovasculares Carlos III (F.S.P.)",
+      "estado": "PUB",
+      "estadoLabel": "Publicada / en plazo",
+      "importe": 1750,
+      "importeRaw": "1750 EUR",
+      "cpv": [
+        "71620000"
+      ],
+      "deadline": "2026-07-06",
+      "deadlineSource": "periodo de presentación",
+      "documentos": [
+        {
+          "tipo": "LegalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=hXL8MiaEQN7I/h02NE3CIpxJG06GxDx3AZE5liSrF9XWMgT2WPZ173lK6vPOMFpodlHG/HTKnmv9XisVpO3dJTlfq2/yebkeP7uZzkxZXLSHAj0WEJrB5sP7amrh2jBD"
+        },
+        {
+          "tipo": "TechnicalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=1DPZQXMqFH9vCOr7dgPxv8IP326Q8UCoIScxOGNOtJFkMS3UUon3UCfN2rgkhf5NMLRJ2aNRvbfdfDOmb1fpHbOM3g5e70LY8B5XWMz%2BbwAZyAJWGsSt0OzTSTyw9JAs"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=5X%2ByJZ0OQcRSFCmacYP9Hs59Cn8xeozFgTqK6QPLDAGuAs%2Bs%2BSx1DuMdBnkw5Ylh/4OFLcFWUN4vYtJOXGbZyIiA9VHaA0EbbGXLwndO73t7QB3HKyQaFUExmUVQCerk"
+        }
+      ],
+      "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=HAOa1oQ0xPES7pcxhTeWOg%3D%3D",
+      "updated": "2026-06-22T11:07:14.165+02:00",
+      "adjudicatario": "",
+      "importeAdjudicacion": null,
+      "fechaAdjudicacion": "",
+      "rawSummary": "Id licitación: 2026/ES/0010; Órgano de Contratación: Centro Nacional de Investigaciones Cardiovasculares Carlos III (F.S.P.); Importe: 1750 EUR; Estado: PUB",
+      "importedAt": "2026-06-22T18:55:08.206Z",
+      "resumenPdfPath": "data/resumenes/2026_ES_0010.pdf",
+      "resumenGeneradoEn": "2026-06-22T18:57:25.785Z"
+    },
+    {
+      "expediente": "TSA0083338",
+      "atomId": "https://contrataciondelestado.es/sindicacion/licitacionesPerfilContratante/19779175",
+      "title": "Servicio de asistencia técnica para la realización de un estudio sobre el estado de las poblaciones de desmán ibérico (Galemys Pyrenaicus) y la caracterización de su hábitat en las reservas naturales fluviales de los ríos Lor y Navea.",
+      "organo": "Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA)",
+      "estado": "EV",
+      "estadoLabel": "En evaluación",
+      "importe": 44990,
+      "importeRaw": "44990 EUR",
+      "cpv": [
+        "90700000"
+      ],
+      "deadline": "2026-06-15",
+      "deadlineSource": "periodo de presentación",
+      "documentos": [
+        {
+          "tipo": "LegalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=6kxKeCEjo3Pi%2BwEC10mLj7ctkJoJnsvFzssRev7SV2IS3RapzlMlwU%2ByfrbFsSKeCR2INxkuGpYExU2cKr4wJBW78jy%2B1nqJ0ngffCI3kHU//q7NB2iMZvNyf0xrJmjt"
+        },
+        {
+          "tipo": "TechnicalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=SFhKfZGueWjOMW3aOc2VJBTbZTM/ex0l/NTSAD0vEmtzpDAx%2BzJn5DsnVbBk21gGy%2BBdopQe4%2BEmt64l1Aor24UQ8bHygrK5bRBF3R914PXfdyQgZAdTm3EfcUAC7CJ6"
+        }
+      ],
+      "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=wqrD58DRpvrs%2BnLj3vAg5A%3D%3D",
+      "updated": "2026-06-22T11:03:33.823+02:00",
+      "adjudicatario": "",
+      "importeAdjudicacion": null,
+      "fechaAdjudicacion": "",
+      "rawSummary": "Id licitación: TSA0083338; Órgano de Contratación: Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA); Importe: 44990 EUR; Estado: EV",
+      "importedAt": "2026-06-22T18:55:08.212Z"
+    },
+    {
+      "expediente": "202605000061",
+      "atomId": "https://contrataciondelestado.es/sindicacion/licitacionesPerfilContratante/19910731",
+      "title": "Realización de ensayos analíticos en productos de origen animal procedentes de terceros países dentro del ámbito del Plan Nacional de Investigación de Residuos (PNIR).",
+      "organo": "Junta de Contratación del Ministerio de Agricultura, Pesca y Alimentación",
+      "estado": "PUB",
+      "estadoLabel": "Publicada / en plazo",
+      "importe": 444015,
+      "importeRaw": "444015 EUR",
+      "cpv": [
+        "71610000"
+      ],
+      "deadline": "2026-07-20",
+      "deadlineSource": "periodo de presentación",
+      "documentos": [
+        {
+          "tipo": "LegalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=MFJBLQGfZmohti12yUKommxCGOjDgAjMSefRVyeY%2BbXktdvKq4a9I6yuSaRmRHPtgOT%2BoqKjKKJcSBMf/4XBp5sDEeot0gze%2Bik3KV3NPkXfdyQgZAdTm3EfcUAC7CJ6"
+        },
+        {
+          "tipo": "TechnicalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=%2BtYRvtdIbcrxmycOnYoodP8y9hCmlS4vcR2j0gK8x%2Bc/Gb5lanfJFqNoOT49zWRYvLuOQE4XyHAt2mSDZPisyE%2BRXDpC%2B3quOsS3Xl2b/0T6CYyL7SIrUOBFfNf52ZqA"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=T3lOSaskLsduaYhroGUoOfgKWB2/2Nx4WEvv3befSz9606ndk15p58WEDmaQFUJsWXoHtral2AwX8OKVz/SdCfMLg0OOd2PHqu2DMr%2BijoNt/o8fNevwsujgRzaBbugn"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=a5htdh0Put1s1h1x8Mxogh4GrGbJlkGOqxdkZxSXxTW8btLylsC8XHqF9Ox35iK2oUgbRA0zDqfBQ/N9Ne7qi4iKfjwnVxfAaiFx/0eI2nG1aXEvq3KHa/AEHgtDrQw0"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=cYs1OqbINtqw4JpqlbOB6jQnpkatAchlkl774sPDru5pMbwRvZsBKyteybbLuUoZh7JH%2BekYjddvyv4R7WhiJBSMRJ3wM28dWrj3vgJdq1uHAj0WEJrB5sP7amrh2jBD"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=CDGo7WCXwgoXtTmCQ6zNiMNtpuXt9hRnJ/Sw0kxov2/NVed9rwHGpyYznt5nezgGWh7OLXTo6IlwY5mhisiGqzcmyiLNKl1KUhZnMHO46yR7QB3HKyQaFUExmUVQCerk"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=K4Y1HUj/vep3Up9yXB1L9XVHf3gVCY05FWOVCCW%2B9qh7cefb18hv/KyhkoxAj6MCUkdcufTZ57rZ3ZSJ4MirzDQe/BxVtZg%2BeT76BOIhbUuB0nvVKRzfe4rpHcnlPhSZ"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=BR1kHRb41B%2BWEVZ3b02JH/aSa8R6Z6jJLE1fFoXAq6apw88DrYfhRSZB1gGaErNM/SXk7T4e3DZvHz0tMWcO%2B4ePMISJrKpsMxbuGswv6CE//q7NB2iMZvNyf0xrJmjt"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=ZIlGc4i5d%2B542CcdiuQGQyUlsXlsN4UpRGiSge2V1XQk7wQFWTcO7BG6hrbbELNsMMGqrZ4F352FeAAKaTI9C9UaWVXOlwxg3tnm2tl0ABc//q7NB2iMZvNyf0xrJmjt"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=XuTwjMY97XNBb7llccMQ1fuPTA0RxEvThdSdG1gqd5O/hCVqeDQ091U9Vo%2BhAO5jHyabjCDR68edaXWECMcV/3CDfHvZF3wEoGyjS5JIh6RJOVDbGCDM%2BMigrvuVS7Rv"
+        }
+      ],
+      "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=r1t093iDyj9eKgd8LfVV9g%3D%3D",
+      "updated": "2026-06-22T11:03:25.034+02:00",
+      "adjudicatario": "",
+      "importeAdjudicacion": null,
+      "fechaAdjudicacion": "",
+      "rawSummary": "Id licitación: 202605000061; Órgano de Contratación: Junta de Contratación del Ministerio de Agricultura, Pesca y Alimentación; Importe: 444015 EUR; Estado: PUB",
+      "importedAt": "2026-06-22T18:55:08.212Z",
+      "resumenPdfPath": "data/resumenes/202605000061.pdf",
+      "resumenGeneradoEn": "2026-06-22T18:57:59.333Z"
+    },
+    {
+      "expediente": "2026 09",
+      "atomId": "https://contrataciondelestado.es/sindicacion/licitacionesPerfilContratante/19910764",
+      "title": "Mantenimiento, Actualización y Mejora del Proyecto de Equidad Verde de Rivas-Vaciamadrid, Empresa Municipal de Servicios, S.A.",
+      "organo": "Consejo de Administración de Rivas-Vaciamadrid Empresa Municipal de Servicios S.A. (Rivamadrid)",
+      "estado": "PUB",
+      "estadoLabel": "Publicada / en plazo",
+      "importe": 25000,
+      "importeRaw": "25000 EUR",
+      "cpv": [
+        "72316000",
+        "72313000",
+        "72212461",
+        "90713000"
+      ],
+      "deadline": "2026-07-07",
+      "deadlineSource": "periodo de presentación",
+      "documentos": [
+        {
+          "tipo": "LegalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=EwYGp5QEQBjF6vgMyhtKBynrslNSYVFo4sFcd9zcrOCGTe/ebSMy0gkNJyAojqPP1mpVXH7UIlYoCt21AG7y7EPvLQ7n%2BRZgv7cFaLVON3n6CYyL7SIrUOBFfNf52ZqA"
+        },
+        {
+          "tipo": "TechnicalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=eoG6yxKFNgiWDdS7S4uAAW6hmJyR/2oUmRQ%2BrjB4wSy3JHnJV9RYJradBUlx0B8ynv41Jtn7WKFytog4EYerk5Y2JNu/1dV6jFYYSu8k4Qi1aXEvq3KHa/AEHgtDrQw0"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=DHHifGn1CqX0dJ%2BQ%2BaFE7h1lqJ67wa5C8uNmeI88hHBhvCQc7gBw5r8/ttlX1iojzRo5MRMZA4SwwmD8m4kiEn6r1Lg78lZJ/CSEz4949OiB0nvVKRzfe4rpHcnlPhSZ"
+        }
+      ],
+      "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=VTSXpIVzj9c%2Bk2oCbDosIw%3D%3D",
+      "updated": "2026-06-22T10:42:24.476+02:00",
+      "adjudicatario": "",
+      "importeAdjudicacion": null,
+      "fechaAdjudicacion": "",
+      "rawSummary": "Id licitación: 2026 09; Órgano de Contratación: Consejo de Administración de Rivas-Vaciamadrid Empresa Municipal de Servicios S.A. (Rivamadrid); Importe: 25000 EUR; Estado: PUB",
+      "importedAt": "2026-06-22T18:55:08.243Z",
+      "resumenPdfPath": "data/resumenes/2026_09.pdf",
+      "resumenGeneradoEn": "2026-06-22T18:58:35.384Z"
+    },
+    {
+      "expediente": "UGR/2026/0051",
+      "atomId": "https://contrataciondelestado.es/sindicacion/licitacionesPerfilContratante/19910768",
+      "title": "Servicio de mantenimiento de la climatización y agua refrigerada en los laboratorios del Centro de Instrumentación Científica, ubicados en la sede de Fuentenueva, máquinas ubicadas en la sede de la Facultad de Farmacia y máquinas del Laboratorio P3",
+      "organo": "Rectorado de la Universidad de Granada",
+      "estado": "PUB",
+      "estadoLabel": "Publicada / en plazo",
+      "importe": 150000,
+      "importeRaw": "150000 EUR",
+      "cpv": [
+        "50730000"
+      ],
+      "deadline": "2026-07-22",
+      "deadlineSource": "periodo de presentación",
+      "documentos": [
+        {
+          "tipo": "LegalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=b7BmOaFGAQE9UcogZaRjsY2IoMVMtvcffj80jyS72LPe0M5%2BQQmj0wxaEiNOtx40Sa9QihJFsBMGXI4%2B7ldNKtKnoycP/s%2B7ickzWSCfwWAC1/zDIE0Kw/PWNnLS0Z0z"
+        },
+        {
+          "tipo": "TechnicalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=ODBDOAxcn4QJ4SlCm0r80eRV0zlsCqwzQgeUiPFHwAabhSgBJnLot5/mnbzbkpx5msvqktZ8RqRHuE8J7eYMQLpddql6d0y/xDnyhxZUeWT3GVhXrFFqN7yFncy7YfRK"
+        }
+      ],
+      "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=GhZZu%2FKSNOO5HQrHoP3G5A%3D%3D",
+      "updated": "2026-06-22T10:37:58.076+02:00",
+      "adjudicatario": "",
+      "importeAdjudicacion": null,
+      "fechaAdjudicacion": "",
+      "rawSummary": "Id licitación: UGR/2026/0051; Órgano de Contratación: Rectorado de la Universidad de Granada; Importe: 150000 EUR; Estado: PUB",
+      "importedAt": "2026-06-22T18:55:08.250Z"
+    },
+    {
+      "expediente": "2026-SES-040",
+      "atomId": "https://contrataciondelestado.es/sindicacion/licitacionesPerfilContratante/19636463",
+      "title": "Adecuación de la conductividad de los suelos de quirófano en el Hospital de Mutua balear",
+      "organo": "Dirección Gerencia de Mutua Balear, Mutua de Accidentes de Trabajo y Enfermedades Profesionales de la Seguridad Social Nº 183",
+      "estado": "ADJ",
+      "estadoLabel": "Adjudicada (sin formalizar)",
+      "importe": 13800,
+      "importeRaw": "13800 EUR",
+      "cpv": [
+        "50700000",
+        "44112200",
+        "45432130"
+      ],
+      "deadline": "2026-05-22",
+      "deadlineSource": "periodo de presentación",
+      "documentos": [
+        {
+          "tipo": "LegalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=kd6lJq1FHR%2Bo8FSHqd0aeskPA1Wn8mwmVfPl6OVFAK8q3sQbIH4lYOmbhA9klWKzhw5tldlyQwKkWbOkxGDF0nd3HHHpqkE4FlDhb4gd09xt/o8fNevwsujgRzaBbugn"
+        },
+        {
+          "tipo": "TechnicalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=9WvdLjcDwyDSTC4%2B/%2BAXatchOVDjR0XSKmwApMiLtjxbo6TgtHyvNfVc5VHowrr/ZUOvPkwTR7DG/mJe%2BUIlctVtkRWnrBdPcp3P%2BjfkwT9t/o8fNevwsujgRzaBbugn"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=B6asf7XeUhrLMrJVSDbh522OoALRMGdlQSKzEh/znnn1OBgXSPYXiohJLKDgLyVrjQ3PQXuDUhcv3%2BSAuE5H3X8zI52XNSRboqjGIkKpSj4ZyAJWGsSt0OzTSTyw9JAs"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=%2BKjbxm1uNCICfBm6Um/0DHlL8AO/Kr%2BtKtjjb%2B22ODneR8FwZT499NqyWwLLr0N0dLsvbStEV2vCGH1TLL3cDHvdDomOHnl/Y2Nu%2BGv%2B%2B/b3GVhXrFFqN7yFncy7YfRK"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=rCoOf0yu6gOnL4sGo1BUY2ZDidQnfzi/SHQJt0UUQZcwjlhcWsuQgETrgW/AH3b7epnZKRuMc%2BowLI5fCr68k94GHSNw/X5Q3LNnnqCEEip7QB3HKyQaFUExmUVQCerk"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=sQ1cyVXStjsWeBexeEiEMiSzZLga4st9%2BZHuyKgNJJ3XL0oQNyChVgxLEidTaukcM2Aq7Xaeyanes7t3bEWAYpn1IZhb7yTEdUhlcLVEQm4C1/zDIE0Kw/PWNnLS0Z0z"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=PpBL0mVOvdIBDLj5O9YbAbyGW1BQdP0gs9FXO6LqRkKWw5AZFWGAp5a/l9OdrxE1msM2vXGeJFYhxQmT8SCCQolu23Zye%2BMloZst4jsBkWjVTD3T98KC0nSgQFM0q%2B5s"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=%2Bql77iDsUcVfA%2Boiy8PKS3pNUctqJIoRBN2pbNdFmj8OuLgVHUiQJ2eO4DUaW22hRm4eJG7YkWdQEbNg2m3WjSof7rK7lMw8DiEeghoxtKE//q7NB2iMZvNyf0xrJmjt"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=fJ48jES1Lk/z0PdfALGOsg2QxXnAzpbBCelAY1WcZPZzGPFzgtETQWFYRUDolXwbML%2Bms4nXLBelZCnyD8sfEq2nAQHAqSZWLgc70epCtzZ45ClyWkoJ44mKM70IFcOu"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=4XpHSA%2BStnjXmFTJZzmlfiWN9zpoauyE2m/QkdiTLT3jWwdFVqkAVOOyaZypDTdVSY4Pyo0stj2dm2XH9Ox%2Bi7CD2O5uCSzaS4IHyxbLzvQC1/zDIE0Kw/PWNnLS0Z0z"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=FHaqMX2RX7iaj4/mx1dkouelyKj16iCQX693tcNdb72I1LzilPa1fd0Jvz3QTF50AxLLhmXblecs54R0VIJGpDq5GSMvllfONu5F7HbsOOLVTD3T98KC0nSgQFM0q%2B5s"
+        }
+      ],
+      "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=aLTkzvBSPDJVYjgxA4nMUw%3D%3D",
+      "updated": "2026-06-22T10:25:15.239+02:00",
+      "adjudicatario": "LOTUM, SA",
+      "importeAdjudicacion": 15246,
+      "fechaAdjudicacion": "2026-06-22",
+      "rawSummary": "Id licitación: 2026-SES-040; Órgano de Contratación: Dirección Gerencia de Mutua Balear, Mutua de Accidentes de Trabajo y Enfermedades Profesionales de la Seguridad Social Nº 183; Importe: 13800 EUR; Estado: ADJ",
+      "importedAt": "2026-06-22T18:55:08.283Z"
+    },
+    {
+      "expediente": "2026000278",
+      "atomId": "https://contrataciondelestado.es/sindicacion/licitacionesPerfilContratante/19653514",
+      "title": "Servicio de asistencia técnica para la redacción de los documentos de ordenación territorial y ambientales del \"Plan Territorial Especial de campamentos de turismo costeros\"",
+      "organo": "Consejería de Ordenación del Territorio, Urbanismo, Vivienda y Derechos Ciudadanos del Principado de Asturias",
+      "estado": "EV",
+      "estadoLabel": "En evaluación",
+      "importe": 321349.83,
+      "importeRaw": "321349.83 EUR",
+      "cpv": [
+        "71410000",
+        "90711000"
+      ],
+      "deadline": "2026-06-08",
+      "deadlineSource": "periodo de presentación",
+      "documentos": [
+        {
+          "tipo": "LegalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=GTh%2B3A1wsgMCZ8sHM8T6jsAojUly4mvaDFddT9PQcNLHiD3jnB26kXEDUoDvAIzF6jXtKScMtHMz9yVbum5euwwWa/WjwvdWc0HmURwuK4YC1/zDIE0Kw/PWNnLS0Z0z"
+        },
+        {
+          "tipo": "TechnicalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=9QXXXr1Y%2BR01l5bFu%2BqlP5msq/WeYPTPWLQhdH6puFclAh4hwfNyAco4q7ocaZ%2BfuC14Zf/6f90j6KqQ7rTYLf/ZzLZ7ixInBne6HIcMzAmB0nvVKRzfe4rpHcnlPhSZ"
+        }
+      ],
+      "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=IdE0nnxGXRUmMOlAXxDEjw%3D%3D",
+      "updated": "2026-06-22T10:07:11.296+02:00",
+      "adjudicatario": "",
+      "importeAdjudicacion": null,
+      "fechaAdjudicacion": "",
+      "rawSummary": "Id licitación: 2026000278; Órgano de Contratación: Consejería de Ordenación del Territorio, Urbanismo, Vivienda y Derechos Ciudadanos del Principado de Asturias; Importe: 321349.83 EUR; Estado: EV",
+      "importedAt": "2026-06-22T18:55:21.558Z"
+    },
+    {
+      "expediente": "5810/2026",
+      "atomId": "https://contrataciondelestado.es/sindicacion/licitacionesPerfilContratante/19910855",
+      "title": "Contratación del servicio de análisis de peligros y puntos de control crítico para el taller de cocina y bar cafetería, así como desratización y desinsectación y prevención de legionella en el edificio sede de la Fundación para la Promoción del Empleo, la Formación Profesional y el Movimiento Cooperativo, organismo autónomo del Iltre. Ayto de la Villa de Ingenio.",
+      "organo": "Presidencia de la Fundación para la Promoción del Empleo, la Formación Profesional y el Movimiento Cooperativo del Iltre. Ayto. de la Villa de Ingenio",
+      "estado": "PUB",
+      "estadoLabel": "Publicada / en plazo",
+      "importe": 14480,
+      "importeRaw": "14480 EUR",
+      "cpv": [
+        "90921000",
+        "90923000",
+        "90922000"
+      ],
+      "deadline": "2026-07-06",
+      "deadlineSource": "periodo de presentación",
+      "documentos": [
+        {
+          "tipo": "LegalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=Cb3FgLsyPqCh/1qkHu94MFXvv%2B73juFCXVCa3RDE4bwN1fEz/VxJynFjX3h/3Bquwu32QM/0Iymaw4CjMtQjbaJakSVsbyK0ie72o5k7yQ2HAj0WEJrB5sP7amrh2jBD"
+        },
+        {
+          "tipo": "TechnicalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=KaIJNEgumcejCtH0lP1flD%2Bio69W%2BSfKl5I7TlvnHT11/KanHPq6hUvPZEU7kJ4jl/CRGUlCtG5wAYKdNpsmJfCJ66lwHSAU5V1BV8LPt5J45ClyWkoJ44mKM70IFcOu"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=AFodAmJCYBd1h6rE9Sh2FUAziwGxol66JK4I02MVedO4LZProw2rfNhOpzzkA4e3tJev5O0oIFRBQbvby686slo62Bk8MsJ3v40MhYnMxk2HAj0WEJrB5sP7amrh2jBD"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=uluCXfsIvX6/wWapZENHMb/7r9GpS%2Bk8fe2XsY4IavKYeJpVRUkN2No7BFsx3qjt7fnZgVtdLZshr1zzlqWIOhNrlAg9%2Bv7DxxiOXl0OOjHDdQD9RyhUmzT4jZ2In4zL"
+        }
+      ],
+      "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=t8xxUn1jH1fua%2Fi14w%2FPLA%3D%3D",
+      "updated": "2026-06-22T09:30:28.469+02:00",
+      "adjudicatario": "",
+      "importeAdjudicacion": null,
+      "fechaAdjudicacion": "",
+      "rawSummary": "Id licitación: 5810/2026; Órgano de Contratación: Presidencia de la Fundación para la Promoción del Empleo, la Formación Profesional y el Movimiento Cooperativo del Iltre. Ayto. de la Villa de Ingenio; Importe: 14480 EUR; Estado: PUB",
+      "importedAt": "2026-06-22T18:55:21.616Z"
+    },
+    {
+      "expediente": "15241/2026",
+      "atomId": "https://contrataciondelestado.es/sindicacion/licitacionesPerfilContratante/19672462",
+      "title": "Servicio de zonificación acústica, elaboración del mapa estratégico de ruido y propuesta de plan de acción contra el ruido de Rivas Vaciamadrid.",
+      "organo": "Junta de Gobierno del Ayuntamiento de Rivas Vaciamadrid",
+      "estado": "EV",
+      "estadoLabel": "En evaluación",
+      "importe": 66100.4,
+      "importeRaw": "66100.4 EUR",
+      "cpv": [
+        "71313100",
+        "90742400",
+        "90742200",
+        "90742300",
+        "90742000"
+      ],
+      "deadline": "2026-05-28",
+      "deadlineSource": "periodo de presentación",
+      "documentos": [
+        {
+          "tipo": "LegalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=/P61%2BldSFo3RxtV/vA15HtUy1kaMTQyzlQEMA74fEU2GmMi78Nvj8FENgezShJtNTnZJq18pHzVkRJ5NIJBhfyfIB0oCR%2BFSZtBXvB/VhMvVTD3T98KC0nSgQFM0q%2B5s"
+        },
+        {
+          "tipo": "TechnicalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=jh4NZLZQEMJUuuJQ5n75L2bmBKZSeLQJQuU9rzsYAI9UFhX%2BzPTHESw0GrDn/mLWsoN17a5TYmD5x5tH9kxdSKw5UqHgLi60xBXrT96imB7DdQD9RyhUmzT4jZ2In4zL"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=2OLTpLHS0C10ZxEecqYgm05u0MCQp/J9Lyqwe6nuEJyY4/1clFjLLp1DJ43lE3TNF1XyxJcZkSkkr%2B4JTwg/28JFD7ScEF7zrOjYnubuMUEC1/zDIE0Kw/PWNnLS0Z0z"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=28uoiYNboX3CzzoBNnGqGflMojJCAfhDY%2BtXCU3kHlsqmhnPDM/XZh3iywwsGtHaseqXY1uoDYzyCWY2fxIVAg1xc/b5kZTZ6PiXega7L0X3GVhXrFFqN7yFncy7YfRK"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=//9LgUv%2BsvbDt3a6AcW0/sy223dip2uPWaxQKr8WwIkbdNPMCy36gf/U/ax%2Bj08Sm7PNynVli6pzdSAVs4G5v51l5Q3SnA3zFvQ86kfkhNQZyAJWGsSt0OzTSTyw9JAs"
+        }
+      ],
+      "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=T6Ebjfd4XRW9Hd5zqvq9cg%3D%3D",
+      "updated": "2026-06-22T09:13:22.184+02:00",
+      "adjudicatario": "",
+      "importeAdjudicacion": null,
+      "fechaAdjudicacion": "",
+      "rawSummary": "Id licitación: 15241/2026; Órgano de Contratación: Junta de Gobierno del Ayuntamiento de Rivas Vaciamadrid; Importe: 66100.4 EUR; Estado: EV",
+      "importedAt": "2026-06-22T18:55:21.640Z"
+    },
+    {
+      "expediente": "M6-2026",
+      "atomId": "https://contrataciondelestado.es/sindicacion/licitacionesPerfilContratante/19680780",
+      "title": "Suministro, instalación e integración sistema de calidad del aire y ruido en el término municipal de Blanca (Murcia).",
+      "organo": "Alcaldía del Ayuntamiento de Blanca",
+      "estado": "EV",
+      "estadoLabel": "En evaluación",
+      "importe": 24793.39,
+      "importeRaw": "24793.39 EUR",
+      "cpv": [
+        "35125100",
+        "50324100",
+        "42961000",
+        "32412110",
+        "72260000"
+      ],
+      "deadline": "2026-05-28",
+      "deadlineSource": "periodo de presentación",
+      "documentos": [
+        {
+          "tipo": "LegalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=KQCzhvM%2BEac8NkUoL3UNBS7tGUAeYZwP33ySOMQdYMUSS9UWN4NMi25ARSieQ2D3l71HUzWceVXEoh8SLffoCdOquF54sRJiWliDNW9hmKsC1/zDIE0Kw/PWNnLS0Z0z"
+        },
+        {
+          "tipo": "TechnicalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=MMShmC5gX8X3ZIwQTdNXk7u4pi%2BpicUF%2Bab61%2B%2BEijEFHAEv0Yh2dZjHv1f4wN0hhwfRCl6LcBPQz8AgKf2hdi8FyWFFAPLQ1y7bSQ4xCVP6CYyL7SIrUOBFfNf52ZqA"
+        }
+      ],
+      "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=k8X5Jkv4cODzAq95uGTrDQ%3D%3D",
+      "updated": "2026-06-22T09:08:44.025+02:00",
+      "adjudicatario": "",
+      "importeAdjudicacion": null,
+      "fechaAdjudicacion": "",
+      "rawSummary": "Id licitación: M6-2026; Órgano de Contratación: Alcaldía del Ayuntamiento de Blanca; Importe: 24793.39 EUR; Estado: EV",
+      "importedAt": "2026-06-22T18:55:21.647Z"
+    },
+    {
+      "expediente": "C2026-00020",
+      "atomId": "https://contrataciondelestado.es/sindicacion/licitacionesPerfilContratante/19645796",
+      "title": "Servicio de asistencia técnica para el ciclo del agua, análisis de muestras y asesoramiento técnico para el control de vertidos de aguas residuales para la Autoridad Portuaria de Santa Cruz de Tenerife",
+      "organo": "Presidencia de la Autoridad Portuaria de Santa Cruz de Tenerife",
+      "estado": "EV",
+      "estadoLabel": "En evaluación",
+      "importe": 114731.5,
+      "importeRaw": "114731.5 EUR",
+      "cpv": [
+        "71356200",
+        "71900000",
+        "71313000",
+        "90733000"
+      ],
+      "deadline": "2026-05-25",
+      "deadlineSource": "periodo de presentación",
+      "documentos": [
+        {
+          "tipo": "LegalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=oxUrjTmfsEOeN%2B6tAuhJ7BzJDL3bFHmg9GOLKIsAlX0rDJpdWcAzb3yHNKixG6W7Hn/t7RYcC3NmC762NfiHuHXucW%2B/yRU8/k78AlqzeT2Cx2e6p7hqtlp2aFupgHMr"
+        },
+        {
+          "tipo": "TechnicalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=EMNpTEdCQJYF7FXJKynOmmsrPNzm0lNPO259GMlZql/0BaSvh7SyQwXQ7TFqIUwzGXpUnBbomdVMbAjXFrXBcsxvOmRNuLxrJye2/GyGCxB45ClyWkoJ44mKM70IFcOu"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=qodg8aynSjv/S9Mej%2Bfk24%2BVaTZQa6SQZLTdWJ0tkx34PF1OSZxEh8bnoF68uWgFIn/M10mB3N1gkNlmnBLiyRkpRvZKbNtjK5v2nicYMWV7QB3HKyQaFUExmUVQCerk"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=Tx6iPn23V60i2N/fdjdxOn68eILuDhFle1hFVVn30Ic3i%2B4cj4uSUSmJktotPhwjB9zgm4N9YW/0gNJtX5SO2WLi6x95sZjG3hGJJ85tn5NJOVDbGCDM%2BMigrvuVS7Rv"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=ueXSlqLHrjuDQ3uIDi8v797DJc//z4UbWsA3WTrRkbfv0Wj2VHIolL37%2BmuKZdIYysKWpFIQFy584VBxT08H4MwA6wuhJQH2q9VDRvBQqgrDdQD9RyhUmzT4jZ2In4zL"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=6uEkc2/nL8iJOydK77IY1lL20YQ7iMFMcPsdNR4C5Lw8Fte68ceLBp7QB8W4ns6HfvwktIJE5DDfoxZcvyjNOkV1g9zmxrh/xMDe5C0uPpAZyAJWGsSt0OzTSTyw9JAs"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=X1fKHbPxGkhlBkIkBoPE/igaATnsTidfjJcSGc13/iyB0stLpiENXPc0iAiMLl5rj7A4bDstFJN7KUzuqu9Eva41kX4OCTMtjy5LXJ22RJ1JOVDbGCDM%2BMigrvuVS7Rv"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=NREgUePKjxR90okc3Isc%2B25SAn7IsX2MfRHHrWDXbJukvRcMQs22lDwrHgbtKvdwx5mUtTC%2BP%2BhdA52JmGD5QGtsCUbAe1fBYFvEOh2ZhF%2BCx2e6p7hqtlp2aFupgHMr"
+        }
+      ],
+      "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=cTZSfE8bF4GIzo3LHNPGcQ%3D%3D",
+      "updated": "2026-06-22T08:49:42.690+02:00",
+      "adjudicatario": "",
+      "importeAdjudicacion": null,
+      "fechaAdjudicacion": "",
+      "rawSummary": "Id licitación: C2026-00020; Órgano de Contratación: Presidencia de la Autoridad Portuaria de Santa Cruz de Tenerife; Importe: 114731.5 EUR; Estado: EV",
+      "importedAt": "2026-06-22T18:55:34.355Z"
+    },
+    {
+      "expediente": "TSA0079137-1001",
+      "atomId": "https://contrataciondelestado.es/sindicacion/licitacionesPerfilContratante/19861989",
+      "title": "Contrato derivado del \"Acuerdo Marco para el servicio de realización de tomas de muestras, ensayos y controles de materiales en actuaciones de las gerencias de la UT5 de Tragsa (Andalucía, Ceuta, Melilla y Extremadura), incluidas obras Financiadas con Fondos Procedentes del Plan de Recuperación, Transformación y Resiliencia (PRTR)––NextGenerationEU\"",
+      "organo": "Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA)",
+      "estado": "RES",
+      "estadoLabel": "Resuelta / Formalizada",
+      "importe": 4066.66,
+      "importeRaw": "4066.66 EUR",
+      "cpv": [
+        "71621000"
+      ],
+      "deadline": "2026-05-25",
+      "deadlineSource": "periodo de presentación",
+      "documentos": [
+        {
+          "tipo": "LegalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=p676djtCwEvHO2QMOCd2YVbEQRSQR/g6kmx9bhuZdpUxcJ28HqakeDBZpcpIVn0HjZDTLDgnkIFez2AFfbLf4wrNT%2Bcf7bSjgG17Wukmdxxt/o8fNevwsujgRzaBbugn"
+        },
+        {
+          "tipo": "TechnicalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=0kU%2BA4otzVJzgbnYQYD8QpTm7RdZbe3qcRRcNhIBaI%2B2BnVnZItYrwGu7E1gzYkTUprD8Shk8VIzErPnzspzJ6TAUJWBfiKJDKPY5J07U31t/o8fNevwsujgRzaBbugn"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=dvUCvb/UGjblzxPv2wPsEpLAcQvTCn5x20EUjxpJib8tzUgaj1OrjYDWcWd6CQoTNE9sYpF%2BMfP0GTjv34MXKxCR9T2OAq3RiXT6vE3JR1145ClyWkoJ44mKM70IFcOu"
+        }
+      ],
+      "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=sUcg0u0BtJE36J9Lctlsuw%3D%3D",
+      "updated": "2026-06-22T08:49:33.596+02:00",
+      "adjudicatario": "EVINTES CALIDAD S.L.",
+      "importeAdjudicacion": 4024.46,
+      "fechaAdjudicacion": "2026-06-11",
+      "rawSummary": "Id licitación: TSA0079137-1001; Órgano de Contratación: Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA); Importe: 4066.66 EUR; Estado: RES",
+      "importedAt": "2026-06-22T18:55:34.355Z"
     }
   ]
 }
