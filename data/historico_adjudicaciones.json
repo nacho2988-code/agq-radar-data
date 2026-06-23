@@ -1,10 +1,9 @@
 {
-  "generatedAt": "2026-06-23T09:11:47.370Z",
-  "fromYear": 2021,
-  "source": "apispain",
-  "totalRequests": 20,
-  "totalEntries": 31,
-  "newThisRun": 31,
+  "generatedAt": "2026-06-23T10:31:20.635402",
+  "years": [
+    2020
+  ],
+  "totalEntries": 397,
   "entries": [
     {
       "expediente": "202617320019",
@@ -605,6 +604,5729 @@
       "fechaAdjudicacion": "2026-04-28T15:14:14.601Z",
       "link": "",
       "fuente": "apispain"
+    },
+    {
+      "expediente": "300/2020/00218e",
+      "title": "Área de Gobierno de Medio Ambiente y Movilidad",
+      "organo": "Área de Gobierno de Medio Ambiente y Movilidad",
+      "estado": "RES",
+      "cpv": [
+        "90742000",
+        "71356300"
+      ],
+      "importe": 2780485.53,
+      "adjudicatario": "EMS Brüel &amp; Kjaer Ibérica S.A.",
+      "fechaAdjudicacion": "2020-12-30",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "P/0013/Q/20/2",
+      "title": "5ª Zona de la Guardia Civil (Murcia)",
+      "organo": "5ª Zona de la Guardia Civil (Murcia)",
+      "estado": "RES",
+      "cpv": [
+        "71620000",
+        "90921000",
+        "90913000"
+      ],
+      "importe": 15125.0,
+      "adjudicatario": "Control Ambiental España sur S.L.",
+      "fechaAdjudicacion": "2020-12-23",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "1211_ LASI_SE_0820",
+      "title": "Gerencia de EMAYA, Empresa Municipal d'Aigües i Clavegueram, S.A.",
+      "organo": "Gerencia de EMAYA, Empresa Municipal d'Aigües i Clavegueram, S.A.",
+      "estado": "RES",
+      "cpv": [
+        "90713000",
+        "90711500"
+      ],
+      "importe": 70982.23,
+      "adjudicatario": "AMPHOS 21 CONSULTING SL",
+      "fechaAdjudicacion": "2020-12-22",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "20200500023",
+      "title": "Junta de Contratación del Ministerio de Agricultura, Alimentación y Medio Ambiente",
+      "organo": "Junta de Contratación del Ministerio de Agricultura, Alimentación y Medio Ambiente",
+      "estado": "RES",
+      "cpv": [
+        "71621000"
+      ],
+      "importe": 50000.0,
+      "adjudicatario": "Universidad de Valladolid",
+      "fechaAdjudicacion": "2020-12-22",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "25/2020",
+      "title": "Dirección General de la Fundación para la Investigación del Hospital Universitario de la Fe",
+      "organo": "Dirección General de la Fundación para la Investigación del Hospital Universitario de la Fe",
+      "estado": "RES",
+      "cpv": [
+        "38970000",
+        "73110000",
+        "73100000",
+        "71900000",
+        "73111000",
+        "85111810",
+        "85145000"
+      ],
+      "importe": 91269.17,
+      "adjudicatario": "FUNDACIÓ CENTRE DE REGULACIÓ GENÒMICA",
+      "fechaAdjudicacion": "2020-12-22",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "2017/286",
+      "title": "Presidencia del Consejo Insular de Aguas de Tenerife",
+      "organo": "Presidencia del Consejo Insular de Aguas de Tenerife",
+      "estado": "RES",
+      "cpv": [
+        "71621000",
+        "71621000",
+        "71621000",
+        "71621000"
+      ],
+      "importe": 219133.14,
+      "adjudicatario": "LABAQUA, S.A.U.",
+      "fechaAdjudicacion": "2020-12-22",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "020_24_AE_SPS_BENIA",
+      "title": "Gerencia de la Empresa Pública Sociedad de Servicios del Principado de Asturias, S.A.",
+      "organo": "Gerencia de la Empresa Pública Sociedad de Servicios del Principado de Asturias, S.A.",
+      "estado": "RES",
+      "cpv": [
+        "71620000",
+        "85111820"
+      ],
+      "importe": 16254.75,
+      "adjudicatario": "control y calidad alimentaria s.l.",
+      "fechaAdjudicacion": "2020-12-21",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "SER 64/2020",
+      "title": "Alcaldía del Ayuntamiento de Alagón",
+      "organo": "Alcaldía del Ayuntamiento de Alagón",
+      "estado": "RES",
+      "cpv": [
+        "71610000",
+        "71610000",
+        "71610000"
+      ],
+      "importe": 9291.15,
+      "adjudicatario": "TECNOAMBIENTE, S.L.",
+      "fechaAdjudicacion": "2020-12-18",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "6201.4.1",
+      "title": "Consejero Delegado de la Empresa Municipal de Aguas de Málaga S.A.",
+      "organo": "Consejero Delegado de la Empresa Municipal de Aguas de Málaga S.A.",
+      "estado": "RES",
+      "cpv": [
+        "71300000",
+        "71600000",
+        "71200000",
+        "71500000"
+      ],
+      "importe": 31944.0,
+      "adjudicatario": "ACTIVIDADES DE CONSULTORIA TECNICA, INVESTIGACION Y SERVICIOS AVANZADOS S.L.",
+      "fechaAdjudicacion": "2020-12-18",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "2020/558",
+      "title": "Dirección General de Mercados Centrales de Abastecimiento de Sevilla S.A. (MERCASEVILLA S.A.)",
+      "organo": "Dirección General de Mercados Centrales de Abastecimiento de Sevilla S.A. (MERCASEVILLA S.A.)",
+      "estado": "RES",
+      "cpv": [
+        "71620000"
+      ],
+      "importe": 6891.71,
+      "adjudicatario": "GAMASER, S.L.",
+      "fechaAdjudicacion": "2020-12-18",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "400/2020",
+      "title": "Consejería Delegada de Gestión y Planeamiento Territorial y Medioambiental S.A.",
+      "organo": "Consejería Delegada de Gestión y Planeamiento Territorial y Medioambiental S.A.",
+      "estado": "RES",
+      "cpv": [
+        "73110000",
+        "90720000",
+        "90713000",
+        "90700000"
+      ],
+      "importe": 33170.0,
+      "adjudicatario": "MIGUEL ANTONIO PADRON MEDEROS",
+      "fechaAdjudicacion": "2020-12-17",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "035-CO-SU-2020-0002",
+      "title": "Empresa Nacional de Residuos Radiactivos, S.A., S.M.E. (ENRESA)",
+      "organo": "Empresa Nacional de Residuos Radiactivos, S.A., S.M.E. (ENRESA)",
+      "estado": "RES",
+      "cpv": [
+        "71900000",
+        "71620000",
+        "71620000",
+        "71900000"
+      ],
+      "importe": 56647.36,
+      "adjudicatario": "CAASA TECNOLOGÍA DEL AGUA, S.A.",
+      "fechaAdjudicacion": "2020-12-17",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "988/2020",
+      "title": "Alcaldía del Ayuntamiento de Puntallana",
+      "organo": "Alcaldía del Ayuntamiento de Puntallana",
+      "estado": "RES",
+      "cpv": [
+        "71900000",
+        "90733000"
+      ],
+      "importe": 11067.01,
+      "adjudicatario": "CIBUS SCIENTIA, S.L.",
+      "fechaAdjudicacion": "2020-12-17",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "609207X - Servicio Analíticas Aguas",
+      "title": "Consejo de Administración de los Monegros Servicios Medioambientales S.L.",
+      "organo": "Consejo de Administración de los Monegros Servicios Medioambientales S.L.",
+      "estado": "RES",
+      "cpv": [
+        "71610000"
+      ],
+      "importe": 39468.02,
+      "adjudicatario": "TECNOAMBIENTE, S.L.",
+      "fechaAdjudicacion": "2020-12-15",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "CSER/197/2020",
+      "title": "Junta de Gobierno Local del Ayuntamiento de Cercedilla",
+      "organo": "Junta de Gobierno Local del Ayuntamiento de Cercedilla",
+      "estado": "RES",
+      "cpv": [
+        "71600000",
+        "71800000"
+      ],
+      "importe": 16106.96,
+      "adjudicatario": "LABAQUA, S.A.U.",
+      "fechaAdjudicacion": "2020-12-10",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "2020/000045",
+      "title": "Consejo de Administración de la Empresa Municipal de Aguas de Gijón SA",
+      "organo": "Consejo de Administración de la Empresa Municipal de Aguas de Gijón SA",
+      "estado": "RES",
+      "cpv": [
+        "71620000",
+        "71900000"
+      ],
+      "importe": 7688.34,
+      "adjudicatario": "GAMASER, S.L.",
+      "fechaAdjudicacion": "2020-12-09",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "020_20_AE_ESQUEIRO",
+      "title": "Gerencia de la Empresa Pública Sociedad de Servicios del Principado de Asturias, S.A.",
+      "organo": "Gerencia de la Empresa Pública Sociedad de Servicios del Principado de Asturias, S.A.",
+      "estado": "RES",
+      "cpv": [
+        "85111820",
+        "71620000"
+      ],
+      "importe": 16830.4,
+      "adjudicatario": "LABAQUA, S.A.U.",
+      "fechaAdjudicacion": "2020-12-04",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "20sesuA33",
+      "title": "Pleno de la Diputación Provincial de Huelva",
+      "organo": "Pleno de la Diputación Provincial de Huelva",
+      "estado": "RES",
+      "cpv": [
+        "45111214",
+        "50531000",
+        "50230000",
+        "45233141",
+        "44100000",
+        "45453100",
+        "71621000",
+        "45233141",
+        "50531000",
+        "44100000",
+        "45453100",
+        "50230000",
+        "45111214",
+        "71621000",
+        "45111214",
+        "45453100",
+        "50531000",
+        "50230000",
+        "71621000",
+        "45233141",
+        "44100000",
+        "50230000",
+        "45111214",
+        "45233141",
+        "45453100",
+        "50531000",
+        "44100000",
+        "71621000",
+        "50230000",
+        "45453100",
+        "45233141",
+        "71621000",
+        "44100000",
+        "50531000",
+        "45111214",
+        "71621000",
+        "50230000",
+        "45233141",
+        "50531000",
+        "45111214",
+        "44100000",
+        "45453100",
+        "45233141",
+        "45111214",
+        "44100000",
+        "50230000",
+        "71621000",
+        "45453100",
+        "50531000",
+        "44100000",
+        "45233141",
+        "45111214",
+        "50531000",
+        "71621000",
+        "50230000",
+        "45453100",
+        "50531000",
+        "45453100",
+        "45233141",
+        "50230000",
+        "44100000",
+        "71621000",
+        "45111214",
+        "45111214",
+        "50531000",
+        "45233141",
+        "50230000",
+        "71621000",
+        "45453100",
+        "44100000",
+        "50531000",
+        "45233141",
+        "45111214",
+        "71621000",
+        "45453100",
+        "44100000",
+        "50230000",
+        "50531000",
+        "45453100",
+        "44100000",
+        "71621000",
+        "45233141",
+        "45111214",
+        "50230000",
+        "45453100",
+        "50230000",
+        "45111214",
+        "45233141",
+        "50531000",
+        "44100000",
+        "71621000",
+        "44100000",
+        "50531000",
+        "45111214",
+        "71621000",
+        "45233141",
+        "45453100",
+        "50230000",
+        "45453100",
+        "71621000",
+        "50531000",
+        "45111214",
+        "45233141",
+        "50230000",
+        "44100000",
+        "45111214",
+        "50230000",
+        "45453100",
+        "44100000",
+        "50531000",
+        "71621000",
+        "45233141",
+        "45453100",
+        "45233141",
+        "45111214",
+        "50531000",
+        "44100000",
+        "50230000",
+        "71621000",
+        "50531000",
+        "45453100",
+        "44100000",
+        "71621000",
+        "45111214",
+        "50230000",
+        "45233141",
+        "71621000",
+        "50531000",
+        "45453100",
+        "44100000",
+        "50230000",
+        "45111214",
+        "45233141",
+        "50230000",
+        "44100000",
+        "45233141",
+        "45453100",
+        "45111214",
+        "50531000",
+        "71621000"
+      ],
+      "importe": 1069.17,
+      "adjudicatario": "SEÑALIZACIONES HUELVA S.L.",
+      "fechaAdjudicacion": "2020-12-04",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "2019/000684",
+      "title": "Junta de Gobierno Local del Ayuntamiento de Fuenlabrada",
+      "organo": "Junta de Gobierno Local del Ayuntamiento de Fuenlabrada",
+      "estado": "RES",
+      "cpv": [
+        "71600000"
+      ],
+      "importe": 425000.0,
+      "adjudicatario": "CENTRO DE ESTUDIOS DE MATERIALES Y CONTROL DE OBRA,SA (CEMOSA)",
+      "fechaAdjudicacion": "2020-12-04",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "CONTR/2020/572",
+      "title": "Dirección General del Instituto para la Diversificación y Ahorro de la Energía (IDAE)",
+      "organo": "Dirección General del Instituto para la Diversificación y Ahorro de la Energía (IDAE)",
+      "estado": "RES",
+      "cpv": [
+        "71600000",
+        "72000000",
+        "73000000"
+      ],
+      "importe": 166273.36,
+      "adjudicatario": "UNIVERSIDAD PONTIFICIA COMILLAS",
+      "fechaAdjudicacion": "2020-12-03",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "3332-2020",
+      "title": "Alcaldía del Ayuntamiento de Yaiza",
+      "organo": "Alcaldía del Ayuntamiento de Yaiza",
+      "estado": "RES",
+      "cpv": [
+        "71313200",
+        "90742100",
+        "90742300",
+        "90742400",
+        "71313100"
+      ],
+      "importe": 23078.83,
+      "adjudicatario": "Grupo ICC-Carma Ingeniera Acústica",
+      "fechaAdjudicacion": "2020-12-02",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "2020/00002134S",
+      "title": "Presidencia del Consell Insular d'Eivissa",
+      "organo": "Presidencia del Consell Insular d'Eivissa",
+      "estado": "RES",
+      "cpv": [
+        "71240000",
+        "71356000",
+        "71313000",
+        "90712000"
+      ],
+      "importe": 42531.5,
+      "adjudicatario": "UXAMA INGENIERÍA Y ARQUITECTURA, SLPU",
+      "fechaAdjudicacion": "2020-12-02",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "GRX-182/2020",
+      "title": "Aena. Dirección del Aeropuerto de Granada-Jaén F.G.L.",
+      "organo": "Aena. Dirección del Aeropuerto de Granada-Jaén F.G.L.",
+      "estado": "RES",
+      "cpv": [
+        "71900000"
+      ],
+      "importe": 390.44,
+      "adjudicatario": "DNOTA MEDIO AMBIENTE  SL",
+      "fechaAdjudicacion": "2020-12-01",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "A10-CO-UT-2020-0002",
+      "title": "Empresa Nacional de Residuos Radiactivos, S.A., S.M.E. (ENRESA)",
+      "organo": "Empresa Nacional de Residuos Radiactivos, S.A., S.M.E. (ENRESA)",
+      "estado": "RES",
+      "cpv": [
+        "90721600",
+        "90721600",
+        "71600000"
+      ],
+      "importe": 35031.92,
+      "adjudicatario": "GD ENERGY SERVICES SAU",
+      "fechaAdjudicacion": "2020-11-30",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "SER/20/0039",
+      "title": "Consorcio de la Zona Franca de Vigo",
+      "organo": "Consorcio de la Zona Franca de Vigo",
+      "estado": "RES",
+      "cpv": [
+        "71600000",
+        "71356200",
+        "71520000"
+      ],
+      "importe": 57475.0,
+      "adjudicatario": "ENMACOSA CONSULTORIA TECNICA, S.A.",
+      "fechaAdjudicacion": "2020-11-30",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "20201006-00506",
+      "title": "Ineco-Dirección Corporativa",
+      "organo": "Ineco-Dirección Corporativa",
+      "estado": "RES",
+      "cpv": [
+        "71700000",
+        "72000000",
+        "71300000",
+        "71310000",
+        "71320000",
+        "71400000",
+        "71600000"
+      ],
+      "importe": 110085.8,
+      "adjudicatario": "GMV Aerospace and Defence, S.A.U.",
+      "fechaAdjudicacion": "2020-11-26",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "22706.20.004",
+      "title": "Presidencia de la Confederación Hidrográfica del Segura",
+      "organo": "Presidencia de la Confederación Hidrográfica del Segura",
+      "estado": "RES",
+      "cpv": [
+        "71313000",
+        "90713000"
+      ],
+      "importe": 61172.45,
+      "adjudicatario": "CAASA TECNOLOGÍA DEL AGUA, S.A.",
+      "fechaAdjudicacion": "2020-11-26",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "052020",
+      "title": "Presidencia de la EPE Patronato Municipal de la Vivienda y Urbanismo del Ayuntamiento de Salamanca (EPE PMVU)",
+      "organo": "Presidencia de la EPE Patronato Municipal de la Vivienda y Urbanismo del Ayuntamiento de Salamanca (EPE PMVU)",
+      "estado": "RES",
+      "cpv": [
+        "71600000"
+      ],
+      "importe": 4706.9,
+      "adjudicatario": "ENMACOSA CONSULTORIA TECNICA, S.A",
+      "fechaAdjudicacion": "2020-11-26",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "23/T/20/SS/DG/A/0073",
+      "title": "Dirección General de Recursos Económicos del Servicio Canario de la Salud",
+      "organo": "Dirección General de Recursos Económicos del Servicio Canario de la Salud",
+      "estado": "RES",
+      "cpv": [
+        "71610000"
+      ],
+      "importe": 49403.9,
+      "adjudicatario": "LABETEC ENSAYOS TECNICOS CANARIOS, S.A.",
+      "fechaAdjudicacion": "2020-11-26",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "EMVI/2020/0115/01",
+      "title": "Comisión Ejecutiva del Consejo de Administración de la Empresa Municipal de la Vivienda, Suelo y Equipamiento de Sevilla S.A. (EMVISESA)",
+      "organo": "Comisión Ejecutiva del Consejo de Administración de la Empresa Municipal de la Vivienda, Suelo y Equipamiento de Sevilla S.A. (EMVISESA)",
+      "estado": "RES",
+      "cpv": [
+        "71600000"
+      ],
+      "importe": 0.0,
+      "adjudicatario": "LABORATORIO ANDALUZ DE ENSAYOS PARA LA CONSTRUCCION S.R.L.",
+      "fechaAdjudicacion": "2020-11-25",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "2020CONTRA000020",
+      "title": "Teniente de Alcalde de Hacienda, Juventud y Patrimonio Mundial los Dölmenes de Antequera",
+      "organo": "Teniente de Alcalde de Hacienda, Juventud y Patrimonio Mundial los Dölmenes de Antequera",
+      "estado": "RES",
+      "cpv": [
+        "18143000",
+        "18110000",
+        "18143000",
+        "18444111",
+        "18831000",
+        "35113400",
+        "03110000",
+        "44618500",
+        "45111214",
+        "60112000",
+        "45110000",
+        "45112000",
+        "45112100",
+        "45112210",
+        "45112300",
+        "45112500",
+        "45110000",
+        "45112000",
+        "45112500",
+        "45112300",
+        "45112210",
+        "45112100",
+        "45110000",
+        "45112000",
+        "45112100",
+        "45112210",
+        "45112300",
+        "45112500",
+        "45110000",
+        "45112300",
+        "45112210",
+        "45112100",
+        "45112000",
+        "45112500",
+        "44113800",
+        "44113810",
+        "45233222",
+        "45233223",
+        "44162500",
+        "44163000",
+        "44163100",
+        "45232410",
+        "45262660",
+        "45330000",
+        "90650000",
+        "14210000",
+        "44161600",
+        "44165200",
+        "44000000",
+        "44100000",
+        "44110000",
+        "44111000",
+        "44322100",
+        "44322300",
+        "44330000",
+        "44334000",
+        "44333000",
+        "44332000",
+        "44331000",
+        "44114000",
+        "44114100",
+        "44111100",
+        "44110000",
+        "44100000",
+        "44111700",
+        "44912000",
+        "44912100",
+        "44423740",
+        "44423730",
+        "34928400",
+        "44423750"
+      ],
+      "importe": 19426.52,
+      "adjudicatario": "Ferreteria Linde, S.L.",
+      "fechaAdjudicacion": "2020-11-25",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "675/2020",
+      "title": "Alcaldía del Ayuntamiento de Carreño",
+      "organo": "Alcaldía del Ayuntamiento de Carreño",
+      "estado": "RES",
+      "cpv": [
+        "90731400"
+      ],
+      "importe": 22070.4,
+      "adjudicatario": "ENVIRA SOSTENIBLE, S.A.",
+      "fechaAdjudicacion": "2020-11-25",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "032020",
+      "title": "Presidencia de la EPE Patronato Municipal de la Vivienda y Urbanismo del Ayuntamiento de Salamanca (EPE PMVU)",
+      "organo": "Presidencia de la EPE Patronato Municipal de la Vivienda y Urbanismo del Ayuntamiento de Salamanca (EPE PMVU)",
+      "estado": "RES",
+      "cpv": [
+        "71600000"
+      ],
+      "importe": 63914.28,
+      "adjudicatario": "CENTRO DE ESTUDIOS DE MATERIALES Y CONTROL DE OBRA,SA (CEMOSA)",
+      "fechaAdjudicacion": "2020-11-25",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "16/2020",
+      "title": "Presidencia del Consorcio para la Ejecución de las Previsiones del Plan Zonal de Residuos 7. Área de Gestión A2",
+      "organo": "Presidencia del Consorcio para la Ejecución de las Previsiones del Plan Zonal de Residuos 7. Área de Gestión A2",
+      "estado": "RES",
+      "cpv": [
+        "79341100",
+        "90713000",
+        "80540000"
+      ],
+      "importe": 111445.84,
+      "adjudicatario": "SILVOTURISMO MEDITERRANEO, S.L.",
+      "fechaAdjudicacion": "2020-11-23",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "02AR/003/2020",
+      "title": "Junta de Gobierno del Ayuntamiento Villa de Agüimes",
+      "organo": "Junta de Gobierno del Ayuntamiento Villa de Agüimes",
+      "estado": "RES",
+      "cpv": [
+        "85111820",
+        "65500000",
+        "71620000",
+        "65100000",
+        "65100000",
+        "85111820",
+        "71620000",
+        "65500000"
+      ],
+      "importe": 0.0,
+      "adjudicatario": "FCC AQUALIA, S.A.",
+      "fechaAdjudicacion": "2020-11-23",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "A2020/005394",
+      "title": "Consejería de Educación de la Junta de Castilla y León",
+      "organo": "Consejería de Educación de la Junta de Castilla y León",
+      "estado": "RES",
+      "cpv": [
+        "71600000"
+      ],
+      "importe": 57104.04,
+      "adjudicatario": "CENTRO DE ESTUDIOS DE MATERIALES Y CONTROL DE OBRA,SA (CEMOSA)",
+      "fechaAdjudicacion": "2020-11-20",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "1015158-19",
+      "title": "Concejalía Delegada de Policía Local del Ayuntamiento de Zaragoza",
+      "organo": "Concejalía Delegada de Policía Local del Ayuntamiento de Zaragoza",
+      "estado": "RES",
+      "cpv": [
+        "71900000"
+      ],
+      "importe": 28000.0,
+      "adjudicatario": "UNIVERSIDAD DE SANTIAGO DE COMPOTELA",
+      "fechaAdjudicacion": "2020-11-20",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "1218_LASS_SE_0920",
+      "title": "Gerencia de EMAYA, Empresa Municipal d'Aigües i Clavegueram, S.A.",
+      "organo": "Gerencia de EMAYA, Empresa Municipal d'Aigües i Clavegueram, S.A.",
+      "estado": "RES",
+      "cpv": [
+        "71311000",
+        "71600000",
+        "71631400"
+      ],
+      "importe": 13043.8,
+      "adjudicatario": "PANTECNIA CONSULTING, S.L.",
+      "fechaAdjudicacion": "2020-11-20",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "23/2020",
+      "title": "Presidencia del Consorcio Urbanístico para la Rehabilitación de Puerto de la Cruz",
+      "organo": "Presidencia del Consorcio Urbanístico para la Rehabilitación de Puerto de la Cruz",
+      "estado": "RES",
+      "cpv": [
+        "71600000"
+      ],
+      "importe": 8894.93,
+      "adjudicatario": "GEODOS Planificación y Servicios S.L.U.",
+      "fechaAdjudicacion": "2020-11-19",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "202000005670",
+      "title": "Presidencia de la Agencia Estatal de Meteorología",
+      "organo": "Presidencia de la Agencia Estatal de Meteorología",
+      "estado": "RES",
+      "cpv": [
+        "71600000"
+      ],
+      "importe": 1725302.7,
+      "adjudicatario": "Instituto de Salud Carlos III",
+      "fechaAdjudicacion": "2020-11-18",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "SE.011/2020",
+      "title": "Rectorado de la Universidad de Extremadura",
+      "organo": "Rectorado de la Universidad de Extremadura",
+      "estado": "RES",
+      "cpv": [
+        "90713000"
+      ],
+      "importe": 22936.76,
+      "adjudicatario": "ACTYVA SOCIEDAD COOPERATIVA",
+      "fechaAdjudicacion": "2020-11-16",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "SV 09/2020",
+      "title": "Vicepresidencia de Aguas y Saneamientos de la Axarquía, S.A.U.",
+      "organo": "Vicepresidencia de Aguas y Saneamientos de la Axarquía, S.A.U.",
+      "estado": "RES",
+      "cpv": [
+        "71600000",
+        "71600000",
+        "71600000",
+        "71600000"
+      ],
+      "importe": 57626.27,
+      "adjudicatario": "TECNOLAB LABORATORIOS S.L.",
+      "fechaAdjudicacion": "2020-11-13",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "720 2020",
+      "title": "Consejo de Administración de Gestión Integral del Agua de Huelva",
+      "organo": "Consejo de Administración de Gestión Integral del Agua de Huelva",
+      "estado": "RES",
+      "cpv": [
+        "71620000",
+        "71900000",
+        "71620000",
+        "71900000",
+        "71620000",
+        "71900000",
+        "71620000",
+        "71900000",
+        "71620000",
+        "71900000"
+      ],
+      "importe": 746001.77,
+      "adjudicatario": "UTE LQO-EUROFINS IPROMA",
+      "fechaAdjudicacion": "2020-11-12",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "TSA0069754",
+      "title": "Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA)",
+      "organo": "Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA)",
+      "estado": "RES",
+      "cpv": [
+        "73111000"
+      ],
+      "importe": 156360.58,
+      "adjudicatario": "Universidad de Cordoba (UCO)",
+      "fechaAdjudicacion": "2020-11-11",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "000-CO-DP-2020-0001",
+      "title": "Empresa Nacional de Residuos Radiactivos, S.A., S.M.E. (ENRESA)",
+      "organo": "Empresa Nacional de Residuos Radiactivos, S.A., S.M.E. (ENRESA)",
+      "estado": "RES",
+      "cpv": [
+        "90711000"
+      ],
+      "importe": 181795.24,
+      "adjudicatario": "TAUW IBERIA, S.A.U.",
+      "fechaAdjudicacion": "2020-11-11",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "Serv.-021/2019",
+      "title": "Presidencia de la Diputación Provincial de Málaga",
+      "organo": "Presidencia de la Diputación Provincial de Málaga",
+      "estado": "RES",
+      "cpv": [
+        "71900000",
+        "71900000",
+        "71900000"
+      ],
+      "importe": 31956.1,
+      "adjudicatario": "Laboratorio Analítico Bioclínico SLU",
+      "fechaAdjudicacion": "2020-11-11",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "443944P",
+      "title": "Alcaldía del Ayuntamiento de Quart de Poblet",
+      "organo": "Alcaldía del Ayuntamiento de Quart de Poblet",
+      "estado": "RES",
+      "cpv": [
+        "73111000"
+      ],
+      "importe": 0.0,
+      "adjudicatario": "ADNCANINO S.L",
+      "fechaAdjudicacion": "2020-11-09",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "2020/7",
+      "title": "Instituto de Investigación Biomédica de Salamanca (IBSAL)",
+      "organo": "Instituto de Investigación Biomédica de Salamanca (IBSAL)",
+      "estado": "RES",
+      "cpv": [
+        "73111000"
+      ],
+      "importe": 238246.46,
+      "adjudicatario": "Clínica Universidad de Navarra (Universidad de Navarra)",
+      "fechaAdjudicacion": "2020-11-09",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "CON/2020/10",
+      "title": "Alcaldía del Ayuntamiento de Gozón",
+      "organo": "Alcaldía del Ayuntamiento de Gozón",
+      "estado": "RES",
+      "cpv": [
+        "71900000"
+      ],
+      "importe": 38732.1,
+      "adjudicatario": "MARICIELO, S.L.",
+      "fechaAdjudicacion": "2020-11-06",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "2020000127",
+      "title": "Servicio Público de Empleo del Principado de Asturias",
+      "organo": "Servicio Público de Empleo del Principado de Asturias",
+      "estado": "RES",
+      "cpv": [
+        "71900000",
+        "90731100",
+        "90922000",
+        "90923000",
+        "90733000",
+        "90920000",
+        "90921000",
+        "71900000",
+        "90731100",
+        "90923000",
+        "90920000",
+        "90921000",
+        "90922000",
+        "90731100",
+        "71900000",
+        "90733000",
+        "90731100",
+        "71900000",
+        "90733000",
+        "90923000",
+        "90922000",
+        "90921000",
+        "90920000",
+        "71900000",
+        "90731100",
+        "90922000",
+        "90921000",
+        "90920000",
+        "90733000",
+        "90923000"
+      ],
+      "importe": 3581.6,
+      "adjudicatario": "SANIASTUR SL",
+      "fechaAdjudicacion": "2020-11-06",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "060-CO-OE-2020-0007",
+      "title": "Empresa Nacional de Residuos Radiactivos, S.A., S.M.E. (ENRESA)",
+      "organo": "Empresa Nacional de Residuos Radiactivos, S.A., S.M.E. (ENRESA)",
+      "estado": "RES",
+      "cpv": [
+        "90721600",
+        "90721600",
+        "71600000"
+      ],
+      "importe": 131115.6,
+      "adjudicatario": "TECNATOM S.A.",
+      "fechaAdjudicacion": "2020-11-05",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "70002-2020-305",
+      "title": "Presidencia de la Fundación Deportiva Municipal de València",
+      "organo": "Presidencia de la Fundación Deportiva Municipal de València",
+      "estado": "RES",
+      "cpv": [
+        "71610000",
+        "90733000"
+      ],
+      "importe": 12501.72,
+      "adjudicatario": "MICROAMBIENTE, S.L.",
+      "fechaAdjudicacion": "2020-11-03",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "SV200314",
+      "title": "Subdirección de Compras de la Sociedad Estatal Correos y Telégrafos S.A.",
+      "organo": "Subdirección de Compras de la Sociedad Estatal Correos y Telégrafos S.A.",
+      "estado": "RES",
+      "cpv": [
+        "71621000"
+      ],
+      "importe": 35083.95,
+      "adjudicatario": "COLIN BUCHANAN CONSULTORES, S.A.- EN BICI POR LA MOVILIDAD EMPRESAS, S.L.",
+      "fechaAdjudicacion": "2020-11-03",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "52018/2020",
+      "title": "Consejería de Medio Ambiente y Servicios Urbanos",
+      "organo": "Consejería de Medio Ambiente y Servicios Urbanos",
+      "estado": "RES",
+      "cpv": [
+        "90650000"
+      ],
+      "importe": 599.5,
+      "adjudicatario": "ARIDOS Y TRANSPORTES DEL ESTRECHO, S.A.",
+      "fechaAdjudicacion": "2020-11-03",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "CT/20/2019",
+      "title": "Junta de Gobierno del Ayuntamiento de Algete",
+      "organo": "Junta de Gobierno del Ayuntamiento de Algete",
+      "estado": "RES",
+      "cpv": [
+        "71600000",
+        "71600000",
+        "71600000"
+      ],
+      "importe": 3396.34,
+      "adjudicatario": "LABORATORIO DE ANÁLISIS Y CONTROL, S.A.",
+      "fechaAdjudicacion": "2020-11-03",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "170/2020",
+      "title": "Presidencia de la Mancomunidad Intermunicipal del Sureste de Gran Canaria",
+      "organo": "Presidencia de la Mancomunidad Intermunicipal del Sureste de Gran Canaria",
+      "estado": "RES",
+      "cpv": [
+        "90714500",
+        "71600000",
+        "71610000",
+        "71600000",
+        "71610000",
+        "90714500",
+        "71600000",
+        "71610000",
+        "90714500"
+      ],
+      "importe": 43807.73,
+      "adjudicatario": "LABAQUA, S.A.U.",
+      "fechaAdjudicacion": "2020-10-30",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "A10-CO-UT-2020-0001",
+      "title": "Empresa Nacional de Residuos Radiactivos, S.A., S.M.E. (ENRESA)",
+      "organo": "Empresa Nacional de Residuos Radiactivos, S.A., S.M.E. (ENRESA)",
+      "estado": "RES",
+      "cpv": [
+        "71620000",
+        "71620000",
+        "71620000",
+        "71620000",
+        "71620000"
+      ],
+      "importe": 863200.54,
+      "adjudicatario": "ENUSA INDUSTRIAS AVANZADAS, S.A., S.M.E.",
+      "fechaAdjudicacion": "2020-10-30",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "6191",
+      "title": "Consejero Delegado de la Empresa Municipal de Aguas de Málaga S.A.",
+      "organo": "Consejero Delegado de la Empresa Municipal de Aguas de Málaga S.A.",
+      "estado": "RES",
+      "cpv": [
+        "71620000",
+        "79723000",
+        "71600000"
+      ],
+      "importe": 56218.11,
+      "adjudicatario": "LABORATORIOS MUNUERA S.L.U.",
+      "fechaAdjudicacion": "2020-10-30",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "2020/ES/29",
+      "title": "Centro Nacional de Investigaciones Cardiovasculares Carlos III (F.S.P.)",
+      "organo": "Centro Nacional de Investigaciones Cardiovasculares Carlos III (F.S.P.)",
+      "estado": "RES",
+      "cpv": [
+        "73111000"
+      ],
+      "importe": 37099.4,
+      "adjudicatario": "CHARLES RIVER LABORATORIES FRANCE",
+      "fechaAdjudicacion": "2020-10-29",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "23.02.11/2020/0004",
+      "title": "Alcaldía del Ayuntamiento de Villanueva de la Cañada",
+      "organo": "Alcaldía del Ayuntamiento de Villanueva de la Cañada",
+      "estado": "RES",
+      "cpv": [
+        "90711000"
+      ],
+      "importe": 36179.0,
+      "adjudicatario": "EVALUACIÓN AMBIENTAL, S.L.",
+      "fechaAdjudicacion": "2020-10-29",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "COVID-05",
+      "title": "Sociedad Pública de Infraestructuras y Medio Ambiente de Castilla y León S.A.",
+      "organo": "Sociedad Pública de Infraestructuras y Medio Ambiente de Castilla y León S.A.",
+      "estado": "RES",
+      "cpv": [
+        "71620000",
+        "71610000",
+        "71610000",
+        "71620000",
+        "71610000",
+        "71620000",
+        "71610000",
+        "71620000",
+        "71610000",
+        "71620000",
+        "71610000",
+        "71620000"
+      ],
+      "importe": 649097.29,
+      "adjudicatario": "LABORATORIO DE GESTIÓN AMBIENTAL S.L.",
+      "fechaAdjudicacion": "2020-10-29",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "COVID-04",
+      "title": "Sociedad Pública de Infraestructuras y Medio Ambiente de Castilla y León S.A.",
+      "organo": "Sociedad Pública de Infraestructuras y Medio Ambiente de Castilla y León S.A.",
+      "estado": "RES",
+      "cpv": [
+        "71610000",
+        "71620000",
+        "71900000"
+      ],
+      "importe": 374399.65,
+      "adjudicatario": "ANALIZAGUA LABORATORIO DE RECURSOS NATURALES, S.L.",
+      "fechaAdjudicacion": "2020-10-29",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "A32-CO-CB-2020-0004",
+      "title": "Empresa Nacional de Residuos Radiactivos, S.A., S.M.E. (ENRESA)",
+      "organo": "Empresa Nacional de Residuos Radiactivos, S.A., S.M.E. (ENRESA)",
+      "estado": "RES",
+      "cpv": [
+        "71620000",
+        "71900000"
+      ],
+      "importe": 2902604.87,
+      "adjudicatario": "GEOTECNIA Y CIMIENTOS S.A.",
+      "fechaAdjudicacion": "2020-10-28",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "060-CO-OE-2020-0003",
+      "title": "Empresa Nacional de Residuos Radiactivos, S.A., S.M.E. (ENRESA)",
+      "organo": "Empresa Nacional de Residuos Radiactivos, S.A., S.M.E. (ENRESA)",
+      "estado": "RES",
+      "cpv": [
+        "90910000",
+        "90721600",
+        "71600000",
+        "71356100"
+      ],
+      "importe": 1630182.49,
+      "adjudicatario": "GEOTECNIA Y CIMIENTOS, S.A.",
+      "fechaAdjudicacion": "2020-10-28",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "(A02003509)-I-200018; I-200019; I-200020",
+      "title": "Instituto Aragonés de Gestión Ambiental (INAGA)",
+      "organo": "Instituto Aragonés de Gestión Ambiental (INAGA)",
+      "estado": "RES",
+      "cpv": [
+        "90713000",
+        "90713000",
+        "90713000",
+        "90713000"
+      ],
+      "importe": 21527.65,
+      "adjudicatario": "GRUPO UNICA S.L.",
+      "fechaAdjudicacion": "2020-10-28",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "(A02003509)-I-200015; I-200016;I-200017",
+      "title": "Instituto Aragonés de Gestión Ambiental (INAGA)",
+      "organo": "Instituto Aragonés de Gestión Ambiental (INAGA)",
+      "estado": "RES",
+      "cpv": [
+        "90713000",
+        "90713000",
+        "90713000",
+        "90713000"
+      ],
+      "importe": 22687.5,
+      "adjudicatario": "QILEX SOC.COOP.",
+      "fechaAdjudicacion": "2020-10-28",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "2020 G 096",
+      "title": "Presidencia de la Autoridad Portuaria de A Coruña",
+      "organo": "Presidencia de la Autoridad Portuaria de A Coruña",
+      "estado": "RES",
+      "cpv": [
+        "90731400"
+      ],
+      "importe": 84397.5,
+      "adjudicatario": "ENVIRA SOSTENIBLE, S.A.",
+      "fechaAdjudicacion": "2020-10-27",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "2020 62",
+      "title": "Junta de Gobierno Local del Ayuntamiento de El Ejido",
+      "organo": "Junta de Gobierno Local del Ayuntamiento de El Ejido",
+      "estado": "RES",
+      "cpv": [
+        "71621000"
+      ],
+      "importe": 10041.79,
+      "adjudicatario": "Centro de Estudios de Materiales y Control de Obra, SA (CEMOSA)",
+      "fechaAdjudicacion": "2020-10-27",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "303/2020",
+      "title": "Alcaldía del Ayuntamiento de Sahún",
+      "organo": "Alcaldía del Ayuntamiento de Sahún",
+      "estado": "RES",
+      "cpv": [
+        "50514200",
+        "71900000",
+        "65100000"
+      ],
+      "importe": 4833.06,
+      "adjudicatario": "LASAOSA PRODUCTOS QUIMICOS SL",
+      "fechaAdjudicacion": "2020-10-23",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "J18.024.12",
+      "title": "Junta de Contratación del Ministerio de Economía y Empresa",
+      "organo": "Junta de Contratación del Ministerio de Economía y Empresa",
+      "estado": "RES",
+      "cpv": [
+        "71600000",
+        "71600000",
+        "71600000"
+      ],
+      "importe": 178462.9,
+      "adjudicatario": "DEKRA TESTING AND CERTIFICATION, S.A.U.",
+      "fechaAdjudicacion": "2020-10-23",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "217/20",
+      "title": "Consejería Delegada de la Empresa Metropolitana de Abastecimiento y Saneamiento de Aguas de Sevilla S.A. (EMASESA)",
+      "organo": "Consejería Delegada de la Empresa Metropolitana de Abastecimiento y Saneamiento de Aguas de Sevilla S.A. (EMASESA)",
+      "estado": "RES",
+      "cpv": [
+        "90733000",
+        "71900000"
+      ],
+      "importe": 258310.8,
+      "adjudicatario": "LABAQUA, S.A.U.",
+      "fechaAdjudicacion": "2020-10-22",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "SV-2020-013",
+      "title": "Gerencia de Aguas de Huelva, S.A.",
+      "organo": "Gerencia de Aguas de Huelva, S.A.",
+      "estado": "RES",
+      "cpv": [
+        "71621000"
+      ],
+      "importe": 217060.72,
+      "adjudicatario": "Aquambiente servicios para el sector del agua, s.a.u",
+      "fechaAdjudicacion": "2020-10-20",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "6201",
+      "title": "Consejero Delegado de la Empresa Municipal de Aguas de Málaga S.A.",
+      "organo": "Consejero Delegado de la Empresa Municipal de Aguas de Málaga S.A.",
+      "estado": "RES",
+      "cpv": [
+        "71500000",
+        "71200000",
+        "71600000",
+        "71300000",
+        "71200000",
+        "71600000",
+        "71300000",
+        "71500000",
+        "71200000",
+        "71600000",
+        "71500000",
+        "71300000",
+        "71200000",
+        "71300000",
+        "71500000",
+        "71600000",
+        "71600000",
+        "71300000",
+        "71500000",
+        "71200000"
+      ],
+      "importe": 0.0,
+      "adjudicatario": "INNOVACIÓN CIVIL ESPAÑOLA S.L.",
+      "fechaAdjudicacion": "2020-10-19",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "B41632266-2019/000119-PeA",
+      "title": "Gerencia de Aguas de Huesna SL.",
+      "organo": "Gerencia de Aguas de Huesna SL.",
+      "estado": "RES",
+      "cpv": [
+        "71600000"
+      ],
+      "importe": 36065.28,
+      "adjudicatario": "APPLUS NORCONTROL, S.L.U.",
+      "fechaAdjudicacion": "2020-10-16",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "SC-2020_69 (1)",
+      "title": "Servicio de Salud - Servicios Centrales",
+      "organo": "Servicio de Salud - Servicios Centrales",
+      "estado": "RES",
+      "cpv": [
+        "71621000"
+      ],
+      "importe": 6292.0,
+      "adjudicatario": "Asociación de investigación de la industria textil",
+      "fechaAdjudicacion": "2020-10-15",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "44/2020",
+      "title": "Consejo de Administración de la Empresa Municipal de Aguas de Córdoba, S.A.",
+      "organo": "Consejo de Administración de la Empresa Municipal de Aguas de Córdoba, S.A.",
+      "estado": "RES",
+      "cpv": [
+        "71900000"
+      ],
+      "importe": 34000.0,
+      "adjudicatario": "SYNLAB DIAGNOSTICOS GLOBALES, S.A. Unipersonal",
+      "fechaAdjudicacion": "2020-10-14",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "310/2020",
+      "title": "Alcaldía del Ayuntamiento de Loeches",
+      "organo": "Alcaldía del Ayuntamiento de Loeches",
+      "estado": "RES",
+      "cpv": [
+        "90713000"
+      ],
+      "importe": 52522.47,
+      "adjudicatario": "ASOCIACIÓN CERO RESIDUOS ORGÁNICOS",
+      "fechaAdjudicacion": "2020-10-14",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "498/2020",
+      "title": "Alcaldia del Ayuntamiento de Castejón de Sos",
+      "organo": "Alcaldia del Ayuntamiento de Castejón de Sos",
+      "estado": "RES",
+      "cpv": [
+        "50514200",
+        "65100000",
+        "71900000"
+      ],
+      "importe": 7482.64,
+      "adjudicatario": "LASAOSA PRODUCTOS QUIMICOS SL",
+      "fechaAdjudicacion": "2020-10-14",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "CON21-2020/0087",
+      "title": "Junta de Gobierno del Ayuntamiento de Logroño",
+      "organo": "Junta de Gobierno del Ayuntamiento de Logroño",
+      "estado": "RES",
+      "cpv": [
+        "71620000"
+      ],
+      "importe": 286161.43,
+      "adjudicatario": "Laboratorios Analisis COFLR, S.L.U.",
+      "fechaAdjudicacion": "2020-10-14",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "EC20-C03-06240",
+      "title": "Presidencia de la Autoridad Portuaria de Valencia",
+      "organo": "Presidencia de la Autoridad Portuaria de Valencia",
+      "estado": "RES",
+      "cpv": [
+        "71620000"
+      ],
+      "importe": 4881.49,
+      "adjudicatario": "GAMASER, S.L.",
+      "fechaAdjudicacion": "2020-10-08",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "PSS 2/2020",
+      "title": "Tenencia de Alcaldía Delegada de Sostenibilidad Medioambiental del Ayuntamiento de Málaga",
+      "organo": "Tenencia de Alcaldía Delegada de Sostenibilidad Medioambiental del Ayuntamiento de Málaga",
+      "estado": "RES",
+      "cpv": [
+        "71900000"
+      ],
+      "importe": 11499.84,
+      "adjudicatario": "ADNCANINO S.L",
+      "fechaAdjudicacion": "2020-10-08",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "V-11/19-07",
+      "title": "Comité Ejecutivo de la Mancomunidad de los Canales del Taibilla",
+      "organo": "Comité Ejecutivo de la Mancomunidad de los Canales del Taibilla",
+      "estado": "RES",
+      "cpv": [
+        "71600000"
+      ],
+      "importe": 7320.5,
+      "adjudicatario": "GABINETE DE SERVICIOS PARA LA CALIDAD, SLU",
+      "fechaAdjudicacion": "2020-10-06",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "BC_5000013597_SERVICIO DE INSPECCIONES DE CALIDAD",
+      "title": "Comité Central de Compras de Navantia S.A., S.M.E.",
+      "organo": "Comité Central de Compras de Navantia S.A., S.M.E.",
+      "estado": "RES",
+      "cpv": [
+        "71600000"
+      ],
+      "importe": 605000.0,
+      "adjudicatario": "EUROCONTROL",
+      "fechaAdjudicacion": "2020-10-06",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "2.20/23607.0008",
+      "title": "ADIF - Presidencia",
+      "organo": "ADIF - Presidencia",
+      "estado": "RES",
+      "cpv": [
+        "71600000"
+      ],
+      "importe": 3484.8,
+      "adjudicatario": "BUREAU VERITAS INS Y TESTING SL UNI",
+      "fechaAdjudicacion": "2020-10-06",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "20/23493",
+      "title": "Rectorado de la Universidad de Sevilla",
+      "organo": "Rectorado de la Universidad de Sevilla",
+      "estado": "RES",
+      "cpv": [
+        "71900000"
+      ],
+      "importe": 0.0,
+      "adjudicatario": "UNIVERSITAT AUTÒNOMA DE BARCELONA",
+      "fechaAdjudicacion": "2020-10-02",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "SEGE-2020-028",
+      "title": "Secretaría General de la Fundación Internacional y para Iberoamérica de Administración Políticas Públicas",
+      "organo": "Secretaría General de la Fundación Internacional y para Iberoamérica de Administración Políticas Públicas",
+      "estado": "RES",
+      "cpv": [
+        "85148000",
+        "71900000",
+        "85145000"
+      ],
+      "importe": 21536.0,
+      "adjudicatario": "QUIRON PREVENCION S.L.U",
+      "fechaAdjudicacion": "2020-10-01",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "G.400/2020",
+      "title": "Alcaldía del Ayuntamiento de Mondéjar",
+      "organo": "Alcaldía del Ayuntamiento de Mondéjar",
+      "estado": "RES",
+      "cpv": [
+        "41110000",
+        "71620000"
+      ],
+      "importe": 3603.38,
+      "adjudicatario": "ANTICIMEX 3D SANIDAD AMBIENTAL S.A.U",
+      "fechaAdjudicacion": "2020-10-01",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "DPM-134/2020",
+      "title": "Aena. Dirección de Contratación",
+      "organo": "Aena. Dirección de Contratación",
+      "estado": "RES",
+      "cpv": [
+        "90731400"
+      ],
+      "importe": 62920.0,
+      "adjudicatario": "WSP UK LIMITED",
+      "fechaAdjudicacion": "2020-10-01",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "E19-0144",
+      "title": "Presidencia de la Autoridad Portuaria de Baleares",
+      "organo": "Presidencia de la Autoridad Portuaria de Baleares",
+      "estado": "RES",
+      "cpv": [
+        "71620000"
+      ],
+      "importe": 38239.78,
+      "adjudicatario": "CIDESAL ANALISIS DE ALIMENTOS SL",
+      "fechaAdjudicacion": "2020-09-30",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "2020.C004.000002",
+      "title": "Alcaldia del Concello de Coristanco",
+      "organo": "Alcaldia del Concello de Coristanco",
+      "estado": "RES",
+      "cpv": [
+        "71600000",
+        "71600000",
+        "71600000",
+        "71600000",
+        "71600000",
+        "71600000",
+        "71600000",
+        "71600000",
+        "71600000",
+        "71600000",
+        "71600000"
+      ],
+      "importe": 2848.34,
+      "adjudicatario": "CYE CONTROL Y ESTUDIOS, S.L.",
+      "fechaAdjudicacion": "2020-09-29",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "TSA0069599",
+      "title": "Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA)",
+      "organo": "Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA)",
+      "estado": "RES",
+      "cpv": [
+        "71600000"
+      ],
+      "importe": 5203.0,
+      "adjudicatario": "SGS TECNOS, S.A",
+      "fechaAdjudicacion": "2020-09-24",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "2020CON00394",
+      "title": "Alcaldía del Ayuntamiento de Valdepeñas",
+      "organo": "Alcaldía del Ayuntamiento de Valdepeñas",
+      "estado": "RES",
+      "cpv": [
+        "71600000"
+      ],
+      "importe": 798.6,
+      "adjudicatario": "ARTE Y GESTIÓN AMBIENTAL, S.L.",
+      "fechaAdjudicacion": "2020-09-23",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "3/CET/2020",
+      "title": "Compañía Española de Tabaco en Rama, S.A. (CETARSA)",
+      "organo": "Compañía Española de Tabaco en Rama, S.A. (CETARSA)",
+      "estado": "RES",
+      "cpv": [
+        "71620000"
+      ],
+      "importe": 52223.6,
+      "adjudicatario": "LABORATORIO ANALÍTICO BIOCLÍNICO, S.L.U.",
+      "fechaAdjudicacion": "2020-09-23",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "0363 C.Sv.",
+      "title": "Concejalía Delegada de Contratación del Ayuntamiento de Mijas",
+      "organo": "Concejalía Delegada de Contratación del Ayuntamiento de Mijas",
+      "estado": "RES",
+      "cpv": [
+        "71620000",
+        "90733100",
+        "71900000",
+        "90733000"
+      ],
+      "importe": 4406.75,
+      "adjudicatario": "LABORATORIO ANAYCO, S.L.",
+      "fechaAdjudicacion": "2020-09-22",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "TSA0069612",
+      "title": "Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA)",
+      "organo": "Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA)",
+      "estado": "RES",
+      "cpv": [
+        "71600000",
+        "71600000",
+        "71600000"
+      ],
+      "importe": 12826.0,
+      "adjudicatario": "TPF, GETINSA-EUROESTUDIOS, S.L",
+      "fechaAdjudicacion": "2020-09-22",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "2020/6",
+      "title": "Instituto de Investigación Biomédica de Salamanca (IBSAL)",
+      "organo": "Instituto de Investigación Biomédica de Salamanca (IBSAL)",
+      "estado": "RES",
+      "cpv": [
+        "73111000"
+      ],
+      "importe": 223843.95,
+      "adjudicatario": "PLASMIDFACTORY GMBH &amp; CO. KG",
+      "fechaAdjudicacion": "2020-09-21",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "2020 61",
+      "title": "Junta de Gobierno Local del Ayuntamiento de El Ejido",
+      "organo": "Junta de Gobierno Local del Ayuntamiento de El Ejido",
+      "estado": "RES",
+      "cpv": [
+        "71621000"
+      ],
+      "importe": 6981.7,
+      "adjudicatario": "Centro de Estudios de Materiales y Control de Obra, SA (CEMOSA)",
+      "fechaAdjudicacion": "2020-09-21",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "48/2019.0-SOS",
+      "title": "Autoridad Portuaria de Cartagena",
+      "organo": "Autoridad Portuaria de Cartagena",
+      "estado": "RES",
+      "cpv": [
+        "90710000",
+        "71600000",
+        "90733000"
+      ],
+      "importe": 57016.26,
+      "adjudicatario": "LABORATORIOS MUNUERA S.L.U.",
+      "fechaAdjudicacion": "2020-09-18",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "2020-009",
+      "title": "Presidencia de la Autoridad Portuaria de la Bahía de Algeciras",
+      "organo": "Presidencia de la Autoridad Portuaria de la Bahía de Algeciras",
+      "estado": "RES",
+      "cpv": [
+        "90731100",
+        "90731400",
+        "38341500"
+      ],
+      "importe": 45314.5,
+      "adjudicatario": "Soluciones Integrales BFOR, S.L.",
+      "fechaAdjudicacion": "2020-09-18",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "2020/SV-05",
+      "title": "Comité Ejecutivo del Consejo Insular de la Energíade Gran Canaria",
+      "organo": "Comité Ejecutivo del Consejo Insular de la Energíade Gran Canaria",
+      "estado": "RES",
+      "cpv": [
+        "71240000",
+        "71313000",
+        "90712000"
+      ],
+      "importe": 0.0,
+      "adjudicatario": "Grupo CONSIDERA SL",
+      "fechaAdjudicacion": "2020-09-18",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "020_13_AE_EO",
+      "title": "Gerencia de la Empresa Pública Sociedad de Servicios del Principado de Asturias, S.A.",
+      "organo": "Gerencia de la Empresa Pública Sociedad de Servicios del Principado de Asturias, S.A.",
+      "estado": "RES",
+      "cpv": [
+        "71620000",
+        "85111820"
+      ],
+      "importe": 22437.76,
+      "adjudicatario": "EUROFINS IPROMA S.L.U.",
+      "fechaAdjudicacion": "2020-09-17",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "A6S-022/2020",
+      "title": "Presidencia de la Diputación Provincial de Alicante",
+      "organo": "Presidencia de la Diputación Provincial de Alicante",
+      "estado": "RES",
+      "cpv": [
+        "79411000",
+        "72225000",
+        "79132000",
+        "90713000"
+      ],
+      "importe": 39912.0,
+      "adjudicatario": "BELDA INGENIEROS, S.L.",
+      "fechaAdjudicacion": "2020-09-14",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "541/2019/2448",
+      "title": "Junta de Gobierno del Ayuntamiento de A Coruña",
+      "organo": "Junta de Gobierno del Ayuntamiento de A Coruña",
+      "estado": "RES",
+      "cpv": [
+        "90731300",
+        "90731400",
+        "90731100",
+        "90731600",
+        "90731200",
+        "90731800",
+        "90731000",
+        "90731500",
+        "90731700",
+        "90731900"
+      ],
+      "importe": 29620.0,
+      "adjudicatario": "CELTA INGENIEROS S.L.",
+      "fechaAdjudicacion": "2020-09-14",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "TSA0069395",
+      "title": "Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA)",
+      "organo": "Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA)",
+      "estado": "RES",
+      "cpv": [
+        "71600000",
+        "71600000",
+        "71600000"
+      ],
+      "importe": 65340.0,
+      "adjudicatario": "INSTITUTO DE CIENCIAS DE LA CONSTRUCCIÓN EDUARDO TORROJA (CSIC)",
+      "fechaAdjudicacion": "2020-09-14",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "2020/26",
+      "title": "Dirección de Gestión de la Fundación Instituto de Investigación Marqués de Valdecilla",
+      "organo": "Dirección de Gestión de la Fundación Instituto de Investigación Marqués de Valdecilla",
+      "estado": "RES",
+      "cpv": [
+        "73111000"
+      ],
+      "importe": 149018.54,
+      "adjudicatario": "Fundació Centre de Regulació Genòmica",
+      "fechaAdjudicacion": "2020-09-11",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "021-SER-2020",
+      "title": "Gerencia de la Empresa Municipal de Aguas y Saneamiento de Murcia S.A.",
+      "organo": "Gerencia de la Empresa Municipal de Aguas y Saneamiento de Murcia S.A.",
+      "estado": "RES",
+      "cpv": [
+        "71600000",
+        "71610000",
+        "71620000"
+      ],
+      "importe": 1281568.09,
+      "adjudicatario": "Interlab Laboratorios, S.L.U.",
+      "fechaAdjudicacion": "2020-09-09",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "0485894-19",
+      "title": "Consejería de Infraestructuras, Vivienda y Medio Ambiente del Ayuntamiento de Zaragoza",
+      "organo": "Consejería de Infraestructuras, Vivienda y Medio Ambiente del Ayuntamiento de Zaragoza",
+      "estado": "RES",
+      "cpv": [
+        "90733100",
+        "71900000",
+        "90711300"
+      ],
+      "importe": 38311.02,
+      "adjudicatario": "DIAMA SC",
+      "fechaAdjudicacion": "2020-09-09",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "000025/2020-1081",
+      "title": "Junta de Gobierno del Ayuntamiento de Molina de Segura",
+      "organo": "Junta de Gobierno del Ayuntamiento de Molina de Segura",
+      "estado": "RES",
+      "cpv": [
+        "90742000",
+        "90742200",
+        "90742300"
+      ],
+      "importe": 34649.97,
+      "adjudicatario": "Dnota Medio Ambiente, S.L.",
+      "fechaAdjudicacion": "2020-09-03",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "147/2020",
+      "title": "Alcaldía del Ayuntamiento de Chia",
+      "organo": "Alcaldía del Ayuntamiento de Chia",
+      "estado": "RES",
+      "cpv": [
+        "71900000",
+        "50514200",
+        "65100000"
+      ],
+      "importe": 5426.46,
+      "adjudicatario": "LASAOSA PRODUCTOS QUIMICOS SL",
+      "fechaAdjudicacion": "2020-09-03",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "71/2020",
+      "title": "Alcaldía del Ayuntamiento de Seira",
+      "organo": "Alcaldía del Ayuntamiento de Seira",
+      "estado": "RES",
+      "cpv": [
+        "71900000",
+        "65100000",
+        "50514200"
+      ],
+      "importe": 4905.73,
+      "adjudicatario": "LASAOSA PRODUCTOS QUIMICOS SL",
+      "fechaAdjudicacion": "2020-09-01",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "527/2020",
+      "title": "Presidencia de la Autoridad Portuaria de Ferrol San Cibrao",
+      "organo": "Presidencia de la Autoridad Portuaria de Ferrol San Cibrao",
+      "estado": "RES",
+      "cpv": [
+        "71600000"
+      ],
+      "importe": 18405.73,
+      "adjudicatario": "CYE CONTROL Y ESTUDIOS, S.L.",
+      "fechaAdjudicacion": "2020-08-31",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "1859/2020",
+      "title": "Junta de Gobierno del Ayuntamiento de Carlet",
+      "organo": "Junta de Gobierno del Ayuntamiento de Carlet",
+      "estado": "RES",
+      "cpv": [
+        "71900000"
+      ],
+      "importe": 3649.75,
+      "adjudicatario": "GAMASER, S.L.",
+      "fechaAdjudicacion": "2020-08-31",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "PA 40/2020",
+      "title": "Junta de Gobierno del Ayuntamiento de Torrejón de Ardoz",
+      "organo": "Junta de Gobierno del Ayuntamiento de Torrejón de Ardoz",
+      "estado": "RES",
+      "cpv": [
+        "71900000",
+        "71600000"
+      ],
+      "importe": 16000.0,
+      "adjudicatario": "AQM Laboratorios, S.L",
+      "fechaAdjudicacion": "2020-08-31",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "48/2020",
+      "title": "Presidencia de la Agencia Pública Administrativa Local de Deportes de Torremolinos",
+      "organo": "Presidencia de la Agencia Pública Administrativa Local de Deportes de Torremolinos",
+      "estado": "RES",
+      "cpv": [
+        "71620000",
+        "71900000"
+      ],
+      "importe": 5442.58,
+      "adjudicatario": "AQUYMA S.L.",
+      "fechaAdjudicacion": "2020-08-28",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "XP0565/2019",
+      "title": "Consejería de Gobierno de Medio Ambiente del Cabildo de Gran Canaria",
+      "organo": "Consejería de Gobierno de Medio Ambiente del Cabildo de Gran Canaria",
+      "estado": "RES",
+      "cpv": [
+        "90650000"
+      ],
+      "importe": 368790.48,
+      "adjudicatario": "FRANCISCO ORIOL ALONSO NAVARRO",
+      "fechaAdjudicacion": "2020-08-28",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "6203",
+      "title": "Consejero Delegado de la Empresa Municipal de Aguas de Málaga S.A.",
+      "organo": "Consejero Delegado de la Empresa Municipal de Aguas de Málaga S.A.",
+      "estado": "RES",
+      "cpv": [
+        "71500000",
+        "71200000",
+        "71600000",
+        "71300000"
+      ],
+      "importe": 36993.33,
+      "adjudicatario": "ESTUDIO 7 SOLUCIONES INTEGRALES S.L.",
+      "fechaAdjudicacion": "2020-08-25",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "2020/C004/000009",
+      "title": "Junta de Gobierno Local del Ayuntamiento de Cambre",
+      "organo": "Junta de Gobierno Local del Ayuntamiento de Cambre",
+      "estado": "RES",
+      "cpv": [
+        "71600000"
+      ],
+      "importe": 18331.83,
+      "adjudicatario": "3C CALIDAD Y CONTROL, S.COOP.G.",
+      "fechaAdjudicacion": "2020-08-25",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "SC_2020_065B (18)",
+      "title": "Servicio de Salud - Servicios Centrales",
+      "organo": "Servicio de Salud - Servicios Centrales",
+      "estado": "RES",
+      "cpv": [
+        "71317000",
+        "31712000",
+        "79800000",
+        "71600000",
+        "64200000"
+      ],
+      "importe": 228.39,
+      "adjudicatario": "Serigrafías y Rotulaciones del Principado, S.L.",
+      "fechaAdjudicacion": "2020-08-24",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "5/2020",
+      "title": "Alcaldia del Ayuntamiento de Canfranc",
+      "organo": "Alcaldia del Ayuntamiento de Canfranc",
+      "estado": "RES",
+      "cpv": [
+        "80510000",
+        "71351000",
+        "92521000"
+      ],
+      "importe": 145200.0,
+      "adjudicatario": "Rocio Hurtado Roa",
+      "fechaAdjudicacion": "2020-08-20",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "2020/22C SER",
+      "title": "Presidencia de la Diputación Provincial de Palencia",
+      "organo": "Presidencia de la Diputación Provincial de Palencia",
+      "estado": "RES",
+      "cpv": [
+        "90713000"
+      ],
+      "importe": 25928.62,
+      "adjudicatario": "Gestión y Estudios Ambientales S.Coop",
+      "fechaAdjudicacion": "2020-08-20",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "LICT/99/114/2020/0108",
+      "title": "Director Gerente de FREMAP",
+      "organo": "Director Gerente de FREMAP",
+      "estado": "RES",
+      "cpv": [
+        "71900000",
+        "71900000",
+        "71900000"
+      ],
+      "importe": 2710.4,
+      "adjudicatario": "CONTROL MICROBIOLOGICO BILACON SLU",
+      "fechaAdjudicacion": "2020-08-20",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "CONT00075/20",
+      "title": "Autoridad Portuaria de Sevilla",
+      "organo": "Autoridad Portuaria de Sevilla",
+      "estado": "RES",
+      "cpv": [
+        "90713000"
+      ],
+      "importe": 31353.74,
+      "adjudicatario": "Tecnologías y Servicios Agrarios, S.A., S.M.E., M.P.",
+      "fechaAdjudicacion": "2020-08-20",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "TSA0069288",
+      "title": "Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA)",
+      "organo": "Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA)",
+      "estado": "RES",
+      "cpv": [
+        "71600000"
+      ],
+      "importe": 36354.45,
+      "adjudicatario": "SIVER UNE-104 S.L.",
+      "fechaAdjudicacion": "2020-08-19",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "2020000774",
+      "title": "Alcaldía del Ayuntamiento San Sebastián de la Gomera",
+      "organo": "Alcaldía del Ayuntamiento San Sebastián de la Gomera",
+      "estado": "RES",
+      "cpv": [
+        "71620000",
+        "71620000",
+        "71620000",
+        "71620000"
+      ],
+      "importe": 1354.92,
+      "adjudicatario": "LABAQUA, S.A.U.",
+      "fechaAdjudicacion": "2020-08-18",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "4154/2020",
+      "title": "Presidencia de la Autoridad Portuaria de Bilbao",
+      "organo": "Presidencia de la Autoridad Portuaria de Bilbao",
+      "estado": "RES",
+      "cpv": [
+        "71600000"
+      ],
+      "importe": 329021.93,
+      "adjudicatario": "EUSKONTROL, S.A.",
+      "fechaAdjudicacion": "2020-08-17",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "159/2020",
+      "title": "Consejería Delegada de Gestión y Planeamiento Territorial y Medioambiental S.A.",
+      "organo": "Consejería Delegada de Gestión y Planeamiento Territorial y Medioambiental S.A.",
+      "estado": "RES",
+      "cpv": [
+        "90713000",
+        "90700000",
+        "73110000",
+        "90720000"
+      ],
+      "importe": 28930.0,
+      "adjudicatario": "Marco Diaz-Bertrana Sanchez",
+      "fechaAdjudicacion": "2020-08-14",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "282887",
+      "title": "Dirección General del Centro de Investigaciones Energéticas, Medioambientales y Tecnológicas (CIEMAT)",
+      "organo": "Dirección General del Centro de Investigaciones Energéticas, Medioambientales y Tecnológicas (CIEMAT)",
+      "estado": "RES",
+      "cpv": [
+        "73111000",
+        "90911000"
+      ],
+      "importe": 101009.59,
+      "adjudicatario": "LIMCAMAR, SL",
+      "fechaAdjudicacion": "2020-08-12",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "AC/CON/032/19",
+      "title": "Consejo de Administración del Aeropuerto de Castellón S.L.",
+      "organo": "Consejo de Administración del Aeropuerto de Castellón S.L.",
+      "estado": "RES",
+      "cpv": [
+        "90713000"
+      ],
+      "importe": 66989.17,
+      "adjudicatario": "INVESTIGACIÓN Y CONTROL DE CALIDAD, S.A.U. (INCOSA)",
+      "fechaAdjudicacion": "2020-08-12",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "9267/2019",
+      "title": "Consejería de Medio Ambiente y Territorio",
+      "organo": "Consejería de Medio Ambiente y Territorio",
+      "estado": "RES",
+      "cpv": [
+        "90713000",
+        "90713000",
+        "90713000"
+      ],
+      "importe": 15222.0,
+      "adjudicatario": "SM SISTEMAS MEDIOAMBIENTALES, S.L.",
+      "fechaAdjudicacion": "2020-08-11",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "856/2020",
+      "title": "Presidencia de la Autoridad Portuaria de Ferrol San Cibrao",
+      "organo": "Presidencia de la Autoridad Portuaria de Ferrol San Cibrao",
+      "estado": "RES",
+      "cpv": [
+        "71620000"
+      ],
+      "importe": 6924.67,
+      "adjudicatario": "MARICIELO, S.L.",
+      "fechaAdjudicacion": "2020-08-11",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "TSA0069247",
+      "title": "Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA)",
+      "organo": "Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA)",
+      "estado": "RES",
+      "cpv": [
+        "71600000",
+        "71600000",
+        "71600000"
+      ],
+      "importe": 10621.38,
+      "adjudicatario": "TPF, GETINSA-EUROESTUDIOS, S.L",
+      "fechaAdjudicacion": "2020-08-10",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "202017320067",
+      "title": "Dirección General de la Marina Mercante",
+      "organo": "Dirección General de la Marina Mercante",
+      "estado": "RES",
+      "cpv": [
+        "73111000"
+      ],
+      "importe": 22106.7,
+      "adjudicatario": "SERVICIO DE CONTENEDORES HIGIÉNICOS SAU",
+      "fechaAdjudicacion": "2020-08-10",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "DD/016/20",
+      "title": "Dirección General de Sociedad Proyectos Temáticos  de la Comunitat Valenciana S.A.",
+      "organo": "Dirección General de Sociedad Proyectos Temáticos  de la Comunitat Valenciana S.A.",
+      "estado": "RES",
+      "cpv": [
+        "71520000",
+        "71610000"
+      ],
+      "importe": 31501.91,
+      "adjudicatario": "Juan Miguel Mas Moll",
+      "fechaAdjudicacion": "2020-08-07",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "1028_SAOS_0120",
+      "title": "Gerencia de EMAYA, Empresa Municipal d'Aigües i Clavegueram, S.A.",
+      "organo": "Gerencia de EMAYA, Empresa Municipal d'Aigües i Clavegueram, S.A.",
+      "estado": "RES",
+      "cpv": [
+        "71900000",
+        "71620000"
+      ],
+      "importe": 20235.6,
+      "adjudicatario": "SYNLAB DIAGNÓSTICOS GLOBALES,S.A.U",
+      "fechaAdjudicacion": "2020-08-06",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "HSLL134/2020",
+      "title": "Servicio de Salud de las Illes Balears",
+      "organo": "Servicio de Salud de las Illes Balears",
+      "estado": "RES",
+      "cpv": [
+        "71620000"
+      ],
+      "importe": 341359.24,
+      "adjudicatario": "REFERENCE LABORATORY SA",
+      "fechaAdjudicacion": "2020-08-03",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "508/2020",
+      "title": "Junta de Gobierno del Ayuntamiento de Vinarós",
+      "organo": "Junta de Gobierno del Ayuntamiento de Vinarós",
+      "estado": "RES",
+      "cpv": [
+        "71620000"
+      ],
+      "importe": 37923.69,
+      "adjudicatario": "EUROFINS IPROMA S.L.U.",
+      "fechaAdjudicacion": "2020-07-31",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "1/2020SER",
+      "title": "Presidencia del Organismo Autónomo de Escuelas Infantiles de Pájara",
+      "organo": "Presidencia del Organismo Autónomo de Escuelas Infantiles de Pájara",
+      "estado": "RES",
+      "cpv": [
+        "71600000",
+        "71600000",
+        "71600000"
+      ],
+      "importe": 4333.5,
+      "adjudicatario": "KALAMAZOO SUAREZ MARRERO SL",
+      "fechaAdjudicacion": "2020-07-30",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "000028/2020-1081",
+      "title": "Junta de Gobierno del Ayuntamiento de Molina de Segura",
+      "organo": "Junta de Gobierno del Ayuntamiento de Molina de Segura",
+      "estado": "RES",
+      "cpv": [
+        "90731400",
+        "38341500",
+        "90731100"
+      ],
+      "importe": 54028.92,
+      "adjudicatario": "HOP Ubiquitous S.L.",
+      "fechaAdjudicacion": "2020-07-30",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "CC2020/45",
+      "title": "Junta de Gobierno del Ayuntamiento de Oviedo",
+      "organo": "Junta de Gobierno del Ayuntamiento de Oviedo",
+      "estado": "RES",
+      "cpv": [
+        "71900000"
+      ],
+      "importe": 85.9,
+      "adjudicatario": "Analiza Control de Calidad, S.L.",
+      "fechaAdjudicacion": "2020-07-30",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "BC_5000011437",
+      "title": "Comité Central de Compras de Navantia S.A., S.M.E.",
+      "organo": "Comité Central de Compras de Navantia S.A., S.M.E.",
+      "estado": "RES",
+      "cpv": [
+        "71600000"
+      ],
+      "importe": 41140.0,
+      "adjudicatario": "TITANIA ENSAYOS Y PROYECTOS INDUSTRIALES S.L.",
+      "fechaAdjudicacion": "2020-07-30",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "SE/3/20",
+      "title": "Rectorado de la Universidad Jaume I",
+      "organo": "Rectorado de la Universidad Jaume I",
+      "estado": "RES",
+      "cpv": [
+        "71600000"
+      ],
+      "importe": 108900.0,
+      "adjudicatario": "ASOCIACIÓN DE INVESTIGACIÓN DE LAS INDUSTRIAS CERAMICAS (ITC-AICE)",
+      "fechaAdjudicacion": "2020-07-28",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "20/06182",
+      "title": "Rectorado de la Universidad de Sevilla",
+      "organo": "Rectorado de la Universidad de Sevilla",
+      "estado": "RES",
+      "cpv": [
+        "71620000"
+      ],
+      "importe": 4994.88,
+      "adjudicatario": "AQUYMA S.L.",
+      "fechaAdjudicacion": "2020-07-28",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "009/20-S",
+      "title": "Presidencia de la Confederación Hidrográfica del Ebro",
+      "organo": "Presidencia de la Confederación Hidrográfica del Ebro",
+      "estado": "RES",
+      "cpv": [
+        "71621000",
+        "71900000",
+        "71356200"
+      ],
+      "importe": 147174.48,
+      "adjudicatario": "DBO5, S.L.",
+      "fechaAdjudicacion": "2020-07-28",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "P/0005/Y/20/2",
+      "title": "Comandancia Guardia Civil de Lleida",
+      "organo": "Comandancia Guardia Civil de Lleida",
+      "estado": "RES",
+      "cpv": [
+        "90900000",
+        "90913000",
+        "90921000",
+        "71620000"
+      ],
+      "importe": 8221.95,
+      "adjudicatario": "ECOSTUDI SIMA SLP",
+      "fechaAdjudicacion": "2020-07-27",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "A2020/004431",
+      "title": "Consejería de Educación de la Junta de Castilla y León",
+      "organo": "Consejería de Educación de la Junta de Castilla y León",
+      "estado": "RES",
+      "cpv": [
+        "71621000"
+      ],
+      "importe": 47665.53,
+      "adjudicatario": "TPF GETINSA EUROESTUDIOS, S.L.",
+      "fechaAdjudicacion": "2020-07-24",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "(A02022452)-5500011-05",
+      "title": "Sociedad Aragonesa de Gestión Agroambiental, S.L.U. (SARGA)",
+      "organo": "Sociedad Aragonesa de Gestión Agroambiental, S.L.U. (SARGA)",
+      "estado": "RES",
+      "cpv": [
+        "71900000",
+        "90731400",
+        "71620000"
+      ],
+      "importe": 59637.27,
+      "adjudicatario": "Centro de Investigaciones Energéticas, Medioambientales y Tecnológicas (CIEMAT)",
+      "fechaAdjudicacion": "2020-07-24",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "2020/10",
+      "title": "Concejal de Contratación del Ayuntamiento de Pinto",
+      "organo": "Concejal de Contratación del Ayuntamiento de Pinto",
+      "estado": "RES",
+      "cpv": [
+        "71900000",
+        "71600000"
+      ],
+      "importe": 15945.77,
+      "adjudicatario": "CONTROL MICROBIOLÓGICO BILACON, S.L.U",
+      "fechaAdjudicacion": "2020-07-23",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "1/2020",
+      "title": "Comisión de Gobierno del Consorcio para la Ejecución de las Previsiones del Plan Zonal de Residuos 8. Área de Gestión A3",
+      "organo": "Comisión de Gobierno del Consorcio para la Ejecución de las Previsiones del Plan Zonal de Residuos 8. Área de Gestión A3",
+      "estado": "RES",
+      "cpv": [
+        "90713000",
+        "80000000",
+        "80540000"
+      ],
+      "importe": 85417.29,
+      "adjudicatario": "VERMICAN SOLUCIONES DE COMPOSTAJE, S.L.",
+      "fechaAdjudicacion": "2020-07-22",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "153/2019",
+      "title": "Comisión de Gobierno del Consorcio para la Ejecución de las Previsiones del Plan Zonal de Residuos 8. Área de Gestión A3",
+      "organo": "Comisión de Gobierno del Consorcio para la Ejecución de las Previsiones del Plan Zonal de Residuos 8. Área de Gestión A3",
+      "estado": "RES",
+      "cpv": [
+        "90700000",
+        "80540000",
+        "90713000"
+      ],
+      "importe": 17424.0,
+      "adjudicatario": "VERMICAN SOLUCIONES DE COMPOSTAJE, S.L.",
+      "fechaAdjudicacion": "2020-07-22",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "1068_LASS_SU_0220",
+      "title": "Gerencia de EMAYA, Empresa Municipal d'Aigües i Clavegueram, S.A.",
+      "organo": "Gerencia de EMAYA, Empresa Municipal d'Aigües i Clavegueram, S.A.",
+      "estado": "RES",
+      "cpv": [
+        "71600000",
+        "71631400",
+        "71630000"
+      ],
+      "importe": 18609.8,
+      "adjudicatario": "ALFESTAL SL",
+      "fechaAdjudicacion": "2020-07-20",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "188/2020",
+      "title": "Alcaldía del Ayuntamiento de Faura",
+      "organo": "Alcaldía del Ayuntamiento de Faura",
+      "estado": "RES",
+      "cpv": [
+        "71620000",
+        "71900000"
+      ],
+      "importe": 1321.32,
+      "adjudicatario": "ECO-TRATAMIENTOS Y SERVICIOS S.L",
+      "fechaAdjudicacion": "2020-07-20",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "012/2020",
+      "title": "Empresa Municipal de la Vivienda y Suelo de Madrid, S.A.",
+      "organo": "Empresa Municipal de la Vivienda y Suelo de Madrid, S.A.",
+      "estado": "RES",
+      "cpv": [
+        "71600000",
+        "71600000",
+        "71600000",
+        "71600000",
+        "71600000",
+        "71600000",
+        "71600000",
+        "71600000"
+      ],
+      "importe": 58793.9,
+      "adjudicatario": "ITIC, S.L.",
+      "fechaAdjudicacion": "2020-07-17",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "2020/00004",
+      "title": "Gerencia de la Entidad Estatal de Derecho Público Trabajo Penitenciario y Formación para el Empleo",
+      "organo": "Gerencia de la Entidad Estatal de Derecho Público Trabajo Penitenciario y Formación para el Empleo",
+      "estado": "RES",
+      "cpv": [
+        "71620000",
+        "71621000",
+        "71621000",
+        "71620000",
+        "71621000",
+        "71620000",
+        "71621000",
+        "71620000",
+        "71621000",
+        "71620000",
+        "71621000",
+        "71620000",
+        "71620000",
+        "71621000",
+        "71621000",
+        "71620000"
+      ],
+      "importe": 14547.5,
+      "adjudicatario": "Aquimisa, S.L.",
+      "fechaAdjudicacion": "2020-07-17",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "125/19",
+      "title": "Consejería Delegada de la Empresa Metropolitana de Abastecimiento y Saneamiento de Aguas de Sevilla S.A. (EMASESA)",
+      "organo": "Consejería Delegada de la Empresa Metropolitana de Abastecimiento y Saneamiento de Aguas de Sevilla S.A. (EMASESA)",
+      "estado": "RES",
+      "cpv": [
+        "90713000"
+      ],
+      "importe": 11664.4,
+      "adjudicatario": "FUNDACIÓN CENTRO GALLEGO DE INVESTIGACIONES DEL AGUA",
+      "fechaAdjudicacion": "2020-07-14",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "A2020/001072",
+      "title": "Consejería de Educación de la Junta de Castilla y León",
+      "organo": "Consejería de Educación de la Junta de Castilla y León",
+      "estado": "RES",
+      "cpv": [
+        "71621000"
+      ],
+      "importe": 63842.02,
+      "adjudicatario": "Eptisa Servicios de Ingeniería, S.L.",
+      "fechaAdjudicacion": "2020-07-13",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "60/UC-79/20",
+      "title": "INSS-Servicios Centrales-Subdirección General de Gestion Económico - Presupuestaria y Estudios Económicos",
+      "organo": "INSS-Servicios Centrales-Subdirección General de Gestion Económico - Presupuestaria y Estudios Económicos",
+      "estado": "RES",
+      "cpv": [
+        "71600000"
+      ],
+      "importe": 2964.5,
+      "adjudicatario": "QUIMICRAL, S.L.",
+      "fechaAdjudicacion": "2020-07-13",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "4023020001000",
+      "title": "Dirección de Adquisiciones del Mando de Apoyo Logístico del Ejército del Aire",
+      "organo": "Dirección de Adquisiciones del Mando de Apoyo Logístico del Ejército del Aire",
+      "estado": "RES",
+      "cpv": [
+        "71600000",
+        "71600000",
+        "71600000",
+        "71600000"
+      ],
+      "importe": 20000.0,
+      "adjudicatario": "SOOLOGIC TECHNOLOGICAL SOLUTIONS SL",
+      "fechaAdjudicacion": "2020-07-10",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "3182/2020",
+      "title": "Presidencia de la Autoridad Portuaria de Bilbao",
+      "organo": "Presidencia de la Autoridad Portuaria de Bilbao",
+      "estado": "RES",
+      "cpv": [
+        "90742300"
+      ],
+      "importe": 356224.0,
+      "adjudicatario": "FUNDACION TECNALIA RESEARCH &amp; INNOVATION",
+      "fechaAdjudicacion": "2020-07-08",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "TSA0068962",
+      "title": "Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA)",
+      "organo": "Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA)",
+      "estado": "RES",
+      "cpv": [
+        "71600000"
+      ],
+      "importe": 40255.85,
+      "adjudicatario": "CENTRO DE ESTUDIOS DE MATERIALES Y CONTROL DE OBRA S.A.",
+      "fechaAdjudicacion": "2020-07-08",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "127556",
+      "title": "Consejo de Administración SEPES Entidad Pública Empresarial de Suelo",
+      "organo": "Consejo de Administración SEPES Entidad Pública Empresarial de Suelo",
+      "estado": "RES",
+      "cpv": [
+        "71600000"
+      ],
+      "importe": 28377.59,
+      "adjudicatario": "TPF GETINSA EUROESTUDIOS, S.L.",
+      "fechaAdjudicacion": "2020-07-08",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "22706.19.035",
+      "title": "Presidencia de la Confederación Hidrográfica del Segura",
+      "organo": "Presidencia de la Confederación Hidrográfica del Segura",
+      "estado": "RES",
+      "cpv": [
+        "71351000",
+        "71351900",
+        "71318000"
+      ],
+      "importe": 80544.86,
+      "adjudicatario": "INTECSA-INARSA, S.A. Unipersonal",
+      "fechaAdjudicacion": "2020-07-07",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "(A02022452)-5719001-17",
+      "title": "Sociedad Aragonesa de Gestión Agroambiental, S.L.U. (SARGA)",
+      "organo": "Sociedad Aragonesa de Gestión Agroambiental, S.L.U. (SARGA)",
+      "estado": "RES",
+      "cpv": [
+        "71600000",
+        "71351500",
+        "71351220"
+      ],
+      "importe": 175383.45,
+      "adjudicatario": "Adiego Hermanos, S.A.",
+      "fechaAdjudicacion": "2020-07-07",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "(A02022452)-5500011-07-08-09",
+      "title": "Sociedad Aragonesa de Gestión Agroambiental, S.L.U. (SARGA)",
+      "organo": "Sociedad Aragonesa de Gestión Agroambiental, S.L.U. (SARGA)",
+      "estado": "RES",
+      "cpv": [
+        "71620000",
+        "71900000",
+        "71620000",
+        "71900000",
+        "71900000",
+        "71620000",
+        "71620000",
+        "71900000"
+      ],
+      "importe": 9599.9,
+      "adjudicatario": "Labaqua, S.A.U.",
+      "fechaAdjudicacion": "2020-07-07",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "79/2020",
+      "title": "Alcaldía del Ayuntamiento de Alpuente",
+      "organo": "Alcaldía del Ayuntamiento de Alpuente",
+      "estado": "RES",
+      "cpv": [
+        "71900000"
+      ],
+      "importe": 5659.61,
+      "adjudicatario": "LABORATORIOS MUNUERA S.L.U.",
+      "fechaAdjudicacion": "2020-07-07",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "CU(CO)-6281",
+      "title": "Presidencia de la Confederación Hidrográfica del Guadalquivir",
+      "organo": "Presidencia de la Confederación Hidrográfica del Guadalquivir",
+      "estado": "RES",
+      "cpv": [
+        "90700000",
+        "71600000"
+      ],
+      "importe": 64574.76,
+      "adjudicatario": "DBO5, S.L.",
+      "fechaAdjudicacion": "2020-07-06",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "2020009760",
+      "title": "Presidencia de la Diputación Provincial de Pontevedra",
+      "organo": "Presidencia de la Diputación Provincial de Pontevedra",
+      "estado": "RES",
+      "cpv": [
+        "71600000"
+      ],
+      "importe": 3599.73,
+      "adjudicatario": "AENOR",
+      "fechaAdjudicacion": "2020-07-06",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "A10-CO-UT-2019-0001",
+      "title": "Empresa Nacional de Residuos Radiactivos, S.A., S.M.E. (ENRESA)",
+      "organo": "Empresa Nacional de Residuos Radiactivos, S.A., S.M.E. (ENRESA)",
+      "estado": "RES",
+      "cpv": [
+        "71620000",
+        "71900000"
+      ],
+      "importe": 109426.35,
+      "adjudicatario": "Geotecnia y Cimientos, S.A.",
+      "fechaAdjudicacion": "2020-07-03",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "TSA0069187",
+      "title": "Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA)",
+      "organo": "Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA)",
+      "estado": "RES",
+      "cpv": [
+        "71600000",
+        "71600000",
+        "71600000"
+      ],
+      "importe": 18399.26,
+      "adjudicatario": "EPTISA SERVICIOS DE INGENIERIA S.L.",
+      "fechaAdjudicacion": "2020-07-03",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "CON-SER-0021-2019.1",
+      "title": "Alcaldía del Ayuntamiento de Cáceres",
+      "organo": "Alcaldía del Ayuntamiento de Cáceres",
+      "estado": "RES",
+      "cpv": [
+        "90650000"
+      ],
+      "importe": 15000.0,
+      "adjudicatario": "INTERLUN, SOCIEDAD LIMITADA",
+      "fechaAdjudicacion": "2020-06-30",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "15/2020 SV PAS",
+      "title": "Presidencia de la Diputación Provincial de Cáceres",
+      "organo": "Presidencia de la Diputación Provincial de Cáceres",
+      "estado": "RES",
+      "cpv": [
+        "71621000",
+        "73220000",
+        "71600000",
+        "71351700",
+        "79400000",
+        "71313000",
+        "72224000"
+      ],
+      "importe": 46778.6,
+      "adjudicatario": "ASTROÁNDALUS, S.L.",
+      "fechaAdjudicacion": "2020-06-30",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "1327/2020",
+      "title": "Alcaldía del Ayuntamiento de Meco",
+      "organo": "Alcaldía del Ayuntamiento de Meco",
+      "estado": "RES",
+      "cpv": [
+        "72322000",
+        "71900000"
+      ],
+      "importe": 36511.75,
+      "adjudicatario": "ADNCANINO S.L",
+      "fechaAdjudicacion": "2020-06-30",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "CON/16/2020",
+      "title": "Alcaldía del Ayuntamiento de Aller",
+      "organo": "Alcaldía del Ayuntamiento de Aller",
+      "estado": "RES",
+      "cpv": [
+        "90712000"
+      ],
+      "importe": 7686.8,
+      "adjudicatario": "BIESCA AGROFORESTAL Y MEDIOAMBIENTE S.L.",
+      "fechaAdjudicacion": "2020-06-29",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "PEA/127/2020",
+      "title": "Gerencia de la Empresa Mancomunada del Aljarafe, S.A. (ALJARAFESA)",
+      "organo": "Gerencia de la Empresa Mancomunada del Aljarafe, S.A. (ALJARAFESA)",
+      "estado": "RES",
+      "cpv": [
+        "71356200",
+        "71620000"
+      ],
+      "importe": 138987.52,
+      "adjudicatario": "DBO5, S.L.",
+      "fechaAdjudicacion": "2020-06-29",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "00009/2019-2.06.03.01",
+      "title": "Junta de Gobierno del Ayuntamiento de Mazarrón",
+      "organo": "Junta de Gobierno del Ayuntamiento de Mazarrón",
+      "estado": "RES",
+      "cpv": [
+        "79420000",
+        "71620000",
+        "79420000",
+        "79420000"
+      ],
+      "importe": 118217.44,
+      "adjudicatario": "LABORATORIOS MUNUERA S.L.U.",
+      "fechaAdjudicacion": "2020-06-26",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "20204038-V",
+      "title": "Presidencia del Consejo de Administración de la Sociedad Estatal de Infraestructuras del Transporte Terrestre, S.M.E., S.A.",
+      "organo": "Presidencia del Consejo de Administración de la Sociedad Estatal de Infraestructuras del Transporte Terrestre, S.M.E., S.A.",
+      "estado": "RES",
+      "cpv": [
+        "71600000"
+      ],
+      "importe": 15681.89,
+      "adjudicatario": "EUROCONSULT NUEVAS TECNOLOGÍAS, S.A.",
+      "fechaAdjudicacion": "2020-06-24",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "561 2019",
+      "title": "Comisión Ejecutiva de Gestion Integral del Agua de Huelva",
+      "organo": "Comisión Ejecutiva de Gestion Integral del Agua de Huelva",
+      "estado": "RES",
+      "cpv": [
+        "71600000"
+      ],
+      "importe": 27043.5,
+      "adjudicatario": "SGS INSPECCIONES REGLAMENTARIAS S.A.",
+      "fechaAdjudicacion": "2020-06-24",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "SV  02 20",
+      "title": "Vicepresidencia de Aguas y Saneamientos de la Axarquía, S.A.U.",
+      "organo": "Vicepresidencia de Aguas y Saneamientos de la Axarquía, S.A.U.",
+      "estado": "RES",
+      "cpv": [
+        "71900000"
+      ],
+      "importe": 60648.59,
+      "adjudicatario": "TECNOLAB LABORATORIOS S.L.",
+      "fechaAdjudicacion": "2020-06-23",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "228/2020",
+      "title": "Alcaldía del Ayuntamiento de Villanueva de Gallego",
+      "organo": "Alcaldía del Ayuntamiento de Villanueva de Gallego",
+      "estado": "RES",
+      "cpv": [
+        "90920000",
+        "14400000",
+        "24962000",
+        "71620000",
+        "24962000",
+        "71620000",
+        "90920000",
+        "90920000",
+        "14400000"
+      ],
+      "importe": 9455.61,
+      "adjudicatario": "LASAOSA PRODUCTOS QUIMICOS SL",
+      "fechaAdjudicacion": "2020-06-23",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "A32-CO-CB-2019-0051",
+      "title": "Empresa Nacional de Residuos Radiactivos, S.A., S.M.E. (ENRESA)",
+      "organo": "Empresa Nacional de Residuos Radiactivos, S.A., S.M.E. (ENRESA)",
+      "estado": "RES",
+      "cpv": [
+        "50433000",
+        "71900000"
+      ],
+      "importe": 23379.62,
+      "adjudicatario": "Atme Menendez, S.L.",
+      "fechaAdjudicacion": "2020-06-23",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "060-CO-OE-2020-0001",
+      "title": "Empresa Nacional de Residuos Radiactivos, S.A., S.M.E. (ENRESA)",
+      "organo": "Empresa Nacional de Residuos Radiactivos, S.A., S.M.E. (ENRESA)",
+      "estado": "RES",
+      "cpv": [
+        "71620000"
+      ],
+      "importe": 94259.0,
+      "adjudicatario": "Geotecnia y Cimientos, S.A.",
+      "fechaAdjudicacion": "2020-06-22",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "SERV-03/2020",
+      "title": "Concejal Delegada de Contratación Administrativa de Ayuntamiento de Baena",
+      "organo": "Concejal Delegada de Contratación Administrativa de Ayuntamiento de Baena",
+      "estado": "RES",
+      "cpv": [
+        "71600000"
+      ],
+      "importe": 6052.42,
+      "adjudicatario": "LABORATORIOS ENA S.L",
+      "fechaAdjudicacion": "2020-06-19",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "20200520-00289",
+      "title": "Ineco-Dirección Corporativa",
+      "organo": "Ineco-Dirección Corporativa",
+      "estado": "RES",
+      "cpv": [
+        "71000000",
+        "71600000",
+        "71900000"
+      ],
+      "importe": 24865.5,
+      "adjudicatario": "UNIVERSIDAD DE CANTABRIA",
+      "fechaAdjudicacion": "2020-06-18",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "283/2020",
+      "title": "Junta de Gobierno del Ayuntamiento de Jaca",
+      "organo": "Junta de Gobierno del Ayuntamiento de Jaca",
+      "estado": "RES",
+      "cpv": [
+        "71620000"
+      ],
+      "importe": 1782.33,
+      "adjudicatario": "OX COMPAÑÍA DE TRATAMIENTO DE AGUAS, S.L.",
+      "fechaAdjudicacion": "2020-06-16",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "18-SER-24",
+      "title": "Alcaldia del Ayuntamiento de Mogán",
+      "organo": "Alcaldia del Ayuntamiento de Mogán",
+      "estado": "RES",
+      "cpv": [
+        "71311000",
+        "90711500",
+        "71313000",
+        "71900000",
+        "71700000",
+        "71313000",
+        "71900000",
+        "90711500",
+        "71700000",
+        "71311000",
+        "71311000",
+        "71900000",
+        "90711500",
+        "71313000",
+        "71700000"
+      ],
+      "importe": 67968.19,
+      "adjudicatario": "CANARAGUA CONCESIONES,S.A.",
+      "fechaAdjudicacion": "2020-06-16",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "13/2020",
+      "title": "Dirección General de la Fundación para la Investigación del Hospital Universitario de la Fe",
+      "organo": "Dirección General de la Fundación para la Investigación del Hospital Universitario de la Fe",
+      "estado": "RES",
+      "cpv": [
+        "71621000"
+      ],
+      "importe": 16500.0,
+      "adjudicatario": "Instituto Tecnológico de Informática",
+      "fechaAdjudicacion": "2020-06-15",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "14/2020",
+      "title": "Dirección General de la Fundación para la Investigación del Hospital Universitario de la Fe",
+      "organo": "Dirección General de la Fundación para la Investigación del Hospital Universitario de la Fe",
+      "estado": "RES",
+      "cpv": [
+        "71000000",
+        "71620000"
+      ],
+      "importe": 16500.0,
+      "adjudicatario": "Universidad de Alicante",
+      "fechaAdjudicacion": "2020-06-15",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "7/2020",
+      "title": "Junta de Contratación del Ayuntamiento de Alcántara",
+      "organo": "Junta de Contratación del Ayuntamiento de Alcántara",
+      "estado": "RES",
+      "cpv": [
+        "71800000",
+        "71900000"
+      ],
+      "importe": 6988.23,
+      "adjudicatario": "TECNICAS VALENCIANAS DEL AGUA, S.A.",
+      "fechaAdjudicacion": "2020-06-12",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "20203492",
+      "title": "Gerencia de Ecociudad Zaragoza S.A.U. (Medio Propio)",
+      "organo": "Gerencia de Ecociudad Zaragoza S.A.U. (Medio Propio)",
+      "estado": "RES",
+      "cpv": [
+        "71600000"
+      ],
+      "importe": 39450.84,
+      "adjudicatario": "SOCIEDAD DE FOMENTO AGRICOLA CASTELLONENSE",
+      "fechaAdjudicacion": "2020-06-12",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "20203491",
+      "title": "Gerencia de Ecociudad Zaragoza S.A.U. (Medio Propio)",
+      "organo": "Gerencia de Ecociudad Zaragoza S.A.U. (Medio Propio)",
+      "estado": "RES",
+      "cpv": [
+        "71600000"
+      ],
+      "importe": 8549.07,
+      "adjudicatario": "EUROFINS IPROMA S.L.U.",
+      "fechaAdjudicacion": "2020-06-12",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "001/2020",
+      "title": "Empresa Municipal de la Vivienda y Suelo de Madrid, S.A.",
+      "organo": "Empresa Municipal de la Vivienda y Suelo de Madrid, S.A.",
+      "estado": "RES",
+      "cpv": [
+        "71600000",
+        "71600000",
+        "71600000",
+        "71600000"
+      ],
+      "importe": 52190.08,
+      "adjudicatario": "ITIC, S.L.",
+      "fechaAdjudicacion": "2020-06-10",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "2020/005601",
+      "title": "Gerencia de Atención Integrada de Almansa",
+      "organo": "Gerencia de Atención Integrada de Almansa",
+      "estado": "RES",
+      "cpv": [
+        "71620000"
+      ],
+      "importe": 16300.0,
+      "adjudicatario": "INST.VALENCIANO MICROBIOLOGIA",
+      "fechaAdjudicacion": "2020-06-10",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "TSA0068117",
+      "title": "Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA)",
+      "organo": "Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA)",
+      "estado": "RES",
+      "cpv": [
+        "71900000"
+      ],
+      "importe": 105669.3,
+      "adjudicatario": "EUROFINS ANALYTICO, B.V. SUCURSAL EN ESPAÑA",
+      "fechaAdjudicacion": "2020-06-10",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "019/2020-CONTR",
+      "title": "Junta de Gobierno del Ayuntamiento de Fuengirola",
+      "organo": "Junta de Gobierno del Ayuntamiento de Fuengirola",
+      "estado": "RES",
+      "cpv": [
+        "90713000"
+      ],
+      "importe": 5662.8,
+      "adjudicatario": "NOVAPLANT SUR",
+      "fechaAdjudicacion": "2020-06-09",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "CE-02-3/2020-FRM",
+      "title": "Dirección General de Patrimonio y Contratación",
+      "organo": "Dirección General de Patrimonio y Contratación",
+      "estado": "RES",
+      "cpv": [
+        "71621000"
+      ],
+      "importe": 11153.31,
+      "adjudicatario": "INSTITUTO SR CANARIAS, S. L.",
+      "fechaAdjudicacion": "2020-06-05",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "(A02003511)-ITAINNOVA 01_2020",
+      "title": "Instituto Tecnológico de Aragón (ITA)",
+      "organo": "Instituto Tecnológico de Aragón (ITA)",
+      "estado": "RES",
+      "cpv": [
+        "73000000",
+        "71000000",
+        "71600000"
+      ],
+      "importe": 54020.15,
+      "adjudicatario": "ENTIDAD NACIONAL DE ACREDITACION (ENAC)",
+      "fechaAdjudicacion": "2020-06-04",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "1756/2019",
+      "title": "Alcaldía del Ayuntamiento de Salamanca",
+      "organo": "Alcaldía del Ayuntamiento de Salamanca",
+      "estado": "RES",
+      "cpv": [
+        "71600000",
+        "71600000",
+        "71600000"
+      ],
+      "importe": 17666.61,
+      "adjudicatario": "CENTRO DE ESTUDIOS DE MATERIALES Y CONTROL DE OBRA,SA (CEMOSA)",
+      "fechaAdjudicacion": "2020-06-04",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "15/2020",
+      "title": "Dirección General de la Fundación para la Investigación del Hospital Universitario de la Fe",
+      "organo": "Dirección General de la Fundación para la Investigación del Hospital Universitario de la Fe",
+      "estado": "RES",
+      "cpv": [
+        "71620000"
+      ],
+      "importe": 16500.0,
+      "adjudicatario": "Universidad Politécnica de Valencia",
+      "fechaAdjudicacion": "2020-06-03",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "2020339",
+      "title": "Gerencia de Ecociudad Zaragoza S.A.U. (Medio Propio)",
+      "organo": "Gerencia de Ecociudad Zaragoza S.A.U. (Medio Propio)",
+      "estado": "RES",
+      "cpv": [
+        "71620000",
+        "71620000",
+        "71620000"
+      ],
+      "importe": 2714.46,
+      "adjudicatario": "EUROFINS IPROMA S.L.U.",
+      "fechaAdjudicacion": "2020-06-02",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "TSA0068372",
+      "title": "Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA)",
+      "organo": "Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA)",
+      "estado": "RES",
+      "cpv": [
+        "73111000",
+        "73111000",
+        "73111000",
+        "73111000",
+        "73111000"
+      ],
+      "importe": 55844.75,
+      "adjudicatario": "INSITUTO DE INVESTIGACIONES AGROBIOLÓGICAS DE GALICIA DE LA AGENCIA ESTATAL CONSEJO SUPERIOR DE INVESTIGACIONES CIENTÍFICAS (IIAG-CSIC)",
+      "fechaAdjudicacion": "2020-06-01",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "12-2019 ctr-med",
+      "title": "Concejalía Delegada de Medio Ambiente, Juventud y Movilidad Sostenible, Accesibilidad y Transporte Público del Ayuntamiento de Burgos",
+      "organo": "Concejalía Delegada de Medio Ambiente, Juventud y Movilidad Sostenible, Accesibilidad y Transporte Público del Ayuntamiento de Burgos",
+      "estado": "RES",
+      "cpv": [
+        "71621000"
+      ],
+      "importe": 17462.72,
+      "adjudicatario": "INGENIERIA SANPE",
+      "fechaAdjudicacion": "2020-05-29",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "20/083",
+      "title": "Gerencia de Ferrocarrils de la Generalitat Valenciana",
+      "organo": "Gerencia de Ferrocarrils de la Generalitat Valenciana",
+      "estado": "RES",
+      "cpv": [
+        "73111000",
+        "73111000",
+        "73111000"
+      ],
+      "importe": 60500.0,
+      "adjudicatario": "AGENCIA ESTATAL CONSEJO SUPERIOR DE INVESTIGACIONES CIENTÍFICAS M.P. (CSIC) - INSTITUTO DE AGROQUÍMICA Y TECNOLOGÍA DE ALIMENTOS (IATA)",
+      "fechaAdjudicacion": "2020-05-27",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "TSA0068724",
+      "title": "Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA)",
+      "organo": "Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA)",
+      "estado": "RES",
+      "cpv": [
+        "71900000"
+      ],
+      "importe": 159236.0,
+      "adjudicatario": "LUBRICATION MANAGEMENT, S.L.",
+      "fechaAdjudicacion": "2020-05-26",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "21/covid-19",
+      "title": "Consejo de Administración de Seromal, S.A. Municipal de Construcciones y Conservación de Alcobendas",
+      "organo": "Consejo de Administración de Seromal, S.A. Municipal de Construcciones y Conservación de Alcobendas",
+      "estado": "RES",
+      "cpv": [
+        "71620000"
+      ],
+      "importe": 3120.0,
+      "adjudicatario": "LABORATORIO MUNICIPAL DE ALCOBENDAS",
+      "fechaAdjudicacion": "2020-05-26",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "(A02003509)-I-200013",
+      "title": "Instituto Aragonés de Gestión Ambiental (INAGA)",
+      "organo": "Instituto Aragonés de Gestión Ambiental (INAGA)",
+      "estado": "RES",
+      "cpv": [
+        "90713000"
+      ],
+      "importe": 143022.54,
+      "adjudicatario": "Sociedad Aragonesa de Gestión Agroambiental S.L.U (SARGA)",
+      "fechaAdjudicacion": "2020-05-25",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "921_SEAP_0519",
+      "title": "Gerencia de EMAYA, Empresa Municipal d'Aigües i Clavegueram, S.A.",
+      "organo": "Gerencia de EMAYA, Empresa Municipal d'Aigües i Clavegueram, S.A.",
+      "estado": "RES",
+      "cpv": [
+        "90713000",
+        "90711500"
+      ],
+      "importe": 99110.63,
+      "adjudicatario": "CBBA SL - IPROMA SL UTE",
+      "fechaAdjudicacion": "2020-05-22",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "2019-1718173",
+      "title": "Dirección General del Instituto Geográfico Nacional",
+      "organo": "Dirección General del Instituto Geográfico Nacional",
+      "estado": "RES",
+      "cpv": [
+        "71351000",
+        "71351000",
+        "71351000",
+        "71351000"
+      ],
+      "importe": 229900.0,
+      "adjudicatario": "SERVICIOS POLITÉCNICOS AÉREOS, S.A.",
+      "fechaAdjudicacion": "2020-05-20",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "19/01267-ADS-0009",
+      "title": "Banco de España",
+      "organo": "Banco de España",
+      "estado": "RES",
+      "cpv": [
+        "71600000"
+      ],
+      "importe": 113926.82,
+      "adjudicatario": "CENTRO DE ESTUDIOS DE MATERIALES Y CONTROL DE OBRA, S. A.",
+      "fechaAdjudicacion": "2020-05-20",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "20-SE-03",
+      "title": "Alcaldía del Ayuntamiento de Mislata",
+      "organo": "Alcaldía del Ayuntamiento de Mislata",
+      "estado": "RES",
+      "cpv": [
+        "73111000"
+      ],
+      "importe": 35.09,
+      "adjudicatario": "ADNCANINO S.L",
+      "fechaAdjudicacion": "2020-05-20",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "23/T/20/SS/DG/A/0007",
+      "title": "Dirección General de Recursos Económicos del Servicio Canario de la Salud",
+      "organo": "Dirección General de Recursos Económicos del Servicio Canario de la Salud",
+      "estado": "RES",
+      "cpv": [
+        "71610000"
+      ],
+      "importe": 25366.28,
+      "adjudicatario": "SGS TECNOS S.A",
+      "fechaAdjudicacion": "2020-05-18",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "2020_023",
+      "title": "Presidencia de la Autoridad Portuaria de Tarragona",
+      "organo": "Presidencia de la Autoridad Portuaria de Tarragona",
+      "estado": "RES",
+      "cpv": [
+        "71600000"
+      ],
+      "importe": 144163.65,
+      "adjudicatario": "GEOTECNIA I CONTROL DE QUALITAT, S.A.",
+      "fechaAdjudicacion": "2020-05-18",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "EC20-C01-05310",
+      "title": "Presidencia de la Autoridad Portuaria de Valencia",
+      "organo": "Presidencia de la Autoridad Portuaria de Valencia",
+      "estado": "RES",
+      "cpv": [
+        "71900000"
+      ],
+      "importe": 58150.0,
+      "adjudicatario": "LABORATORIOS ECHEVARNE, S.A.",
+      "fechaAdjudicacion": "2020-05-18",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "111/20",
+      "title": "Consejería Delegada de la Empresa Metropolitana de Abastecimiento y Saneamiento de Aguas de Sevilla S.A. (EMASESA)",
+      "organo": "Consejería Delegada de la Empresa Metropolitana de Abastecimiento y Saneamiento de Aguas de Sevilla S.A. (EMASESA)",
+      "estado": "RES",
+      "cpv": [
+        "71900000"
+      ],
+      "importe": 201949.0,
+      "adjudicatario": "General de Análisis Materiales y Servicios, S.L. (GAMASER)",
+      "fechaAdjudicacion": "2020-05-15",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "002-SER-2020",
+      "title": "Gerencia de la Empresa Municipal de Aguas y Saneamiento de Murcia S.A.",
+      "organo": "Gerencia de la Empresa Municipal de Aguas y Saneamiento de Murcia S.A.",
+      "estado": "RES",
+      "cpv": [
+        "71600000",
+        "71313000",
+        "71600000",
+        "71313000",
+        "71313000",
+        "71600000"
+      ],
+      "importe": 24830.07,
+      "adjudicatario": "AFESA MEDIO AMBIENTE SA",
+      "fechaAdjudicacion": "2020-05-12",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "19/03597-ADS-0022",
+      "title": "Banco de España",
+      "organo": "Banco de España",
+      "estado": "RES",
+      "cpv": [
+        "90713000"
+      ],
+      "importe": 116765.0,
+      "adjudicatario": "XTANDARD SG AUDITORES, S.L.",
+      "fechaAdjudicacion": "2020-05-11",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "TSA0068717",
+      "title": "Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA)",
+      "organo": "Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA)",
+      "estado": "RES",
+      "cpv": [
+        "71600000"
+      ],
+      "importe": 11717.64,
+      "adjudicatario": "LABORATORIOS ENTECSA S.A.",
+      "fechaAdjudicacion": "2020-05-11",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "19/covid-19",
+      "title": "Consejo de Administración de Seromal, S.A. Municipal de Construcciones y Conservación de Alcobendas",
+      "organo": "Consejo de Administración de Seromal, S.A. Municipal de Construcciones y Conservación de Alcobendas",
+      "estado": "RES",
+      "cpv": [
+        "71620000"
+      ],
+      "importe": 52.0,
+      "adjudicatario": "Laboratorio Municipal del PBS Alcobendas",
+      "fechaAdjudicacion": "2020-05-11",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "ERGAG20014",
+      "title": "Consejería para la Transición Ecológica y Sostenibilidad",
+      "organo": "Consejería para la Transición Ecológica y Sostenibilidad",
+      "estado": "RES",
+      "cpv": [
+        "73111000"
+      ],
+      "importe": 9353.12,
+      "adjudicatario": "GENERAL DE INGENIERÍA Y ESTRUCTURAS, S.L.",
+      "fechaAdjudicacion": "2020-05-11",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "C-99/20",
+      "title": "Junta de Gobierno del Ayuntamiento de Almería",
+      "organo": "Junta de Gobierno del Ayuntamiento de Almería",
+      "estado": "RES",
+      "cpv": [
+        "73111000"
+      ],
+      "importe": 18900.2,
+      "adjudicatario": "ALMERIUNE, S.L",
+      "fechaAdjudicacion": "2020-05-09",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "4/2020",
+      "title": "Dirección General de la Fundación para la Investigación del Hospital Universitario de la Fe",
+      "organo": "Dirección General de la Fundación para la Investigación del Hospital Universitario de la Fe",
+      "estado": "RES",
+      "cpv": [
+        "71620000"
+      ],
+      "importe": 24200.0,
+      "adjudicatario": "LABORATORIO ECHEVARNE, S.A.",
+      "fechaAdjudicacion": "2020-05-07",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "CONT00035/20",
+      "title": "Autoridad Portuaria de Sevilla",
+      "organo": "Autoridad Portuaria de Sevilla",
+      "estado": "RES",
+      "cpv": [
+        "90713000"
+      ],
+      "importe": 36897.54,
+      "adjudicatario": "Tecnologías y Servicios Agrarios, S.A., S.M.E., M.P. (Tragsatec)",
+      "fechaAdjudicacion": "2020-05-05",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "6/2020",
+      "title": "Autoridad Portuaria de Avilés",
+      "organo": "Autoridad Portuaria de Avilés",
+      "estado": "RES",
+      "cpv": [
+        "90731400"
+      ],
+      "importe": 69612.81,
+      "adjudicatario": "APPLUS NORCONTROL, S.L.U.",
+      "fechaAdjudicacion": "2020-04-29",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "069/19-S",
+      "title": "Presidencia de la Confederación Hidrográfica del Ebro",
+      "organo": "Presidencia de la Confederación Hidrográfica del Ebro",
+      "estado": "RES",
+      "cpv": [
+        "71621000",
+        "71356200"
+      ],
+      "importe": 240850.5,
+      "adjudicatario": "TÉCNICA Y PROYECTOS, S.A.",
+      "fechaAdjudicacion": "2020-04-23",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "20200210-00119",
+      "title": "Ineco-Dirección Corporativa",
+      "organo": "Ineco-Dirección Corporativa",
+      "estado": "RES",
+      "cpv": [
+        "71310000",
+        "71000000",
+        "71600000",
+        "71300000",
+        "71300000",
+        "71000000",
+        "71600000",
+        "71310000",
+        "71600000",
+        "71310000",
+        "71300000",
+        "71000000"
+      ],
+      "importe": 0.0,
+      "adjudicatario": "AMAC EUROPA S.L.",
+      "fechaAdjudicacion": "2020-04-23",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "16/covid-19",
+      "title": "Consejo de Administración de Seromal, S.A. Municipal de Construcciones y Conservación de Alcobendas",
+      "organo": "Consejo de Administración de Seromal, S.A. Municipal de Construcciones y Conservación de Alcobendas",
+      "estado": "RES",
+      "cpv": [
+        "71620000"
+      ],
+      "importe": 1404.0,
+      "adjudicatario": "LABORATORIO MUNICIPAL PBS",
+      "fechaAdjudicacion": "2020-04-22",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "673-2020",
+      "title": "Alcaldia del Ayuntamiento de Moralzarzal",
+      "organo": "Alcaldia del Ayuntamiento de Moralzarzal",
+      "estado": "RES",
+      "cpv": [
+        "71000000",
+        "71600000"
+      ],
+      "importe": 17461.01,
+      "adjudicatario": "NITLUX SA",
+      "fechaAdjudicacion": "2020-04-21",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "V.19/2019",
+      "title": "Concejalía Delegada del Área de Medio Ambiente y Sostenibilidad del Ayuntamiento de Valladolid",
+      "organo": "Concejalía Delegada del Área de Medio Ambiente y Sostenibilidad del Ayuntamiento de Valladolid",
+      "estado": "RES",
+      "cpv": [
+        "71313000",
+        "71600000",
+        "71318000"
+      ],
+      "importe": 40327.19,
+      "adjudicatario": "EULEN, S.A.",
+      "fechaAdjudicacion": "2020-04-17",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "ERGAG20010",
+      "title": "Consejería para la Transición Ecológica y Sostenibilidad",
+      "organo": "Consejería para la Transición Ecológica y Sostenibilidad",
+      "estado": "RES",
+      "cpv": [
+        "73111000"
+      ],
+      "importe": 85886.82,
+      "adjudicatario": "INYGES CONSULTORES S.L.",
+      "fechaAdjudicacion": "2020-04-13",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "EXP 131/2018",
+      "title": "Junta de Gobierno del Ayuntamiento de Alcobendas",
+      "organo": "Junta de Gobierno del Ayuntamiento de Alcobendas",
+      "estado": "RES",
+      "cpv": [
+        "71600000"
+      ],
+      "importe": 277813.6,
+      "adjudicatario": "CENTRO DE ESTUDIOS DE MATERIALES Y CONTROL DE OBRA, S.A.",
+      "fechaAdjudicacion": "2020-04-08",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "2020-00014",
+      "title": "Dirección General de Renfe Fabricación y Mantenimiento Sociedad Mercantil Estatal, S.A.",
+      "organo": "Dirección General de Renfe Fabricación y Mantenimiento Sociedad Mercantil Estatal, S.A.",
+      "estado": "RES",
+      "cpv": [
+        "71610000"
+      ],
+      "importe": 28952.88,
+      "adjudicatario": "PILOT 3D S.L.",
+      "fechaAdjudicacion": "2020-04-07",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "11370/2018",
+      "title": "Alcaldía del Ayuntamiento de Puerto de la Cruz",
+      "organo": "Alcaldía del Ayuntamiento de Puerto de la Cruz",
+      "estado": "RES",
+      "cpv": [
+        "71600000",
+        "71210000"
+      ],
+      "importe": 76680.0,
+      "adjudicatario": "CENTRO DE ESTUDIOS DE MATERIALES Y CONTROL DE OBRA,SA (CEMOSA)",
+      "fechaAdjudicacion": "2020-04-06",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "223/19",
+      "title": "Consejería Delegada de la Empresa Metropolitana de Abastecimiento y Saneamiento de Aguas de Sevilla S.A. (EMASESA)",
+      "organo": "Consejería Delegada de la Empresa Metropolitana de Abastecimiento y Saneamiento de Aguas de Sevilla S.A. (EMASESA)",
+      "estado": "RES",
+      "cpv": [
+        "71600000"
+      ],
+      "importe": 41858.74,
+      "adjudicatario": "ECOHYDROS SL",
+      "fechaAdjudicacion": "2020-04-03",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "01/20",
+      "title": "Fundación del Sector Público Estatal Centro Nacional de Investigaciones Oncológicas Carlos III",
+      "organo": "Fundación del Sector Público Estatal Centro Nacional de Investigaciones Oncológicas Carlos III",
+      "estado": "RES",
+      "cpv": [
+        "73111000"
+      ],
+      "importe": 242000.0,
+      "adjudicatario": "Transnetyx Inc",
+      "fechaAdjudicacion": "2020-04-02",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "PEA/405/2019",
+      "title": "Gerencia de la Empresa Mancomunada del Aljarafe, S.A. (ALJARAFESA)",
+      "organo": "Gerencia de la Empresa Mancomunada del Aljarafe, S.A. (ALJARAFESA)",
+      "estado": "RES",
+      "cpv": [
+        "71620000",
+        "85111820"
+      ],
+      "importe": 72468.96,
+      "adjudicatario": "INVESTIGACION Y PROYECTOS MEDIO AMBIENTE SLU",
+      "fechaAdjudicacion": "2020-04-01",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "(221.19) 19.235976W",
+      "title": "Junta de Gobierno de la Diputación Provincial de León",
+      "organo": "Junta de Gobierno de la Diputación Provincial de León",
+      "estado": "RES",
+      "cpv": [
+        "71610000"
+      ],
+      "importe": 217829.7,
+      "adjudicatario": "LABORATORIOS ANALÍTICOS AGROVET, S.L.",
+      "fechaAdjudicacion": "2020-03-20",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "TSA0068701",
+      "title": "Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA)",
+      "organo": "Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA)",
+      "estado": "RES",
+      "cpv": [
+        "71600000"
+      ],
+      "importe": 13543.77,
+      "adjudicatario": "EPTISA SERVICIOS DE INGENIERÍA S.L.",
+      "fechaAdjudicacion": "2020-03-19",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "TSA0068395",
+      "title": "Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA)",
+      "organo": "Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA)",
+      "estado": "RES",
+      "cpv": [
+        "71600000"
+      ],
+      "importe": 137657.34,
+      "adjudicatario": "Investigación y Control de Calidad, S.A.U. (INCOSA)",
+      "fechaAdjudicacion": "2020-03-17",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "TSA0068577",
+      "title": "Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA)",
+      "organo": "Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA)",
+      "estado": "RES",
+      "cpv": [
+        "71600000"
+      ],
+      "importe": 31587.05,
+      "adjudicatario": "Ensayos y Geotecnia Endusa, S.L.",
+      "fechaAdjudicacion": "2020-03-16",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "TSA0068349",
+      "title": "Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA)",
+      "organo": "Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA)",
+      "estado": "RES",
+      "cpv": [
+        "71600000",
+        "71600000",
+        "71600000"
+      ],
+      "importe": 11211.86,
+      "adjudicatario": "Eptisa Servicios de Ingeniería, S.L.",
+      "fechaAdjudicacion": "2020-03-16",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "TSA0068682",
+      "title": "Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA)",
+      "organo": "Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA)",
+      "estado": "RES",
+      "cpv": [
+        "71600000",
+        "71600000",
+        "71600000"
+      ],
+      "importe": 7358.01,
+      "adjudicatario": "EPTISA SERVICIOS DE INGENIERÍA S.L.",
+      "fechaAdjudicacion": "2020-03-16",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "8906/2019",
+      "title": "Alcaldía del Ayuntamiento de Xàtiva",
+      "organo": "Alcaldía del Ayuntamiento de Xàtiva",
+      "estado": "RES",
+      "cpv": [
+        "71620000",
+        "48613000",
+        "48612000",
+        "48614000"
+      ],
+      "importe": 31338.0,
+      "adjudicatario": "ADNCANINO, SL",
+      "fechaAdjudicacion": "2020-03-12",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "20200210-00118",
+      "title": "Ineco-Dirección Corporativa",
+      "organo": "Ineco-Dirección Corporativa",
+      "estado": "RES",
+      "cpv": [
+        "71600000",
+        "71000000",
+        "71000000",
+        "71600000",
+        "71600000",
+        "71000000",
+        "71600000",
+        "71000000"
+      ],
+      "importe": 218816.47,
+      "adjudicatario": "EUROCONSULT NUEVAS TECNOLOGÍAS, S.A.",
+      "fechaAdjudicacion": "2020-03-12",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "2019-074",
+      "title": "Junta de Gobierno del Ayuntamiento de Lugo",
+      "organo": "Junta de Gobierno del Ayuntamiento de Lugo",
+      "estado": "RES",
+      "cpv": [
+        "71620000"
+      ],
+      "importe": 0.0,
+      "adjudicatario": "MARICIELO S.L.",
+      "fechaAdjudicacion": "2020-03-11",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "2019/0256",
+      "title": "Junta de Gobierno del Ayuntamiento de Logroño",
+      "organo": "Junta de Gobierno del Ayuntamiento de Logroño",
+      "estado": "RES",
+      "cpv": [
+        "71620000",
+        "71620000",
+        "71620000",
+        "71620000"
+      ],
+      "importe": 8704.74,
+      "adjudicatario": "Labs &amp; Tecnological Services AGQ, S.L.",
+      "fechaAdjudicacion": "2020-03-11",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "1624/2019",
+      "title": "Junta de Gobierno del Ayuntamiento de Felanitx",
+      "organo": "Junta de Gobierno del Ayuntamiento de Felanitx",
+      "estado": "RES",
+      "cpv": [
+        "71210000",
+        "71600000",
+        "71400000",
+        "71240000",
+        "71340000"
+      ],
+      "importe": 302500.0,
+      "adjudicatario": "JLP-GAAT",
+      "fechaAdjudicacion": "2020-03-09",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "80/19",
+      "title": "Junta de Gobierno del Ayuntamiento de Málaga",
+      "organo": "Junta de Gobierno del Ayuntamiento de Málaga",
+      "estado": "RES",
+      "cpv": [
+        "71900000"
+      ],
+      "importe": 8167.5,
+      "adjudicatario": "Universidad de Santiago de Compostela",
+      "fechaAdjudicacion": "2020-03-09",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "20200162",
+      "title": "Paradores de Turismo de España, S.M.E., S.A.",
+      "organo": "Paradores de Turismo de España, S.M.E., S.A.",
+      "estado": "RES",
+      "cpv": [
+        "90420000",
+        "71620000",
+        "90492000",
+        "41000000"
+      ],
+      "importe": 8203.8,
+      "adjudicatario": "MF TECNICA INDUSTRIAL I MEDIAMBIENTAL SL",
+      "fechaAdjudicacion": "2020-03-05",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "108/2019",
+      "title": "Alcaldia del Ayuntamiento de Rus",
+      "organo": "Alcaldia del Ayuntamiento de Rus",
+      "estado": "RES",
+      "cpv": [
+        "71351811",
+        "71351914",
+        "71351720",
+        "73111000"
+      ],
+      "importe": 42761.4,
+      "adjudicatario": "Universidad de Jaén",
+      "fechaAdjudicacion": "2020-03-04",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "TSA0068555",
+      "title": "Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA)",
+      "organo": "Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA)",
+      "estado": "RES",
+      "cpv": [
+        "71600000",
+        "71600000",
+        "71600000"
+      ],
+      "importe": 12156.39,
+      "adjudicatario": "CENTRO DE ESTUDIOS DE MATERIALES Y CONTROL DE OBRA S.A.",
+      "fechaAdjudicacion": "2020-03-04",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "375/2019",
+      "title": "Alcaldía del Ayuntamiento de Cárcer",
+      "organo": "Alcaldía del Ayuntamiento de Cárcer",
+      "estado": "RES",
+      "cpv": [
+        "71900000",
+        "72322000"
+      ],
+      "importe": 10727.01,
+      "adjudicatario": "ADNCANINO S.L",
+      "fechaAdjudicacion": "2020-03-04",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "638/2019",
+      "title": "Departamento de Salud La Fe. Dirección Económica-Gerencia",
+      "organo": "Departamento de Salud La Fe. Dirección Económica-Gerencia",
+      "estado": "RES",
+      "cpv": [
+        "71600000",
+        "71600000",
+        "71600000",
+        "71600000"
+      ],
+      "importe": 80162.5,
+      "adjudicatario": "CALTEX SISTEMAS SL",
+      "fechaAdjudicacion": "2020-03-03",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "CA-005-20",
+      "title": "Presidencia de la Autoridad Portuaria de la Bahía de Cádiz",
+      "organo": "Presidencia de la Autoridad Portuaria de la Bahía de Cádiz",
+      "estado": "RES",
+      "cpv": [
+        "90731400",
+        "90714500",
+        "90731800"
+      ],
+      "importe": 59253.7,
+      "adjudicatario": "UNIVERSIDAD DE HUELVA",
+      "fechaAdjudicacion": "2020-03-02",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "RI204D120001",
+      "title": "Consejería de Cultura, Turismo y Deportes",
+      "organo": "Consejería de Cultura, Turismo y Deportes",
+      "estado": "RES",
+      "cpv": [
+        "90911200",
+        "90920000",
+        "98311100",
+        "77310000",
+        "98311100",
+        "90911200",
+        "90920000",
+        "71610000",
+        "90911200",
+        "90911200"
+      ],
+      "importe": 32326.08,
+      "adjudicatario": "LIMYCON S.L.",
+      "fechaAdjudicacion": "2020-03-02",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "20191128-00777",
+      "title": "Ineco-Presidencia",
+      "organo": "Ineco-Presidencia",
+      "estado": "RES",
+      "cpv": [
+        "71300000",
+        "71000000",
+        "71600000",
+        "71300000",
+        "71000000",
+        "71600000",
+        "71300000",
+        "71000000",
+        "71600000"
+      ],
+      "importe": 0.0,
+      "adjudicatario": "UTE GEOTECNIA NOR-ESTE (EUSKONTROL-ENSAYA-APPLUS-GEODESER-IGT)",
+      "fechaAdjudicacion": "2020-02-28",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "0015-19pse",
+      "title": "Consejo de Administración de Servicios Comunitarios de Molina S.A. (SERCOMOSA)",
+      "organo": "Consejo de Administración de Servicios Comunitarios de Molina S.A. (SERCOMOSA)",
+      "estado": "RES",
+      "cpv": [
+        "71900000",
+        "71900000",
+        "71900000",
+        "71900000"
+      ],
+      "importe": 60986.96,
+      "adjudicatario": "LABORATORIOS MUNUERA, S.L.U.",
+      "fechaAdjudicacion": "2020-02-28",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "300/2019/00426",
+      "title": "Área de Gobierno de Medio Ambiente y Movilidad",
+      "organo": "Área de Gobierno de Medio Ambiente y Movilidad",
+      "estado": "RES",
+      "cpv": [
+        "90731400",
+        "90700000"
+      ],
+      "importe": 336319.5,
+      "adjudicatario": "Fundación para el Fomento de la Innovación Industrial",
+      "fechaAdjudicacion": "2020-02-27",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "109/2019",
+      "title": "Presidencia del Consorcio Valencia Interior (V-3)",
+      "organo": "Presidencia del Consorcio Valencia Interior (V-3)",
+      "estado": "RES",
+      "cpv": [
+        "85000000",
+        "80000000",
+        "90713000",
+        "80540000"
+      ],
+      "importe": 139337.0,
+      "adjudicatario": "INSTITUTO IMEDES S.L.",
+      "fechaAdjudicacion": "2020-02-26",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "19.202.NGC3006.CC.01",
+      "title": "Presidencia de la Sociedad de Infraestructuras y Equipamientos Penitenciarios  y de la Seguridad del Estado, S.M.E., S.A",
+      "organo": "Presidencia de la Sociedad de Infraestructuras y Equipamientos Penitenciarios  y de la Seguridad del Estado, S.M.E., S.A",
+      "estado": "RES",
+      "cpv": [
+        "71600000"
+      ],
+      "importe": 28757.46,
+      "adjudicatario": "Centro de Estudios de Materiales y Control de Obra, SA (CEMOSA)",
+      "fechaAdjudicacion": "2020-02-25",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "20191112-00734",
+      "title": "Ineco-Dirección Corporativa",
+      "organo": "Ineco-Dirección Corporativa",
+      "estado": "RES",
+      "cpv": [
+        "71240000",
+        "71900000",
+        "71248000",
+        "71000000",
+        "71242000"
+      ],
+      "importe": 17217.49,
+      "adjudicatario": "TPF GETINSA-EUROESTUDIOS,S.L.",
+      "fechaAdjudicacion": "2020-02-20",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "Exp.20.024.CA.SE.",
+      "title": "Sociedad Regional Cántabra de Promoción Turística S.A. CANTUR S.A.",
+      "organo": "Sociedad Regional Cántabra de Promoción Turística S.A. CANTUR S.A.",
+      "estado": "RES",
+      "cpv": [
+        "79000000",
+        "71600000",
+        "71900000"
+      ],
+      "importe": 26620.0,
+      "adjudicatario": "SERVICIOS VETERINARIOS DE CANTABRIA. S.A.",
+      "fechaAdjudicacion": "2020-02-20",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "133/2019",
+      "title": "Empresa Municipal de la Vivienda y Suelo de Madrid, S.A.",
+      "organo": "Empresa Municipal de la Vivienda y Suelo de Madrid, S.A.",
+      "estado": "RES",
+      "cpv": [
+        "71600000",
+        "71600000",
+        "71600000",
+        "71600000"
+      ],
+      "importe": 65941.72,
+      "adjudicatario": "CEMOSA INGENIERÍA Y CONTROL",
+      "fechaAdjudicacion": "2020-02-19",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "98/2019",
+      "title": "Junta de Gobierno del Ayuntamiento de Granada",
+      "organo": "Junta de Gobierno del Ayuntamiento de Granada",
+      "estado": "RES",
+      "cpv": [
+        "90742100",
+        "90731400"
+      ],
+      "importe": 45094.2,
+      "adjudicatario": "METRICA6 INGENIERIA Y DESARROLLOS, SL",
+      "fechaAdjudicacion": "2020-02-19",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "2067/20",
+      "title": "Presidencia de la Agencia Estatal Consejo Superior de Investigaciones Científicas, M.P.",
+      "organo": "Presidencia de la Agencia Estatal Consejo Superior de Investigaciones Científicas, M.P.",
+      "estado": "RES",
+      "cpv": [
+        "73111000"
+      ],
+      "importe": 72307.95,
+      "adjudicatario": "FUNDACIÓ CENTRE DE REGULACIÓ GENÒMICA",
+      "fechaAdjudicacion": "2020-02-18",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "C-4036-20/D-1450",
+      "title": "Hulleras del Norte S.A.",
+      "organo": "Hulleras del Norte S.A.",
+      "estado": "RES",
+      "cpv": [
+        "71900000"
+      ],
+      "importe": 101342.34,
+      "adjudicatario": "APPLUS NORCONTROL, S.L.U",
+      "fechaAdjudicacion": "2020-02-18",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "EXG19-0093",
+      "title": "Presidencia de la Autoridad Portuaria de Castellón",
+      "organo": "Presidencia de la Autoridad Portuaria de Castellón",
+      "estado": "RES",
+      "cpv": [
+        "90920000",
+        "41100000",
+        "71620000"
+      ],
+      "importe": 6860.7,
+      "adjudicatario": "JM SOLUCIONES APLICADAS AL AGUA, S.L.U.",
+      "fechaAdjudicacion": "2020-02-18",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "060-CO-OE-2019-0012",
+      "title": "Empresa Nacional de Residuos Radiactivos, S.A., S.M.E. (ENRESA)",
+      "organo": "Empresa Nacional de Residuos Radiactivos, S.A., S.M.E. (ENRESA)",
+      "estado": "RES",
+      "cpv": [
+        "71620000",
+        "71620000",
+        "71620000"
+      ],
+      "importe": 79593.8,
+      "adjudicatario": "Geotecnia y Cimientos, S.A.",
+      "fechaAdjudicacion": "2020-02-18",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "18/2020",
+      "title": "Alcaldía del Ayuntamiento de O Valadouro",
+      "organo": "Alcaldía del Ayuntamiento de O Valadouro",
+      "estado": "RES",
+      "cpv": [
+        "71900000"
+      ],
+      "importe": 4212.74,
+      "adjudicatario": "APPLUS NORCONTROL, S.L.U.",
+      "fechaAdjudicacion": "2020-02-17",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "2019/00140",
+      "title": "Gerencia de la Entidad Estatal de Derecho Público Trabajo Penitenciario y Formación para el Empleo",
+      "organo": "Gerencia de la Entidad Estatal de Derecho Público Trabajo Penitenciario y Formación para el Empleo",
+      "estado": "RES",
+      "cpv": [
+        "71620000",
+        "71621000",
+        "71620000",
+        "71621000",
+        "71620000",
+        "71621000",
+        "71621000",
+        "71620000",
+        "71620000",
+        "71621000",
+        "71621000",
+        "71620000",
+        "71620000",
+        "71621000"
+      ],
+      "importe": 49905.24,
+      "adjudicatario": "Analiza control de calidad S.L.",
+      "fechaAdjudicacion": "2020-02-13",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "TSA0068235",
+      "title": "Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA)",
+      "organo": "Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA)",
+      "estado": "RES",
+      "cpv": [
+        "73111000",
+        "73111000",
+        "73111000",
+        "73111000",
+        "73111000"
+      ],
+      "importe": 74756.7,
+      "adjudicatario": "UNIVERSIDAD DE EXTREMADURA",
+      "fechaAdjudicacion": "2020-02-13",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "TSA0068419",
+      "title": "Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA)",
+      "organo": "Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA)",
+      "estado": "RES",
+      "cpv": [
+        "73111000"
+      ],
+      "importe": 128275.13,
+      "adjudicatario": "UNIVERSIDAD DE EXTREMADURA",
+      "fechaAdjudicacion": "2020-02-10",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "CON 60/2019 SE AB",
+      "title": "Junta de Gobierno del Ayuntamiento de Aranjuez",
+      "organo": "Junta de Gobierno del Ayuntamiento de Aranjuez",
+      "estado": "RES",
+      "cpv": [
+        "71620000"
+      ],
+      "importe": 20000.0,
+      "adjudicatario": "UTE Eurofins Megalab SAU - Alfredo Montoro Soriano SLU",
+      "fechaAdjudicacion": "2020-02-06",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "2019/003158",
+      "title": "Presidencia de la Agencia del Agua de Castilla-La Mancha",
+      "organo": "Presidencia de la Agencia del Agua de Castilla-La Mancha",
+      "estado": "RES",
+      "cpv": [
+        "71621000"
+      ],
+      "importe": 1401308.32,
+      "adjudicatario": "Técnica y Proyectos, S.A..",
+      "fechaAdjudicacion": "2020-02-05",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "19.188.RGC3501.CC.01",
+      "title": "Presidencia de la Sociedad de Infraestructuras y Equipamientos Penitenciarios  y de la Seguridad del Estado, S.M.E., S.A",
+      "organo": "Presidencia de la Sociedad de Infraestructuras y Equipamientos Penitenciarios  y de la Seguridad del Estado, S.M.E., S.A",
+      "estado": "RES",
+      "cpv": [
+        "71600000"
+      ],
+      "importe": 31124.88,
+      "adjudicatario": "LABETEC ENSAYOS TECNICOS CANARIOS, S.A.",
+      "fechaAdjudicacion": "2020-02-03",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "gen-ctte/2019/128",
+      "title": "Junta de Gobierno del Ayuntamiento de Cieza (Murcia)",
+      "organo": "Junta de Gobierno del Ayuntamiento de Cieza (Murcia)",
+      "estado": "RES",
+      "cpv": [
+        "71620000"
+      ],
+      "importe": 5469.2,
+      "adjudicatario": "PAF CILAB, S.L.",
+      "fechaAdjudicacion": "2020-02-03",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "TSA0068365",
+      "title": "Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA)",
+      "organo": "Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA)",
+      "estado": "RES",
+      "cpv": [
+        "71600000"
+      ],
+      "importe": 26818.44,
+      "adjudicatario": "GIKESA",
+      "fechaAdjudicacion": "2020-01-31",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "63/19.- SERVICIO",
+      "title": "Junta de Gobierno del Ayuntamiento de Roquetas de Mar",
+      "organo": "Junta de Gobierno del Ayuntamiento de Roquetas de Mar",
+      "estado": "RES",
+      "cpv": [
+        "71900000"
+      ],
+      "importe": 53.24,
+      "adjudicatario": "EVINTES CALIDAD S.L.L.",
+      "fechaAdjudicacion": "2020-01-31",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "191/2019",
+      "title": "Presidencia del Consorcio Provincial para la Gestión de los Residuos Sólidos Urbanos de Málaga",
+      "organo": "Presidencia del Consorcio Provincial para la Gestión de los Residuos Sólidos Urbanos de Málaga",
+      "estado": "RES",
+      "cpv": [
+        "71620000",
+        "90711300",
+        "90713100"
+      ],
+      "importe": 38083.54,
+      "adjudicatario": "URIKER SLU",
+      "fechaAdjudicacion": "2020-01-28",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "2019/262-GUA",
+      "title": "Junta de Gobierno del Ayuntamiento de Aspe",
+      "organo": "Junta de Gobierno del Ayuntamiento de Aspe",
+      "estado": "RES",
+      "cpv": [
+        "71335000",
+        "71351000",
+        "71351200",
+        "71310000",
+        "71332000",
+        "71000000",
+        "71351900"
+      ],
+      "importe": 54994.5,
+      "adjudicatario": "Centro de Estudios de Materiales y Control de Obra, SA (CEMOSA)",
+      "fechaAdjudicacion": "2020-01-28",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "3854419054500",
+      "title": "Intendente de Cartagena",
+      "organo": "Intendente de Cartagena",
+      "estado": "RES",
+      "cpv": [
+        "71900000"
+      ],
+      "importe": 3000.0,
+      "adjudicatario": "HOSPITAL DE NUESTRA SEÑORA DEL PERPETUO SOCORRO, S.A.",
+      "fechaAdjudicacion": "2020-01-27",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "SUM02/2019 Valencia Ventoso",
+      "title": "Alcaldía del Ayuntamiento de Valencia del Ventoso",
+      "organo": "Alcaldía del Ayuntamiento de Valencia del Ventoso",
+      "estado": "RES",
+      "cpv": [
+        "44110000",
+        "71600000",
+        "14211000",
+        "14622000",
+        "43300000",
+        "45421160",
+        "71600000",
+        "14211000",
+        "44110000",
+        "14622000",
+        "43300000",
+        "45421160",
+        "14211000",
+        "44114000",
+        "44912100",
+        "43300000",
+        "45500000",
+        "43300000",
+        "14622000",
+        "71600000",
+        "45421160",
+        "44110000",
+        "14211000",
+        "44110000",
+        "14211000",
+        "14622000",
+        "71600000",
+        "45421160",
+        "43300000"
+      ],
+      "importe": 192.39,
+      "adjudicatario": "FERRAM MOVIMIENTOS DE TIERRAS SL",
+      "fechaAdjudicacion": "2020-01-24",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "843/2019 bis",
+      "title": "Junta de Gobierno Local del Concello de Guitiriz",
+      "organo": "Junta de Gobierno Local del Concello de Guitiriz",
+      "estado": "RES",
+      "cpv": [
+        "71620000",
+        "71600000"
+      ],
+      "importe": 8474.84,
+      "adjudicatario": "INVESTIGACION Y PROYECTOS MEDIO AMBIENTE S.L.",
+      "fechaAdjudicacion": "2020-01-24",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "2019-22 MURADAANALITQ",
+      "title": "Consejo de Administrción de la Empresa de Serveis del Municipi de Manacor",
+      "organo": "Consejo de Administrción de la Empresa de Serveis del Municipi de Manacor",
+      "estado": "RES",
+      "cpv": [
+        "71900000"
+      ],
+      "importe": 2691.03,
+      "adjudicatario": "LABAQUA, S.A.U.",
+      "fechaAdjudicacion": "2020-01-23",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "P/0023/R/19/2",
+      "title": "5ª Zona de la Guardia Civil (Murcia)",
+      "organo": "5ª Zona de la Guardia Civil (Murcia)",
+      "estado": "RES",
+      "cpv": [
+        "71620000",
+        "90921000",
+        "90913000"
+      ],
+      "importe": 16153.5,
+      "adjudicatario": "CAASA TECNOLOGÍA DEL AGUA, S.A.",
+      "fechaAdjudicacion": "2020-01-21",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "150/19",
+      "title": "Alcaldía del Ayuntamiento de la Línea de la Concepción",
+      "organo": "Alcaldía del Ayuntamiento de la Línea de la Concepción",
+      "estado": "RES",
+      "cpv": [
+        "71900000"
+      ],
+      "importe": 54903.75,
+      "adjudicatario": "Tradesegur, S.A.",
+      "fechaAdjudicacion": "2020-01-21",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "PIC2019_25004",
+      "title": "Gerencia de Fraternidad Muprespa - Mútua Colaboradora con la Seguridad Social nº 275",
+      "organo": "Gerencia de Fraternidad Muprespa - Mútua Colaboradora con la Seguridad Social nº 275",
+      "estado": "RES",
+      "cpv": [
+        "71610000"
+      ],
+      "importe": 0.01,
+      "adjudicatario": "LABAQUA, S.A.U.",
+      "fechaAdjudicacion": "2020-01-21",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "3936/2019",
+      "title": "Junta de Gobierno del Ayuntamiento de Alboraya",
+      "organo": "Junta de Gobierno del Ayuntamiento de Alboraya",
+      "estado": "RES",
+      "cpv": [
+        "73111000"
+      ],
+      "importe": 48787.2,
+      "adjudicatario": "ADNCANINO S.L",
+      "fechaAdjudicacion": "2020-01-21",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "EX19-S-0009",
+      "title": "Gerencia del Consejo de Administración de la Empresa Municipal de Aguas de Cádiz S.A.",
+      "organo": "Gerencia del Consejo de Administración de la Empresa Municipal de Aguas de Cádiz S.A.",
+      "estado": "RES",
+      "cpv": [
+        "90733100",
+        "71620000",
+        "90713100"
+      ],
+      "importe": 40919.97,
+      "adjudicatario": "ANASUR LABORATORIOS, S.L.",
+      "fechaAdjudicacion": "2020-01-20",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "201917320136",
+      "title": "Dirección General de la Marina Mercante",
+      "organo": "Dirección General de la Marina Mercante",
+      "estado": "RES",
+      "cpv": [
+        "73111000"
+      ],
+      "importe": 126822.1,
+      "adjudicatario": "SGS ESPAÑOLA DE CONTROL S.A.",
+      "fechaAdjudicacion": "2020-01-20",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "SE27/19",
+      "title": "Rectorado de la Universidad de Salamanca",
+      "organo": "Rectorado de la Universidad de Salamanca",
+      "estado": "RES",
+      "cpv": [
+        "71900000"
+      ],
+      "importe": 38720.0,
+      "adjudicatario": "JOSE IGNACIO MARTIN CRUZ",
+      "fechaAdjudicacion": "2020-01-20",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "060-CO-UT-2019-0001",
+      "title": "Empresa Nacional de Residuos Radiactivos, S.A., S.M.E. (ENRESA)",
+      "organo": "Empresa Nacional de Residuos Radiactivos, S.A., S.M.E. (ENRESA)",
+      "estado": "RES",
+      "cpv": [
+        "71620000"
+      ],
+      "importe": 50610.86,
+      "adjudicatario": "LABS &amp; TECHNOLOGICAL SERVICES AGQ S.L.",
+      "fechaAdjudicacion": "2020-01-20",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "EC/21/19",
+      "title": "Alcaldía del Ayuntamiento de Boadilla del Monte",
+      "organo": "Alcaldía del Ayuntamiento de Boadilla del Monte",
+      "estado": "RES",
+      "cpv": [
+        "71620000"
+      ],
+      "importe": 2740.65,
+      "adjudicatario": "AQM Laboratorios SL",
+      "fechaAdjudicacion": "2020-01-14",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "056/19-AF",
+      "title": "Dirección General de la Entidad Pública Empresarial RED.ES",
+      "organo": "Dirección General de la Entidad Pública Empresarial RED.ES",
+      "estado": "RES",
+      "cpv": [
+        "72254000",
+        "79132000",
+        "72800000",
+        "72820000",
+        "79212200",
+        "79212000",
+        "71600000",
+        "73430000"
+      ],
+      "importe": 253313.5,
+      "adjudicatario": "PRICEWATERHOUSECOOPERS AUDITORES, S.L.",
+      "fechaAdjudicacion": "2020-01-14",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "EXCA0082019",
+      "title": "Consejo de Administración de ICODEMSA",
+      "organo": "Consejo de Administración de ICODEMSA",
+      "estado": "RES",
+      "cpv": [
+        "71900000"
+      ],
+      "importe": 0.0,
+      "adjudicatario": "Cibus Scientia SL",
+      "fechaAdjudicacion": "2020-01-13",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "SOLPED5722",
+      "title": "Imprenta de Billetes, S.A., Medio Propio del Banco de España (IMBISA)",
+      "organo": "Imprenta de Billetes, S.A., Medio Propio del Banco de España (IMBISA)",
+      "estado": "RES",
+      "cpv": [
+        "90742000",
+        "50433000"
+      ],
+      "importe": 6036.69,
+      "adjudicatario": "INGENIERÍA DE GESTIÓN INDUSTRIAL SLU",
+      "fechaAdjudicacion": "2020-01-09",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "MOT-20191211-AMT INSPECCION END",
+      "title": "Comité Central de Compras de Navantia S.A., S.M.E.",
+      "organo": "Comité Central de Compras de Navantia S.A., S.M.E.",
+      "estado": "RES",
+      "cpv": [
+        "71600000",
+        "71630000"
+      ],
+      "importe": 235262.72,
+      "adjudicatario": "QUEST GLOBAL ENGINEERING ESPAÑA S.L.U.",
+      "fechaAdjudicacion": "2020-01-08",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "GE. 14/2019",
+      "title": "Gerencia de Limpieza Pública y Protección Ambiental Sociedad Anónima Municipal (LIPASAM)",
+      "organo": "Gerencia de Limpieza Pública y Protección Ambiental Sociedad Anónima Municipal (LIPASAM)",
+      "estado": "RES",
+      "cpv": [
+        "90650000"
+      ],
+      "importe": 23229.58,
+      "adjudicatario": "Llopis Servicios Ambientales S.L.",
+      "fechaAdjudicacion": "2020-01-02",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "EX19-S-0010",
+      "title": "Gerencia del Consejo de Administración de la Empresa Municipal de Aguas de Cádiz S.A.",
+      "organo": "Gerencia del Consejo de Administración de la Empresa Municipal de Aguas de Cádiz S.A.",
+      "estado": "RES",
+      "cpv": [
+        "71620000"
+      ],
+      "importe": 18048.79,
+      "adjudicatario": "FCC AQUALIA, S.A.",
+      "fechaAdjudicacion": "2020-01-02",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "(A02003509)-I-200003",
+      "title": "Instituto Aragonés de Gestión Ambiental (INAGA)",
+      "organo": "Instituto Aragonés de Gestión Ambiental (INAGA)",
+      "estado": "RES",
+      "cpv": [
+        "90713000"
+      ],
+      "importe": 229931.33,
+      "adjudicatario": "Sociedad Aragonesa de Gestión Agroambiental S.L.U (SARGA)",
+      "fechaAdjudicacion": "2020-01-01",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "(A02003509)-I-200004",
+      "title": "Instituto Aragonés de Gestión Ambiental (INAGA)",
+      "organo": "Instituto Aragonés de Gestión Ambiental (INAGA)",
+      "estado": "RES",
+      "cpv": [
+        "90713000"
+      ],
+      "importe": 133038.24,
+      "adjudicatario": "Sociedad Aragonesa de Gestión Agroambiental S.L.U (SARGA)",
+      "fechaAdjudicacion": "2020-01-01",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "(A02003509)-I-200006",
+      "title": "Instituto Aragonés de Gestión Ambiental (INAGA)",
+      "organo": "Instituto Aragonés de Gestión Ambiental (INAGA)",
+      "estado": "RES",
+      "cpv": [
+        "90713000"
+      ],
+      "importe": 140412.87,
+      "adjudicatario": "Sociedad Aragonesa de Gestión Agroambiental S.L.U (SARGA)",
+      "fechaAdjudicacion": "2020-01-01",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "(A02003509)-I-200005",
+      "title": "Instituto Aragonés de Gestión Ambiental (INAGA)",
+      "organo": "Instituto Aragonés de Gestión Ambiental (INAGA)",
+      "estado": "RES",
+      "cpv": [
+        "90713000"
+      ],
+      "importe": 134958.05,
+      "adjudicatario": "Sociedad Aragonesa de Gestión Agroambiental S.L.U (SARGA)",
+      "fechaAdjudicacion": "2020-01-01",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "(A02003509)-I-20001/2/7/10/11",
+      "title": "Instituto Aragonés de Gestión Ambiental (INAGA)",
+      "organo": "Instituto Aragonés de Gestión Ambiental (INAGA)",
+      "estado": "RES",
+      "cpv": [
+        "90713000"
+      ],
+      "importe": 201836.55,
+      "adjudicatario": "Sociedad Aragonesa de Gestión Agroambiental S.L.U (SARGA)",
+      "fechaAdjudicacion": "2020-01-01",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "02-TGSS-2020-PASS-03",
+      "title": "TGSS-Dirección provincial de Albacete",
+      "organo": "TGSS-Dirección provincial de Albacete",
+      "estado": "RES",
+      "cpv": [
+        "71620000"
+      ],
+      "importe": 2383.7,
+      "adjudicatario": "ICISER, S.L.",
+      "fechaAdjudicacion": "2019-12-30",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "2019/22",
+      "title": "Dirección de Gestión de la Fundación Instituto de Investigación Marqués de Valdecilla",
+      "organo": "Dirección de Gestión de la Fundación Instituto de Investigación Marqués de Valdecilla",
+      "estado": "RES",
+      "cpv": [
+        "73111000"
+      ],
+      "importe": 114997.23,
+      "adjudicatario": "FUNDACION CENTRO NACIONAL DE INVESTIGACIONES ONCOLOGICAS CARLOS III \"CNIO\" FUNDACION CNIO CARLOS III",
+      "fechaAdjudicacion": "2019-12-27",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "060-CO-OE-2019-0014",
+      "title": "Empresa Nacional de Residuos Radiactivos, S.A., S.M.E. (ENRESA)",
+      "organo": "Empresa Nacional de Residuos Radiactivos, S.A., S.M.E. (ENRESA)",
+      "estado": "RES",
+      "cpv": [
+        "71620000",
+        "71620000",
+        "90921000",
+        "90913000"
+      ],
+      "importe": 15357.32,
+      "adjudicatario": "CONTROL MICROBIOLOGICO BILACON",
+      "fechaAdjudicacion": "2019-12-27",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "279701",
+      "title": "Dirección General del Centro de Investigaciones Energéticas, Medioambientales y Tecnológicas (CIEMAT)",
+      "organo": "Dirección General del Centro de Investigaciones Energéticas, Medioambientales y Tecnológicas (CIEMAT)",
+      "estado": "RES",
+      "cpv": [
+        "73111000"
+      ],
+      "importe": 172906.69,
+      "adjudicatario": "LIMCAMAR, S.L.",
+      "fechaAdjudicacion": "2019-12-27",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "2019/2826",
+      "title": "Alcaldía del Ayuntamiento de Fernán Núñez",
+      "organo": "Alcaldía del Ayuntamiento de Fernán Núñez",
+      "estado": "RES",
+      "cpv": [
+        "18100000",
+        "44114100",
+        "44114200",
+        "44912100",
+        "71900000",
+        "44330000",
+        "44100000",
+        "44163000",
+        "14210000",
+        "44470000",
+        "45520000",
+        "44160000",
+        "44111700",
+        "44500000",
+        "44113810",
+        "45520000",
+        "44160000",
+        "44470000",
+        "44912100",
+        "44114200",
+        "14210000",
+        "44100000",
+        "44111700",
+        "44100000",
+        "44114100",
+        "44113810",
+        "71900000",
+        "44500000",
+        "18100000",
+        "44330000",
+        "44163000"
+      ],
+      "importe": 34725.79,
+      "adjudicatario": "ANTONIO RAMIREZ MIRANDA, S.L.",
+      "fechaAdjudicacion": "2019-12-26",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "3.4.8/19",
+      "title": "Consejería de Innovación, Industria, Turismo y Comercio",
+      "organo": "Consejería de Innovación, Industria, Turismo y Comercio",
+      "estado": "RES",
+      "cpv": [
+        "71610000",
+        "71600000"
+      ],
+      "importe": 21622.7,
+      "adjudicatario": "Alameda Recalde, 27 - 5ª planta. 48009 Bilbao (Vizcaya)",
+      "fechaAdjudicacion": "2019-12-26",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "9599/2019",
+      "title": "Alcaldía del Ayuntamiento de El Rosario",
+      "organo": "Alcaldía del Ayuntamiento de El Rosario",
+      "estado": "RES",
+      "cpv": [
+        "71900000",
+        "71620000"
+      ],
+      "importe": 3419.71,
+      "adjudicatario": "CANARIAS LABTEC SLU",
+      "fechaAdjudicacion": "2019-12-23",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "XPS0101/2019",
+      "title": "Rectorado de la Universidad de Granada",
+      "organo": "Rectorado de la Universidad de Granada",
+      "estado": "RES",
+      "cpv": [
+        "38970000",
+        "71900000",
+        "73111000",
+        "71730000",
+        "71631400",
+        "73120000",
+        "71630000",
+        "73300000",
+        "51430000",
+        "73111000",
+        "73300000",
+        "73120000",
+        "71900000",
+        "71730000",
+        "71631400",
+        "71630000",
+        "51430000",
+        "71630000",
+        "73120000",
+        "71631400",
+        "71730000",
+        "51430000",
+        "73300000",
+        "73111000",
+        "71900000",
+        "73111000",
+        "51430000",
+        "71900000",
+        "71630000",
+        "73120000",
+        "71631400",
+        "71730000",
+        "73300000",
+        "71631400",
+        "71630000",
+        "51430000",
+        "71730000",
+        "73300000",
+        "73120000",
+        "71900000",
+        "73111000"
+      ],
+      "importe": 131488.28,
+      "adjudicatario": "CANON MEDICAL SYSTEMS SA",
+      "fechaAdjudicacion": "2019-12-20",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "P/0032/Y/19/2",
+      "title": "Comandancia Guardia Civil de Lugo",
+      "organo": "Comandancia Guardia Civil de Lugo",
+      "estado": "RES",
+      "cpv": [
+        "90921000",
+        "71620000",
+        "90913000"
+      ],
+      "importe": 9989.0,
+      "adjudicatario": "INDUSTRIA DE LA SALUD FERROL S.L.",
+      "fechaAdjudicacion": "2019-12-20",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "127782",
+      "title": "Consejo de Administración SEPES Entidad Pública Empresarial de Suelo",
+      "organo": "Consejo de Administración SEPES Entidad Pública Empresarial de Suelo",
+      "estado": "RES",
+      "cpv": [
+        "71600000"
+      ],
+      "importe": 36151.93,
+      "adjudicatario": "TPF GETINSA EUROESTUDIOS, S.L.",
+      "fechaAdjudicacion": "2019-12-19",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "19F.2.1.0013",
+      "title": "Presidencia de la Diputación Provincial de Salamanca",
+      "organo": "Presidencia de la Diputación Provincial de Salamanca",
+      "estado": "RES",
+      "cpv": [
+        "71610000"
+      ],
+      "importe": 329380.22,
+      "adjudicatario": "LABORATORIO DE CALIDAD DE MATERIALES, SLL",
+      "fechaAdjudicacion": "2019-12-18",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "B41632266-2019/000066-PeA",
+      "title": "Vicepresidente de Aguas de Huesna SL.",
+      "organo": "Vicepresidente de Aguas de Huesna SL.",
+      "estado": "RES",
+      "cpv": [
+        "71600000"
+      ],
+      "importe": 99123.93,
+      "adjudicatario": "LABYGEMA, S.L.",
+      "fechaAdjudicacion": "2019-12-18",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "079-CO-IN-2019-0006",
+      "title": "Empresa Nacional de Residuos Radiactivos, S.A., S.M.E. (ENRESA)",
+      "organo": "Empresa Nacional de Residuos Radiactivos, S.A., S.M.E. (ENRESA)",
+      "estado": "RES",
+      "cpv": [
+        "73100000",
+        "71900000",
+        "73110000"
+      ],
+      "importe": 234609.32,
+      "adjudicatario": "FUNDACIÓN INVESTIGACIÓN UNIVERSIDAD DE SEVILLA",
+      "fechaAdjudicacion": "2019-12-17",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "060-CO-OE-2019-0011",
+      "title": "Empresa Nacional de Residuos Radiactivos, S.A., S.M.E. (ENRESA)",
+      "organo": "Empresa Nacional de Residuos Radiactivos, S.A., S.M.E. (ENRESA)",
+      "estado": "RES",
+      "cpv": [
+        "71900000"
+      ],
+      "importe": 78378.96,
+      "adjudicatario": "SRCL CONSENUR SL",
+      "fechaAdjudicacion": "2019-12-17",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "EPE 271-19",
+      "title": "Consejo de Administración de la Entidad Pública Empresarial Local Agua de Valladolid",
+      "organo": "Consejo de Administración de la Entidad Pública Empresarial Local Agua de Valladolid",
+      "estado": "RES",
+      "cpv": [
+        "71620000"
+      ],
+      "importe": 55242.38,
+      "adjudicatario": "INVESTIGACION Y PROYECTOS MEDIO AMBIENTE S.L.U.",
+      "fechaAdjudicacion": "2019-12-17",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "079-CO-IN-2019-0005",
+      "title": "Empresa Nacional de Residuos Radiactivos, S.A., S.M.E. (ENRESA)",
+      "organo": "Empresa Nacional de Residuos Radiactivos, S.A., S.M.E. (ENRESA)",
+      "estado": "RES",
+      "cpv": [
+        "71600000"
+      ],
+      "importe": 1075652.71,
+      "adjudicatario": "Centro de Investigaciones Energéticas Medioambientales y Tecnológicas, CIEMAT",
+      "fechaAdjudicacion": "2019-12-17",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "A32-CO-CB-2019-0021",
+      "title": "Empresa Nacional de Residuos Radiactivos, S.A., S.M.E. (ENRESA)",
+      "organo": "Empresa Nacional de Residuos Radiactivos, S.A., S.M.E. (ENRESA)",
+      "estado": "RES",
+      "cpv": [
+        "71900000",
+        "71900000",
+        "71900000"
+      ],
+      "importe": 68724.52,
+      "adjudicatario": "SRCL CONSENUR SL",
+      "fechaAdjudicacion": "2019-12-13",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "EC19-C02-06010",
+      "title": "Presidencia de la Autoridad Portuaria de Valencia",
+      "organo": "Presidencia de la Autoridad Portuaria de Valencia",
+      "estado": "RES",
+      "cpv": [
+        "71610000"
+      ],
+      "importe": 1555499.89,
+      "adjudicatario": "UTE INTERCONTROL LEVANTE S.A., BAC&amp; VENTAYOL, GEO-SERVEIS, S.L., LABORATORIO ENSAYOS TÉCNICOS, S.A.",
+      "fechaAdjudicacion": "2019-12-13",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "EXP0016SE19ABO",
+      "title": "Junta de Gobierno de la Diputación Provincial de Lugo",
+      "organo": "Junta de Gobierno de la Diputación Provincial de Lugo",
+      "estado": "RES",
+      "cpv": [
+        "71600000",
+        "71600000",
+        "71600000",
+        "71600000"
+      ],
+      "importe": 88952.17,
+      "adjudicatario": "Eptisa Servicios de Ingeniería, S.L.",
+      "fechaAdjudicacion": "2019-12-13",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "366/19",
+      "title": "Consorcio de Gestión de Servicios Medioambientales de Badajoz",
+      "organo": "Consorcio de Gestión de Servicios Medioambientales de Badajoz",
+      "estado": "RES",
+      "cpv": [
+        "71800000",
+        "71620000"
+      ],
+      "importe": 15642.94,
+      "adjudicatario": "LABORATORIOS MUNUERA, S.L.U.",
+      "fechaAdjudicacion": "2019-12-12",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "32/19",
+      "title": "Junta de Gobierno del Ayuntamiento de Málaga",
+      "organo": "Junta de Gobierno del Ayuntamiento de Málaga",
+      "estado": "RES",
+      "cpv": [
+        "90710000",
+        "90714100",
+        "90714000",
+        "90700000",
+        "90714200",
+        "90713000"
+      ],
+      "importe": 120945.26,
+      "adjudicatario": "PROAMB INTEGRADA SL",
+      "fechaAdjudicacion": "2019-12-10",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "2018/058",
+      "title": "Presidencia del Consejo Insular de Aguas de Tenerife",
+      "organo": "Presidencia del Consejo Insular de Aguas de Tenerife",
+      "estado": "RES",
+      "cpv": [
+        "71621000"
+      ],
+      "importe": 95232.3,
+      "adjudicatario": "APPLUS NORCONTROL, S.L.U.",
+      "fechaAdjudicacion": "2019-12-05",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "SS 18/19",
+      "title": "Concejalía Delegada de Contratación del Ayuntamiento de Puerto del Rosario",
+      "organo": "Concejalía Delegada de Contratación del Ayuntamiento de Puerto del Rosario",
+      "estado": "RES",
+      "cpv": [
+        "71600000",
+        "90733100",
+        "71631000",
+        "22000000",
+        "71631000",
+        "22000000",
+        "90733100",
+        "71600000"
+      ],
+      "importe": 17244.19,
+      "adjudicatario": "FCC AQUALIA SA",
+      "fechaAdjudicacion": "2019-12-05",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "201907PA0006",
+      "title": "Secretaría General de Sanidad",
+      "organo": "Secretaría General de Sanidad",
+      "estado": "RES",
+      "cpv": [
+        "73111000",
+        "73111000",
+        "73111000",
+        "73111000",
+        "73111000",
+        "73111000",
+        "73111000",
+        "73111000",
+        "73111000",
+        "73111000",
+        "73111000",
+        "73111000",
+        "73111000",
+        "73111000",
+        "73111000",
+        "73111000"
+      ],
+      "importe": 32670.0,
+      "adjudicatario": "LABORATORIO KUDAM, S.L.U.",
+      "fechaAdjudicacion": "2019-12-05",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "CA 08-18",
+      "title": "Junta de Gobierno del Ayuntamiento de Bétera",
+      "organo": "Junta de Gobierno del Ayuntamiento de Bétera",
+      "estado": "RES",
+      "cpv": [
+        "71000000",
+        "71900000",
+        "79994000"
+      ],
+      "importe": 23595.0,
+      "adjudicatario": "INÉS ESTEVE SEBASTIÁ",
+      "fechaAdjudicacion": "2019-12-03",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "2019/AS/021",
+      "title": "Gerencia de Promociones e Iniciativas Municipales de Elche, S.A. (PIMESA)",
+      "organo": "Gerencia de Promociones e Iniciativas Municipales de Elche, S.A. (PIMESA)",
+      "estado": "RES",
+      "cpv": [
+        "71600000"
+      ],
+      "importe": 8380.22,
+      "adjudicatario": "LABORATORIO DE CALIDAD Y TECNOLOGÍA DE LOS MATERIALES, S.L.",
+      "fechaAdjudicacion": "2019-12-03",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "19B.2.1.0086",
+      "title": "Presidencia de la Diputación Provincial de Salamanca",
+      "organo": "Presidencia de la Diputación Provincial de Salamanca",
+      "estado": "RES",
+      "cpv": [
+        "71600000"
+      ],
+      "importe": 12196.8,
+      "adjudicatario": "AQUIMISA SL",
+      "fechaAdjudicacion": "2019-12-02",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "2019/00012959F",
+      "title": "Alcaldia del Ayuntamiento de Vila-real",
+      "organo": "Alcaldia del Ayuntamiento de Vila-real",
+      "estado": "RES",
+      "cpv": [
+        "90731000",
+        "90731100",
+        "90731300",
+        "90731400"
+      ],
+      "importe": 60112.8,
+      "adjudicatario": "ADC INFRAESTRUCTURAS Y SISTEMAS, S.L.",
+      "fechaAdjudicacion": "2019-11-29",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "123/2019",
+      "title": "Junta de Gobierno del Ayuntamiento de Bellreguard",
+      "organo": "Junta de Gobierno del Ayuntamiento de Bellreguard",
+      "estado": "RES",
+      "cpv": [
+        "71610000"
+      ],
+      "importe": 9680.0,
+      "adjudicatario": "AQUILAB VILAREAL S.L",
+      "fechaAdjudicacion": "2019-11-27",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "003-19",
+      "title": "Gerencia del Consorcio de Aguas de la Zona Gaditana",
+      "organo": "Gerencia del Consorcio de Aguas de la Zona Gaditana",
+      "estado": "RES",
+      "cpv": [
+        "14211100",
+        "24954100",
+        "45262311",
+        "45520000",
+        "45262660",
+        "14210000",
+        "45259200",
+        "90650000"
+      ],
+      "importe": 313413.82,
+      "adjudicatario": "ULLASTRES, SA",
+      "fechaAdjudicacion": "2019-11-21",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "168/19",
+      "title": "Junta de Gobierno del Ayuntamiento de Santander",
+      "organo": "Junta de Gobierno del Ayuntamiento de Santander",
+      "estado": "RES",
+      "cpv": [
+        "71900000",
+        "38544000"
+      ],
+      "importe": 17666.0,
+      "adjudicatario": "SYNLAB DIAGNOSTICOS GLOBALES,S.A.U.",
+      "fechaAdjudicacion": "2019-11-19",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "TSA0068082",
+      "title": "Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA)",
+      "organo": "Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA)",
+      "estado": "RES",
+      "cpv": [
+        "71600000"
+      ],
+      "importe": 20442.95,
+      "adjudicatario": "LABORATORIOS ENTECSA S.A.",
+      "fechaAdjudicacion": "2019-11-18",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "(A02003509)-I-190033",
+      "title": "Instituto Aragonés de Gestión Ambiental (INAGA)",
+      "organo": "Instituto Aragonés de Gestión Ambiental (INAGA)",
+      "estado": "RES",
+      "cpv": [
+        "90713000"
+      ],
+      "importe": 5107.63,
+      "adjudicatario": "Sociedad Aragonesa de Gestión Agroambiental S.L.U (SARGA)",
+      "fechaAdjudicacion": "2019-11-11",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "SER1/2019",
+      "title": "Presidencia de la Comarca Hoya de Huesca - Plana de Uesca",
+      "organo": "Presidencia de la Comarca Hoya de Huesca - Plana de Uesca",
+      "estado": "RES",
+      "cpv": [
+        "90714500",
+        "90714500",
+        "71900000",
+        "71620000",
+        "65111000",
+        "90713100",
+        "71800000",
+        "65110000",
+        "65100000"
+      ],
+      "importe": 68984.04,
+      "adjudicatario": "AQM Laboratorios SL",
+      "fechaAdjudicacion": "2019-11-07",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "194/2019",
+      "title": "Junta de Gobierno del Ayuntamiento de Trillo",
+      "organo": "Junta de Gobierno del Ayuntamiento de Trillo",
+      "estado": "RES",
+      "cpv": [
+        "71620000",
+        "65111000",
+        "85111820",
+        "90000000",
+        "90913200",
+        "90920000",
+        "65130000",
+        "65111000",
+        "90920000",
+        "90913200",
+        "90000000",
+        "85111820",
+        "65130000",
+        "71620000",
+        "71620000"
+      ],
+      "importe": 13205.94,
+      "adjudicatario": "ANTICIMEX 3D SANIDAD AMBIENTAL S.A.U",
+      "fechaAdjudicacion": "2019-10-30",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "26/2019",
+      "title": "Comisión Ejecutiva de la Gerencia de Urbanismo de Sevilla",
+      "organo": "Comisión Ejecutiva de la Gerencia de Urbanismo de Sevilla",
+      "estado": "RES",
+      "cpv": [
+        "71600000"
+      ],
+      "importe": 56942.6,
+      "adjudicatario": "INSTITUTO TECNICO DE MATERIALES Y CONSTRUCCIONES, S.A INTEMAC",
+      "fechaAdjudicacion": "2019-10-29",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "178/18",
+      "title": "Consejería Delegada de la Empresa Metropolitana de Abastecimiento y Saneamiento de Aguas de Sevilla S.A. (EMASESA)",
+      "organo": "Consejería Delegada de la Empresa Metropolitana de Abastecimiento y Saneamiento de Aguas de Sevilla S.A. (EMASESA)",
+      "estado": "RES",
+      "cpv": [
+        "90714500",
+        "90740000",
+        "71900000",
+        "90733000",
+        "71900000",
+        "90740000",
+        "90714500",
+        "90733000"
+      ],
+      "importe": 311584.68,
+      "adjudicatario": "INVESTIGACION Y PROYECTOS MEDIO AMBIENTE S.L.",
+      "fechaAdjudicacion": "2019-10-09",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "1714/2019",
+      "title": "Pleno del Ayuntamiento de Capdepera",
+      "organo": "Pleno del Ayuntamiento de Capdepera",
+      "estado": "RES",
+      "cpv": [
+        "90918000",
+        "90713000",
+        "80540000",
+        "90700000",
+        "90511300",
+        "90530000",
+        "90512000",
+        "90714500",
+        "90511300",
+        "90512000",
+        "90530000",
+        "90918000",
+        "90714500",
+        "90713000",
+        "90700000",
+        "80540000"
+      ],
+      "importe": 17094629.32,
+      "adjudicatario": "CESPA, S.A.",
+      "fechaAdjudicacion": "2019-10-03",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "19/2",
+      "title": "Presidencia del Consejo de Administración de Aguas de Alcalá la Real Empresa Municipal, S.A.",
+      "organo": "Presidencia del Consejo de Administración de Aguas de Alcalá la Real Empresa Municipal, S.A.",
+      "estado": "RES",
+      "cpv": [
+        "71900000"
+      ],
+      "importe": 13.85,
+      "adjudicatario": "FCC AQUALIA S.A.",
+      "fechaAdjudicacion": "2019-09-26",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "03.834-0016/0411",
+      "title": "Dirección General del Agua",
+      "organo": "Dirección General del Agua",
+      "estado": "RES",
+      "cpv": [
+        "71600000"
+      ],
+      "importe": 4599589.21,
+      "adjudicatario": "UTE LABORATORIOS TECNOLOGICOS DE LEVANTE S.L Y CIMERA ESTUDIOS APLICADOS S.L",
+      "fechaAdjudicacion": "2019-09-18",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "20190621-00467",
+      "title": "Ineco-Dirección Corporativa",
+      "organo": "Ineco-Dirección Corporativa",
+      "estado": "RES",
+      "cpv": [
+        "71000000",
+        "38000000",
+        "71900000",
+        "38900000"
+      ],
+      "importe": 11071.5,
+      "adjudicatario": "Centro de Estudios de Materiales y Control de Obra, SA (CEMOSA)",
+      "fechaAdjudicacion": "2019-09-12",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "2018009509",
+      "title": "Presidencia de la Diputación Provincial de Pontevedra",
+      "organo": "Presidencia de la Diputación Provincial de Pontevedra",
+      "estado": "RES",
+      "cpv": [
+        "71600000",
+        "71600000",
+        "71600000",
+        "71600000",
+        "71600000"
+      ],
+      "importe": 34.67,
+      "adjudicatario": "CYE CONTROL Y ESTUDIOS, S.L.",
+      "fechaAdjudicacion": "2019-09-09",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "500089009500",
+      "title": "Dirección General del INTA M.P.",
+      "organo": "Dirección General del INTA M.P.",
+      "estado": "RES",
+      "cpv": [
+        "71620000",
+        "71620000",
+        "71620000"
+      ],
+      "importe": 48138.0,
+      "adjudicatario": "francisco Javier Berastegui Afonso",
+      "fechaAdjudicacion": "2019-09-04",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "2019-IN-0013",
+      "title": "Dirección General de Barcelona Sagrera Alta Velocitat, S.A.",
+      "organo": "Dirección General de Barcelona Sagrera Alta Velocitat, S.A.",
+      "estado": "RES",
+      "cpv": [
+        "71610000"
+      ],
+      "importe": 42285.63,
+      "adjudicatario": "LABOCAT CALIDAD S.L.",
+      "fechaAdjudicacion": "2019-08-26",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "2019/008351",
+      "title": "Delegación Provincial de la Consejería de Bienestar Social en Ciudad Real",
+      "organo": "Delegación Provincial de la Consejería de Bienestar Social en Ciudad Real",
+      "estado": "RES",
+      "cpv": [
+        "15000000",
+        "90711100",
+        "15000000",
+        "71620000",
+        "71317000",
+        "90721300",
+        "71317000",
+        "15000000",
+        "71620000",
+        "90721300",
+        "71620000",
+        "71317000",
+        "15000000",
+        "90721300",
+        "15000000",
+        "90721300",
+        "71317000",
+        "71620000"
+      ],
+      "importe": 1944.14,
+      "adjudicatario": "Desarrollos Tecnológicos Proteo S.L.",
+      "fechaAdjudicacion": "2019-08-12",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "257/18",
+      "title": "Diputado Delegado de Cooperación con los Municipios y Carreteras",
+      "organo": "Diputado Delegado de Cooperación con los Municipios y Carreteras",
+      "estado": "RES",
+      "cpv": [
+        "71600000"
+      ],
+      "importe": 13788.46,
+      "adjudicatario": "Centro de Estudios de Materiales y Control de Obra, SA (CEMOSA)",
+      "fechaAdjudicacion": "2019-06-20",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "2023/2019",
+      "title": "Alcaldía del Ayuntamiento de Coria",
+      "organo": "Alcaldía del Ayuntamiento de Coria",
+      "estado": "RES",
+      "cpv": [
+        "50000000",
+        "71000000",
+        "24000000",
+        "24960000",
+        "24962000",
+        "71600000",
+        "24900000",
+        "71620000"
+      ],
+      "importe": 50218.63,
+      "adjudicatario": "LIMPALGES, S.L.U.",
+      "fechaAdjudicacion": "2019-06-11",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "TSA0066236",
+      "title": "Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA)",
+      "organo": "Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA)",
+      "estado": "RES",
+      "cpv": [
+        "71600000",
+        "71600000",
+        "71600000",
+        "71600000",
+        "71600000",
+        "71600000",
+        "71600000"
+      ],
+      "importe": 8133.62,
+      "adjudicatario": "LABORATORIOS HERGOLAB S. L.",
+      "fechaAdjudicacion": "2019-06-06",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "15/2019",
+      "title": "Junta de Gobierno del Ayuntamiento de Mieres",
+      "organo": "Junta de Gobierno del Ayuntamiento de Mieres",
+      "estado": "RES",
+      "cpv": [
+        "71900000"
+      ],
+      "importe": 0.0,
+      "adjudicatario": "control y calidad alimentaria s.l.",
+      "fechaAdjudicacion": "2019-05-30",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "E-CON-2019-4",
+      "title": "Rectorado de la Universidad de Murcia",
+      "organo": "Rectorado de la Universidad de Murcia",
+      "estado": "RES",
+      "cpv": [
+        "71621000"
+      ],
+      "importe": 181434.66,
+      "adjudicatario": "ONDAX SCIENTIFIC, S. L.",
+      "fechaAdjudicacion": "2019-05-06",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "9/19",
+      "title": "Diputado Delegado de Caminos Rurales y Agricultura",
+      "organo": "Diputado Delegado de Caminos Rurales y Agricultura",
+      "estado": "RES",
+      "cpv": [
+        "71600000"
+      ],
+      "importe": 33998.39,
+      "adjudicatario": "LABSON GEOTECNIA Y SONDEOS, S.L.",
+      "fechaAdjudicacion": "2019-04-29",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "6/19",
+      "title": "Diputado Delegado de Cooperación con los Municipios y Carreteras",
+      "organo": "Diputado Delegado de Cooperación con los Municipios y Carreteras",
+      "estado": "RES",
+      "cpv": [
+        "71600000"
+      ],
+      "importe": 42349.99,
+      "adjudicatario": "Centro de Estudios de Materiales y Control de Obra, SA (CEMOSA)",
+      "fechaAdjudicacion": "2019-04-23",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "3.18/20830.0346",
+      "title": "ADIF Alta Velocidad - Presidencia",
+      "organo": "ADIF Alta Velocidad - Presidencia",
+      "estado": "RES",
+      "cpv": [
+        "71600000"
+      ],
+      "importe": 1288643.18,
+      "adjudicatario": "CENTRO ESTUD MATERIALES CONTROL SA",
+      "fechaAdjudicacion": "2019-04-22",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "126/2019",
+      "title": "Alcaldía del Ayuntamiento de Coria",
+      "organo": "Alcaldía del Ayuntamiento de Coria",
+      "estado": "RES",
+      "cpv": [
+        "71631000",
+        "71000000",
+        "71600000",
+        "71630000"
+      ],
+      "importe": 786.5,
+      "adjudicatario": "MARSAN INGENIEROS, S.L.U.",
+      "fechaAdjudicacion": "2019-04-16",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "2019004264",
+      "title": "Presidencia de la Diputación Provincial de Pontevedra",
+      "organo": "Presidencia de la Diputación Provincial de Pontevedra",
+      "estado": "RES",
+      "cpv": [
+        "71600000"
+      ],
+      "importe": 0.0,
+      "adjudicatario": "3C CALIDADE E CONTROL S COOP G",
+      "fechaAdjudicacion": "2019-04-11",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "426-SER",
+      "title": "Gerencia del Consejo Insular de Aguas de La Gomera",
+      "organo": "Gerencia del Consejo Insular de Aguas de La Gomera",
+      "estado": "RES",
+      "cpv": [
+        "71900000"
+      ],
+      "importe": 15450.0,
+      "adjudicatario": "Cibus Scientia SL",
+      "fechaAdjudicacion": "2019-04-11",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "4384/2018",
+      "title": "Consejería de Medio Ambiente, Agricultura y Pesca",
+      "organo": "Consejería de Medio Ambiente, Agricultura y Pesca",
+      "estado": "RES",
+      "cpv": [
+        "73110000",
+        "71620000",
+        "71620000",
+        "71620000",
+        "73110000",
+        "73110000",
+        "73110000",
+        "73110000"
+      ],
+      "importe": 134310.0,
+      "adjudicatario": "AGENCIA ESTATAL CONSEJO SUPERIOR DE INVESTIGACIONES CIENTIFICAS M. P.",
+      "fechaAdjudicacion": "2019-03-29",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "1/19",
+      "title": "Diputado Delegado de Cooperación con los Municipios y Carreteras",
+      "organo": "Diputado Delegado de Cooperación con los Municipios y Carreteras",
+      "estado": "RES",
+      "cpv": [
+        "71600000"
+      ],
+      "importe": 33049.04,
+      "adjudicatario": "Centro de Estudios de Materiales y Control de Obra, SA (CEMOSA)",
+      "fechaAdjudicacion": "2019-03-26",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "2018/C004/000005",
+      "title": "Junta de Gobierno Local del Ayuntamiento de Vimianzo",
+      "organo": "Junta de Gobierno Local del Ayuntamiento de Vimianzo",
+      "estado": "RES",
+      "cpv": [
+        "24962000",
+        "65500000",
+        "71620000",
+        "90420000"
+      ],
+      "importe": 103495.45,
+      "adjudicatario": "MOISES GARCÍA NUÑEZ",
+      "fechaAdjudicacion": "2019-02-04",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "SB/S-2018/01",
+      "title": "Gerencia de Sermubeniel, S.A.",
+      "organo": "Gerencia de Sermubeniel, S.A.",
+      "estado": "RES",
+      "cpv": [
+        "71900000",
+        "71620000",
+        "71632000"
+      ],
+      "importe": 63729.73,
+      "adjudicatario": "INTERLAB LABORATORIOS, S.L.U.",
+      "fechaAdjudicacion": "2019-01-31",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "CON/2018/59",
+      "title": "Alcaldía del Ayuntamiento de Gozón",
+      "organo": "Alcaldía del Ayuntamiento de Gozón",
+      "estado": "RES",
+      "cpv": [
+        "71900000"
+      ],
+      "importe": 7258.21,
+      "adjudicatario": "LABORATORIOS MUNUERA S.L.U.",
+      "fechaAdjudicacion": "2019-01-14",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "sim/2018/11",
+      "title": "Alcaldía del Ayuntamiento de Ribadesella",
+      "organo": "Alcaldía del Ayuntamiento de Ribadesella",
+      "estado": "RES",
+      "cpv": [
+        "50760000",
+        "71600000",
+        "90923000",
+        "71000000",
+        "90923000",
+        "71600000",
+        "50760000",
+        "71600000"
+      ],
+      "importe": 4065.6,
+      "adjudicatario": "otraplasa",
+      "fechaAdjudicacion": "2018-11-20",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "CON 2018/10",
+      "title": "Junta de Gobierno del Ayuntamiento de San Martín de la Vega",
+      "organo": "Junta de Gobierno del Ayuntamiento de San Martín de la Vega",
+      "estado": "RES",
+      "cpv": [
+        "71620000"
+      ],
+      "importe": 10635.9,
+      "adjudicatario": "COMPAÑÍA DE TRATAMIENTOS LEVANTE, SL",
+      "fechaAdjudicacion": "2018-10-18",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "SER 06/2018",
+      "title": "Alcaldía del Ayuntamiento de Alagón",
+      "organo": "Alcaldía del Ayuntamiento de Alagón",
+      "estado": "RES",
+      "cpv": [
+        "71600000"
+      ],
+      "importe": 8408.98,
+      "adjudicatario": "LABORATORIO DE GESTIÓN AMBIENTAL S.L.",
+      "fechaAdjudicacion": "2018-04-27",
+      "fuente": "backfill"
+    },
+    {
+      "expediente": "170856",
+      "title": "Paradores de Turismo de España, S.M.E., S.A.",
+      "organo": "Paradores de Turismo de España, S.M.E., S.A.",
+      "estado": "RES",
+      "cpv": [
+        "71621000",
+        "71600000",
+        "71620000"
+      ],
+      "importe": 54399.18,
+      "adjudicatario": "AQUIMISA, S.L.",
+      "fechaAdjudicacion": "2018-01-25",
+      "fuente": "backfill"
     }
   ]
 }
