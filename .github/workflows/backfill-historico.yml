@@ -7,7 +7,7 @@ on:
 jobs:
   backfill:
     runs-on: ubuntu-latest
-    timeout-minutes: 60   # Los ZIPs anuales son grandes; 60 min debería ser suficiente
+    timeout-minutes: 90   # Los ZIPs anuales son grandes; 60 min debería ser suficiente
 
     steps:
       - name: Descargar el repositorio
