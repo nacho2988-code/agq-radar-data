@@ -73,6 +73,15 @@ async function run(){
         const data = await fetchAdjudicaciones(cpv, page);
         totalRequests++;
 
+        // Volcar la primera respuesta para depuración de estructura
+        if(page === 1 && cpvCodes.indexOf(cpv) === 0){
+          fs.writeFileSync('data/apispain-sample.json', JSON.stringify(data, null, 2).slice(0, 5000));
+          console.log('Muestra de respuesta guardada en data/apispain-sample.json');
+          console.log('Keys del objeto:', Object.keys(data).join(', '));
+          const arr = data.data || data.items || data.results || data.licitaciones || (Array.isArray(data) ? data : []);
+          if(arr.length) console.log('Keys de la primera entrada:', Object.keys(arr[0]).join(', '));
+        }
+
         const items = data.data || data.items || data.results || data.licitaciones || (Array.isArray(data) ? data : []);
         if(!items.length){ hasMore=false; break; }
 
