@@ -23,21 +23,16 @@ jobs:
       - name: Ejecutar backfill histórico
         env:
           APISPAIN_KEY: ${{ secrets.APISPAIN_KEY }}
-        run: node scripts/backfill-historico.mjs 2>&1 | tee /tmp/backfill-output.log; EXIT=${PIPESTATUS[0]}; if [ $EXIT -ne 0 ]; then cp /tmp/backfill-output.log data/backfill-debug.txt; fi; exit $EXIT
+        run: node scripts/backfill-historico.mjs 2>&1 | tee /tmp/backfill-output.log; true
 
-      - name: Commitear debug si hubo error
-        if: failure()
+      - name: Mostrar log siempre
+        if: always()
+        run: cat /tmp/backfill-output.log || echo "(sin log)"
+
+      - name: Commitear resultados
+        if: always()
         run: |
           git config user.name "agq-radar-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data/backfill-debug.txt || true
-          git diff --staged --quiet || git commit -m "Debug backfill error" && git push || true
-
-      - name: Commitear el histórico generado
-        if: success()
-        run: |
-          git config user.name "agq-radar-bot"
-          git config user.email "actions@users.noreply.github.com"
-          git add data/historico_adjudicaciones.json || true
-          git diff --staged --quiet || git commit -m "Backfill histórico adjudicaciones $(date -u +%Y-%m-%dT%H:%M:%SZ)"
-          git push
+          git add data/ || true
+          git diff --staged --quiet || git commit -m "Backfill diagnóstico $(date -u +%Y-%m-%dT%H:%M:%SZ)" && git push || true
