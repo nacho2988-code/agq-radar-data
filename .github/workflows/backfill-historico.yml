@@ -36,11 +36,19 @@ jobs:
             | head -5
 
       - name: Ejecutar backfill histórico
-        run: node scripts/backfill-historico.mjs 2>&1 | tee /tmp/backfill-output.log; exit ${PIPESTATUS[0]}
+        run: node scripts/backfill-historico.mjs 2>&1 | tee /tmp/backfill-output.log; EXIT=${PIPESTATUS[0]}; if [ $EXIT -ne 0 ]; then cp /tmp/backfill-output.log data/backfill-debug.txt; fi; exit $EXIT
+
+      - name: Commitear debug si hubo error
+        if: failure()
+        run: |
+          git config user.name "agq-radar-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/backfill-debug.txt || true
+          git diff --staged --quiet || git commit -m "Debug backfill error" && git push || true
 
       - name: Mostrar últimas líneas del log si hubo error
         if: failure()
-        run: tail -50 /tmp/backfill-output.log || echo "Sin log disponible"
+        run: tail -80 /tmp/backfill-output.log || echo "Sin log"
 
       - name: Commitear el histórico generado
         run: |
