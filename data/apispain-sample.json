@@ -1,0 +1,72 @@
+{
+  "data": [
+    {
+      "placeId": "4185/2026",
+      "organoContratante": "Alcaldia del Ayuntamiento de Fuente Obejuna",
+      "objeto": "El objeto del presente documento es la contratación de servicios necesarios\r\npara la ejecución de las línea de actuación laboratorio de vivienda y línea de actuación \r\nlaboratorio de iniciativas ambientales, para el desarrollo del Proyecto Habitar Fuente Obejuna,\r\nactuación subvencionada por la Orden de 27 de junio de 2024 del Ministerio para la Transición Ecológica y el Reto demográfico",
+      "cpvCodigos": [
+        "71356200",
+        "90712000",
+        "79411000",
+        "90711000",
+        "71200000",
+        "71242000",
+        "71315400",
+        "80500000",
+        "90710000",
+        "90721100",
+        "71313430",
+        "71314300",
+        "71315300",
+        "71356300",
+        "45112700",
+        "71313000",
+        "80521000",
+        "80540000",
+        "90713000",
+        "79410000",
+        "71356000",
+        "77310000",
+        "79950000",
+        "80530000",
+        "92000000",
+        "71313400",
+        "90714100",
+        "73000000",
+        "77211400"
+      ],
+      "importe": 34531.6,
+      "estado": "publicada",
+      "fechaPublicacion": "2026-05-24T15:48:09.969Z",
+      "fechaLimite": "2026-05-18T00:00:00.000Z",
+      "urlPLACE": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=A%2FAUSNaH44HXOjazN1Dw9Q%3D%3D"
+    },
+    {
+      "placeId": "2026000278",
+      "organoContratante": "Consejería de Ordenación del Territorio, Urbanismo, Vivienda y Derechos Ciudadanos del Principado de Asturias",
+      "objeto": "Servicio de asistencia técnica para la redacción de los documentos de ordenación territorial y ambientales del \"Plan Territorial Especial de campamentos de turismo costeros\"",
+      "cpvCodigos": [
+        "71410000",
+        "90711000"
+      ],
+      "importe": 321349.83,
+      "estado": "publicada",
+      "fechaPublicacion": "2026-05-10T10:56:50.517Z",
+      "fechaLimite": "2026-06-08T00:00:00.000Z",
+      "urlPLACE": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=IdE0nnxGXRUmMOlAXxDEjw%3D%3D"
+    }
+  ],
+  "pagination": {
+    "limit": 50,
+    "nextCursor": null
+  },
+  "meta": {
+    "filtros": {
+      "texto": "",
+      "cpv": "90711000",
+      "organo": "",
+      "soloAbiertas": false
+    },
+    "intelligencia": false
+  }
+}
