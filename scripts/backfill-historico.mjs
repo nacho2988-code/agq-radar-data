@@ -1,24 +1,19 @@
 #!/usr/bin/env node
-// backfill-historico.mjs v4 — usa ZIPs MENSUALES para todos los años (más pequeños, más fiables)
-import fs      from 'node:fs';
-import path    from 'node:path';
-import { tmpdir } from 'node:os';
-import { createWriteStream } from 'node:fs';
-import { Writable } from 'node:stream';
+// backfill-historico.mjs v5
+// Pagina el feed en tiempo real de PLACSP hacia atrás hasta cubrir START_YEAR completo.
+// Usa exactamente el mismo mecanismo que el barrido diario (que ya funciona),
+// sin depender de los ZIPs históricos (que PLACSP bloquea desde GitHub Actions).
+
+import fs from 'node:fs';
 
 const OUTPUT_PATH  = 'data/historico_adjudicaciones.json';
 const CONFIG_PATH  = 'config/accreditations.json';
-const TMP_DIR      = path.join(tmpdir(), 'placsp-backfill');
-const BASE_URL     = 'https://contrataciondelsectorpublico.gob.es/sindicacion/sindicacion_643';
+const FEED_URL     = 'https://contrataciondelestado.es/sindicacion/sindicacion_643/licitacionesPerfilesContratanteCompleto3.atom';
 const START_YEAR   = 2021;
-const NOW          = new Date();
-const CURRENT_YEAR = NOW.getFullYear();
-const CURRENT_MONTH= NOW.getMonth() + 1;
-const DL_TIMEOUT_MS = 8 * 60 * 1000; // 8 min por ZIP mensual
+const CUTOFF_DATE  = new Date(`${START_YEAR}-01-01T00:00:00Z`);
+const SAFETY_MAX_PAGES = 500; // límite de seguridad: 500 × 500 = 250.000 entradas máx
 
-const unzipper = (await import('unzipper')).default;
-
-// ---- Filtros ----
+// ---- Filtros (igual que en fetch-and-filter.mjs) ----
 const config   = JSON.parse(fs.readFileSync(CONFIG_PATH,'utf-8'));
 const cpvCodes = new Set(config.cpv.map(l=>(l.match(/^\d{8}/)||[])[0]).filter(Boolean));
 const allKw    = [...new Set(config.accreditations.flatMap(a=>a.keywords.split(',').map(k=>k.trim().toLowerCase()).filter(Boolean)))];
@@ -41,132 +36,110 @@ function relevant(title='',cpvList=[]){
   return actKw.some(k=>km(t,k));
 }
 
-class EntryExtractor extends Writable {
-  constructor(onEntry){ super(); this._buf=''; this._fn=onEntry; }
-  _write(chunk,enc,cb){
-    this._buf+=chunk.toString('utf-8');
-    let s;
-    while((s=this._buf.indexOf('<entry'))!==-1){
-      const e=this._buf.indexOf('</entry>',s);
-      if(e===-1) break;
-      this._fn(this._buf.slice(s,e+8));
-      this._buf=this._buf.slice(e+8);
-    }
-    if(this._buf.length>2_000_000) this._buf=this._buf.slice(-200_000);
-    cb();
-  }
+// ---- Parser (igual que en fetch-and-filter.mjs) ----
+function extractText(xml, tag){
+  const m=xml.match(new RegExp(`<(?:[^:>]*:)?${tag}[^>]*>([\\s\\S]*?)<\\/(?:[^:>]*:)?${tag}>`,'i'));
+  return m?m[1].replace(/<[^>]+>/g,'').replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').trim():'';
+}
+function extractAll(xml,tag){
+  const re=new RegExp(`<(?:[^:>]*:)?${tag}[^>]*>([\\s\\S]*?)<\\/(?:[^:>]*:)?${tag}>`,'gi');
+  const o=[];let m;while((m=re.exec(xml))!==null)o.push(m[1].replace(/<[^>]+>/g,'').trim());return o;
+}
+function extractAttr(xml,tag,attr){
+  const m=xml.match(new RegExp(`<(?:[^:>]*:)?${tag}[^>]*\\b${attr}="([^"]*)"`,'i'));return m?m[1]:'';
 }
 
-function txt(x,t){ const m=x.match(new RegExp(`<(?:[^:>]*:)?${t}[^>]*>([\\s\\S]*?)<\\/(?:[^:>]*:)?${t}>`,'i')); return m?m[1].replace(/<[^>]+>/g,'').replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').trim():''; }
-function all(x,t){ const re=new RegExp(`<(?:[^:>]*:)?${t}[^>]*>([\\s\\S]*?)<\\/(?:[^:>]*:)?${t}>`,'gi');const o=[];let m;while((m=re.exec(x))!==null)o.push(m[1].replace(/<[^>]+>/g,'').trim());return o; }
-function atr(x,t,a){ const m=x.match(new RegExp(`<(?:[^:>]*:)?${t}[^>]*\\b${a}="([^"]*)"`,'i'));return m?m[1]:''; }
-
-function parseEntry(chunk){
-  const estado=(atr(chunk,'ContractFolderStatusCode','listName')||txt(chunk,'ContractFolderStatusCode')||'').toUpperCase();
+function parseBlock(chunk){
+  const estado=(extractAttr(chunk,'ContractFolderStatusCode','listName')||extractText(chunk,'ContractFolderStatusCode')||'').toUpperCase();
   if(!['RES','ADJ'].some(s=>estado.includes(s))) return null;
-  const title=txt(chunk,'title')||txt(chunk,'ContractTitle');
-  const cpvList=all(chunk,'ItemClassificationCode');
+  const title=extractText(chunk,'title')||extractText(chunk,'ContractTitle');
+  const cpvList=extractAll(chunk,'ItemClassificationCode');
   if(!relevant(title,cpvList)) return null;
+  const updated=extractText(chunk,'updated')||'';
   return {
-    expediente:(txt(chunk,'ContractFolderID')||txt(chunk,'id')||'').trim(),
+    expediente:(extractText(chunk,'ContractFolderID')||extractText(chunk,'id')||'').trim(),
     title:title.trim(),
-    organo:(txt(chunk,'PartyName')||txt(chunk,'name')||'').trim(),
+    organo:(extractText(chunk,'PartyName')||extractText(chunk,'name')||'').trim(),
     estado:'RES', cpv:cpvList,
-    importe:parseFloat(txt(chunk,'TaxExclusiveAmount')||txt(chunk,'EstimatedOverallContractAmount'))||null,
-    adjudicatario:(txt(chunk,'WinningPartyName')||txt(chunk,'WinningTendererName')||txt(chunk,'AwardedPartyName')||'').trim(),
-    fechaAdjudicacion:(txt(chunk,'AwardDate')||txt(chunk,'updated')||'').trim(),
+    importe:parseFloat(extractText(chunk,'TaxExclusiveAmount')||extractText(chunk,'EstimatedOverallContractAmount'))||null,
+    importeRaw:(extractText(chunk,'TaxExclusiveAmount')||'').trim(),
+    adjudicatario:(extractText(chunk,'WinningPartyName')||extractText(chunk,'WinningTendererName')||extractText(chunk,'AwardedPartyName')||'').trim(),
+    fechaAdjudicacion:(extractText(chunk,'AwardDate')||updated).trim(),
+    updated:updated.trim(),
     link:((chunk.match(/rel="alternate"\s+href="([^"]+)"/)||chunk.match(/href="([^"]+)"\s+rel="alternate"/)||[])[1]||'').trim(),
     fuente:'backfill'
   };
 }
 
-async function downloadToFile(url, dest){
-  const ctrl = new AbortController();
-  const timer = setTimeout(()=>ctrl.abort(), DL_TIMEOUT_MS);
-  try{
-    const resp = await fetch(url, {
-      headers:{ 'User-Agent':'Mozilla/5.0 (X11; Linux x86_64; rv:120.0) Gecko/20100101 Firefox/120.0' },
-      signal: ctrl.signal
-    });
-    if(!resp.ok){ clearTimeout(timer); return { ok:false, status:resp.status }; }
-    const writer = createWriteStream(dest);
-    const reader = resp.body.getReader();
-    let bytes=0;
-    while(true){
-      const {done,value}=await reader.read();
-      if(done) break;
-      bytes+=value.length;
-      await new Promise((res,rej)=>writer.write(value,e=>e?rej(e):res()));
-    }
-    await new Promise(res=>writer.end(res));
-    clearTimeout(timer);
-    return { ok:true, bytes };
-  }catch(e){
-    clearTimeout(timer);
-    return { ok:false, error:e.message };
-  }
+function nextLink(xml){
+  const m=xml.match(/<link[^>]*rel=["']next["'][^>]*href=["']([^"']+)["']/i)
+          ||xml.match(/<link[^>]*href=["']([^"']+)["'][^>]*rel=["']next["']/i);
+  return m?m[1]:null;
 }
 
-async function processZip(url, label, existingIds){
-  const tmpZip = path.join(TMP_DIR, label.replace(/\//g,'_')+'.zip');
-  const dl = await downloadToFile(url, tmpZip);
-  if(!dl.ok){
-    if(dl.status===404) return { entries:[], skipped:true };
-    console.warn(`  [${label}] SKIP: ${dl.error||'HTTP '+dl.status}`);
-    return { entries:[], skipped:true };
-  }
-  console.log(`  [${label}] ${(dl.bytes/1024/1024).toFixed(1)} MB descargados`);
-
-  const entries=[];
-  try{
-    const directory = await unzipper.Open.file(tmpZip);
-    for(const file of directory.files){
-      if(!file.path.endsWith('.atom')) continue;
-      await new Promise((resolve,reject)=>{
-        const extractor=new EntryExtractor(chunk=>{
-          const entry=parseEntry(chunk);
-          if(entry&&entry.expediente&&!existingIds.has(entry.expediente)){
-            existingIds.add(entry.expediente);
-            entries.push(entry);
-          }
-        });
-        file.stream().pipe(extractor).on('finish',resolve).on('error',reject);
-      });
-    }
-  }catch(e){ console.warn(`  [${label}] Error procesando ZIP: ${e.message}`); }
-  try{ fs.unlinkSync(tmpZip); }catch(e){}
-  return { entries, skipped:false };
+async function fetchPage(url){
+  const resp=await fetch(url,{
+    headers:{'User-Agent':'Mozilla/5.0 (compatible; AGQ-Radar-Backfill/5.0)'},
+    signal:AbortSignal.timeout(30000)
+  });
+  if(!resp.ok) throw new Error(`HTTP ${resp.status} en ${url}`);
+  return resp.text();
 }
 
 async function run(){
-  fs.mkdirSync(TMP_DIR,{recursive:true});
   fs.mkdirSync('data',{recursive:true});
 
+  // Cargar histórico existente para hacer merge
   let existing={};
-  const existingIds=new Set();
   if(fs.existsSync(OUTPUT_PATH)){
     try{
       const prev=JSON.parse(fs.readFileSync(OUTPUT_PATH,'utf-8'));
-      (prev.entries||[]).forEach(e=>{ existing[e.expediente]=e; existingIds.add(e.expediente); });
-      console.log(`Histórico previo: ${existingIds.size} entradas`);
+      (prev.entries||[]).forEach(e=>{ existing[e.expediente]=e; });
+      console.log(`Histórico previo: ${Object.keys(existing).length} entradas`);
     }catch(e){ console.warn('Sin histórico previo válido'); }
   }
 
-  let totalNew=0, totalSkipped=0;
+  let url=FEED_URL;
+  let pages=0, totalEntries=0, newFound=0;
+  let oldestSeen=new Date();
+  let reachedCutoff=false;
 
-  // Iterar mes a mes desde START_YEAR hasta el mes anterior al actual
-  for(let year=START_YEAR; year<=CURRENT_YEAR; year++){
-    const lastMonth = (year===CURRENT_YEAR) ? CURRENT_MONTH-1 : 12;
-    for(let month=1; month<=lastMonth; month++){
-      const mm=String(month).padStart(2,'0');
-      const label=`${year}/${mm}`;
-      const url=`${BASE_URL}/licitacionesPerfilesContratanteCompleto3_${year}${mm}.zip`;
-      const { entries, skipped } = await processZip(url, label, existingIds);
-      if(skipped && entries.length===0) continue; // 404: mes sin datos todavía
-      entries.forEach(e=>{ existing[e.expediente]=e; totalNew++; });
-      if(entries.length>0) console.log(`  [${label}] → ${entries.length} nuevas adjudicaciones`);
+  console.log(`Paginando el feed hacia atrás hasta ${CUTOFF_DATE.toISOString().slice(0,10)}...`);
+
+  while(url && pages<SAFETY_MAX_PAGES){
+    let xml;
+    try{ xml=await fetchPage(url); }
+    catch(e){ console.warn(`Error en página ${pages+1}: ${e.message}. Reintentando en 5s...`); await new Promise(r=>setTimeout(r,5000)); try{ xml=await fetchPage(url); }catch(e2){ console.error(`Fallo definitivo en página ${pages+1}:`,e2.message); break; } }
+
+    const blocks=xml.match(/<entry[\s\S]*?<\/entry>/g)||[];
+    totalEntries+=blocks.length;
+
+    for(const b of blocks){
+      const updated=extractText(b,'updated');
+      if(updated){
+        const t=new Date(updated);
+        if(!isNaN(t)&&t<oldestSeen) oldestSeen=t;
+        if(t<CUTOFF_DATE){ reachedCutoff=true; break; }
+      }
+      const entry=parseBlock(b);
+      if(entry&&entry.expediente&&!existing[entry.expediente]){
+        existing[entry.expediente]=entry;
+        newFound++;
+      }
     }
-    console.log(`Año ${year} completado. Total acumulado: ${Object.keys(existing).length}`);
+
+    pages++;
+    if(pages%10===0) console.log(`  Página ${pages}: ${newFound} adjudicaciones encontradas hasta ahora | más antigua vista: ${oldestSeen.toISOString().slice(0,10)}`);
+
+    if(reachedCutoff){
+      console.log(`Corte alcanzado en página ${pages}: fecha más antigua = ${oldestSeen.toISOString().slice(0,10)}`);
+      break;
+    }
+    url=nextLink(xml);
+    if(!url){ console.log(`Feed agotado en página ${pages} (no hay más entradas)`); break; }
+
+    // Pequeña pausa para no saturar el servidor
+    await new Promise(r=>setTimeout(r,500));
   }
 
   const allEntries=Object.values(existing)
@@ -175,12 +148,17 @@ async function run(){
   fs.writeFileSync(OUTPUT_PATH, JSON.stringify({
     generatedAt:new Date().toISOString(),
     fromYear:START_YEAR,
+    totalPagesScanned:pages,
+    totalEntriesScanned:totalEntries,
     totalEntries:allEntries.length,
-    newThisRun:totalNew,
+    newThisRun:newFound,
+    oldestSeen:oldestSeen.toISOString(),
     entries:allEntries
   },null,2));
 
-  console.log(`\n✓ Backfill completado: ${allEntries.length} adjudicaciones (${totalNew} nuevas, ${totalSkipped} meses sin datos)`);
+  console.log(`\n✓ Backfill completado: ${allEntries.length} adjudicaciones (${newFound} nuevas)`);
+  console.log(`  Páginas escaneadas: ${pages} | Entradas totales vistas: ${totalEntries}`);
+  console.log(`  Fecha más antigua en el feed: ${oldestSeen.toISOString().slice(0,10)}`);
 }
 
 run().catch(e=>{ console.error('Error fatal:', e.stack||e); process.exit(1); });
