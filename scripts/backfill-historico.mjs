@@ -1,7 +1,5 @@
 #!/usr/bin/env node
-// backfill-historico.mjs v3
-// Streaming con timeout por byte-rate para manejar ZIPs grandes de PLACSP
-
+// backfill-historico.mjs v4 — usa ZIPs MENSUALES para todos los años (más pequeños, más fiables)
 import fs      from 'node:fs';
 import path    from 'node:path';
 import { tmpdir } from 'node:os';
@@ -16,7 +14,7 @@ const START_YEAR   = 2021;
 const NOW          = new Date();
 const CURRENT_YEAR = NOW.getFullYear();
 const CURRENT_MONTH= NOW.getMonth() + 1;
-const DL_TIMEOUT_MS = 20 * 60 * 1000; // 20 min por ZIP
+const DL_TIMEOUT_MS = 8 * 60 * 1000; // 8 min por ZIP mensual
 
 const unzipper = (await import('unzipper')).default;
 
@@ -43,7 +41,6 @@ function relevant(title='',cpvList=[]){
   return actKw.some(k=>km(t,k));
 }
 
-// ---- Parser por chunks ----
 class EntryExtractor extends Writable {
   constructor(onEntry){ super(); this._buf=''; this._fn=onEntry; }
   _write(chunk,enc,cb){
@@ -85,125 +82,105 @@ function parseEntry(chunk){
 
 async function downloadToFile(url, dest){
   const ctrl = new AbortController();
-  const timer = setTimeout(() => ctrl.abort(), DL_TIMEOUT_MS);
-  
-  try {
+  const timer = setTimeout(()=>ctrl.abort(), DL_TIMEOUT_MS);
+  try{
     const resp = await fetch(url, {
-      headers: { 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:120.0) Gecko/20100101 Firefox/120.0' },
+      headers:{ 'User-Agent':'Mozilla/5.0 (X11; Linux x86_64; rv:120.0) Gecko/20100101 Firefox/120.0' },
       signal: ctrl.signal
     });
-    if(!resp.ok){ clearTimeout(timer); return false; }
-    
+    if(!resp.ok){ clearTimeout(timer); return { ok:false, status:resp.status }; }
     const writer = createWriteStream(dest);
     const reader = resp.body.getReader();
-    let downloaded = 0;
-    let lastLog = Date.now();
-    
+    let bytes=0;
     while(true){
-      const {done, value} = await reader.read();
+      const {done,value}=await reader.read();
       if(done) break;
-      downloaded += value.length;
-      await new Promise((res,rej) => writer.write(value, err => err ? rej(err) : res()));
-      // Log cada 30 segundos
-      if(Date.now() - lastLog > 30000){
-        console.log(`    Descargado: ${(downloaded/1024/1024).toFixed(0)} MB`);
-        lastLog = Date.now();
-      }
+      bytes+=value.length;
+      await new Promise((res,rej)=>writer.write(value,e=>e?rej(e):res()));
     }
-    await new Promise(res => writer.end(res));
+    await new Promise(res=>writer.end(res));
     clearTimeout(timer);
-    console.log(`    Total descargado: ${(downloaded/1024/1024).toFixed(0)} MB`);
-    return true;
-  } catch(e) {
+    return { ok:true, bytes };
+  }catch(e){
     clearTimeout(timer);
-    if(e.name === 'AbortError' || e.name === 'TimeoutError'){
-      console.warn(`    Timeout descargando (>${DL_TIMEOUT_MS/60000}min): ${url}`);
-    } else {
-      console.warn(`    Error descargando: ${e.message}`);
-    }
-    return false;
+    return { ok:false, error:e.message };
   }
 }
 
 async function processZip(url, label, existingIds){
-  console.log(`  [${label}] Iniciando descarga…`);
   const tmpZip = path.join(TMP_DIR, label.replace(/\//g,'_')+'.zip');
-  
-  const ok = await downloadToFile(url, tmpZip);
-  if(!ok){ console.warn(`  [${label}] SKIP — sin descarga`); return []; }
+  const dl = await downloadToFile(url, tmpZip);
+  if(!dl.ok){
+    if(dl.status===404) return { entries:[], skipped:true };
+    console.warn(`  [${label}] SKIP: ${dl.error||'HTTP '+dl.status}`);
+    return { entries:[], skipped:true };
+  }
+  console.log(`  [${label}] ${(dl.bytes/1024/1024).toFixed(1)} MB descargados`);
 
-  const entries = [];
-  try {
+  const entries=[];
+  try{
     const directory = await unzipper.Open.file(tmpZip);
-    console.log(`  [${label}] ${directory.files.length} fichero(s) en el ZIP`);
     for(const file of directory.files){
       if(!file.path.endsWith('.atom')) continue;
-      console.log(`  [${label}] Procesando ${file.path} (${(file.uncompressedSize/1024/1024).toFixed(0)} MB sin comprimir)`);
-      await new Promise((resolve,reject) => {
-        const extractor = new EntryExtractor(chunk => {
-          const entry = parseEntry(chunk);
-          if(entry && entry.expediente && !existingIds.has(entry.expediente)){
+      await new Promise((resolve,reject)=>{
+        const extractor=new EntryExtractor(chunk=>{
+          const entry=parseEntry(chunk);
+          if(entry&&entry.expediente&&!existingIds.has(entry.expediente)){
             existingIds.add(entry.expediente);
             entries.push(entry);
           }
         });
-        file.stream().pipe(extractor).on('finish', resolve).on('error', reject);
+        file.stream().pipe(extractor).on('finish',resolve).on('error',reject);
       });
     }
-  } catch(e){
-    console.warn(`  [${label}] Error procesando ZIP: ${e.message}`);
-  } finally {
-    try { fs.unlinkSync(tmpZip); } catch(e){}
-  }
-  return entries;
+  }catch(e){ console.warn(`  [${label}] Error procesando ZIP: ${e.message}`); }
+  try{ fs.unlinkSync(tmpZip); }catch(e){}
+  return { entries, skipped:false };
 }
 
 async function run(){
-  fs.mkdirSync(TMP_DIR, {recursive:true});
-  fs.mkdirSync('data', {recursive:true});
+  fs.mkdirSync(TMP_DIR,{recursive:true});
+  fs.mkdirSync('data',{recursive:true});
 
-  // Cargar histórico existente
-  let existing = {};
-  const existingIds = new Set();
+  let existing={};
+  const existingIds=new Set();
   if(fs.existsSync(OUTPUT_PATH)){
-    try {
-      const prev = JSON.parse(fs.readFileSync(OUTPUT_PATH,'utf-8'));
+    try{
+      const prev=JSON.parse(fs.readFileSync(OUTPUT_PATH,'utf-8'));
       (prev.entries||[]).forEach(e=>{ existing[e.expediente]=e; existingIds.add(e.expediente); });
       console.log(`Histórico previo: ${existingIds.size} entradas`);
-    } catch(e){ console.warn('Sin histórico previo válido'); }
+    }catch(e){ console.warn('Sin histórico previo válido'); }
   }
 
-  let totalNew = 0;
+  let totalNew=0, totalSkipped=0;
 
-  // Años completos
-  for(let year=START_YEAR; year<CURRENT_YEAR; year++){
-    const url = `${BASE_URL}/licitacionesPerfilesContratanteCompleto3_${year}.zip`;
-    const entries = await processZip(url, String(year), existingIds);
-    entries.forEach(e=>{ existing[e.expediente]=e; totalNew++; });
-    console.log(`  [${year}] → ${entries.length} nuevas adjudicaciones relevantes`);
+  // Iterar mes a mes desde START_YEAR hasta el mes anterior al actual
+  for(let year=START_YEAR; year<=CURRENT_YEAR; year++){
+    const lastMonth = (year===CURRENT_YEAR) ? CURRENT_MONTH-1 : 12;
+    for(let month=1; month<=lastMonth; month++){
+      const mm=String(month).padStart(2,'0');
+      const label=`${year}/${mm}`;
+      const url=`${BASE_URL}/licitacionesPerfilesContratanteCompleto3_${year}${mm}.zip`;
+      const { entries, skipped } = await processZip(url, label, existingIds);
+      if(skipped && entries.length===0) continue; // 404: mes sin datos todavía
+      entries.forEach(e=>{ existing[e.expediente]=e; totalNew++; });
+      if(entries.length>0) console.log(`  [${label}] → ${entries.length} nuevas adjudicaciones`);
+    }
+    console.log(`Año ${year} completado. Total acumulado: ${Object.keys(existing).length}`);
   }
 
-  // Meses del año en curso
-  for(let month=1; month<CURRENT_MONTH; month++){
-    const mm = String(month).padStart(2,'0');
-    const url = `${BASE_URL}/licitacionesPerfilesContratanteCompleto3_${CURRENT_YEAR}${mm}.zip`;
-    const entries = await processZip(url, `${CURRENT_YEAR}/${mm}`, existingIds);
-    entries.forEach(e=>{ existing[e.expediente]=e; totalNew++; });
-    console.log(`  [${CURRENT_YEAR}/${mm}] → ${entries.length} nuevas`);
-  }
-
-  const allEntries = Object.values(existing)
+  const allEntries=Object.values(existing)
     .sort((a,b)=>(b.fechaAdjudicacion||'').localeCompare(a.fechaAdjudicacion||''));
 
   fs.writeFileSync(OUTPUT_PATH, JSON.stringify({
-    generatedAt: new Date().toISOString(),
-    fromYear: START_YEAR,
-    totalEntries: allEntries.length,
-    newThisRun: totalNew,
-    entries: allEntries
-  }, null, 2));
+    generatedAt:new Date().toISOString(),
+    fromYear:START_YEAR,
+    totalEntries:allEntries.length,
+    newThisRun:totalNew,
+    entries:allEntries
+  },null,2));
 
-  console.log(`\n✓ Backfill completado: ${allEntries.length} adjudicaciones (${totalNew} nuevas)`);
+  console.log(`\n✓ Backfill completado: ${allEntries.length} adjudicaciones (${totalNew} nuevas, ${totalSkipped} meses sin datos)`);
 }
 
-run().catch(e => { console.error('Error fatal:', e.stack||e); process.exit(1); });
+run().catch(e=>{ console.error('Error fatal:', e.stack||e); process.exit(1); });
