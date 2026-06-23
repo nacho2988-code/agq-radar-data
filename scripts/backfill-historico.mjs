@@ -108,11 +108,23 @@ async function run(){
 
   while(url && pages<SAFETY_MAX_PAGES){
     let xml;
-    try{ xml=await fetchPage(url); }
-    catch(e){ console.warn(`Error en página ${pages+1}: ${e.message}. Reintentando en 5s...`); await new Promise(r=>setTimeout(r,5000)); try{ xml=await fetchPage(url); }catch(e2){ console.error(`Fallo definitivo en página ${pages+1}:`,e2.message); break; } }
+    try{
+      xml = await fetchPage(url);
+    }catch(e){
+      console.warn(`Error en página ${pages+1}: ${e.message}. Reintentando en 5s...`);
+      await new Promise(r=>setTimeout(r,5000));
+      try{
+        xml = await fetchPage(url);
+      }catch(e2){
+        console.error(`Fallo definitivo en página ${pages+1}: ${e2.message}`);
+        break; // sale del while; xml sigue undefined pero el break evita usarlo
+      }
+    }
+    if(!xml) break; // seguridad: si xml es undefined por cualquier razón, salir limpiamente
 
-    const blocks=xml.match(/<entry[\s\S]*?<\/entry>/g)||[];
-    totalEntries+=blocks.length;
+    const blocks = xml.match(/<entry[\s\S]*?<\/entry>/g)||[];
+    totalEntries += blocks.length;
+    console.log(`Página ${pages+1}: ${blocks.length} entradas en el feed`);
 
     for(const b of blocks){
       const updated=extractText(b,'updated');
