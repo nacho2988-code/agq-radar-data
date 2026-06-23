@@ -20,23 +20,18 @@ jobs:
           node-version: '20'
       - run: npm install
 
-      - name: Descargar ZIP de PLACSP
+      - name: Descargar, procesar y commitear
         run: |
           YEAR="${{ github.event.inputs.year }}"
           URL="https://contrataciondelsectorpublico.gob.es/sindicacion/sindicacion_643/licitacionesPerfilesContratanteCompleto3_${YEAR}.zip"
           echo "Descargando $URL..."
           curl -L -A "Mozilla/5.0 (X11; Linux x86_64)" -o /tmp/placsp_${YEAR}.zip "$URL"
           ls -lh /tmp/placsp_${YEAR}.zip
-
-      - name: Procesar ZIP y actualizar histórico
-        run: |
-          YEAR="${{ github.event.inputs.year }}"
-          node scripts/procesar-zip-local.mjs /tmp/placsp_${YEAR}.zip $YEAR 2>&1 | tee /tmp/proceso.log
-
-      - name: Commitear histórico actualizado
-        run: |
+          echo "Procesando..."
+          node scripts/procesar-zip-local.mjs /tmp/placsp_${YEAR}.zip $YEAR
+          echo "Commiteando..."
           git config user.name "agq-radar-bot"
           git config user.email "actions@users.noreply.github.com"
           git add data/historico_adjudicaciones.json
-          git diff --staged --quiet || git commit -m "Backfill ${{ github.event.inputs.year }}: histórico actualizado"
+          git diff --staged --quiet || git commit -m "Backfill ${YEAR}: histórico actualizado"
           git push
