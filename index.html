@@ -445,7 +445,6 @@ footer.foot{
       <button data-view="pipeline">Pipeline <span class="count" id="count-pipeline">0</span></button>
       <button data-view="adjudicadas">Adjudicadas <span class="count" id="count-adjudicadas">0</span></button>
       <button data-view="analitica">Analítica</button>
-      <button data-view="importar">Importar datos</button>
       <button data-view="acreditaciones">Acreditaciones AGQ</button>
     </nav>
   </header>
@@ -526,49 +525,6 @@ footer.foot{
       <div class="list" id="list-adjudicadas"></div>
     </section>
 
-    <!-- ================= VIEW: IMPORTAR ================= -->
-    <section class="view" id="view-importar">
-
-      <div class="import-card" style="border-color:var(--agq-purple);">
-        <h3>Sincronización automática (GitHub Actions) — recomendado</h3>
-        <p>Indica tu repositorio público (el que genera el barrido diario) y la app cargará el último snapshot solo, cada vez que la abras. No hace falta volver a esta pantalla.</p>
-        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px;">
-          <input type="text" id="gh-repo" placeholder="usuario/nombre-repo" style="flex:2;min-width:180px;padding:8px 10px;border:1px solid var(--line-strong);border-radius:var(--radius-s);">
-          <input type="text" id="gh-branch" placeholder="main" style="flex:1;min-width:80px;padding:8px 10px;border:1px solid var(--line-strong);border-radius:var(--radius-s);">
-        </div>
-        <button class="btn primary" id="btn-save-sync">Guardar y sincronizar ahora</button>
-        <div id="gh-sync-status" style="margin-top:10px;font-size:12px;color:var(--ink-soft);"></div>
-      </div>
-
-      <h3 style="font-family:var(--font-display);font-size:13px;margin:22px 0 10px;text-transform:uppercase;color:var(--ink-soft);">Alternativa manual / primer arranque</h3>
-      <div class="import-grid">
-        <div class="import-card">
-          <h3>1 · Conseguir el fichero oficial</h3>
-          <p>La Plataforma de Contratación del Sector Público publica sus licitaciones como datos abiertos (formato Atom/CODICE). Ábrelo, guárdalo (Ctrl+S) y pégalo o súbelo aquí. Se actualiza a diario.</p>
-          <button class="btn ghost" id="btn-open-feed">Abrir feed oficial ↗</button>
-          <p style="margin-top:10px;font-size:11.5px;">Devuelve hasta 500 licitaciones por página (todas las administraciones, no solo ambiental). El importador filtra automáticamente por sector.</p>
-        </div>
-        <div class="import-card">
-          <h3>2 · Carga directa (experimental)</h3>
-          <p>Intenta traer el feed sin pasos manuales. Puede fallar por CORS según dónde abras esta app — en ese caso usa la extensión "Allow CORS" o el método manual.</p>
-          <button class="btn primary" id="btn-direct-fetch">Intentar carga directa</button>
-          <div id="direct-fetch-status" style="margin-top:10px;font-size:12px;"></div>
-        </div>
-      </div>
-
-      <div class="import-card" style="margin-top:18px;">
-        <h3>Pegar / subir contenido Atom-XML</h3>
-        <p>Pega aquí el contenido del fichero .atom descargado, o súbelo directamente.</p>
-        <input type="file" id="file-import" accept=".atom,.xml,text/xml" style="margin-bottom:10px;">
-        <textarea class="bigpaste" id="paste-xml" placeholder="&lt;feed xmlns=...&gt; … pega aquí el XML completo …"></textarea>
-        <div style="margin-top:10px;display:flex;gap:8px;">
-          <button class="btn primary" id="btn-parse-xml">Procesar e importar</button>
-          <button class="btn ghost" id="btn-clear-data">Vaciar base local</button>
-        </div>
-        <div id="import-log"></div>
-      </div>
-    </section>
-
     <!-- ================= VIEW: ACREDITACIONES ================= -->
     <section class="view" id="view-acreditaciones">
       <div class="callout">Perfil de acreditación de AGQ Labs usado para el motor de comparación. Basado en información pública (ENAC / web de AGQ Labs) — ajusta matrices y palabras clave si detectas un desajuste con un pliego real.</div>
@@ -595,7 +551,7 @@ footer.foot{
 
   </main>
 
-  <footer class="foot">Herramienta interna de apoyo comercial · datos importados manualmente desde la Plataforma de Contratación del Sector Público</footer>
+  <footer class="foot">AGQ Radar de Licitaciones · Herramienta interna de apoyo comercial · datos actualizados automáticamente cada día desde la Plataforma de Contratación del Sector Público</footer>
 </div>
 
 <div id="overlay"></div>
@@ -1025,9 +981,9 @@ function formatMoney(n){
   return Number(n).toLocaleString('es-ES',{maximumFractionDigits:0}) + ' €';
 }
 function emptyStateHTML(kind){
-  if(kind === 'abiertas') return '<div class="empty-state"><div class="big">Sin licitaciones que coincidan</div>Importa datos desde "Importar datos" o ajusta los filtros.</div>';
-  if(kind === 'adjudicadas') return '<div class="empty-state"><div class="big">Sin adjudicaciones todavía</div>Aparecerán aquí cuando el feed importado incluya licitaciones resueltas del sector.</div>';
-  return '<div class="empty-state"><div class="big">Todavía no hay datos</div>Importa el feed oficial para empezar.</div>';
+  if(kind === 'abiertas') return '<div class="empty-state"><div class="big">Sin licitaciones que coincidan</div>Ajusta los filtros o espera a la próxima actualización automática del barrido diario.</div>';
+  if(kind === 'adjudicadas') return '<div class="empty-state"><div class="big">Sin adjudicaciones todavía</div>Aparecerán aquí cuando el barrido diario detecte licitaciones resueltas del sector.</div>';
+  return '<div class="empty-state"><div class="big">Cargando datos…</div>El barrido diario actualiza la app automáticamente.</div>';
 }
 
 let currentFilter = { search:'', compat:'todas', sort:'deadline', importeMin:null, importeMax:null, matriz:'', provincia:'', pipeline:'', comercial:'' };
@@ -1759,64 +1715,6 @@ function mergeEntries(entries){
   return { added, updated };
 }
 
-function logImport(msg){
-  const log = document.getElementById('import-log');
-  const line = document.createElement('div');
-  line.className = 'log-line';
-  line.textContent = msg;
-  log.prepend(line);
-}
-
-function runImport(xmlText){
-  document.getElementById('import-log').innerHTML = '';
-  const res = parseAtomFeed(xmlText);
-  logImport('Entradas leídas en el feed: ' + res.totalEntries);
-  const relevant = res.entries.filter(isSectorRelevant);
-  logImport('Relevantes para el sector ambiental/laboratorio: ' + relevant.length);
-  const { added, updated } = mergeEntries(relevant);
-  logImport('Nuevas: ' + added + ' · Actualizadas: ' + updated);
-  if(res.errors.length) res.errors.slice(0,5).forEach(e => logImport('⚠ ' + e));
-  refreshAllViews();
-}
-
-document.getElementById('btn-open-feed').addEventListener('click', ()=> window.open(FEED_URL, '_blank'));
-
-document.getElementById('btn-parse-xml').addEventListener('click', ()=>{
-  const text = document.getElementById('paste-xml').value;
-  if(!text.trim()){ logImport('Pega o sube primero el contenido XML.'); return; }
-  runImport(text);
-});
-
-document.getElementById('file-import').addEventListener('change', async e=>{
-  const file = e.target.files[0];
-  if(!file) return;
-  const text = await file.text();
-  document.getElementById('paste-xml').value = text;
-  runImport(text);
-});
-
-document.getElementById('btn-clear-data').addEventListener('click', ()=>{
-  if(!confirm('¿Vaciar todas las licitaciones importadas? No se puede deshacer.')) return;
-  STATE.tenders = {};
-  persistTenders();
-  refreshAllViews();
-  logImport('Base local vaciada.');
-});
-
-document.getElementById('btn-direct-fetch').addEventListener('click', async ()=>{
-  const statusEl = document.getElementById('direct-fetch-status');
-  statusEl.innerHTML = '<span class="spinner" style="border-top-color:var(--ink);"></span> Probando…';
-  try{
-    const resp = await fetch(FEED_URL);
-    if(!resp.ok) throw new Error('HTTP ' + resp.status);
-    const text = await resp.text();
-    statusEl.innerHTML = '✅ Carga directa correcta.';
-    document.getElementById('paste-xml').value = text;
-    runImport(text);
-  }catch(e){
-    statusEl.innerHTML = '❌ Bloqueado por el navegador (probablemente CORS). Usa la extensión "Allow CORS" o el método manual de la izquierda.<br><span style="color:var(--ink-soft);">Detalle: ' + escapeHtml(e.message) + '</span>';
-  }
-});
 // === [MOD:GITHUB-SYNC] ===
 function loadGithubConfig(){
   try{
@@ -1921,6 +1819,9 @@ async function autoSyncFromGitHub(showStatus){
           if(sel.comercial !== undefined && sel.comercial !== t.comercial){
             t.comercial = sel.comercial || '';
           }
+          if(sel.comercial !== undefined && sel.comercial !== t.comercial){
+            t.comercial = sel.comercial || '';
+          }
         });
         persistTenders();
       }
@@ -1955,13 +1856,6 @@ async function autoSyncFromGitHub(showStatus){
   }
 }
 
-document.getElementById('btn-save-sync').addEventListener('click', ()=>{
-  const cfg = loadGithubConfig();
-  cfg.repo = document.getElementById('gh-repo').value.trim().replace(/^https?:\/\/github\.com\//,'').replace(/\/$/,'');
-  cfg.branch = document.getElementById('gh-branch').value.trim() || 'main';
-  saveGithubConfig(cfg);
-  autoSyncFromGitHub(true);
-});
 
 // === [MOD:ACCRED-CONFIG] ===
 function renderAccredConfig(){
@@ -2129,8 +2023,6 @@ loadState();
 refreshAllViews();
 
 const _ghCfg = loadGithubConfig();
-document.getElementById('gh-repo').value = _ghCfg.repo || '';
-document.getElementById('gh-branch').value = _ghCfg.branch || 'main';
 if(_ghCfg.repo) autoSyncFromGitHub(true);
 </script>
 </body>
