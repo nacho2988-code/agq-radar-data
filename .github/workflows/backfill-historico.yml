@@ -1,13 +1,12 @@
 name: Backfill histórico de adjudicaciones (2021-hoy)
 
 on:
-  workflow_dispatch:   # Solo manual — es una carga única, no diaria
-  # Para re-ejecutar: Actions → "Backfill histórico" → Run workflow
+  workflow_dispatch:
 
 jobs:
   backfill:
     runs-on: ubuntu-latest
-    timeout-minutes: 90   # Los ZIPs anuales son grandes; 60 min debería ser suficiente
+    timeout-minutes: 30
 
     steps:
       - name: Descargar el repositorio
@@ -18,24 +17,12 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Instalar dependencias (incluida unzipper)
+      - name: Instalar dependencias
         run: npm install
 
-      - name: Instalar unzipper si no está en package.json
-        run: npm install unzipper --save
-
-      - name: Verificar acceso a datos históricos de PLACSP
-        run: |
-          echo "Probando acceso a datos históricos..."
-          curl -sI -A "AGQ-Radar-Backfill/1.0" \
-            "https://contrataciondelsectorpublico.gob.es/sindicacion/sindicacion_643/licitacionesPerfilesContratanteCompleto3_2021.zip" \
-            | head -5
-          echo "---"
-          curl -sI -A "Mozilla/5.0 (X11; Linux x86_64)" \
-            "https://contrataciondelsectorpublico.gob.es/sindicacion/sindicacion_643/licitacionesPerfilesContratanteCompleto3_2021.zip" \
-            | head -5
-
       - name: Ejecutar backfill histórico
+        env:
+          APISPAIN_KEY: ${{ secrets.APISPAIN_KEY }}
         run: node scripts/backfill-historico.mjs 2>&1 | tee /tmp/backfill-output.log; EXIT=${PIPESTATUS[0]}; if [ $EXIT -ne 0 ]; then cp /tmp/backfill-output.log data/backfill-debug.txt; fi; exit $EXIT
 
       - name: Commitear debug si hubo error
@@ -46,14 +33,11 @@ jobs:
           git add data/backfill-debug.txt || true
           git diff --staged --quiet || git commit -m "Debug backfill error" && git push || true
 
-      - name: Mostrar últimas líneas del log si hubo error
-        if: failure()
-        run: tail -80 /tmp/backfill-output.log || echo "Sin log"
-
       - name: Commitear el histórico generado
+        if: success()
         run: |
           git config user.name "agq-radar-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data/historico_adjudicaciones.json package.json package-lock.json || true
+          git add data/historico_adjudicaciones.json || true
           git diff --staged --quiet || git commit -m "Backfill histórico adjudicaciones $(date -u +%Y-%m-%dT%H:%M:%SZ)"
           git push
