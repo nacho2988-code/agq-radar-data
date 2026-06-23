@@ -1,9 +1,610 @@
 {
-  "generatedAt": "2026-06-23T09:07:24.544Z",
+  "generatedAt": "2026-06-23T09:11:47.370Z",
   "fromYear": 2021,
   "source": "apispain",
-  "totalRequests": 15,
-  "totalEntries": 0,
-  "newThisRun": 0,
-  "entries": []
+  "totalRequests": 20,
+  "totalEntries": 31,
+  "newThisRun": 31,
+  "entries": [
+    {
+      "expediente": "202617320019",
+      "title": "Servicio de análisis de muestras de azufre del combustible de los buques para la Dirección General de la Marina Mercante.",
+      "organo": "Dirección General de la Marina Mercante",
+      "estado": "RES",
+      "cpv": [
+        "73111000"
+      ],
+      "importe": null,
+      "adjudicatario": "",
+      "fechaAdjudicacion": "2026-06-17T14:36:06.216Z",
+      "link": "",
+      "fuente": "apispain"
+    },
+    {
+      "expediente": "A2025/004207",
+      "title": "Servicio de tipificación, caracterización, secuenciación genómica completa, análisis bioinformático y tratamiento de datos de patógenos (secuencia genómica completa) detectados en alimentos, brotes alimentarios o ambientales",
+      "organo": "Consejería de Sanidad de la Junta de Castilla y León",
+      "estado": "RES",
+      "cpv": [
+        "71900000"
+      ],
+      "importe": null,
+      "adjudicatario": "",
+      "fechaAdjudicacion": "2026-06-17T13:43:54.437Z",
+      "link": "",
+      "fuente": "apispain"
+    },
+    {
+      "expediente": "79/25",
+      "title": "Contratación del Servicio de mantenimiento y explotación de la red de medición de calidad del aire y control del ruido de la ciudad de Málaga",
+      "organo": "Junta de Gobierno del Ayuntamiento de Málaga",
+      "estado": "RES",
+      "cpv": [
+        "90731100",
+        "90742300",
+        "90731400",
+        "38341500"
+      ],
+      "importe": null,
+      "adjudicatario": "",
+      "fechaAdjudicacion": "2026-06-15T13:25:00.289Z",
+      "link": "",
+      "fuente": "apispain"
+    },
+    {
+      "expediente": "AM-DEMA-2026-002",
+      "title": "Establecimiento de Acuerdo Marco para la contratación de los servicios de apoyo en 1) enfoque de Manejo Integral del Fuego (MIF) y 2) Restauración, protección y uso sostenible de los bosques para las acciones desarrolladas en el marco del programa Amazonía",
+      "organo": "Dirección de la Fundación para la Internacionalización de las Administraciones Públicas",
+      "estado": "RES",
+      "cpv": [
+        "75130000",
+        "73220000",
+        "90713000"
+      ],
+      "importe": null,
+      "adjudicatario": "",
+      "fechaAdjudicacion": "2026-06-15T13:16:02.771Z",
+      "link": "",
+      "fuente": "apispain"
+    },
+    {
+      "expediente": "PA 567/2025",
+      "title": "Servicio de cualificación anual y verificación periódica de la Bioseguridad Ambiental en las salas de ambiente controlado y revisión de la Calidad de Ambiente Interior (CAI), respetuoso con el medio ambiente, del Hospital Universitario de Torrevieja",
+      "organo": "Departamento de Salud de Torrevieja. Dirección Económica-Gerencia",
+      "estado": "RES",
+      "cpv": [
+        "71620000",
+        "90714500",
+        "90731100",
+        "71610000",
+        "90714200"
+      ],
+      "importe": null,
+      "adjudicatario": "",
+      "fechaAdjudicacion": "2026-06-15T12:52:51.688Z",
+      "link": "",
+      "fuente": "apispain"
+    },
+    {
+      "expediente": "2025/C004/000003.1",
+      "title": "Servicio de toma de muestras y análisis de la calidad de las aguas gestionadas gestionadas por SERVIZOS URBANOS MUNICIPAIS DE ARTEIXO, S.A.",
+      "organo": "Presidencia de los Servizos Urbanos Municipais de Arteixo, S.A",
+      "estado": "RES",
+      "cpv": [
+        "71610000",
+        "71620000"
+      ],
+      "importe": null,
+      "adjudicatario": "",
+      "fechaAdjudicacion": "2026-06-14T07:29:51.677Z",
+      "link": "",
+      "fuente": "apispain"
+    },
+    {
+      "expediente": "COT/2025/27",
+      "title": "Servicio de control analítico del agua de consumo humano, cloración y su registro informático en el SINAC, así como para la contratación del servicio de lectura, conservación, y sustitución de contadores de agua de la red de abastecimiento del Ayuntamiento de Laviana.",
+      "organo": "Pleno del Ayuntamiento de Laviana",
+      "estado": "RES",
+      "cpv": [
+        "71620000",
+        "71621000",
+        "71632000",
+        "71631430",
+        "71800000",
+        "32412100",
+        "65100000",
+        "65500000",
+        "71900000",
+        "50411100",
+        "38421100",
+        "24312220"
+      ],
+      "importe": null,
+      "adjudicatario": "",
+      "fechaAdjudicacion": "2026-06-14T06:56:47.733Z",
+      "link": "",
+      "fuente": "apispain"
+    },
+    {
+      "expediente": "13749/2024 (009/2024)",
+      "title": "Prevención de la legionelosis, limpieza de aljibes, fuentes, piscinas y control de agua del grifo",
+      "organo": "Alcaldía del Ayuntamiento de Santa Lucía de Tirajana",
+      "estado": "RES",
+      "cpv": [
+        "85111820",
+        "71900000",
+        "90913000",
+        "71600000"
+      ],
+      "importe": null,
+      "adjudicatario": "",
+      "fechaAdjudicacion": "2026-06-11T12:51:58.392Z",
+      "link": "",
+      "fuente": "apispain"
+    },
+    {
+      "expediente": "TSA0079137-402",
+      "title": "Contrato derivado del \"Acuerdo Marco para el servicio de realización de tomas de muestras, ensayos y controles de materiales en actuaciones de las gerencias de la UT5 de Tragsa (Andalucía, Ceuta, Melilla y Extremadura), incluidas obras Financiadas con Fondos Procedentes del Plan de Recuperación, Transformación y Resiliencia (PRTR)––NextGenerationEU\"",
+      "organo": "Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA)",
+      "estado": "RES",
+      "cpv": [
+        "71621000"
+      ],
+      "importe": null,
+      "adjudicatario": "",
+      "fechaAdjudicacion": "2026-06-03T15:27:27.991Z",
+      "link": "",
+      "fuente": "apispain"
+    },
+    {
+      "expediente": "CONTR 2026/2875",
+      "title": "Servicio de estimación de formación de ozono y medición de los niveles de concentración de ozono y de sus precursores en las Islas Baleares.",
+      "organo": "Consejería de Empresa, Autónomos y Energía de las Illes Balears",
+      "estado": "RES",
+      "cpv": [
+        "71620000",
+        "90731400"
+      ],
+      "importe": null,
+      "adjudicatario": "",
+      "fechaAdjudicacion": "2026-06-01T16:25:20.364Z",
+      "link": "",
+      "fuente": "apispain"
+    },
+    {
+      "expediente": "esDONES/2024/0003",
+      "title": "Servicios de soporte de ingeniería para la fase de construcción de la infraestructura científico - tecnológica IFMIF-DONES (AMSI)",
+      "organo": "Consorcio IFMIF-DONES España",
+      "estado": "RES",
+      "cpv": [
+        "73000000",
+        "71500000",
+        "71700000",
+        "71300000",
+        "71600000",
+        "71200000",
+        "71900000"
+      ],
+      "importe": null,
+      "adjudicatario": "",
+      "fechaAdjudicacion": "2026-06-01T15:16:58.379Z",
+      "link": "",
+      "fuente": "apispain"
+    },
+    {
+      "expediente": "2025/4197",
+      "title": "Servicio de recogida, transporte y gestión de los residuos del Punto Verde de Artà",
+      "organo": "Junta de Gobierno Local de l'Ajuntament d'Artà",
+      "estado": "RES",
+      "cpv": [
+        "90500000",
+        "90513000",
+        "90650000",
+        "90520000",
+        "90512000"
+      ],
+      "importe": null,
+      "adjudicatario": "",
+      "fechaAdjudicacion": "2026-05-31T08:26:47.864Z",
+      "link": "",
+      "fuente": "apispain"
+    },
+    {
+      "expediente": "100/25",
+      "title": "Servicios para el desarrollo de las acciones vinculadas a “Málaga Tourist \r\nFootprint (MTF): Sistema Integral para la Medición y Gestión de la Huella del \r\nTurista”",
+      "organo": "Junta de Gobierno del Ayuntamiento de Málaga",
+      "estado": "RES",
+      "cpv": [
+        "90700000",
+        "90710000",
+        "90714100",
+        "90713000"
+      ],
+      "importe": null,
+      "adjudicatario": "",
+      "fechaAdjudicacion": "2026-05-28T13:05:36.387Z",
+      "link": "",
+      "fuente": "apispain"
+    },
+    {
+      "expediente": "MAT_DGEA_2024_MY3",
+      "title": "Mantenimiento integral de la red de calidad del aire del Gobierno de Aragón (RCGA) durante los años 2025-2027.",
+      "organo": "Departamento de Medio Ambiente y Turismo del Gobierno de Aragón",
+      "estado": "RES",
+      "cpv": [
+        "90731100",
+        "90731400"
+      ],
+      "importe": null,
+      "adjudicatario": "",
+      "fechaAdjudicacion": "2026-05-28T12:50:23.292Z",
+      "link": "",
+      "fuente": "apispain"
+    },
+    {
+      "expediente": "0100024SR062",
+      "title": "Participación en ejercicios de aptitud y adquisición de muestras de referencia de los programas FAPAS, FEPAS, GeMMA Y LEAP CHEM del Centro Nacional de Alimentación (CNA), de la Agencia Española de Seguridad Alimentaria y Nutrición (AESAN OA).",
+      "organo": "Dirección Ejecutiva de la Agencia Española de Seguridad Alimentaria y Nutrición",
+      "estado": "RES",
+      "cpv": [
+        "71900000"
+      ],
+      "importe": null,
+      "adjudicatario": "",
+      "fechaAdjudicacion": "2026-05-28T12:35:41.898Z",
+      "link": "",
+      "fuente": "apispain"
+    },
+    {
+      "expediente": "2599/2026",
+      "title": "Ejecución de las obras de desamiantado y sustitución de cubiertas del CEIP César Manrique y el Servicios de Dirección de OBras y Coordinación de Seguridad y Salud",
+      "organo": "Concejal del Área de Ciudad Sostenible, Agenda Urbana, Participación Ciudadana e Igualdad del Ayuntamiento de Puerto de la Cruz",
+      "estado": "RES",
+      "cpv": [
+        "45262660",
+        "45261220",
+        "71240000",
+        "90650000",
+        "45000000",
+        "45111100",
+        "71317210",
+        "71000000"
+      ],
+      "importe": null,
+      "adjudicatario": "",
+      "fechaAdjudicacion": "2026-05-25T17:29:35.124Z",
+      "link": "",
+      "fuente": "apispain"
+    },
+    {
+      "expediente": "379/2026",
+      "title": "Contrato de servicios para el control analítico de los vertidos de las depuradoras de aguas residuales del T.M. de Jaca (Huesca)",
+      "organo": "Junta de Gobierno del Ayuntamiento de Jaca",
+      "estado": "RES",
+      "cpv": [
+        "71900000"
+      ],
+      "importe": null,
+      "adjudicatario": "",
+      "fechaAdjudicacion": "2026-05-22T12:39:30.324Z",
+      "link": "",
+      "fuente": "apispain"
+    },
+    {
+      "expediente": "28-5413 (3)",
+      "title": "Programa de Aplicación de los Planes de Ordenación del Espacio Marítimo",
+      "organo": "Dirección General de la Costa y el Mar",
+      "estado": "RES",
+      "cpv": [
+        "90712300",
+        "79311000",
+        "90712000",
+        "72310000",
+        "72312100",
+        "72300000",
+        "71335000",
+        "90713000",
+        "71354500",
+        "72311100",
+        "72322000",
+        "73112000",
+        "72330000",
+        "85312320"
+      ],
+      "importe": null,
+      "adjudicatario": "",
+      "fechaAdjudicacion": "2026-05-20T14:46:06.202Z",
+      "link": "",
+      "fuente": "apispain"
+    },
+    {
+      "expediente": "303/2026",
+      "title": "Servizo de socorrismo e mantemento da piscina municipal de ÇArbo, para a tempada de baño do ano 2026",
+      "organo": "Junta de Gobierno Local del Ayuntamiento de Arbo",
+      "estado": "RES",
+      "cpv": [
+        "92000000",
+        "50800000",
+        "63725000",
+        "71600000"
+      ],
+      "importe": null,
+      "adjudicatario": "",
+      "fechaAdjudicacion": "2026-05-19T14:28:42.163Z",
+      "link": "",
+      "fuente": "apispain"
+    },
+    {
+      "expediente": "DEMA-2025-078",
+      "title": "Servicio de apoyo a los poderes públicos de Brasil para identificar, difundir y promover soluciones tecnológicas innovadoras para reducir los daños causados por el cambio climático y promover la transformación territorial sostenible mediante el fortalecimiento de la planificación y el diseño urbano y rural resilientes al clima.",
+      "organo": "Dirección de la Fundación para la Internacionalización de las Administraciones Públicas",
+      "estado": "RES",
+      "cpv": [
+        "75130000",
+        "90713000"
+      ],
+      "importe": null,
+      "adjudicatario": "",
+      "fechaAdjudicacion": "2026-05-19T14:12:15.318Z",
+      "link": "",
+      "fuente": "apispain"
+    },
+    {
+      "expediente": "INV26-0028",
+      "title": "Ejecución de una campaña de prospección geofísica mediante sísmica de refracción en el dique del Oeste del puerto de Palma",
+      "organo": "Presidencia de la Autoridad Portuaria de Baleares",
+      "estado": "RES",
+      "cpv": [
+        "71351000"
+      ],
+      "importe": null,
+      "adjudicatario": "",
+      "fechaAdjudicacion": "2026-05-11T12:30:31.157Z",
+      "link": "",
+      "fuente": "apispain"
+    },
+    {
+      "expediente": "22799.25.005",
+      "title": "Servicio para el programa de educación ambiental “Aula Ambiental del Segura” de la Confederación Hidrográfica del Segura, O.A.",
+      "organo": "Presidencia de la Confederación Hidrográfica del Segura",
+      "estado": "RES",
+      "cpv": [
+        "71313000",
+        "90713000",
+        "90700000",
+        "80540000"
+      ],
+      "importe": null,
+      "adjudicatario": "",
+      "fechaAdjudicacion": "2026-05-10T07:56:50.567Z",
+      "link": "",
+      "fuente": "apispain"
+    },
+    {
+      "expediente": "CP00199/2025",
+      "title": "Contratación del servicio de medición y análisis de la concentración de gas radón en los centros de trabajo de Asepeyo.",
+      "organo": "Subdirección General de Medios de ASEPEYO. Mutua Colaboradora con la Seguridad Social. num. 151",
+      "estado": "RES",
+      "cpv": [
+        "90731400"
+      ],
+      "importe": null,
+      "adjudicatario": "",
+      "fechaAdjudicacion": "2026-05-06T14:31:38.522Z",
+      "link": "",
+      "fuente": "apispain"
+    },
+    {
+      "expediente": "32/2025",
+      "title": "Contratación de todos los trabajos relativos el diseño y desarrollo de la Actuación 3 “Medidas para la gestión eficiente y sostenible de las zonas de baño localizadas en la zona de actuación” del Plan de Sostenibilidad Turística 2023 de la  Sierra  Oeste “.",
+      "organo": "Presidencia de la Asociación para el Desarrollo Integral de la Sierra Oeste de Madrid",
+      "estado": "RES",
+      "cpv": [
+        "90712400",
+        "79411000",
+        "90712000",
+        "79421000"
+      ],
+      "importe": null,
+      "adjudicatario": "",
+      "fechaAdjudicacion": "2026-05-03T14:50:29.351Z",
+      "link": "",
+      "fuente": "apispain"
+    },
+    {
+      "expediente": "G.4/2026",
+      "title": "Contrato suministro de materiales de construcción, gestión de residuos de construcción, ensayos, equipos de seguridad en obra y señales de obra para la ejecución del Programa de Fomento de Empleo Agrario año 2025 del Ayuntamiento de La Puebla de Cazalla.",
+      "organo": "Alcaldía del Ayuntamiento de La Puebla de Cazalla",
+      "estado": "RES",
+      "cpv": [
+        "44100000",
+        "44810000",
+        "90513000",
+        "35113000",
+        "34928471",
+        "71600000"
+      ],
+      "importe": null,
+      "adjudicatario": "",
+      "fechaAdjudicacion": "2026-05-02T10:26:53.679Z",
+      "link": "",
+      "fuente": "apispain"
+    },
+    {
+      "expediente": "DEMA-2026-005",
+      "title": "Apoyo a los poderes públicos de Uruguay en el fortalecimiento de la resiliencia climática de las ciudades ante los efectos del cambio climático, mediante la identificación de medidas de adaptación desde un enfoque de soluciones basadas en la naturaleza.",
+      "organo": "Dirección de la Fundación para la Internacionalización de las Administraciones Públicas",
+      "estado": "RES",
+      "cpv": [
+        "75130000",
+        "90713000",
+        "73220000"
+      ],
+      "importe": null,
+      "adjudicatario": "",
+      "fechaAdjudicacion": "2026-05-01T05:54:14.842Z",
+      "link": "",
+      "fuente": "apispain"
+    },
+    {
+      "expediente": "2026/405940/006-313/00002",
+      "title": "Servicios de control de calidad del agua de consumo humano en el municipio de Lubrín.",
+      "organo": "Alcaldía del Ayuntamiento de Lubrín",
+      "estado": "RES",
+      "cpv": [
+        "71610000"
+      ],
+      "importe": null,
+      "adjudicatario": "",
+      "fechaAdjudicacion": "2026-04-29T17:40:41.066Z",
+      "link": "",
+      "fuente": "apispain"
+    },
+    {
+      "expediente": "V-AB/2025/000577",
+      "title": "Acuerdo Marco equipamiento y  ejecución de los servicios de mantenimiento y reparación de los edificios y espacios exteriores de la UCM, de valor estimado inferior a 15.000 euros IVA excluido.",
+      "organo": "Rectorado de la Universidad Complutense de Madrid",
+      "estado": "RES",
+      "cpv": [
+        "50000000",
+        "39711100",
+        "39717200",
+        "39721200",
+        "42500000",
+        "44221200",
+        "45261000",
+        "45261400",
+        "50411300",
+        "50532100",
+        "16160000",
+        "42512000",
+        "42512300",
+        "44113100",
+        "45232121",
+        "45421000",
+        "45421150",
+        "45430000",
+        "50411100",
+        "50411200",
+        "50531200",
+        "50531300",
+        "50532200",
+        "50532300",
+        "34928471",
+        "39522100",
+        "42512200",
+        "45310000",
+        "45421146",
+        "50510000",
+        "50711000",
+        "50720000",
+        "90650000",
+        "03451000",
+        "31161200",
+        "31680000",
+        "39715200",
+        "42510000",
+        "42511100",
+        "44111400",
+        "44115700",
+        "44221100",
+        "45212290",
+        "45233200",
+        "45451300",
+        "39721410",
+        "44423400",
+        "45261220",
+        "45420000",
+        "45421160",
+        "45441000",
+        "50500000",
+        "50532400",
+        "77311000",
+        "90640000",
+        "03110000",
+        "39515000",
+        "45261300",
+        "45261410",
+        "45421100",
+        "50312000",
+        "50760000",
+        "90470000",
+        "14212400",
+        "34928470",
+        "42511110",
+        "42512100",
+        "42961100",
+        "45261420",
+        "45331000",
+        "45340000",
+        "45421143",
+        "50312300",
+        "50514100",
+        "50514200",
+        "90400000",
+        "90913000",
+        "31700000",
+        "44112200",
+        "44221310",
+        "45259300",
+        "45261900",
+        "45432110",
+        "50330000",
+        "50332000",
+        "50531100",
+        "50532000",
+        "50730000"
+      ],
+      "importe": null,
+      "adjudicatario": "",
+      "fechaAdjudicacion": "2026-04-29T14:24:40.488Z",
+      "link": "",
+      "fuente": "apispain"
+    },
+    {
+      "expediente": "DEMA-2025-054",
+      "title": "Servicio de Consultoría al Ministerio de Transportes y Telecomunicaciones de Chile para la identificación de las tecnologías necesarias para la transición energética de las actividades portuarias y del transporte marítimo en la región de Antofagasta.",
+      "organo": "Dirección de la Fundación para la Internacionalización de las Administraciones Públicas",
+      "estado": "RES",
+      "cpv": [
+        "75130000",
+        "73220000",
+        "90713000"
+      ],
+      "importe": null,
+      "adjudicatario": "",
+      "fechaAdjudicacion": "2026-04-29T13:09:21.078Z",
+      "link": "",
+      "fuente": "apispain"
+    },
+    {
+      "expediente": "14/2026-Servicios",
+      "title": "Análisis cuantitativo de drogas en muestras de fluido oral a conductores en laboratorio, así como el suministro de los cartuchos consumibles, para el servicio de la Policía Local de San Bartolomé de Tirajana...Ver apartado A del Anexo I",
+      "organo": "Servicio de Contratación y Compras del Ayuntamiento de San Bartolomé de Tirajana",
+      "estado": "RES",
+      "cpv": [
+        "71900000",
+        "33141625"
+      ],
+      "importe": null,
+      "adjudicatario": "",
+      "fechaAdjudicacion": "2026-04-28T17:55:01.777Z",
+      "link": "",
+      "fuente": "apispain"
+    },
+    {
+      "expediente": "TSA0080713_002_LR",
+      "title": "FEDER.- Servicio de controles de calidad y ensayos en el Centro de Recuperación de Fauna Silvestre \"La Fombera\". LOGROÑO (La Rioja).",
+      "organo": "Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA)",
+      "estado": "RES",
+      "cpv": [
+        "71600000"
+      ],
+      "importe": null,
+      "adjudicatario": "",
+      "fechaAdjudicacion": "2026-04-28T15:14:14.601Z",
+      "link": "",
+      "fuente": "apispain"
+    }
+  ]
 }

@@ -1,91 +1,72 @@
 CPVs a consultar: 20
-Histórico previo cargado: 0 entradas
+Histórico previo: 0 entradas
 
-Consultando CPV 90711000...
-=== PRIMERA RESPUESTA APISPAIN ===
-HTTP response keys: data, pagination, meta
-Raw (primeros 800 chars): {
-  "data": [
-    {
-      "placeId": "4185/2026",
-      "organoContratante": "Alcaldia del Ayuntamiento de Fuente Obejuna",
-      "objeto": "El objeto del presente documento es la contratación de servicios necesarios\r\npara la ejecución de las línea de actuación laboratorio de vivienda y línea de actuación \r\nlaboratorio de iniciativas ambientales, para el desarrollo del Proyecto Habitar Fuente Obejuna,\r\nactuación subvencionada por la Orden de 27 de junio de 2024 del Ministerio para la Transición Ecológica y el Reto demográfico",
-      "cpvCodigos": [
-        "71356200",
-        "90712000",
-        "79411000",
-        "90711000",
-        "71200000",
-        "71242000",
-        "71315400",
-        "80500000",
-        "90710000",
-        "90721100",
-        "71313430",
-        "71314300"
+CPV 90711000...
+=== CAMPOS DISPONIBLES EN APISPAIN ===
+placeId, organoContratante, objeto, cpvCodigos, importe, estado, fechaPublicacion, fechaLimite, urlPLACE
+  estado: publicada
+  placeId: 4185/2026
+  objeto: El objeto del presente documento es la contratación de servicios necesarios
+para la ejecución de la
+  organoContratante: Alcaldia del Ayuntamiento de Fuente Obejuna
 === FIN MUESTRA ===
-  CPV 90711000: 0 nuevas adjudicaciones (1 requests usadas)
+  CPV 90711000: 0 nuevas adjudicaciones
 
-Consultando CPV 90711400...
-  CPV 90711400: 0 nuevas adjudicaciones (2 requests usadas)
+CPV 90711400...
+  CPV 90711400: 0 nuevas adjudicaciones
 
-Consultando CPV 90712000...
-  CPV 90712000: 0 nuevas adjudicaciones (3 requests usadas)
+CPV 90712000...
+  CPV 90712000: 2 nuevas adjudicaciones
 
-Consultando CPV 90713000...
-  CPV 90713000: 0 nuevas adjudicaciones (4 requests usadas)
+CPV 90713000...
+  CPV 90713000: 6 nuevas adjudicaciones
 
-Consultando CPV 90731110...
-  CPV 90731110: 0 nuevas adjudicaciones (5 requests usadas)
+CPV 90731110...
+  CPV 90731110: 0 nuevas adjudicaciones
 
-Consultando CPV 90731200...
-  CPV 90731200: 0 nuevas adjudicaciones (6 requests usadas)
+CPV 90731200...
+  CPV 90731200: 0 nuevas adjudicaciones
 
-Consultando CPV 90731300...
-  CPV 90731300: 0 nuevas adjudicaciones (7 requests usadas)
+CPV 90731300...
+  CPV 90731300: 0 nuevas adjudicaciones
 
-Consultando CPV 90731400...
-  CPV 90731400: 0 nuevas adjudicaciones (8 requests usadas)
+CPV 90731400...
+  CPV 90731400: 4 nuevas adjudicaciones
 
-Consultando CPV 90742000...
-  CPV 90742000: 0 nuevas adjudicaciones (9 requests usadas)
+CPV 90742000...
+  CPV 90742000: 0 nuevas adjudicaciones
 
-Consultando CPV 90742100...
-  CPV 90742100: 0 nuevas adjudicaciones (10 requests usadas)
+CPV 90742100...
+  CPV 90742100: 0 nuevas adjudicaciones
 
-Consultando CPV 90742200...
-  CPV 90742200: 0 nuevas adjudicaciones (11 requests usadas)
+CPV 90742200...
+  CPV 90742200: 0 nuevas adjudicaciones
 
-Consultando CPV 90742300...
-  CPV 90742300: 0 nuevas adjudicaciones (12 requests usadas)
+CPV 90742300...
+  CPV 90742300: 0 nuevas adjudicaciones
 
-Consultando CPV 71600000...
-  CPV 71600000: 0 nuevas adjudicaciones (13 requests usadas)
+CPV 71600000...
+  CPV 71600000: 5 nuevas adjudicaciones
 
-Consultando CPV 71610000...
-  CPV 71610000: 0 nuevas adjudicaciones (14 requests usadas)
+CPV 71610000...
+  CPV 71610000: 3 nuevas adjudicaciones
 
-Consultando CPV 71620000...
-  CPV 71620000: 0 nuevas adjudicaciones (15 requests usadas)
+CPV 71620000...
+  CPV 71620000: 1 nuevas adjudicaciones
 
-Consultando CPV 71621000...
-  CPV 71621000 pág 1: HTTP 429: {"error":"Too Many Requests","message":"Límite de peticiones por minuto superado. El plan Starter sube el límite a 60 req/min.","upgrade":"https://www.apispain.es/#precios","planActual":"free","planSu
-  CPV 71621000: 0 nuevas adjudicaciones (15 requests usadas)
+CPV 71621000...
+  CPV 71621000: 1 nuevas adjudicaciones
 
-Consultando CPV 73111000...
-  CPV 73111000 pág 1: HTTP 429: {"error":"Too Many Requests","message":"Límite de peticiones por minuto superado. El plan Starter sube el límite a 60 req/min.","upgrade":"https://www.apispain.es/#precios","planActual":"free","planSu
-  CPV 73111000: 0 nuevas adjudicaciones (15 requests usadas)
+CPV 73111000...
+  CPV 73111000: 1 nuevas adjudicaciones
 
-Consultando CPV 71900000...
-  CPV 71900000 pág 1: HTTP 429: {"error":"Too Many Requests","message":"Límite de peticiones por minuto superado. El plan Starter sube el límite a 60 req/min.","upgrade":"https://www.apispain.es/#precios","planActual":"free","planSu
-  CPV 71900000: 0 nuevas adjudicaciones (15 requests usadas)
+CPV 71900000...
+  CPV 71900000: 4 nuevas adjudicaciones
 
-Consultando CPV 90650000...
-  CPV 90650000 pág 1: HTTP 429: {"error":"Too Many Requests","message":"Límite de peticiones por minuto superado. El plan Starter sube el límite a 60 req/min.","upgrade":"https://www.apispain.es/#precios","planActual":"free","planSu
-  CPV 90650000: 0 nuevas adjudicaciones (15 requests usadas)
+CPV 90650000...
+  CPV 90650000: 3 nuevas adjudicaciones
 
-Consultando CPV 71351000...
-  CPV 71351000 pág 1: HTTP 429: {"error":"Too Many Requests","message":"Límite de peticiones por minuto superado. El plan Starter sube el límite a 60 req/min.","upgrade":"https://www.apispain.es/#precios","planActual":"free","planSu
-  CPV 71351000: 0 nuevas adjudicaciones (15 requests usadas)
+CPV 71351000...
+  CPV 71351000: 1 nuevas adjudicaciones
 
-✓ Backfill completado: 0 adjudicaciones (0 nuevas, 15 requests usadas)
+✓ Completado: 31 adjudicaciones (31 nuevas, 20 requests)
