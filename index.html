@@ -417,16 +417,19 @@ textarea.bigpaste{
    AWARDED VIEW
    ============================================================ */
 .award-row{
-  display:grid;grid-template-columns:1fr 200px 140px;gap:14px;
-  padding:14px 16px;border-bottom:1px solid var(--line);align-items:center;
+  display:grid;grid-template-columns:2fr 1fr 1fr 120px;gap:12px;
+  padding:9px 16px;border-bottom:1px solid var(--line);align-items:center;
+  font-size:12.5px;
 }
+.award-row:first-child{background:var(--paper-dim);font-size:11px;font-weight:700;color:var(--ink-soft);text-transform:uppercase;letter-spacing:0.04em;padding:7px 16px;}
+.award-row:not(:first-child):hover{background:var(--paper-dim);}
 .award-row:last-child{border-bottom:none;}
-.award-row .who{font-weight:700;font-size:13px;}
+.award-row .who{font-weight:600;}
 .award-row .who.agq{color:var(--agq-green-deep);}
-.award-row .org{font-size:11.5px;color:var(--ink-soft);}
+.award-row .exp{font-size:11px;color:var(--ink-soft);font-family:var(--font-mono);}
 .tag-agq-win{
   background:var(--agq-green);color:#fff;font-size:10px;font-weight:700;
-  padding:2px 7px;border-radius:10px;margin-left:8px;letter-spacing:0.03em;
+  padding:2px 7px;border-radius:10px;margin-left:6px;letter-spacing:0.03em;
 }
 
 footer.foot{
@@ -1211,26 +1214,33 @@ function renderAdjudicadas(){
   if(q){
     items = items.filter(t =>
       (t.adjudicatario||'').toLowerCase().includes(q) ||
-      (t.organo||'').toLowerCase().includes(q) ||
       (t.expediente||'').toLowerCase().includes(q) ||
       t.title.toLowerCase().includes(q)
     );
   }
-  items.sort((a,b) => new Date(b.fechaAdjudicacion||b.updated||0) - new Date(a.fechaAdjudicacion||a.updated||0));
+  items.sort((a,b) => (b.fechaAdjudicacion||b.updated||'').localeCompare(a.fechaAdjudicacion||a.updated||''));
 
   if(items.length === 0){ container.innerHTML = emptyStateHTML('adjudicadas'); return; }
-  container.innerHTML = items.map(t=>{
+
+  const header = `<div class="award-row">
+    <div>Título de la licitación</div>
+    <div>Expediente</div>
+    <div>Adjudicatario</div>
+    <div>Importe</div>
+  </div>`;
+
+  const rows = items.map(t=>{
     const isAgq = (t.adjudicatario||'').toUpperCase().includes('AGQ');
-    return `<div class="award-row" data-id="${escapeAttr(t.expediente)}">
-      <div>
-        <div class="title">${escapeHtml(t.title)}</div>
-        <div class="org">${escapeHtml(t.organo||'')}</div>
-      </div>
-      <div><span class="who ${isAgq?'agq':''}">${escapeHtml(t.adjudicatario||'No indicado en el feed')}</span>${isAgq?'<span class="tag-agq-win">AGQ</span>':''}</div>
-      <div class="amount">${t.importeAdjudicacion ? formatMoney(t.importeAdjudicacion) : (t.importe ? formatMoney(t.importe)+' (lic.)' : '—')}</div>
+    const importe = t.importeAdjudicacion ? formatMoney(t.importeAdjudicacion) : (t.importe ? formatMoney(t.importe) : '—');
+    return `<div class="award-row">
+      <div title="${escapeAttr(t.title)}">${escapeHtml(t.title.length>80 ? t.title.slice(0,80)+'…' : t.title)}</div>
+      <div class="exp">${escapeHtml(t.expediente||'—')}</div>
+      <div><span class="who ${isAgq?'agq':''}">${escapeHtml(t.adjudicatario||'No indicado')}</span>${isAgq?'<span class="tag-agq-win">AGQ</span>':''}</div>
+      <div class="amount">${importe}</div>
     </div>`;
   }).join('');
-  container.querySelectorAll('.award-row').forEach(row => row.addEventListener('click', () => openDetail(row.dataset.id)));
+
+  container.innerHTML = header + rows;
 }
 // === [MOD:PIPELINE-BOARD] ===
 // === [MOD:OFERTA-TECNICA] ===
