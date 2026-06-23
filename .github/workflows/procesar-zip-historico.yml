@@ -29,46 +29,9 @@ jobs:
           ls -lh /tmp/placsp_${YEAR}.zip
 
       - name: Procesar ZIP y actualizar histórico
-        run: |
-          YEAR="${{ github.event.inputs.year }}"
-          node scripts/procesar-zip-local.mjs /tmp/placsp_${YEAR}.zip $YEAR
-          wc -c data/historico_adjudicaciones.json
-          python3 -c "
-import json
-d=json.load(open('data/historico_adjudicaciones.json'))
-print('Entradas:', d['totalEntries'], '| Años:', d.get('years'))
-"
+        run: node scripts/procesar-zip-local.mjs /tmp/placsp_${{ github.event.inputs.year }}.zip ${{ github.event.inputs.year }}
 
-      - name: Subir histórico vía API de GitHub (evita límite de 100MB de git push)
+      - name: Subir histórico vía API
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          python3 << 'PYEOF'
-import json, base64, urllib.request, os
-
-token = os.environ['GITHUB_TOKEN']
-repo  = os.environ['GITHUB_REPOSITORY']
-path  = 'data/historico_adjudicaciones.json'
-year  = '${{ github.event.inputs.year }}'
-
-with open(path, 'rb') as f:
-    content = base64.b64encode(f.read()).decode()
-
-# Obtener SHA actual
-req = urllib.request.Request(
-    f'https://api.github.com/repos/{repo}/contents/{path}',
-    headers={'Authorization': f'Bearer {token}', 'Accept': 'application/vnd.github+json'})
-try:
-    with urllib.request.urlopen(req) as r:
-        sha = json.load(r)['sha']
-except: sha = None
-
-payload = {'message': f'Backfill {year}: historico actualizado ({path})', 'content': content}
-if sha: payload['sha'] = sha
-req2 = urllib.request.Request(
-    f'https://api.github.com/repos/{repo}/contents/{path}',
-    data=json.dumps(payload).encode(), method='PUT',
-    headers={'Authorization': f'Bearer {token}', 'Accept': 'application/vnd.github+json', 'Content-Type': 'application/json'})
-with urllib.request.urlopen(req2) as r:
-    print(f'Subido: HTTP {r.status}')
-PYEOF
+        run: python3 scripts/subir-historico.py ${{ github.event.inputs.year }}
