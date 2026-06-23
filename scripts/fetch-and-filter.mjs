@@ -136,25 +136,43 @@ function parseEntryBlock(block){
   let adjudicatario = '', importeAdjudicacion = null, fechaAdjudicacion = '';
   const tr = allBlocks(block,'TenderResult')[0];
   if(tr){
-    const wp = allBlocks(tr,'WinningParty')[0];
-    if(wp) adjudicatario = tag(wp,'Name') || tag(wp,'PartyName');
-    const amt = tag(tr,'PayableAmount') || tag(tr,'TaxExclusiveAmount') || tag(tr,'TotalAmount');
+    // PLACSP usa distintas etiquetas según versión de CODICE: probar todas
+    const wp = allBlocks(tr,'WinningParty')[0] || allBlocks(tr,'AwardedTenderer')[0];
+    if(wp){
+      adjudicatario = tag(wp,'Name') || tag(wp,'PartyName') ||
+                      tag(wp,'CorporateName') || tag(wp,'RegisteredName') || '';
+    }
+    // Si no está en WinningParty, buscar directamente en TenderResult
+    if(!adjudicatario){
+      adjudicatario = tag(tr,'WinningTendererName') || tag(tr,'AwardedTendererName') ||
+                      tag(tr,'ReceivedTendererName') || '';
+    }
+    const amt = tag(tr,'PayableAmount') || tag(tr,'TaxExclusiveAmount') ||
+                tag(tr,'TotalAmount') || tag(tr,'AwardedTenderedAmount');
     if(amt){ const n = parseFloat(amt.replace(',','.')); importeAdjudicacion = isNaN(n) ? null : n; }
-    fechaAdjudicacion = tag(tr,'AwardDate');
+    fechaAdjudicacion = tag(tr,'AwardDate') || tag(tr,'IssueDate') || '';
+  }
+  // Fallback: buscar adjudicatario en el summary si no está en TenderResult
+  if(!adjudicatario && summaryRaw){
+    const m = summaryRaw.match(/Adjudicatario[^:]*:\s*([^;|<\n]+)/i);
+    if(m) adjudicatario = m[1].trim();
   }
 
+  const isAdjudicada = ['RES','ADJ'].includes((sp.estado||'').toUpperCase());
   const expediente = sp.expediente || idText || ('SIN-ID-' + Math.random().toString(36).slice(2,8));
   const estado = (sp.estado || '').toUpperCase();
   const importeMatch = (sp.importe || '').match(/[\d.,]+/);
-  const importe = importeMatch ? (parseFloat(importeMatch[0]) || null) : null;
-
+  const importe = importeMatch ? (parseFloat(importeMatch[0].replace(',','.')) || null) : null;
   return {
     expediente, atomId: idText, title, organo: sp.organo || '',
     estado, estadoLabel: ESTADO_LABELS[estado] || estado || 'Desconocido',
     importe, importeRaw: sp.importe || '',
-    cpv, deadline, deadlineSource, documentos, link, updated,
-    adjudicatario, importeAdjudicacion, fechaAdjudicacion,
-    rawSummary: summaryRaw,
+    cpv, deadline, deadlineSource,
+    // Para adjudicadas solo guardamos lo esencial — sin documentos ni rawSummary
+    documentos: isAdjudicada ? [] : documentos,
+    link, updated,
+    adjudicatario: adjudicatario.trim(), importeAdjudicacion, fechaAdjudicacion,
+    rawSummary: isAdjudicada ? '' : summaryRaw,
     importedAt: new Date().toISOString()
   };
 }
