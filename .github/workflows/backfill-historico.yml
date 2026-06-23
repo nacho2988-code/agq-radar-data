@@ -20,19 +20,26 @@ jobs:
       - name: Instalar dependencias
         run: npm install
 
+      - name: Verificar secreto APISPAIN_KEY
+        env:
+          APISPAIN_KEY: ${{ secrets.APISPAIN_KEY }}
+        run: |
+          if [ -z "$APISPAIN_KEY" ]; then
+            echo "❌ APISPAIN_KEY está VACÍA"
+          else
+            echo "✅ APISPAIN_KEY recibida (longitud: ${#APISPAIN_KEY} chars)"
+          fi
+
       - name: Ejecutar backfill histórico
         env:
           APISPAIN_KEY: ${{ secrets.APISPAIN_KEY }}
-        run: node scripts/backfill-historico.mjs 2>&1 | tee /tmp/backfill-output.log; true
+        run: node scripts/backfill-historico.mjs 2>&1 | tee /tmp/backfill-output.log; EXIT=${PIPESTATUS[0]}; cp /tmp/backfill-output.log data/backfill-debug.txt; exit $EXIT
 
-      - name: Mostrar log siempre
-        if: always()
-        run: cat /tmp/backfill-output.log || echo "(sin log)"
-
-      - name: Commitear resultados
+      - name: Commitear debug y/o histórico
         if: always()
         run: |
           git config user.name "agq-radar-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data/ || true
-          git diff --staged --quiet || git commit -m "Backfill diagnóstico $(date -u +%Y-%m-%dT%H:%M:%SZ)" && git push || true
+          git add data/backfill-debug.txt data/historico_adjudicaciones.json 2>/dev/null || true
+          git diff --staged --quiet || git commit -m "Backfill debug/resultado $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          git push || true
