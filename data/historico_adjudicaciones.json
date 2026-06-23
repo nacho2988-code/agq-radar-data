@@ -1,11 +1,10 @@
 {
-  "generatedAt": "2026-06-23T08:41:49.348Z",
+  "generatedAt": "2026-06-23T08:47:06.432Z",
   "fromYear": 2021,
-  "totalPagesScanned": 0,
-  "totalEntriesScanned": 0,
+  "source": "apispain",
+  "totalRequests": 14,
   "totalEntries": 95,
   "newThisRun": 0,
-  "oldestSeen": "2026-06-23T08:40:44.335Z",
   "entries": [
     {
       "expediente": "217/2026",
