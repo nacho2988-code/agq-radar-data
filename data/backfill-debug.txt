@@ -1,7 +1,1 @@
-  Descargando 2021…
-  2021: ~0 MB
-Error fatal: DOMException [TimeoutError]: The operation was aborted due to timeout
-    at new DOMException (node:internal/per_context/domexception:53:5)
-    at Timeout._onTimeout (node:internal/abort_controller:129:9)
-    at listOnTimeout (node:internal/timers:581:17)
-    at process.processTimers (node:internal/timers:519:7)
+Falta APISPAIN_KEY en las variables de entorno
