@@ -31,7 +31,11 @@ jobs:
       - name: Procesar ZIP y actualizar histórico
         run: node scripts/procesar-zip-local.mjs /tmp/placsp_${{ github.event.inputs.year }}.zip ${{ github.event.inputs.year }}
 
-      - name: Subir histórico vía API
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python3 scripts/subir-historico.py ${{ github.event.inputs.year }}
+      - name: Commitear histórico actualizado
+        run: |
+          git config user.name "agq-radar-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git pull --rebase origin main || true
+          git add data/historico_adjudicaciones.json
+          git diff --staged --quiet || git commit -m "Backfill ${{ github.event.inputs.year }}: histórico actualizado"
+          git push
