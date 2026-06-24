@@ -493,7 +493,7 @@ async function generateSummaryPdf(entry, summary, docLabels){
   section('Acreditaciones exigidas en el pliego', summary.acreditaciones_exigidas, PDF_GREEN);
   section('Plazos y garantías', summary.plazos_garantias, PDF_SOFT);
   if(summary.riesgos_para_agq && summary.riesgos_para_agq.length){
-    section('⚠ Riesgos / aspectos a verificar para AGQ', summary.riesgos_para_agq, rgb(0.64,0.23,0.23));
+    section('ATENCION / Riesgos y aspectos a verificar para AGQ', summary.riesgos_para_agq, rgb(0.64,0.23,0.23));
   }
 
   drawPageFooter();
@@ -666,11 +666,9 @@ async function generateSummariesForOpenTenders(entries){
   const candidates = entries.filter(e => {
     if(!isOpenForSubmission(e)) return false;
     if(!e.resumenPdfPath) return true;
-    // Regenerar si el resumen es del formato antiguo (sin campos nuevos)
-    // Se detecta por la ausencia del campo resumenVersion en el snapshot
     if(!e.resumenVersion || e.resumenVersion < 2) return true;
     return false;
-  });
+  }).slice(0, 5); // máx 5 por barrido para no saturar el rate limit de Gemini
   diag.candidatos = candidates.length;
   console.log(`Resúmenes PDF: ${candidates.length} licitación(es) abierta(s) pendiente(s) de resumir.`);
 
