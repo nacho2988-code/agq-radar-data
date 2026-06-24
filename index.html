@@ -674,9 +674,13 @@ const ESTADOS_PIPELINE = [
   { id: 'en_preparacion',  label: 'En preparación',  color: '#d9a441' },
   { id: 'presentada',      label: 'Presentada',      color: '#565294' },
   { id: 'ganada',          label: 'Ganada',          color: '#84BD00' },
-  { id: 'perdida',         label: 'Perdida',         color: '#b5483d' }
+  { id: 'perdida',         label: 'Perdida',         color: '#b5483d' },
+  { id: 'rechazada',       label: 'Rechazada',       color: '#7a3d2e' }
 ];
 function pipelineMeta(id){ return ESTADOS_PIPELINE.find(e=>e.id===id) || ESTADOS_PIPELINE[0]; }
+
+const MOTIVOS_RECHAZO = ['Precio', 'Solvencia técnica', 'Falta documentación'];
+function necesitaMotivo(estadoId){ return estadoId === 'perdida' || estadoId === 'rechazada'; }
 
 const MATRIZ_GROUPS = [
   { id:'agua', label:'Agua', keywords:['agua','aguas','residual','vertido','vertidos','dbo','dqo','conductividad','aguas subterraneas','aguas subterráneas'] },
@@ -1197,14 +1201,24 @@ async function setPipelineEstado(expediente, estadoId){
   t.estadoPipeline = estadoId;
   t.estadoPipelineEn = new Date().toISOString();
   t.estadoPipelinePor = getAutorName() || null;
+  // Si cambia a un estado que no necesita motivo, lo borramos
+  if(!necesitaMotivo(estadoId)) t.motivoRechazo = '';
   t.pipelineSyncStatus = seleccionEndpoint() ? 'sincronizando' : 'sin-proxy';
   persistTenders();
   rerenderAfterLocalChange(expediente);
 
-  const result = await syncToProxy(expediente, { estadoPipeline: estadoId });
+  const result = await syncToProxy(expediente, { estadoPipeline: estadoId, motivoRechazo: t.motivoRechazo||'' });
   t.pipelineSyncStatus = result.ok ? 'sincronizada' : (seleccionEndpoint() ? 'error' : 'sin-proxy');
   persistTenders();
   rerenderAfterLocalChange(expediente);
+}
+
+async function setMotivoRechazo(expediente, motivo){
+  const t = STATE.tenders[expediente];
+  if(!t) return;
+  t.motivoRechazo = motivo;
+  persistTenders();
+  await syncToProxy(expediente, { motivoRechazo: motivo });
 }
 
 let notasDebounceTimer = null;
@@ -1626,6 +1640,14 @@ function openDetail(expediente){
           </select>
           <p style="font-size:10.5px;color:var(--ink-soft);margin:4px 0 0;">${t.estadoPipelinePor ? 'Última actualización por ' + escapeHtml(t.estadoPipelinePor) + (t.estadoPipelineEn ? ' · ' + formatDate(t.estadoPipelineEn) : '') : ''}</p>
         </div>
+        ${necesitaMotivo(t.estadoPipeline||'') ? `
+        <div style="margin-top:10px;">
+          <label style="font-size:11px;color:var(--ink-soft);text-transform:uppercase;font-weight:600;">Motivo</label>
+          <select id="detail-motivo-select" style="width:100%;margin-top:4px;padding:8px;border-radius:6px;border:1px solid var(--line);font-size:13px;">
+            <option value="">— Seleccionar motivo —</option>
+            ${MOTIVOS_RECHAZO.map(m=>`<option value="${m}" ${(t.motivoRechazo||'')===m?'selected':''}>${m}</option>`).join('')}
+          </select>
+        </div>` : ''}
         <div style="margin-top:14px;">
           <button class="btn primary" id="btn-generar-oferta" style="width:100%;">📄 Generar borrador de oferta técnica</button>
           <p id="oferta-status" style="font-size:10.5px;color:var(--ink-soft);margin:6px 0 0;">${isUnifiedWorkerHost() ? 'Usa el pliego real + la plantilla AGQ para redactar un primer borrador con IA. Revísalo siempre antes de presentar.' : '⚠️ Esta función solo está disponible accediendo desde la dirección protegida del equipo (no desde este enlace).'}</p>
@@ -1691,6 +1713,8 @@ function openDetail(expediente){
   document.getElementById('detail-chk-presentar').addEventListener('change', e=>{ togglePresentarLocal(expediente, e.target.checked); });
   const pipeSel = document.getElementById('detail-pipeline-select');
   if(pipeSel) pipeSel.addEventListener('change', e=>{ setPipelineEstado(expediente, e.target.value); });
+  const motivoSel = document.getElementById('detail-motivo-select');
+  if(motivoSel) motivoSel.addEventListener('change', e=>{ setMotivoRechazo(expediente, e.target.value); });
   const btnOferta = document.getElementById('btn-generar-oferta');
   if(btnOferta) btnOferta.addEventListener('click', ()=> generarOfertaTecnica(expediente));
   document.getElementById('pliego-dropzone').addEventListener('click', ()=> document.getElementById('pliego-files').click());
