@@ -29,7 +29,7 @@ const CONFIG_PATH = 'config/accreditations.json';
 const OUTPUT_PATH = 'data/licitaciones.json';
 const RESUMENES_DIR = 'data/resumenes';
 const SELECCION_PATH = 'data/seleccion.json';
-const ALERT_RECIPIENT = 'medioambiente.esp@agqlabs.com';
+const ALERT_RECIPIENT = 'licitaciones.spain@agqlabs.com';
 const ALERT_DAYS_THRESHOLD = 3;
 const GMAIL_USER = process.env.GMAIL_USER || '';
 const GMAIL_APP_PASSWORD = process.env.GMAIL_APP_PASSWORD || '';
@@ -524,6 +524,65 @@ async function sendDeadlineAlerts(merged){
   return diag;
 }
 
+// === [MOD:NUEVAS-LICITACIONES-ALERT] ===
+// Envía un correo semanal (lunes) con las licitaciones nuevas detectadas en las últimas 24h
+// que coinciden con nuestros CPVs o palabras clave sectoriales.
+async function sendNuevasLicitacionesAlert(merged, prevSnapshot){
+  const diag = { enviado: false, nuevas: 0, smtpConfigured: !!(GMAIL_USER && GMAIL_APP_PASSWORD), error: null };
+  if(!diag.smtpConfigured) return diag;
+
+  // Solo enviar si hay novedades respecto al snapshot anterior
+  const prevIds = new Set((prevSnapshot || []).map(e => e.expediente));
+  const nuevas = merged.filter(e =>
+    isOpenForSubmission(e) && !prevIds.has(e.expediente)
+  );
+  diag.nuevas = nuevas.length;
+  if(!nuevas.length) return diag;
+
+  const transporter = nodemailer.createTransport({ service:'gmail', auth:{ user:GMAIL_USER, pass:GMAIL_APP_PASSWORD } });
+  const filas = nuevas.slice(0, 30).map(e => `
+    <tr style="border-bottom:1px solid #e8e8e8;">
+      <td style="padding:8px;font-size:12px;">${e.title.slice(0,100)}</td>
+      <td style="padding:8px;font-size:12px;">${e.organo||'—'}</td>
+      <td style="padding:8px;font-size:12px;text-align:right;">${e.importe?e.importe.toLocaleString('es-ES',{maximumFractionDigits:0})+' €':'—'}</td>
+      <td style="padding:8px;font-size:12px;">${e.deadline?new Date(e.deadline).toLocaleDateString('es-ES'):'—'}</td>
+    </tr>`).join('');
+
+  const html = `<div style="font-family:Arial,sans-serif;max-width:700px;">
+    <div style="background:#565294;color:#fff;padding:14px 18px;">
+      <b>AGQ Radar de Licitaciones</b> · ${nuevas.length} licitación${nuevas.length===1?'':'es'} nueva${nuevas.length===1?'':'s'} detectada${nuevas.length===1?'':'s'}
+    </div>
+    <div style="padding:16px;border:1px solid #e0e0e0;border-top:none;">
+      <p style="font-size:13px;color:#555;margin:0 0 14px;">Nuevas licitaciones relevantes para el sector ambiental/laboratorio detectadas en el último barrido:</p>
+      <table style="width:100%;border-collapse:collapse;font-size:12px;">
+        <thead><tr style="background:#f5f4ef;">
+          <th style="padding:8px;text-align:left;">Título</th>
+          <th style="padding:8px;text-align:left;">Órgano</th>
+          <th style="padding:8px;text-align:right;">Importe</th>
+          <th style="padding:8px;text-align:left;">Fecha límite</th>
+        </tr></thead>
+        <tbody>${filas}</tbody>
+      </table>
+      ${nuevas.length>30?`<p style="font-size:11px;color:#999;margin-top:10px;">… y ${nuevas.length-30} más. Accede al Radar para verlas todas.</p>`:''}
+    </div>
+  </div>`;
+
+  try{
+    await transporter.sendMail({
+      from: `"AGQ Radar de Licitaciones" <${GMAIL_USER}>`,
+      to: ALERT_RECIPIENT,
+      subject: `Radar Licitaciones: ${nuevas.length} nueva${nuevas.length===1?'':'s'} detectada${nuevas.length===1?'':'s'}`,
+      html
+    });
+    diag.enviado = true;
+    console.log(`[NUEVAS] Alerta enviada a ${ALERT_RECIPIENT}: ${nuevas.length} licitaciones nuevas.`);
+  }catch(e){
+    diag.error = e.message.slice(0, 200);
+    console.warn(`[NUEVAS] Error enviando alerta: ${e.message}`);
+  }
+  return diag;
+}
+
 async function generateSummariesForOpenTenders(entries){
   const diag = { geminiKeyPresent: !!GEMINI_API_KEY, candidatos: 0, generados: 0, errores: [] };
   if(!GEMINI_API_KEY){
@@ -612,6 +671,7 @@ async function run(){
   try{
     existing = JSON.parse(fs.readFileSync(OUTPUT_PATH, 'utf-8')).entries || [];
   }catch(e){ /* primer arranque: no hay snapshot previo */ }
+  const prevEntries = existing; // guardar antes del merge para detectar novedades
   // Reevaluamos las entradas ya guardadas con el filtro VIGENTE (no el de cuando se
   // guardaron): si cambias config/accreditations.json, las que dejen de cumplir el
   // criterio se purgan en la siguiente ejecución en vez de quedarse para siempre.
@@ -640,6 +700,7 @@ async function run(){
 
   const resumenDiag = await generateSummariesForOpenTenders(merged);
   const alertasDiag = await sendDeadlineAlerts(merged);
+  const nuevasDiag = await sendNuevasLicitacionesAlert(merged, prevEntries);
 
   fs.mkdirSync('data', { recursive: true });
   fs.writeFileSync(OUTPUT_PATH, JSON.stringify({
@@ -650,6 +711,7 @@ async function run(){
     oldestEntrySeen: new Date(oldestSeen).toISOString(),
     resumenDiag,
     alertasDiag,
+    nuevasDiag,
     entries: merged
   }, null, 2));
 
