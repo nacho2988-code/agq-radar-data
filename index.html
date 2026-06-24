@@ -527,6 +527,56 @@ footer.foot{
 footer.foot strong{color:rgba(255,255,255,0.7);}
 
 /* ============================================================
+   RESPONSIVE — MÓVIL
+   ============================================================ */
+@media (max-width: 640px){
+  :root{ --header-h:56px; }
+  header.topbar{ padding:0 10px; }
+  .brand{ margin-right:8px; }
+  .brand-logo div{ padding:3px 7px!important; }
+  .brand-logo img{ height:28px!important; width:auto!important; }
+  .brand-separator{ display:none; }
+  .brand-text .brand-name{ font-size:13px; }
+  .brand-text .brand-tagline{ display:none; }
+  nav.tabs button{ padding:0 8px; font-size:11.5px; }
+  #btn-dark-mode{ padding:4px; font-size:15px; }
+  #topbar-sync-indicator{ display:none; }
+  main{ padding:10px; }
+  .dash-strip{ grid-template-columns:1fr 1fr; gap:8px; margin-bottom:14px; }
+  .dash-cell{ padding:11px 12px; border-radius:10px; }
+  .dash-cell .num{ font-size:22px; }
+  .dash-cell .lbl{ font-size:10px; }
+  .toolbar{ flex-wrap:wrap; }
+  .toolbar input[type="search"]{ min-width:100%; order:-1; }
+  .filtros-finos{ flex-wrap:wrap; gap:5px; }
+  .filtros-finos select,.filtros-finos input[type="number"]{ font-size:11px; padding:5px 6px; }
+  /* Filas de licitaciones en móvil */
+  .row{ grid-template-columns:1fr; }
+  .row .meta-col,.row .compat-col{ display:none; }
+  /* Panel de detalle — pantalla completa */
+  #detail-panel{ position:fixed!important; inset:0!important; width:100%!important; max-width:100%!important; border-left:none!important; border-top:3px solid var(--agq-purple); z-index:50; }
+  #detail-inner{ padding:14px!important; }
+  /* Tabla adjudicadas — apilar */
+  .award-row{ grid-template-columns:1fr; gap:3px; padding:10px 12px; }
+  .award-row:first-child{ display:none; }
+  .award-row .exp{ display:none; }
+  .award-row .amount{ font-weight:700; }
+  /* Pipeline — scroll horizontal */
+  .pipeline-board{ overflow-x:auto; }
+  .pipeline-col{ flex:0 0 170px; }
+  /* Analítica — ocultar columnas extras */
+  .tabla-rank th:nth-child(n+4),.tabla-rank td:nth-child(n+4){ display:none; }
+  /* Secciones de detalle */
+  .kv{ flex-direction:column; gap:1px; }
+  .section-block{ padding:10px 12px; }
+  footer.foot{ font-size:9.5px; padding:10px 12px; }
+}
+@media (max-width:380px){
+  nav.tabs button{ font-size:10.5px; padding:0 6px; }
+  .dash-strip{ grid-template-columns:1fr; }
+}
+
+/* ============================================================
    DARK MODE
    ============================================================ */
 body.dark{
@@ -1489,32 +1539,36 @@ function exportarExcel(vista){
   URL.revokeObjectURL(url);
 }
 
-// === [MOD:ESTIMACION-PRECIO] ===
-function estimarPrecioCompetitivo(tender){
-  // Busca en el histórico de adjudicaciones contratos similares:
-  // 1) Mismo órgano + CPV solapado
-  // 2) Solo CPV solapado
-  // Devuelve { contratos, mediana, min, max, recomendado }
+// === [MOD:HISTORICO-PRECIO] ===
+function buscarAdjudicacionPrevia(tender){
+  // Busca en el histórico si esta MISMA licitación fue adjudicada antes.
+  // Estrategia: mismo expediente (exacto) o mismo órgano + título muy similar (>70% palabras coinciden)
   const historico = getAwardedTenders().filter(t =>
-    t.importe && t.importe > 0 && t.adjudicatario
+    (t.importe || t.importeAdjudicacion) && t.adjudicatario
   );
-  const cpvSet = new Set((tender.cpv||[]).map(c=>c.slice(0,6))); // usar 6 dígitos para más coincidencias
 
-  const similares = historico.filter(t => {
-    const cpvMatch = (t.cpv||[]).some(c => cpvSet.has(c.slice(0,6)));
-    if(!cpvMatch) return false;
-    return true;
+  // 1) Coincidencia exacta por expediente
+  const porExpediente = historico.filter(t =>
+    t.expediente && tender.expediente &&
+    t.expediente.trim().toUpperCase() === tender.expediente.trim().toUpperCase()
+  );
+  if(porExpediente.length) return porExpediente.sort((a,b)=>(b.fechaAdjudicacion||'').localeCompare(a.fechaAdjudicacion||''));
+
+  // 2) Mismo órgano + título muy similar (para detectar contratos renovados con expediente nuevo)
+  if(!tender.organo || !tender.title) return [];
+  const organoTender = tender.organo.trim().toLowerCase();
+  const palabrasTender = new Set(tender.title.toLowerCase().split(/\W+/).filter(w=>w.length>4));
+
+  const porSimilitud = historico.filter(t => {
+    if(!t.organo || !t.title) return false;
+    if(t.organo.trim().toLowerCase() !== organoTender) return false;
+    const palabrasHist = t.title.toLowerCase().split(/\W+/).filter(w=>w.length>4);
+    const coinciden = palabrasHist.filter(w => palabrasTender.has(w)).length;
+    const similitud = coinciden / Math.max(palabrasTender.size, palabrasHist.length, 1);
+    return similitud >= 0.65;
   }).sort((a,b)=>(b.fechaAdjudicacion||'').localeCompare(a.fechaAdjudicacion||''));
 
-  if(!similares.length) return null;
-
-  const importes = similares.map(t => t.importeAdjudicacion || t.importe).filter(Boolean).sort((a,b)=>a-b);
-  const mediana = importes[Math.floor(importes.length/2)];
-  const min = importes[0];
-  const max = importes[importes.length-1];
-  // Recomendar un 5% por debajo de la mediana como precio competitivo
-  const recomendado = Math.round(mediana * 0.95);
-  return { contratos: similares.slice(0,5), mediana, min, max, recomendado, total: similares.length };
+  return porSimilitud;
 }
 
 // === [MOD:PIPELINE-BOARD] ===
@@ -1919,30 +1973,39 @@ function openDetail(expediente){
       </div>
 
       ${(()=>{
-        const est = estimarPrecioCompetitivo(t);
-        if(!est) return '';
-        return `<div class="section-block" style="border-left:3px solid var(--agq-green);padding-left:14px;">
-          <h3>💡 Estimación precio competitivo</h3>
-          <p style="font-size:12px;color:var(--ink-soft);margin:0 0 10px;">Basado en ${est.total} contratos similares del histórico (CPV coincidente).</p>
-          <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:10px;">
-            <div style="background:var(--agq-green-bg);border-radius:8px;padding:10px;text-align:center;">
-              <div style="font-size:11px;color:var(--agq-green-deep);font-weight:600;text-transform:uppercase;margin-bottom:4px;">Precio recomendado</div>
-              <div style="font-size:18px;font-weight:700;color:var(--agq-green-deep);">${formatMoney(est.recomendado)}</div>
-              <div style="font-size:10px;color:var(--ink-soft);">5% por debajo de la mediana</div>
+        const previas = buscarAdjudicacionPrevia(t);
+        if(!previas.length) return '';
+        const ultima = previas[0];
+        const importe = ultima.importeAdjudicacion || ultima.importe;
+        const esAgq = isAgqAdjudicatario(ultima.adjudicatario);
+        const adjNombre = esAgq ? AGQ_LABEL : (ultima.adjudicatario||'No indicado');
+        const fecha = ultima.fechaAdjudicacion ? ultima.fechaAdjudicacion.slice(0,10).split('-').reverse().join('/') : '—';
+        const tipoCoincidencia = ultima.expediente?.trim().toUpperCase() === t.expediente?.trim().toUpperCase() ? 'Mismo expediente' : 'Mismo órgano y objeto';
+        return `<div class="section-block" style="border-left:3px solid var(--agq-purple);padding-left:14px;">
+          <h3>📋 Adjudicación previa de este contrato</h3>
+          <p style="font-size:11px;color:var(--ink-soft);margin:0 0 10px;">${tipoCoincidencia} detectado en el histórico (2020–hoy).</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;">
+            <div style="background:var(--agq-purple-bg);border-radius:8px;padding:10px;">
+              <div style="font-size:10px;color:var(--agq-purple);font-weight:600;text-transform:uppercase;margin-bottom:3px;">Importe adjudicado</div>
+              <div style="font-size:18px;font-weight:700;color:var(--ink);">${importe ? formatMoney(importe) : '—'}</div>
+              <div style="font-size:10px;color:var(--ink-soft);margin-top:2px;">${fecha}</div>
             </div>
-            <div style="background:var(--paper-dim);border-radius:8px;padding:10px;text-align:center;">
-              <div style="font-size:11px;color:var(--ink-soft);font-weight:600;text-transform:uppercase;margin-bottom:4px;">Mediana histórica</div>
-              <div style="font-size:18px;font-weight:700;">${formatMoney(est.mediana)}</div>
-              <div style="font-size:10px;color:var(--ink-soft);">Rango: ${formatMoney(est.min)} – ${formatMoney(est.max)}</div>
+            <div style="background:var(--paper-dim);border-radius:8px;padding:10px;">
+              <div style="font-size:10px;color:var(--ink-soft);font-weight:600;text-transform:uppercase;margin-bottom:3px;">Adjudicatario anterior</div>
+              <div style="font-size:13px;font-weight:700;color:${esAgq?'var(--agq-green-deep)':'var(--ink)'};">${escapeHtml(adjNombre.slice(0,40))}${adjNombre.length>40?'…':''}</div>
+              ${esAgq ? '<div style="font-size:10px;color:var(--agq-green-deep);">✓ Lo ganó AGQ</div>' : ''}
             </div>
           </div>
-          <p style="font-size:11px;color:var(--ink-soft);font-weight:600;margin:0 0 6px;">Contratos de referencia:</p>
-          ${est.contratos.map(c=>`<div style="font-size:11px;border-bottom:1px solid var(--line);padding:4px 0;display:flex;justify-content:space-between;gap:8px;">
-            <span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="${escapeAttr(c.title)}">${escapeHtml(c.title.slice(0,55))}…</span>
-            <span style="font-weight:600;white-space:nowrap;color:${isAgqAdjudicatario(c.adjudicatario)?'var(--agq-green-deep)':'var(--ink-soft)'};">${escapeHtml(isAgqAdjudicatario(c.adjudicatario)?'AGQ':c.adjudicatario.slice(0,20))}</span>
-            <span style="white-space:nowrap;">${formatMoney(c.importeAdjudicacion||c.importe)}</span>
-          </div>`).join('')}
-          <p style="font-size:10px;color:var(--ink-soft);margin:8px 0 0;">⚠️ Orientativo. Revisa siempre los pliegos y la estrategia comercial antes de fijar el precio.</p>
+          ${previas.length > 1 ? `<p style="font-size:11px;color:var(--ink-soft);font-weight:600;margin:0 0 4px;">Adjudicaciones anteriores (${previas.length} en total):</p>
+          ${previas.slice(1,4).map(c=>{
+            const imp = c.importeAdjudicacion||c.importe;
+            const esA = isAgqAdjudicatario(c.adjudicatario);
+            return `<div style="font-size:11px;border-bottom:1px solid var(--line);padding:4px 0;display:flex;justify-content:space-between;gap:8px;align-items:center;">
+              <span style="color:var(--ink-soft);">${(c.fechaAdjudicacion||'').slice(0,7)}</span>
+              <span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:${esA?'var(--agq-green-deep)':'var(--ink)'};">${escapeHtml(esA?'AGQ':c.adjudicatario.slice(0,30))}</span>
+              <span style="white-space:nowrap;font-weight:600;">${imp?formatMoney(imp):'—'}</span>
+            </div>`;
+          }).join('')}` : ''}
         </div>`;
       })()}
 
