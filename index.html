@@ -444,9 +444,9 @@ footer.foot{
     <div class="brand"><span class="mark">●</span> AGQ <span class="sub">Radar de Licitaciones</span></div>
     <span id="topbar-sync-indicator" style="font-size:10.5px;color:#9D99BD;font-family:var(--font-mono);white-space:nowrap;"></span>
     <nav class="tabs" id="tabs">
-      <button data-view="abiertas" class="active">Abiertas <span class="count" id="count-abiertas">0</span></button>
-      <button data-view="pipeline">Pipeline <span class="count" id="count-pipeline">0</span></button>
-      <button data-view="adjudicadas">Adjudicadas <span class="count" id="count-adjudicadas">0</span></button>
+      <button data-view="abiertas" class="active">Abiertas</button>
+      <button data-view="pipeline">Pipeline</button>
+      <button data-view="adjudicadas">Adjudicadas</button>
       <button data-view="analitica">Analítica</button>
       <button data-view="acreditaciones">Acreditaciones AGQ</button>
     </nav>
@@ -495,10 +495,24 @@ footer.foot{
           <option value="">Pipeline: todos</option>
           <option value="__sin_marcar__">Sin marcar</option>
         </select>
+        <select class="sortsel" id="filtro-comercial">
+          <option value="">Comercial: todos</option>
+          <option value="RSB">RSB</option>
+          <option value="PRF">PRF</option>
+          <option value="MPA">MPA</option>
+          <option value="IBV">IBV</option>
+          <option value="JTG">JTG</option>
+        </select>
+        <select class="sortsel" id="sel-rows-per-page" title="Líneas por página">
+          <option value="20">20 / pág.</option>
+          <option value="40">40 / pág.</option>
+          <option value="60">60 / pág.</option>
+        </select>
         <button class="btn ghost" id="btn-limpiar-filtros-finos" style="font-size:12px;padding:6px 10px;">Limpiar filtros</button>
       </div>
 
       <div class="list" id="list-abiertas"></div>
+      <div id="paginacion-abiertas" style="display:flex;align-items:center;justify-content:center;gap:8px;padding:14px;font-size:12.5px;"></div>
     </section>
 
     <!-- ================= VIEW: PIPELINE ================= -->
@@ -645,6 +659,8 @@ const DEFAULT_GENERIC_AMBIGUOUS = [
 ];
 
 // === [MOD:PIPELINE-NOTAS-FILTROS-ANALITICA] ===
+const AGQ_LABEL = 'LABS & TECHNOLOGICAL SERVICES AGQ';
+function isAgqAdjudicatario(nombre){ return (nombre||'').toUpperCase().includes('AGQ'); }
 const COMERCIALES = ['RSB', 'PRF', 'MPA', 'IBV', 'JTG'];
 
 const ESTADOS_PIPELINE = [
@@ -990,6 +1006,8 @@ function emptyStateHTML(kind){
 }
 
 let currentFilter = { search:'', compat:'todas', sort:'deadline', importeMin:null, importeMax:null, matriz:'', provincia:'', pipeline:'', comercial:'' };
+let currentPage = 1;
+let rowsPerPage = 20;
 
 function rowHTML(t, comp){
   const days = t.deadline ? daysUntil(t.deadline) : null;
@@ -1032,7 +1050,7 @@ function updateDashboard(){
     const d = x.t.deadline ? daysUntil(x.t.deadline) : null;
     return d !== null && d <= 5 && d >= 0;
   }).length;
-  document.getElementById('count-abiertas').textContent = String(all.length);
+  document.getElementById('count-abiertas') && (document.getElementById('count-abiertas').textContent = String(all.length));
 }
 
 function renderAbiertas(){
@@ -1083,8 +1101,15 @@ function renderAbiertas(){
 
   updateDashboard();
 
-  if(items.length === 0){ container.innerHTML = emptyStateHTML('abiertas'); return; }
-  container.innerHTML = items.map(({t,comp}) => rowHTML(t,comp)).join('');
+  if(items.length === 0){ container.innerHTML = emptyStateHTML('abiertas'); document.getElementById('paginacion-abiertas').innerHTML=''; return; }
+
+  // Paginación
+  const totalItems = items.length;
+  const totalPages = Math.ceil(totalItems / rowsPerPage);
+  if(currentPage > totalPages) currentPage = 1;
+  const pageItems = items.slice((currentPage-1)*rowsPerPage, currentPage*rowsPerPage);
+
+  container.innerHTML = pageItems.map(({t,comp}) => rowHTML(t,comp)).join('');
   container.querySelectorAll('.row').forEach(row => row.addEventListener('click', () => openDetail(row.dataset.id)));
   container.querySelectorAll('.sel-comercial').forEach(sel => sel.addEventListener('change', (e)=>{
     const id = e.target.dataset.id;
@@ -1099,6 +1124,21 @@ function renderAbiertas(){
   container.querySelectorAll('.chk-presentar').forEach(chk => chk.addEventListener('change', (e)=>{
     togglePresentarLocal(e.target.dataset.id, e.target.checked);
   }));
+
+  // Renderizar controles de paginación
+  const pag = document.getElementById('paginacion-abiertas');
+  if(totalPages <= 1){ pag.innerHTML=''; return; }
+  let btns = `<span style="color:var(--ink-soft);">${totalItems} licitaciones · página ${currentPage} de ${totalPages}</span>`;
+  btns += `<button class="btn ghost" style="padding:5px 10px;font-size:12px;" id="pag-prev" ${currentPage===1?'disabled':''}>◀</button>`;
+  const start = Math.max(1, currentPage-2), end = Math.min(totalPages, currentPage+2);
+  for(let p=start; p<=end; p++){
+    btns += `<button class="btn ${p===currentPage?'primary':'ghost'}" style="padding:5px 10px;font-size:12px;" data-page="${p}">${p}</button>`;
+  }
+  btns += `<button class="btn ghost" style="padding:5px 10px;font-size:12px;" id="pag-next" ${currentPage===totalPages?'disabled':''}>▶</button>`;
+  pag.innerHTML = btns;
+  pag.querySelectorAll('[data-page]').forEach(b => b.addEventListener('click', ()=>{ currentPage=parseInt(b.dataset.page); renderAbiertas(); }));
+  document.getElementById('pag-prev')?.addEventListener('click', ()=>{ if(currentPage>1){currentPage--;renderAbiertas();} });
+  document.getElementById('pag-next')?.addEventListener('click', ()=>{ if(currentPage<totalPages){currentPage++;renderAbiertas();} });
 }
 
 // URL del proxy seguro (Cloudflare Worker) que escribe data/seleccion.json sin exponer
@@ -1208,7 +1248,7 @@ function saveNotasCompartidas(expediente, texto){
 function renderAdjudicadas(){
   const container = document.getElementById('list-adjudicadas');
   let items = getAwardedTenders();
-  document.getElementById('count-adjudicadas').textContent = String(items.length);
+  document.getElementById('count-adjudicadas') && (document.getElementById('count-adjudicadas').textContent = String(items.length));
 
   const q = (document.getElementById('search-adjudicadas').value || '').trim().toLowerCase();
   if(q){
@@ -1230,12 +1270,13 @@ function renderAdjudicadas(){
   </div>`;
 
   const rows = items.map(t=>{
-    const isAgq = (t.adjudicatario||'').toUpperCase().includes('AGQ');
+    const isAgq = isAgqAdjudicatario(t.adjudicatario);
+    const adjNombre = isAgq ? AGQ_LABEL : (t.adjudicatario||'No indicado');
     const importe = t.importeAdjudicacion ? formatMoney(t.importeAdjudicacion) : (t.importe ? formatMoney(t.importe) : '—');
     return `<div class="award-row">
-      <div title="${escapeAttr(t.title)}">${escapeHtml(t.title.length>80 ? t.title.slice(0,80)+'…' : t.title)}</div>
+      <div style="white-space:normal;line-height:1.4;">${escapeHtml(t.title)}</div>
       <div class="exp">${escapeHtml(t.expediente||'—')}</div>
-      <div><span class="who ${isAgq?'agq':''}">${escapeHtml(t.adjudicatario||'No indicado')}</span>${isAgq?'<span class="tag-agq-win">AGQ</span>':''}</div>
+      <div><span class="who ${isAgq?'agq':''}">${escapeHtml(adjNombre)}</span>${isAgq?'<span class="tag-agq-win">AGQ</span>':''}</div>
       <div class="amount">${importe}</div>
     </div>`;
   }).join('');
@@ -1409,7 +1450,7 @@ function renderPipeline(){
   const board = document.getElementById('pipeline-board');
   if(!board) return;
   const marcadas = tendersArray().filter(t => isSectorRelevant(t) && t.presentarLocal);
-  document.getElementById('count-pipeline').textContent = String(marcadas.length);
+  document.getElementById('count-pipeline') && (document.getElementById('count-pipeline').textContent = String(marcadas.length));
 
   board.innerHTML = ESTADOS_PIPELINE.map(estado=>{
     const items = marcadas.filter(t => (t.estadoPipeline||'detectada') === estado.id);
@@ -1447,57 +1488,92 @@ function renderAnalitica(){
   const adjudicadas = getAwardedTenders();
   const conAdjudicatario = adjudicadas.filter(t => t.adjudicatario && t.adjudicatario.trim());
 
+  // Normalizar nombre AGQ para agrupar todas sus variantes
   const porAdjudicatario = {};
   conAdjudicatario.forEach(t=>{
-    const nombre = t.adjudicatario.trim();
+    const raw = t.adjudicatario.trim();
+    const nombre = isAgqAdjudicatario(raw) ? AGQ_LABEL : raw;
     if(!porAdjudicatario[nombre]) porAdjudicatario[nombre] = { nombre, count:0, importeTotal:0 };
     porAdjudicatario[nombre].count++;
     porAdjudicatario[nombre].importeTotal += (t.importeAdjudicacion || t.importe || 0);
   });
   const ranking = Object.values(porAdjudicatario).sort((a,b)=> b.count - a.count || b.importeTotal - a.importeTotal);
 
-  const agqCount = conAdjudicatario.filter(t=>t.adjudicatario.toUpperCase().includes('AGQ')).length;
+  const agqCount = (porAdjudicatario[AGQ_LABEL]||{count:0}).count;
+  const totalImporteAgq = (porAdjudicatario[AGQ_LABEL]||{importeTotal:0}).importeTotal;
   const pct = conAdjudicatario.length ? Math.round(100*agqCount/conAdjudicatario.length) : 0;
+  const totalImporte = conAdjudicatario.reduce((s,t)=>s+(t.importeAdjudicacion||t.importe||0),0);
 
   resumenEl.innerHTML = `
-    <div class="dash-cell"><div class="num">${adjudicadas.length}</div><div class="lbl">Adjudicaciones detectadas</div></div>
+    <div class="dash-cell"><div class="num">${adjudicadas.length.toLocaleString('es-ES')}</div><div class="lbl">Adjudicaciones detectadas (2020–hoy)</div></div>
     <div class="dash-cell acc"><div class="num">${agqCount}</div><div class="lbl">Ganadas por AGQ</div></div>
-    <div class="dash-cell"><div class="num">${pct}%</div><div class="lbl">% adjudicado a AGQ (de las que indican adjudicatario)</div></div>
-    <div class="dash-cell"><div class="num">${ranking.length}</div><div class="lbl">Competidores distintos detectados</div></div>
+    <div class="dash-cell"><div class="num">${pct}%</div><div class="lbl">Cuota AGQ sobre adjudicaciones con adjudicatario</div></div>
+    <div class="dash-cell"><div class="num">${ranking.length}</div><div class="lbl">Competidores distintos</div></div>
+    <div class="dash-cell"><div class="num" style="font-size:15px;">${formatMoney(totalImporteAgq)}</div><div class="lbl">Importe total adjudicado a AGQ</div></div>
+    <div class="dash-cell"><div class="num" style="font-size:15px;">${formatMoney(totalImporte)}</div><div class="lbl">Importe total del sector detectado</div></div>
   `;
 
   if(!ranking.length){
-    tablaEl.innerHTML = '<p style="font-size:12px;color:var(--ink-soft);">Todavía no hay adjudicaciones con datos suficientes para analizar.</p>';
+    tablaEl.innerHTML = '<p style="font-size:12px;color:var(--ink-soft);">Sin datos suficientes todavía.</p>';
     canvas.style.display = 'none';
-  } else {
-    canvas.style.display = 'block';
-    const top = ranking.slice(0, 10);
-    tablaEl.innerHTML = `<table class="tabla-rank">
-      <thead><tr><th>Adjudicatario</th><th>Nº adjudicaciones</th><th>Importe total</th></tr></thead>
-      <tbody>${ranking.map(r=>`<tr class="${r.nombre.toUpperCase().includes('AGQ')?'agq-row':''}">
-        <td>${escapeHtml(r.nombre)}</td><td>${r.count}</td><td>${formatMoney(r.importeTotal)}</td>
-      </tr>`).join('')}</tbody>
-    </table>`;
+    return;
+  }
 
-    if(window.Chart){
-      if(chartAdjudicatariosInstance) chartAdjudicatariosInstance.destroy();
-      chartAdjudicatariosInstance = new Chart(canvas, {
-        type: 'bar',
-        data: {
-          labels: top.map(r => r.nombre.length>22 ? r.nombre.slice(0,22)+'…' : r.nombre),
-          datasets: [{
-            label: 'Nº de adjudicaciones',
-            data: top.map(r=>r.count),
-            backgroundColor: top.map(r=> r.nombre.toUpperCase().includes('AGQ') ? '#84BD00' : '#565294')
-          }]
+  // Tabla completa con rank, porcentaje e importe medio
+  tablaEl.innerHTML = `<table class="tabla-rank">
+    <thead><tr><th>#</th><th>Adjudicatario</th><th style="text-align:right;">Adjudicaciones</th><th style="text-align:right;">% del total</th><th style="text-align:right;">Importe total</th><th style="text-align:right;">Importe medio</th></tr></thead>
+    <tbody>${ranking.map((r,i)=>{
+      const pctR = conAdjudicatario.length ? (100*r.count/conAdjudicatario.length).toFixed(1) : '0.0';
+      const medio = r.count ? r.importeTotal/r.count : 0;
+      const isAgq = r.nombre === AGQ_LABEL;
+      return `<tr class="${isAgq?'agq-row':''}">
+        <td style="color:var(--ink-soft);font-family:var(--font-mono);">${i+1}</td>
+        <td>${escapeHtml(r.nombre)}${isAgq?'<span class="tag-agq-win" style="margin-left:6px;">AGQ</span>':''}</td>
+        <td style="text-align:right;font-weight:600;">${r.count}</td>
+        <td style="text-align:right;">${pctR}%</td>
+        <td style="text-align:right;">${r.importeTotal>0?formatMoney(r.importeTotal):'—'}</td>
+        <td style="text-align:right;color:var(--ink-soft);">${medio>0?formatMoney(medio):'—'}</td>
+      </tr>`;
+    }).join('')}</tbody>
+  </table>`;
+
+  // Gráfico horizontal top 15
+  canvas.style.display = 'block';
+  canvas.height = 420;
+  const top = ranking.slice(0, 15);
+  if(window.Chart){
+    if(chartAdjudicatariosInstance) chartAdjudicatariosInstance.destroy();
+    chartAdjudicatariosInstance = new Chart(canvas, {
+      type: 'bar',
+      data: {
+        labels: top.map(r => r.nombre.length>35 ? r.nombre.slice(0,35)+'…' : r.nombre),
+        datasets: [{
+          label: 'Nº adjudicaciones',
+          data: top.map(r=>r.count),
+          backgroundColor: top.map(r=> r.nombre===AGQ_LABEL ? '#84BD00' : '#565294'),
+          borderRadius: 4
+        }]
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: true,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              afterLabel: (ctx) => {
+                const r = top[ctx.dataIndex];
+                return r.importeTotal>0 ? `Importe total: ${formatMoney(r.importeTotal)}` : '';
+              }
+            }
+          }
         },
-        options: {
-          responsive: true,
-          plugins: { legend: { display: false } },
-          scales: { y: { beginAtZero: true, ticks: { precision: 0 } } }
+        scales: {
+          x: { beginAtZero: true, ticks: { precision: 0 } },
+          y: { ticks: { font: { size: 11 } } }
         }
-      });
-    }
+      }
+    });
   }
 }
 
@@ -2010,12 +2086,22 @@ function initFiltrosFinos(){
   selProv.addEventListener('change', e=>{ currentFilter.provincia = e.target.value; renderAbiertas(); });
   selPipe.addEventListener('change', e=>{ currentFilter.pipeline = e.target.value; renderAbiertas(); });
 
+  // Filtro por comercial
+  const selComercial = document.getElementById('filtro-comercial');
+  if(selComercial) selComercial.addEventListener('change', e=>{ currentFilter.comercial = e.target.value; currentPage=1; renderAbiertas(); });
+
+  // Selector de líneas por página
+  const selRowsPP = document.getElementById('sel-rows-per-page');
+  if(selRowsPP) selRowsPP.addEventListener('change', e=>{ rowsPerPage=parseInt(e.target.value)||20; currentPage=1; renderAbiertas(); });
+
   document.getElementById('btn-limpiar-filtros-finos').addEventListener('click', ()=>{
     currentFilter.importeMin = null; currentFilter.importeMax = null;
     currentFilter.matriz = ''; currentFilter.provincia = ''; currentFilter.pipeline = ''; currentFilter.comercial = '';
+    currentPage = 1;
     document.getElementById('filtro-importe-min').value = '';
     document.getElementById('filtro-importe-max').value = '';
     selMatriz.value = ''; selProv.value = ''; selPipe.value = '';
+    if(selComercial) selComercial.value = '';
     renderAbiertas();
   });
 
