@@ -11,7 +11,6 @@
 // (módulo AI-SUMMARY-PDF, más abajo).
 
 import fs from 'node:fs';
-import { PDFDocument, rgb, StandardFonts } from 'pdf-lib';
 import nodemailer from 'nodemailer';
 
 const FEED_URL = 'https://contrataciondelestado.es/sindicacion/sindicacion_643/licitacionesPerfilesContratanteCompleto3.atom';
@@ -312,193 +311,82 @@ Basa todas las respuestas SOLO en el texto de los pliegos. Si una sección no ti
   return JSON.parse(cleaned);
 }
 
-const PDF_PURPLE = rgb(0x56/255, 0x52/255, 0x94/255);
-const PDF_GREEN  = rgb(0x84/255, 0xBD/255, 0x00/255);
-const PDF_INK    = rgb(0.13, 0.13, 0.15);
-const PDF_SOFT   = rgb(0.42, 0.42, 0.46);
-const PAGE_W = 595.28, PAGE_H = 841.89, MARGIN = 50;
 
-function sanitizeForPdf(s){
-  if(s == null) return '';
-  return String(s)
-    .replace(/≤/g, '<=').replace(/≥/g, '>=')
-    .replace(/[–—]/g, '-')
-    .replace(/[‘’]/g, "'").replace(/[“”]/g, '"')
-    .replace(/…/g, '...')
-    .replace(/•/g, '-')
-    .replace(/×/g, 'x').replace(/÷/g, '/')
-    .replace(/[^\x00-\x7F\u00A0-\u00FF]/g, '?'); // resto fuera de Latin-1: mejor "?" que reventar la fuente
+
+// === [MOD:HTML-SUMMARY] ===
+function escHtml(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+function generateSummaryHtml(entry, summary, docLabels){
+  const fecha = new Date().toLocaleDateString('es-ES',{day:'2-digit',month:'2-digit',year:'numeric'});
+  const viabilidadColor = summary.viabilidad==='ALTA' ? '#5E8500' : summary.viabilidad==='MEDIA' ? '#C97B2E' : '#A23B3B';
+  const viabilidadBg    = summary.viabilidad==='ALTA' ? '#EEF6DB' : summary.viabilidad==='MEDIA' ? '#FBEBD9' : '#F6E2DF';
+  const importeStr = entry.importe != null ? entry.importe.toLocaleString('es-ES',{maximumFractionDigits:2})+' €' : (entry.importeRaw||'No especificado');
+  const deadlineStr = entry.deadline ? new Date(entry.deadline).toLocaleDateString('es-ES',{day:'2-digit',month:'2-digit',year:'numeric'}) : 'No especificada';
+
+  function section(title, items, color, dotColor){
+    if(!items||!items.length) return '';
+    return `<div class="section"><h3 style="color:${color};border-bottom:2px solid ${color};">${escHtml(title)}</h3><ul style="--dot:${dotColor||color};">${items.map(i=>`<li>${escHtml(i)}</li>`).join('')}</ul></div>`;
+  }
+
+  return `<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Resumen · ${escHtml(entry.expediente)}</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI',Arial,sans-serif;font-size:13px;color:#1A1830;background:#F7F6F3;line-height:1.5;}
+.header{background:linear-gradient(135deg,#1A1830 0%,#2D2B4E 60%,#3C3A6B 100%);color:#fff;padding:18px 32px;display:flex;justify-content:space-between;align-items:center;border-bottom:3px solid #84BD00;}
+.header .brand{font-size:18px;font-weight:700;}.header .sub{font-size:9px;color:#84BD00;letter-spacing:2px;text-transform:uppercase;margin-top:2px;}
+.header .line{width:80px;height:2px;background:#84BD00;margin-top:4px;}
+.header-right{text-align:right;font-size:10px;color:rgba(255,255,255,.6);}
+.header-right strong{color:#84BD00;font-size:11px;display:block;margin-bottom:2px;}
+.content{max-width:860px;margin:0 auto;padding:28px 32px;}
+h1{font-size:20px;font-weight:700;color:#1A1830;line-height:1.3;margin-bottom:6px;}
+.meta{font-size:11px;color:#5A5870;margin-bottom:16px;}
+.divider{height:1px;background:#E0DED8;margin-bottom:18px;}
+.ficha{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#E0DED8;border-radius:8px;overflow:hidden;margin-bottom:18px;}
+.ficha-cell{background:#fff;padding:13px 16px;}
+.ficha-cell label{font-size:9px;font-weight:700;color:#565294;text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:3px;}
+.ficha-cell .val{font-size:17px;font-weight:700;}
+.viabilidad{border-radius:8px;padding:11px 15px;margin-bottom:18px;border-left:4px solid ${viabilidadColor};background:${viabilidadBg};}
+.viabilidad strong{color:${viabilidadColor};font-size:12px;}
+.viabilidad p{font-size:12px;color:#1A1830;margin-top:3px;}
+.objeto{background:#fff;border-left:4px solid #84BD00;padding:12px 16px;border-radius:0 8px 8px 0;margin-bottom:18px;font-size:13px;line-height:1.6;box-shadow:0 1px 3px rgba(0,0,0,.06);}
+.section{background:#fff;border-radius:8px;padding:14px 16px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.06);}
+.section h3{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding-bottom:8px;margin-bottom:8px;}
+.section ul{list-style:none;padding:0;}
+.section ul li{padding:5px 0 5px 14px;border-bottom:1px solid #F0EEE8;position:relative;font-size:12.5px;}
+.section ul li:last-child{border-bottom:none;}
+.section ul li::before{content:'';position:absolute;left:0;top:11px;width:6px;height:6px;border-radius:1px;background:var(--dot,#565294);}
+.footer{background:#1A1830;color:rgba(255,255,255,.4);font-size:10px;text-align:center;padding:12px 32px;border-top:3px solid #84BD00;margin-top:20px;}
+.footer strong{color:rgba(255,255,255,.7);}
+@media print{body{background:#fff;}.header,.footer{-webkit-print-color-adjust:exact;print-color-adjust:exact;}}
+</style></head><body>
+<div class="header">
+  <div><div class="brand">AGQ LABS</div><div class="sub">Technological Services</div><div class="line"></div></div>
+  <div class="header-right"><strong>RESUMEN EJECUTIVO</strong>Licitación Pública · PLACSP</div>
+</div>
+<div class="content">
+  <h1>${escHtml(entry.title)}</h1>
+  <div class="meta">Expediente <strong>${escHtml(entry.expediente)}</strong>${entry.organo?' &middot; '+escHtml(entry.organo):''}</div>
+  <div class="divider"></div>
+  <div class="ficha">
+    <div class="ficha-cell"><label>Presupuesto de licitación</label><div class="val">${escHtml(importeStr)}</div></div>
+    <div class="ficha-cell"><label>Fecha límite de presentación</label><div class="val">${escHtml(deadlineStr)}</div></div>
+  </div>
+  ${summary.viabilidad?`<div class="viabilidad"><strong>VIABILIDAD PARA AGQ: ${escHtml(summary.viabilidad)}</strong>${summary.viabilidad_justificacion?`<p>${escHtml(summary.viabilidad_justificacion)}</p>`:''}  </div>`:''}
+  ${summary.descripcion_objeto?`<div class="objeto">${escHtml(summary.descripcion_objeto)}</div>`:''}
+  ${section('Criterios de valoración',summary.criterios_valoracion,'#565294')}
+  ${section('Aspectos administrativos clave',summary.aspectos_administrativos,'#565294')}
+  ${section('Aspectos técnicos requeridos',summary.aspectos_tecnicos,'#565294')}
+  ${section('Parámetros y matrices',summary.parametros_matrices,'#5E8500','#84BD00')}
+  ${section('Acreditaciones exigidas',summary.acreditaciones_exigidas,'#5E8500','#84BD00')}
+  ${section('Plazos y garantías',summary.plazos_garantias,'#6B7280','#9896B0')}
+  ${summary.riesgos_para_agq?.length?section('Riesgos / aspectos a verificar para AGQ',summary.riesgos_para_agq,'#A23B3B'):''}
+</div>
+<div class="footer"><strong>AGQ Labs</strong> &middot; Radar de Licitaciones &middot; Resumen IA · ${escHtml(docLabels.join(', '))} &middot; Verificar siempre el pliego original &middot; ${fecha}</div>
+</body></html>`;
 }
 
-function wrapText(text, font, size, maxWidth){
-  const words = sanitizeForPdf(text).split(/\s+/);
-  const lines = []; let line = '';
-  for(const w of words){
-    const test = line ? line + ' ' + w : w;
-    if(font.widthOfTextAtSize(test, size) > maxWidth && line){ lines.push(line); line = w; }
-    else line = test;
-  }
-  if(line) lines.push(line);
-  return lines;
-}
-
-function formatImporteEs(entry){
-  if(entry.importe != null && !isNaN(entry.importe)){
-    return entry.importe.toLocaleString('es-ES', { maximumFractionDigits: 2 }) + ' €';
-  }
-  return entry.importeRaw ? sanitizeForPdf(entry.importeRaw) : 'No especificado en el feed';
-}
-
-function formatDeadlineEs(entry){
-  if(!entry.deadline) return 'No especificada';
-  const d = new Date(entry.deadline);
-  if(isNaN(d.getTime())) return sanitizeForPdf(entry.deadline);
-  const fecha = d.toLocaleDateString('es-ES', { day:'2-digit', month:'2-digit', year:'numeric' });
-  const tieneHora = entry.deadline.includes('T') && !/T00:00:00/.test(entry.deadline);
-  const hora = tieneHora ? d.toLocaleTimeString('es-ES', { hour:'2-digit', minute:'2-digit' }) + 'h' : '';
-  return fecha + (hora ? ' · ' + hora : '') + (entry.deadlineSource ? ' (' + sanitizeForPdf(entry.deadlineSource) + ')' : '');
-}
-
-async function generateSummaryPdf(entry, summary, docLabels){
-  const doc = await PDFDocument.create();
-  const fontReg  = await doc.embedFont(StandardFonts.Helvetica);
-  const fontBold = await doc.embedFont(StandardFonts.HelveticaBold);
-  let page = doc.addPage([PAGE_W, PAGE_H]);
-  let y = PAGE_H - MARGIN;
-
-  const CONTENT_W = PAGE_W - 2*MARGIN;
-
-  function checkPage(needed){
-    if(y - needed < MARGIN + 30){
-      drawPageFooter();
-      page = doc.addPage([PAGE_W, PAGE_H]);
-      y = PAGE_H - MARGIN;
-      // Línea de color superior en páginas adicionales
-      page.drawRectangle({ x:0, y:PAGE_H-4, width:PAGE_W, height:4, color:PDF_PURPLE });
-      page.drawRectangle({ x:0, y:PAGE_H-7, width:PAGE_W/2, height:3, color:PDF_GREEN });
-      y -= 28;
-    }
-  }
-
-  function drawPageFooter(){
-    page.drawLine({ start:{x:MARGIN,y:32}, end:{x:PAGE_W-MARGIN,y:32}, thickness:0.5, color:rgb(0.8,0.8,0.85) });
-    page.drawText(`AGQ Labs · Radar de Licitaciones · Resumen ejecutivo generado con IA · Fuente: ${docLabels.join(', ')} · Verificar siempre el pliego original`, {
-      x:MARGIN, y:20, size:6.5, font:fontReg, color:PDF_SOFT
-    });
-    page.drawText(new Date().toLocaleDateString('es-ES',{day:'2-digit',month:'2-digit',year:'numeric'}),
-      { x:PAGE_W-MARGIN-40, y:20, size:6.5, font:fontReg, color:PDF_SOFT });
-  }
-
-  // ─── CABECERA CORPORATIVA ───────────────────────────────────────────
-  // Banda superior bicolor
-  page.drawRectangle({ x:0, y:PAGE_H-4, width:PAGE_W, height:4, color:PDF_PURPLE });
-  page.drawRectangle({ x:0, y:PAGE_H-7, width:PAGE_W/2, height:3, color:PDF_GREEN });
-
-  // Fondo cabecera oscuro
-  page.drawRectangle({ x:0, y:PAGE_H-56, width:PAGE_W, height:49, color:rgb(0.10,0.09,0.15) });
-
-  // Texto AGQ LABS a la izquierda
-  page.drawText('AGQ LABS', { x:MARGIN, y:PAGE_H-28, size:16, font:fontBold, color:rgb(1,1,1) });
-  page.drawText('TECHNOLOGICAL SERVICES', { x:MARGIN, y:PAGE_H-40, size:7, font:fontReg, color:rgb(0.52,0.74,0) });
-  // Línea verde bajo AGQ LABS
-  page.drawLine({ start:{x:MARGIN,y:PAGE_H-44}, end:{x:MARGIN+92,y:PAGE_H-44}, thickness:1, color:PDF_GREEN });
-
-  // Título del documento a la derecha
-  const tipoDoc = 'RESUMEN EJECUTIVO';
-  const tipoW = fontBold.widthOfTextAtSize(tipoDoc, 9);
-  page.drawText(tipoDoc, { x:PAGE_W-MARGIN-tipoW, y:PAGE_H-28, size:9, font:fontBold, color:PDF_GREEN });
-  page.drawText('Licitación Pública · Plataforma de Contratación del Sector Público',
-    { x:PAGE_W-MARGIN-fontReg.widthOfTextAtSize('Licitación Pública · Plataforma de Contratación del Sector Público',7),
-      y:PAGE_H-40, size:7, font:fontReg, color:rgb(0.65,0.63,0.78) });
-
-  y = PAGE_H - 72;
-
-  // ─── TÍTULO Y EXPEDIENTE ────────────────────────────────────────────
-  const titleLines = wrapText(entry.title, fontBold, 13, CONTENT_W);
-  titleLines.forEach(l=>{ page.drawText(l, { x:MARGIN, y, size:13, font:fontBold, color:PDF_INK }); y -= 17; });
-  y -= 3;
-  const meta = sanitizeForPdf(`Expediente ${entry.expediente}${entry.organo?' · '+entry.organo:''}`);
-  page.drawText(meta, { x:MARGIN, y, size:9.5, font:fontReg, color:PDF_SOFT });
-  y -= 18;
-  page.drawLine({ start:{x:MARGIN,y}, end:{x:PAGE_W-MARGIN,y}, thickness:0.5, color:rgb(0.85,0.85,0.87) });
-  y -= 16;
-
-  // ─── FICHA RÁPIDA: importe + plazo ─────────────────────────────────
-  const fichaH = 44;
-  checkPage(fichaH + 20);
-  const colW = CONTENT_W / 2;
-  page.drawRectangle({ x:MARGIN, y:y-fichaH, width:CONTENT_W, height:fichaH, color:rgb(0.96,0.96,0.98), borderColor:rgb(0.85,0.85,0.90), borderWidth:0.5 });
-  // col izq: importe
-  page.drawText('PRESUPUESTO DE LICITACIÓN', { x:MARGIN+12, y:y-14, size:7.5, font:fontBold, color:PDF_PURPLE });
-  page.drawText(formatImporteEs(entry), { x:MARGIN+12, y:y-32, size:13, font:fontBold, color:PDF_INK });
-  // separador vertical
-  page.drawLine({ start:{x:MARGIN+colW,y:y-6}, end:{x:MARGIN+colW,y:y-fichaH+6}, thickness:0.5, color:rgb(0.82,0.82,0.88) });
-  // col der: fecha límite
-  page.drawText('FECHA LÍMITE DE PRESENTACIÓN', { x:MARGIN+colW+12, y:y-14, size:7.5, font:fontBold, color:PDF_PURPLE });
-  const deadlineStr = formatDeadlineEs(entry);
-  page.drawText(sanitizeForPdf(deadlineStr), { x:MARGIN+colW+12, y:y-32, size:13, font:fontBold, color:PDF_INK });
-  y -= (fichaH + 16);
-
-  // ─── SEMÁFORO DE VIABILIDAD ─────────────────────────────────────────
-  if(summary.viabilidad){
-    checkPage(36);
-    const vColor = summary.viabilidad==='ALTA' ? PDF_GREEN : summary.viabilidad==='MEDIA' ? rgb(0.79,0.49,0.16) : rgb(0.64,0.23,0.23);
-    const vBg    = summary.viabilidad==='ALTA' ? rgb(0.93,0.98,0.88) : summary.viabilidad==='MEDIA' ? rgb(0.99,0.95,0.88) : rgb(0.98,0.92,0.92);
-    const vLabel = `VIABILIDAD PARA AGQ: ${summary.viabilidad}`;
-    page.drawRectangle({ x:MARGIN, y:y-30, width:CONTENT_W, height:30, color:vBg, borderColor:vColor, borderWidth:1 });
-    page.drawRectangle({ x:MARGIN, y:y-30, width:4, height:30, color:vColor });
-    page.drawText(sanitizeForPdf(vLabel), { x:MARGIN+14, y:y-13, size:9, font:fontBold, color:vColor });
-    if(summary.viabilidad_justificacion){
-      const justLines = wrapText(summary.viabilidad_justificacion, fontReg, 8.5, CONTENT_W-28);
-      justLines.slice(0,1).forEach(l=>page.drawText(l, { x:MARGIN+14, y:y-24, size:8.5, font:fontReg, color:PDF_INK }));
-    }
-    y -= 44;
-  }
-
-  // ─── OBJETO DEL CONTRATO ────────────────────────────────────────────
-  if(summary.descripcion_objeto && summary.descripcion_objeto.trim()){
-    checkPage(30);
-    page.drawText('OBJETO DEL CONTRATO', { x:MARGIN, y, size:9.5, font:fontBold, color:PDF_PURPLE });
-    y -= 14;
-    const dLines = wrapText(summary.descripcion_objeto, fontReg, 9.5, CONTENT_W-10);
-    checkPage(dLines.length*13+14);
-    const boxTop = y+4;
-    dLines.forEach(l=>{ page.drawText(l, { x:MARGIN+10, y, size:9.5, font:fontReg, color:PDF_INK }); y -= 13; });
-    page.drawRectangle({ x:MARGIN, y:y+2, width:3, height:boxTop-(y+2), color:PDF_GREEN });
-    y -= 18;
-  }
-
-  // ─── FUNCIÓN GENÉRICA DE SECCIÓN ────────────────────────────────────
-  function section(title, items, color){
-    if(!items || !items.length) return;
-    checkPage(32);
-    const sColor = color || PDF_PURPLE;
-    page.drawText(title.toUpperCase(), { x:MARGIN, y, size:9.5, font:fontBold, color:sColor });
-    y -= 14;
-    items.forEach(it=>{
-      const lines = wrapText(sanitizeForPdf(it), fontReg, 9.5, CONTENT_W-16);
-      checkPage(lines.length*13+6);
-      // bullet cuadrado del color de la sección
-      page.drawRectangle({ x:MARGIN+1, y:y-1, width:5, height:5, color:sColor });
-      lines.forEach((l,i)=>{ page.drawText(l, { x:MARGIN+14, y, size:9.5, font:i===0?fontReg:fontReg, color:PDF_INK }); y -= 13; });
-      y -= 3;
-    });
-    y -= 8;
-  }
-
-  section('Criterios de valoración', summary.criterios_valoracion, PDF_PURPLE);
-  section('Aspectos administrativos clave', summary.aspectos_administrativos, PDF_PURPLE);
-  section('Aspectos técnicos requeridos', summary.aspectos_tecnicos, PDF_PURPLE);
-  section('Parámetros y matrices', summary.parametros_matrices, PDF_GREEN);
-  section('Acreditaciones exigidas en el pliego', summary.acreditaciones_exigidas, PDF_GREEN);
-  section('Plazos y garantías', summary.plazos_garantias, PDF_SOFT);
-  if(summary.riesgos_para_agq && summary.riesgos_para_agq.length){
-    section('ATENCION / Riesgos y aspectos a verificar para AGQ', summary.riesgos_para_agq, rgb(0.64,0.23,0.23));
-  }
-
-  drawPageFooter();
-  return Buffer.from(await doc.save());
-}
 
 function sanitizeFilename(s){
   return String(s).normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-zA-Z0-9_-]+/g,'_').slice(0,80) || 'sin-id';
@@ -665,7 +553,7 @@ async function generateSummariesForOpenTenders(entries){
   fs.mkdirSync(RESUMENES_DIR, { recursive: true });
   const candidates = entries.filter(e => {
     if(!isOpenForSubmission(e)) return false;
-    if(!e.resumenPdfPath) return true;
+    if(!e.resumenHtmlPath) return true;
     if(!e.resumenVersion || e.resumenVersion < 2) return true;
     return false;
   }).slice(0, 5); // máx 5 por barrido para no saturar el rate limit de Gemini
@@ -697,10 +585,10 @@ async function generateSummariesForOpenTenders(entries){
       }
 
       const summary = await callGeminiSummary(entry, docs);
-      const pdfBuffer = await generateSummaryPdf(entry, summary, docs.map(d=>d.label));
-      const filename = sanitizeFilename(entry.expediente) + '.pdf';
-      fs.writeFileSync(RESUMENES_DIR + '/' + filename, pdfBuffer);
-      entry.resumenPdfPath = RESUMENES_DIR + '/' + filename;
+      const filename = sanitizeFilename(entry.expediente) + '.html';
+      const htmlContent = generateSummaryHtml(entry, summary, docs.map(d=>d.label));
+      fs.writeFileSync(RESUMENES_DIR + '/' + filename, htmlContent, 'utf-8');
+      entry.resumenHtmlPath = RESUMENES_DIR + '/' + filename;
       entry.resumenGeneradoEn = new Date().toISOString();
       entry.resumenVersion = 2;
       diag.generados++;
@@ -759,8 +647,8 @@ async function run(){
   const byId = new Map(existing.map(e => [e.expediente, e]));
   relevant.forEach(e => {
     const prev = byId.get(e.expediente);
-    if(prev && prev.resumenPdfPath){
-      e.resumenPdfPath = prev.resumenPdfPath;
+    if(prev && prev.resumenHtmlPath){
+      e.resumenHtmlPath = prev.resumenHtmlPath;
       e.resumenGeneradoEn = prev.resumenGeneradoEn;
     }
     byId.set(e.expediente, e);
