@@ -497,7 +497,7 @@ async function sendDeadlineAlerts(merged){
 
   for(const [expediente, sel] of seleccionadas){
     if(sel.alertaEnviada) continue;
-    if(sel.estadoPipeline && ['presentada','ganada','perdida'].includes(sel.estadoPipeline)) continue;
+    if(sel.estadoPipeline && ['presentada','ganada','perdida','rechazada'].includes(sel.estadoPipeline)) continue;
     const entry = byId.get(expediente);
     if(!entry || !entry.deadline) continue;
     if(!isOpenForSubmission(entry)) continue;
