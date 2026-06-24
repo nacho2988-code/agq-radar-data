@@ -311,14 +311,16 @@ select.sortsel{
 }
 .row.marcada-presentar{background:rgba(86,82,148,0.05);}
 
-.pipeline-board{display:flex;gap:12px;overflow-x:auto;padding-bottom:12px;}
-.pipeline-col{flex:0 0 240px;background:var(--paper-dim);border-radius:10px;padding:10px;min-height:120px;}
-.pipeline-col h4{font-family:var(--font-display);font-size:12px;text-transform:uppercase;margin:0 0 8px;padding-bottom:8px;border-bottom:2px solid currentColor;display:flex;justify-content:space-between;align-items:center;}
-.pipeline-card{background:#fff;border:1px solid var(--line);border-radius:8px;padding:8px 10px;margin-bottom:8px;cursor:pointer;font-size:12px;}
-.pipeline-card:hover{border-color:var(--agq-purple);}
-.pipeline-card .t{font-weight:600;margin-bottom:4px;line-height:1.3;}
+.pipeline-board{display:flex;gap:10px;overflow-x:auto;padding-bottom:12px;align-items:flex-start;}
+.pipeline-col{flex:0 0 220px;background:var(--paper-dim);border-radius:12px;padding:10px;min-height:120px;}
+.pipeline-col h4{font-family:var(--font-display);font-size:12px;text-transform:uppercase;margin:0 0 8px;padding-bottom:8px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;}
+.pipeline-drop-zone{min-height:60px;border-radius:8px;transition:background 0.15s;padding:2px;}
+.pipeline-card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:9px 10px;margin-bottom:7px;cursor:grab;font-size:12px;box-shadow:var(--shadow-s);transition:box-shadow 0.15s,transform 0.1s;}
+.pipeline-card:hover{box-shadow:var(--shadow-m);transform:translateY(-1px);}
+.pipeline-card:active{cursor:grabbing;}
+.pipeline-card .t{font-weight:600;margin-bottom:2px;line-height:1.3;color:var(--ink);}
 .pipeline-card .m{color:var(--ink-soft);font-size:11px;}
-.pipeline-card select{margin-top:6px;width:100%;font-size:11px;padding:4px;border-radius:5px;border:1px solid var(--line);}
+.pipeline-empty-col{font-size:11px;color:var(--ink-soft);text-align:center;padding:16px 8px;border:2px dashed var(--line);border-radius:8px;opacity:0.6;}
 .tabla-rank{width:100%;border-collapse:collapse;font-size:12.5px;}
 .tabla-rank th{text-align:left;padding:6px 8px;color:var(--ink-soft);font-weight:600;border-bottom:1px solid var(--line);font-size:11px;text-transform:uppercase;}
 .tabla-rank td{padding:7px 8px;border-bottom:1px solid var(--line);}
@@ -523,6 +525,35 @@ footer.foot{
   letter-spacing:0.02em;
 }
 footer.foot strong{color:rgba(255,255,255,0.7);}
+
+/* ============================================================
+   DARK MODE
+   ============================================================ */
+body.dark{
+  --paper:#0F0E1A;
+  --paper-dim:#1A1830;
+  --card:#1E1D30;
+  --ink:#E8E6F0;
+  --ink-soft:#9896B0;
+  --line:#2E2C44;
+  --line-strong:#3E3C58;
+  --agq-purple-bg:rgba(86,82,148,0.15);
+  --agq-green-bg:rgba(132,189,0,0.10);
+  --amber-bg:rgba(201,123,46,0.12);
+  --terracotta-bg:rgba(162,59,59,0.12);
+  --slate-bg:rgba(107,114,128,0.12);
+  --shadow-s:0 1px 4px rgba(0,0,0,0.3);
+  --shadow-m:0 4px 16px rgba(0,0,0,0.4);
+}
+body.dark header.topbar{ background:linear-gradient(135deg,#0A0918 0%,#1A1830 60%,#252340 100%); }
+body.dark .list{ border-color:var(--line); }
+body.dark .toolbar input[type="search"]{ background:var(--card); color:var(--ink); border-color:var(--line); }
+body.dark select.sortsel{ background:var(--card); color:var(--ink); border-color:var(--line); }
+body.dark .chip{ background:var(--card); color:var(--ink-soft); border-color:var(--line); }
+body.dark .chip.active{ background:var(--agq-purple); color:#fff; }
+body.dark input[type="number"]{ background:var(--card); color:var(--ink); border-color:var(--line); }
+body.dark textarea.notearea{ background:var(--card); color:var(--ink); border-color:var(--line); }
+body.dark .brand-logo div{ background:rgba(255,255,255,0.90)!important; }
 </style>
 </head>
 <body>
@@ -541,7 +572,8 @@ footer.foot strong{color:rgba(255,255,255,0.7);}
         <span class="brand-tagline">Plataforma de Contratación del Sector Público</span>
       </div>
     </div>
-    <span id="topbar-sync-indicator" style="font-size:10.5px;color:rgba(132,189,0,0.7);font-family:var(--font-mono);white-space:nowrap;margin-left:auto;margin-right:16px;"></span>
+    <span id="topbar-sync-indicator" style="font-size:10.5px;color:rgba(132,189,0,0.7);font-family:var(--font-mono);white-space:nowrap;margin-left:auto;margin-right:12px;"></span>
+    <button id="btn-dark-mode" title="Modo oscuro" style="background:none;border:none;color:rgba(255,255,255,0.6);font-size:18px;cursor:pointer;padding:6px;border-radius:6px;transition:color 0.2s;" onclick="toggleDarkMode()">🌙</button>
     <nav class="tabs" id="tabs">
       <button data-view="abiertas" class="active">Abiertas</button>
       <button data-view="pipeline">Pipeline</button>
@@ -603,6 +635,7 @@ footer.foot strong{color:rgba(255,255,255,0.7);}
           <option value="JTG">JTG</option>
         </select>
         <button class="btn ghost" id="btn-limpiar-filtros-finos" style="font-size:12px;padding:6px 10px;">Limpiar filtros</button>
+        <button class="btn ghost" id="btn-export-abiertas" onclick="exportarExcel('abiertas')" style="font-size:12px;padding:6px 10px;" title="Exportar lista actual a Excel">📥 Excel</button>
       </div>
 
       <div class="list" id="list-abiertas"></div>
@@ -631,6 +664,7 @@ footer.foot strong{color:rgba(255,255,255,0.7);}
       <div class="callout">Licitaciones del sector ambiental/laboratorio que ya han sido resueltas, con el adjudicatario indicado por la plataforma.</div>
       <div class="toolbar">
         <input type="search" id="search-adjudicadas" placeholder="Buscar por adjudicatario, órgano, expediente…">
+        <button class="btn ghost" onclick="exportarExcel('adjudicadas')" style="font-size:12px;padding:6px 10px;" title="Exportar a Excel">📥 Excel</button>
       </div>
       <div class="list" id="list-adjudicadas"></div>
       <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 16px;border-top:1px solid var(--line);flex-wrap:wrap;gap:8px;">
@@ -763,6 +797,22 @@ const DEFAULT_GENERIC_AMBIGUOUS = [
 ];
 
 // === [MOD:PIPELINE-NOTAS-FILTROS-ANALITICA] ===
+// === DARK MODE ===
+function toggleDarkMode(){
+  const isDark = document.body.classList.toggle('dark');
+  localStorage.setItem('agq_dark_mode',''+isDark);
+  document.getElementById('btn-dark-mode').textContent = isDark ? '☀️' : '🌙';
+}
+(function initDarkMode(){
+  const saved = localStorage.getItem('agq_dark_mode');
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme:dark)').matches;
+  if(saved === 'true' || (saved === null && prefersDark)){
+    document.body.classList.add('dark');
+    const btn = document.getElementById('btn-dark-mode');
+    if(btn) btn.textContent = '☀️';
+  }
+})();
+
 const AGQ_LABEL = 'LABS & TECHNOLOGICAL SERVICES AGQ';
 function isAgqAdjudicatario(nombre){ return (nombre||'').toUpperCase().includes('AGQ'); }
 const COMERCIALES = ['RSB', 'PRF', 'MPA', 'IBV', 'JTG'];
@@ -1400,6 +1450,73 @@ function renderAdjudicadas(){
   document.getElementById('adj-pag-prev')?.addEventListener('click',()=>{if(adjPage>1){adjPage--;renderAdjudicadas();}});
   document.getElementById('adj-pag-next')?.addEventListener('click',()=>{if(adjPage<totalPagesAdj){adjPage++;renderAdjudicadas();}});
 }
+// === [MOD:EXCEL-EXPORT] ===
+function exportarExcel(vista){
+  let rows, filename, headers;
+  if(vista === 'abiertas'){
+    const items = getOpenTenders().filter(t => isSectorRelevant(t));
+    headers = ['Expediente','Título','Órgano','Importe (€)','Fecha límite','Estado pipeline','Comercial','CPV'];
+    rows = items.map(t => [
+      t.expediente, t.title, t.organo||'',
+      t.importe||'', t.deadline||'',
+      pipelineMeta(t.estadoPipeline||'').label,
+      t.comercial||'',
+      (t.cpv||[]).join(', ')
+    ]);
+    filename = `AGQ_Licitaciones_Abiertas_${new Date().toISOString().slice(0,10)}.csv`;
+  } else {
+    const items = getAwardedTenders();
+    headers = ['Expediente','Título','Órgano','Adjudicatario','Importe adjudicación (€)','Fecha adjudicación'];
+    rows = items.map(t => [
+      t.expediente, t.title, t.organo||'',
+      isAgqAdjudicatario(t.adjudicatario) ? AGQ_LABEL : (t.adjudicatario||''),
+      t.importeAdjudicacion||t.importe||'',
+      t.fechaAdjudicacion||''
+    ]);
+    filename = `AGQ_Licitaciones_Adjudicadas_${new Date().toISOString().slice(0,10)}.csv`;
+  }
+
+  // Generar CSV (compatible con Excel con BOM UTF-8)
+  const escape = v => {
+    const s = String(v==null?'':v).replace(/"/g,'""');
+    return s.includes(',') || s.includes('"') || s.includes('\n') ? `"${s}"` : s;
+  };
+  const csv = '\uFEFF' + [headers, ...rows].map(r => r.map(escape).join(',')).join('\n');
+  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = filename; a.click();
+  URL.revokeObjectURL(url);
+}
+
+// === [MOD:ESTIMACION-PRECIO] ===
+function estimarPrecioCompetitivo(tender){
+  // Busca en el histórico de adjudicaciones contratos similares:
+  // 1) Mismo órgano + CPV solapado
+  // 2) Solo CPV solapado
+  // Devuelve { contratos, mediana, min, max, recomendado }
+  const historico = getAwardedTenders().filter(t =>
+    t.importe && t.importe > 0 && t.adjudicatario
+  );
+  const cpvSet = new Set((tender.cpv||[]).map(c=>c.slice(0,6))); // usar 6 dígitos para más coincidencias
+
+  const similares = historico.filter(t => {
+    const cpvMatch = (t.cpv||[]).some(c => cpvSet.has(c.slice(0,6)));
+    if(!cpvMatch) return false;
+    return true;
+  }).sort((a,b)=>(b.fechaAdjudicacion||'').localeCompare(a.fechaAdjudicacion||''));
+
+  if(!similares.length) return null;
+
+  const importes = similares.map(t => t.importeAdjudicacion || t.importe).filter(Boolean).sort((a,b)=>a-b);
+  const mediana = importes[Math.floor(importes.length/2)];
+  const min = importes[0];
+  const max = importes[importes.length-1];
+  // Recomendar un 5% por debajo de la mediana como precio competitivo
+  const recomendado = Math.round(mediana * 0.95);
+  return { contratos: similares.slice(0,5), mediana, min, max, recomendado, total: similares.length };
+}
+
 // === [MOD:PIPELINE-BOARD] ===
 // === [MOD:OFERTA-TECNICA] ===
 function sanitizeForPdfClient(s){
@@ -1571,26 +1688,65 @@ function renderPipeline(){
 
   board.innerHTML = ESTADOS_PIPELINE.map(estado=>{
     const items = marcadas.filter(t => (t.estadoPipeline||'detectada') === estado.id);
-    return `<div class="pipeline-col" style="color:${estado.color};">
-      <h4><span>${estado.label}</span><span style="font-family:var(--font-mono);">${items.length}</span></h4>
-      ${items.map(t=>{
-        const days = t.deadline ? daysUntil(t.deadline) : null;
-        return `<div class="pipeline-card" data-id="${escapeAttr(t.expediente)}">
-          <div class="t">${escapeHtml(t.title.slice(0,70))}${t.title.length>70?'…':''}</div>
-          <div class="m">${t.importe?formatMoney(t.importe):'—'} · ${days!==null ? (days>=0?days+'d restantes':'cerrada') : 'sin fecha'}</div>
-          <select data-id="${escapeAttr(t.expediente)}" onclick="event.stopPropagation();">
-            ${ESTADOS_PIPELINE.map(e2=>`<option value="${e2.id}" ${e2.id===estado.id?'selected':''}>${e2.label}</option>`).join('')}
-          </select>
-        </div>`;
-      }).join('') || '<p style="font-size:11px;color:var(--ink-soft);">Vacío</p>'}
+    return `<div class="pipeline-col" data-estado="${estado.id}" style="color:${estado.color};">
+      <h4>
+        <span style="display:flex;align-items:center;gap:6px;">
+          <span style="width:8px;height:8px;border-radius:50%;background:${estado.color};display:inline-block;"></span>
+          ${estado.label}
+        </span>
+        <span style="font-family:var(--font-mono);font-size:12px;background:var(--paper-dim);padding:2px 8px;border-radius:10px;color:var(--ink-soft);">${items.length}</span>
+      </h4>
+      <div class="pipeline-drop-zone" data-estado="${estado.id}">
+        ${items.map(t=>{
+          const days = t.deadline ? daysUntil(t.deadline) : null;
+          const urgente = days !== null && days >= 0 && days <= 5;
+          const comercial = t.comercial ? `<span style="font-size:10px;background:var(--agq-purple-bg);color:var(--agq-purple);padding:1px 6px;border-radius:8px;">${escapeHtml(t.comercial)}</span>` : '';
+          const motivo = t.motivoRechazo ? `<span style="font-size:10px;color:var(--terracotta);">· ${escapeHtml(t.motivoRechazo)}</span>` : '';
+          return `<div class="pipeline-card" draggable="true"
+            data-id="${escapeAttr(t.expediente)}"
+            style="border-left:3px solid ${estado.color};">
+            <div class="t">${escapeHtml(t.title.slice(0,65))}${t.title.length>65?'…':''}</div>
+            <div class="m" style="display:flex;flex-wrap:wrap;gap:4px;align-items:center;margin-top:5px;">
+              <span>${t.importe?formatMoney(t.importe):'—'}</span>
+              ${urgente?`<span style="color:var(--terracotta);font-weight:600;">⚡ ${days}d</span>`:(days!==null?`<span style="color:var(--ink-soft);">${days>=0?days+'d':'cerrada'}</span>`:'<span style="color:var(--ink-soft);">sin fecha</span>')}
+              ${comercial}${motivo}
+            </div>
+          </div>`;
+        }).join('') || `<div class="pipeline-empty-col">Arrastra aquí</div>`}
+      </div>
     </div>`;
   }).join('');
 
+  // Click para abrir detalle
   board.querySelectorAll('.pipeline-card').forEach(card=>{
     card.addEventListener('click', ()=>openDetail(card.dataset.id));
   });
-  board.querySelectorAll('.pipeline-card select').forEach(sel=>{
-    sel.addEventListener('change', e=>{ setPipelineEstado(e.target.dataset.id, e.target.value); });
+
+  // Drag & Drop
+  let dragId = null;
+  board.querySelectorAll('.pipeline-card').forEach(card=>{
+    card.addEventListener('dragstart', e=>{
+      dragId = card.dataset.id;
+      card.style.opacity='0.4';
+      e.dataTransfer.effectAllowed='move';
+    });
+    card.addEventListener('dragend', ()=>{ card.style.opacity='1'; });
+  });
+
+  board.querySelectorAll('.pipeline-drop-zone').forEach(zone=>{
+    zone.addEventListener('dragover', e=>{
+      e.preventDefault();
+      e.dataTransfer.dropEffect='move';
+      zone.style.background='var(--agq-purple-bg)';
+    });
+    zone.addEventListener('dragleave', ()=>{ zone.style.background=''; });
+    zone.addEventListener('drop', e=>{
+      e.preventDefault();
+      zone.style.background='';
+      const nuevoEstado = zone.dataset.estado;
+      if(dragId && nuevoEstado) setPipelineEstado(dragId, nuevoEstado);
+      dragId = null;
+    });
   });
 }
 
@@ -1755,13 +1911,40 @@ function openDetail(expediente){
 
       <div class="section-block">
         <h3>Datos generales</h3>
-        <div class="kv"><b>Órgano</b><span>${escapeHtml(t.organo||'—')}</span></div>
         <div class="kv"><b>Importe</b><span class="v">${t.importe ? formatMoney(t.importe) : '—'}</span></div>
         <div class="kv"><b>CPV</b><span class="v">${(t.cpv||[]).join(', ') || 'No detectado'}</span></div>
         <div class="kv"><b>Fecha límite</b><span class="v">${t.deadline ? formatDate(t.deadline)+' · '+t.deadlineSource : 'No detectada — revisar en plataforma'}</span></div>
         <div class="kv"><b>Última act.</b><span class="v">${t.updated ? formatDate(t.updated) : '—'}</span></div>
         ${t.link ? `<div style="margin-top:10px;"><a href="${escapeAttr(t.link)}" target="_blank" rel="noopener">Ver expediente en la Plataforma ↗</a></div>` : ''}
       </div>
+
+      ${(()=>{
+        const est = estimarPrecioCompetitivo(t);
+        if(!est) return '';
+        return `<div class="section-block" style="border-left:3px solid var(--agq-green);padding-left:14px;">
+          <h3>💡 Estimación precio competitivo</h3>
+          <p style="font-size:12px;color:var(--ink-soft);margin:0 0 10px;">Basado en ${est.total} contratos similares del histórico (CPV coincidente).</p>
+          <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:10px;">
+            <div style="background:var(--agq-green-bg);border-radius:8px;padding:10px;text-align:center;">
+              <div style="font-size:11px;color:var(--agq-green-deep);font-weight:600;text-transform:uppercase;margin-bottom:4px;">Precio recomendado</div>
+              <div style="font-size:18px;font-weight:700;color:var(--agq-green-deep);">${formatMoney(est.recomendado)}</div>
+              <div style="font-size:10px;color:var(--ink-soft);">5% por debajo de la mediana</div>
+            </div>
+            <div style="background:var(--paper-dim);border-radius:8px;padding:10px;text-align:center;">
+              <div style="font-size:11px;color:var(--ink-soft);font-weight:600;text-transform:uppercase;margin-bottom:4px;">Mediana histórica</div>
+              <div style="font-size:18px;font-weight:700;">${formatMoney(est.mediana)}</div>
+              <div style="font-size:10px;color:var(--ink-soft);">Rango: ${formatMoney(est.min)} – ${formatMoney(est.max)}</div>
+            </div>
+          </div>
+          <p style="font-size:11px;color:var(--ink-soft);font-weight:600;margin:0 0 6px;">Contratos de referencia:</p>
+          ${est.contratos.map(c=>`<div style="font-size:11px;border-bottom:1px solid var(--line);padding:4px 0;display:flex;justify-content:space-between;gap:8px;">
+            <span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="${escapeAttr(c.title)}">${escapeHtml(c.title.slice(0,55))}…</span>
+            <span style="font-weight:600;white-space:nowrap;color:${isAgqAdjudicatario(c.adjudicatario)?'var(--agq-green-deep)':'var(--ink-soft)'};">${escapeHtml(isAgqAdjudicatario(c.adjudicatario)?'AGQ':c.adjudicatario.slice(0,20))}</span>
+            <span style="white-space:nowrap;">${formatMoney(c.importeAdjudicacion||c.importe)}</span>
+          </div>`).join('')}
+          <p style="font-size:10px;color:var(--ink-soft);margin:8px 0 0;">⚠️ Orientativo. Revisa siempre los pliegos y la estrategia comercial antes de fijar el precio.</p>
+        </div>`;
+      })()}
 
       <div class="section-block">
         <h3>Compatibilidad con acreditación AGQ</h3>
