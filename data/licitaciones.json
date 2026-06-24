@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-24T17:22:56.285Z",
+  "generatedAt": "2026-06-24T17:49:15.192Z",
   "totalEntriesScanned": 5871,
   "pagesFetched": 12,
   "coverageHoursTarget": 72,
@@ -11,91 +11,91 @@
     "errores": [
       {
         "expediente": "470/2026",
-        "motivo": "WinAnsi cannot encode \"⚠\" (0x26a0)"
+        "motivo": "HTTP 429 de la API de Gemini: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: "
       },
       {
         "expediente": "TEC0007145",
-        "motivo": "WinAnsi cannot encode \"⚠\" (0x26a0)"
+        "motivo": "HTTP 429 de la API de Gemini: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: "
       },
       {
         "expediente": "2026/035020",
-        "motivo": "WinAnsi cannot encode \"⚠\" (0x26a0)"
+        "motivo": "HTTP 429 de la API de Gemini: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: "
       },
       {
         "expediente": "2026/035228",
-        "motivo": "HTTP 503 de la API de Gemini: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"s"
+        "motivo": "HTTP 429 de la API de Gemini: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: "
       },
       {
         "expediente": "P/133/X/26/2",
-        "motivo": "WinAnsi cannot encode \"⚠\" (0x26a0)"
+        "motivo": "HTTP 429 de la API de Gemini: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: "
       },
       {
         "expediente": "Servicios  02/2026",
-        "motivo": "HTTP 503 de la API de Gemini: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"s"
+        "motivo": "HTTP 429 de la API de Gemini: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: "
       },
       {
         "expediente": "2026/60162245",
-        "motivo": "WinAnsi cannot encode \"⚠\" (0x26a0)"
+        "motivo": "HTTP 429 de la API de Gemini: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: "
       },
       {
         "expediente": "2026/14",
-        "motivo": "HTTP 503 de la API de Gemini: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"s"
+        "motivo": "HTTP 429 de la API de Gemini: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: "
       },
       {
         "expediente": "83/2026",
-        "motivo": "WinAnsi cannot encode \"⚠\" (0x26a0)"
+        "motivo": "HTTP 429 de la API de Gemini: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: "
       },
       {
         "expediente": "C30268926002",
-        "motivo": "HTTP 503 de la API de Gemini: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"s"
+        "motivo": "HTTP 429 de la API de Gemini: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: "
       },
       {
         "expediente": "2026/035113",
-        "motivo": "HTTP 503 de la API de Gemini: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"s"
+        "motivo": "HTTP 429 de la API de Gemini: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: "
       },
       {
         "expediente": "26523/2025",
-        "motivo": "WinAnsi cannot encode \"⚠\" (0x26a0)"
+        "motivo": "HTTP 429 de la API de Gemini: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: "
       },
       {
         "expediente": "1499/2026",
-        "motivo": "WinAnsi cannot encode \"⚠\" (0x26a0)"
+        "motivo": "HTTP 429 de la API de Gemini: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: "
       },
       {
         "expediente": "713/2026",
-        "motivo": "HTTP 503 de la API de Gemini: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"s"
+        "motivo": "HTTP 429 de la API de Gemini: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: "
       },
       {
         "expediente": "PS03-11062026",
-        "motivo": "WinAnsi cannot encode \"⚠\" (0x26a0)"
+        "motivo": "HTTP 429 de la API de Gemini: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: "
       },
       {
         "expediente": "CS_25_03",
-        "motivo": "WinAnsi cannot encode \"⚠\" (0x26a0)"
+        "motivo": "HTTP 429 de la API de Gemini: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: "
       },
       {
         "expediente": "DEMA-2026-031",
-        "motivo": "HTTP 503 de la API de Gemini: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"s"
+        "motivo": "HTTP 429 de la API de Gemini: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: "
       },
       {
         "expediente": "70060/2026/48",
-        "motivo": "WinAnsi cannot encode \"⚠\" (0x26a0)"
+        "motivo": "HTTP 429 de la API de Gemini: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: "
       },
       {
         "expediente": "227/2026",
-        "motivo": "HTTP 503 de la API de Gemini: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"s"
+        "motivo": "HTTP 429 de la API de Gemini: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: "
       },
       {
         "expediente": "1507213C",
-        "motivo": "HTTP 503 de la API de Gemini: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"s"
+        "motivo": "HTTP 429 de la API de Gemini: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: "
       },
       {
         "expediente": "4705/2026",
-        "motivo": "HTTP 503 de la API de Gemini: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"s"
+        "motivo": "HTTP 429 de la API de Gemini: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: "
       },
       {
         "expediente": "2886902M",
-        "motivo": "HTTP 503 de la API de Gemini: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"s"
+        "motivo": "WinAnsi cannot encode \"⚠\" (0x26a0)"
       },
       {
         "expediente": "2026/034792",
@@ -218,7 +218,7 @@
       "importeAdjudicacion": 137315.95,
       "fechaAdjudicacion": "2026-05-19",
       "rawSummary": "",
-      "importedAt": "2026-06-24T17:07:14.145Z"
+      "importedAt": "2026-06-24T17:47:01.046Z"
     },
     {
       "expediente": "AM-DEMA-2026-002",
@@ -315,7 +315,7 @@
       "importeAdjudicacion": 85600,
       "fechaAdjudicacion": "2026-06-17",
       "rawSummary": "",
-      "importedAt": "2026-06-24T17:06:15.283Z"
+      "importedAt": "2026-06-24T17:46:11.773Z"
     },
     {
       "expediente": "TSA0083500",
@@ -445,7 +445,7 @@
       "importeAdjudicacion": 21780,
       "fechaAdjudicacion": "2026-06-15",
       "rawSummary": "",
-      "importedAt": "2026-06-24T17:07:14.150Z"
+      "importedAt": "2026-06-24T17:47:01.051Z"
     },
     {
       "expediente": "2912/2024",
@@ -585,7 +585,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 3.26/20830.0054; Órgano de Contratación: ADIF Alta Velocidad - Presidencia; Importe: 3789710.01 EUR; Estado: EV",
-      "importedAt": "2026-06-24T17:06:50.662Z"
+      "importedAt": "2026-06-24T17:46:40.482Z"
     },
     {
       "expediente": "03/2026",
@@ -866,7 +866,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 2026000130; Órgano de Contratación: Consejería de Ordenación del Territorio, Urbanismo, Vivienda y Derechos Ciudadanos del Principado de Asturias; Importe: 233653.75 EUR; Estado: EV",
-      "importedAt": "2026-06-24T17:07:02.800Z"
+      "importedAt": "2026-06-24T17:46:51.963Z"
     },
     {
       "expediente": "300/2025/03321",
@@ -1199,7 +1199,7 @@
       "importeAdjudicacion": 229689.56,
       "fechaAdjudicacion": "2026-05-14",
       "rawSummary": "",
-      "importedAt": "2026-06-24T17:07:14.140Z"
+      "importedAt": "2026-06-24T17:47:01.041Z"
     },
     {
       "expediente": "83/2026",
@@ -1382,7 +1382,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: C30268926002; Órgano de Contratación: Dirección General de Carreteras; Importe: 2573026.74 EUR; Estado: PUB",
-      "importedAt": "2026-06-24T17:07:02.942Z"
+      "importedAt": "2026-06-24T17:46:52.099Z"
     },
     {
       "expediente": "2026/035113",
@@ -1423,7 +1423,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 2026/035113; Órgano de Contratación: Dirección Gerencia de Gestión Ambiental de Castilla-La Mancha S.A.; Importe: 40167.64 EUR; Estado: PUB",
-      "importedAt": "2026-06-24T17:06:02.291Z"
+      "importedAt": "2026-06-24T17:46:02.619Z"
     },
     {
       "expediente": "2368/2026",
@@ -1990,7 +1990,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: PSS/2026/0000056440; Órgano de Contratación: Dirección del Ente Público Extremeño de Servicios Educativos Complementarios; Importe: 34776 EUR; Estado: EV",
-      "importedAt": "2026-06-24T17:04:57.894Z"
+      "importedAt": "2026-06-24T17:45:15.499Z"
     },
     {
       "expediente": "SER/2026/0000005054",
@@ -2630,7 +2630,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: PSS/2026/0000054604; Órgano de Contratación: Servicio Extremeño de Promoción de la Autonomía y Atención a la Dependencia (SEPAD).Gerencia Territorial de Cáceres; Importe: 39509.04 EUR; Estado: EV",
-      "importedAt": "2026-06-24T17:05:24.133Z"
+      "importedAt": "2026-06-24T17:45:34.582Z"
     },
     {
       "expediente": "2025036902 (Ref. 2784)",
@@ -2945,7 +2945,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 2886902M; Órgano de Contratación: Alcaldía del Ayuntamiento de Alginet; Importe: 28800 EUR; Estado: PUB",
-      "importedAt": "2026-06-24T17:07:14.205Z"
+      "importedAt": "2026-06-24T17:47:01.108Z"
     },
     {
       "expediente": "2026/034792",
@@ -2982,7 +2982,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 2026/034792; Órgano de Contratación: Dirección Gerencia de Gestión Ambiental de Castilla-La Mancha S.A.; Importe: 34074.7 EUR; Estado: PUB",
-      "importedAt": "2026-06-24T17:06:02.381Z"
+      "importedAt": "2026-06-24T17:46:02.713Z"
     },
     {
       "expediente": "2024_CCSAB_00005",
@@ -3005,7 +3005,7 @@
       "importeAdjudicacion": 126498.24,
       "fechaAdjudicacion": "2024-10-29",
       "rawSummary": "",
-      "importedAt": "2026-06-24T17:06:02.386Z"
+      "importedAt": "2026-06-24T17:46:02.718Z"
     },
     {
       "expediente": "2025Z7Z00123",
@@ -3049,7 +3049,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 2025Z7Z00123; Órgano de Contratación: Centro de Estudios y Experimentación de Obras Públicas (CEDEX); Importe: 180000 EUR; Estado: EV",
-      "importedAt": "2026-06-24T17:06:15.191Z"
+      "importedAt": "2026-06-24T17:46:11.682Z"
     },
     {
       "expediente": "TSA0082445",
@@ -3082,7 +3082,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: TSA0082445; Órgano de Contratación: Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA); Importe: 55660.5 EUR; Estado: EV",
-      "importedAt": "2026-06-24T17:06:15.242Z"
+      "importedAt": "2026-06-24T17:46:11.731Z"
     },
     {
       "expediente": "G-2026/17",
@@ -3126,7 +3126,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: G-2026/17; Órgano de Contratación: Presidencia de la Autoridad Portuaria de Las Palmas; Importe: 83550 EUR; Estado: PUB",
-      "importedAt": "2026-06-24T17:06:15.255Z"
+      "importedAt": "2026-06-24T17:46:11.744Z"
     },
     {
       "expediente": "217/2026",
@@ -3149,7 +3149,7 @@
       "importeAdjudicacion": 19741.03,
       "fechaAdjudicacion": "2026-06-22",
       "rawSummary": "",
-      "importedAt": "2026-06-24T17:06:27.279Z"
+      "importedAt": "2026-06-24T17:46:21.453Z"
     },
     {
       "expediente": "CONTR 2026/2694",
@@ -3175,7 +3175,7 @@
       "importeAdjudicacion": 54731.02,
       "fechaAdjudicacion": "2026-06-22",
       "rawSummary": "",
-      "importedAt": "2026-06-24T17:06:38.207Z"
+      "importedAt": "2026-06-24T17:46:30.362Z"
     },
     {
       "expediente": "2026PL002",
@@ -3198,7 +3198,7 @@
       "importeAdjudicacion": 30492,
       "fechaAdjudicacion": "2026-05-13",
       "rawSummary": "",
-      "importedAt": "2026-06-24T17:06:38.217Z"
+      "importedAt": "2026-06-24T17:46:30.373Z"
     },
     {
       "expediente": "CMAYOR/2025/30Y13/0019",
@@ -3238,7 +3238,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: CMAYOR/2025/30Y13/0019; Órgano de Contratación: Dirección General del Institut Valencià de la Joventut; Importe: 754265 EUR; Estado: EV",
-      "importedAt": "2026-06-24T17:06:38.224Z"
+      "importedAt": "2026-06-24T17:46:30.380Z"
     },
     {
       "expediente": "C-4468-26/D-3701",
@@ -3270,7 +3270,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: C-4468-26/D-3701; Órgano de Contratación: Hulleras del Norte S.A.; Importe: 34000 EUR; Estado: EV",
-      "importedAt": "2026-06-24T17:06:38.239Z"
+      "importedAt": "2026-06-24T17:46:30.395Z"
     },
     {
       "expediente": "CMAYOR/2026/FISAB/0013",
@@ -3326,7 +3326,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: CMAYOR/2026/FISAB/0013; Órgano de Contratación: Junta de Gobierno de la Fundación para el Fomento de la Investigación Sanitaria y Biomédica de la Comunitat Valenciana (FISABIO); Importe: 544000 EUR; Estado: EV",
-      "importedAt": "2026-06-24T17:06:38.249Z"
+      "importedAt": "2026-06-24T17:46:30.406Z"
     },
     {
       "expediente": "2026/141",
@@ -3356,7 +3356,7 @@
       "importeAdjudicacion": 49463.02,
       "fechaAdjudicacion": "2026-06-22",
       "rawSummary": "",
-      "importedAt": "2026-06-24T17:06:38.268Z"
+      "importedAt": "2026-06-24T17:46:30.426Z"
     },
     {
       "expediente": "2869898W",
@@ -3409,7 +3409,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 2869898W; Órgano de Contratación: Alcaldía del Ayuntamiento de Cortes de Pallás; Importe: 72147.88 EUR; Estado: PUB",
-      "importedAt": "2026-06-24T17:06:38.297Z"
+      "importedAt": "2026-06-24T17:46:30.456Z"
     },
     {
       "expediente": "MY26/RESTPAT/S/25",
@@ -3432,7 +3432,7 @@
       "importeAdjudicacion": 88209,
       "fechaAdjudicacion": "2026-06-22",
       "rawSummary": "",
-      "importedAt": "2026-06-24T17:06:50.582Z"
+      "importedAt": "2026-06-24T17:46:40.399Z"
     },
     {
       "expediente": "2026/ES/0010",
@@ -3468,7 +3468,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 2026/ES/0010; Órgano de Contratación: Centro Nacional de Investigaciones Cardiovasculares Carlos III (F.S.P.); Importe: 1750 EUR; Estado: PUB",
-      "importedAt": "2026-06-24T17:06:50.614Z"
+      "importedAt": "2026-06-24T17:46:40.432Z"
     },
     {
       "expediente": "TSA0083338",
@@ -3500,7 +3500,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: TSA0083338; Órgano de Contratación: Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA); Importe: 44990 EUR; Estado: EV",
-      "importedAt": "2026-06-24T17:06:50.620Z"
+      "importedAt": "2026-06-24T17:46:40.439Z"
     },
     {
       "expediente": "202605000061",
@@ -3564,7 +3564,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 202605000061; Órgano de Contratación: Junta de Contratación del Ministerio de Agricultura, Pesca y Alimentación; Importe: 444015 EUR; Estado: PUB",
-      "importedAt": "2026-06-24T17:06:50.621Z"
+      "importedAt": "2026-06-24T17:46:40.440Z"
     },
     {
       "expediente": "2026 09",
@@ -3603,7 +3603,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 2026 09; Órgano de Contratación: Consejo de Administración de Rivas-Vaciamadrid Empresa Municipal de Servicios S.A. (Rivamadrid); Importe: 25000 EUR; Estado: PUB",
-      "importedAt": "2026-06-24T17:06:50.658Z"
+      "importedAt": "2026-06-24T17:46:40.479Z"
     },
     {
       "expediente": "UGR/2026/0051",
@@ -3635,7 +3635,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: UGR/2026/0051; Órgano de Contratación: Rectorado de la Universidad de Granada; Importe: 150000 EUR; Estado: PUB",
-      "importedAt": "2026-06-24T17:06:50.667Z"
+      "importedAt": "2026-06-24T17:46:40.488Z"
     },
     {
       "expediente": "2026-SES-040",
@@ -3660,7 +3660,7 @@
       "importeAdjudicacion": 15246,
       "fechaAdjudicacion": "2026-06-22",
       "rawSummary": "",
-      "importedAt": "2026-06-24T17:06:50.709Z"
+      "importedAt": "2026-06-24T17:46:40.530Z"
     },
     {
       "expediente": "2026000278",
@@ -3693,7 +3693,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 2026000278; Órgano de Contratación: Consejería de Ordenación del Territorio, Urbanismo, Vivienda y Derechos Ciudadanos del Principado de Asturias; Importe: 321349.83 EUR; Estado: EV",
-      "importedAt": "2026-06-24T17:07:02.817Z"
+      "importedAt": "2026-06-24T17:46:51.977Z"
     },
     {
       "expediente": "5810/2026",
@@ -3735,7 +3735,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 5810/2026; Órgano de Contratación: Presidencia de la Fundación para la Promoción del Empleo, la Formación Profesional y el Movimiento Cooperativo del Iltre. Ayto. de la Villa de Ingenio; Importe: 14480 EUR; Estado: PUB",
-      "importedAt": "2026-06-24T17:07:02.889Z"
+      "importedAt": "2026-06-24T17:46:52.044Z"
     },
     {
       "expediente": "15241/2026",
@@ -3783,7 +3783,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 15241/2026; Órgano de Contratación: Junta de Gobierno del Ayuntamiento de Rivas Vaciamadrid; Importe: 66100.4 EUR; Estado: EV",
-      "importedAt": "2026-06-24T17:07:02.918Z"
+      "importedAt": "2026-06-24T17:46:52.074Z"
     },
     {
       "expediente": "M6-2026",
@@ -3819,7 +3819,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: M6-2026; Órgano de Contratación: Alcaldía del Ayuntamiento de Blanca; Importe: 24793.39 EUR; Estado: EV",
-      "importedAt": "2026-06-24T17:07:02.927Z"
+      "importedAt": "2026-06-24T17:46:52.083Z"
     },
     {
       "expediente": "C2026-00020",
@@ -3878,7 +3878,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: C2026-00020; Órgano de Contratación: Presidencia de la Autoridad Portuaria de Santa Cruz de Tenerife; Importe: 114731.5 EUR; Estado: EV",
-      "importedAt": "2026-06-24T17:07:14.092Z"
+      "importedAt": "2026-06-24T17:47:00.990Z"
     },
     {
       "expediente": "TSA0079137-1001",
@@ -3901,7 +3901,7 @@
       "importeAdjudicacion": 4024.46,
       "fechaAdjudicacion": "2026-06-11",
       "rawSummary": "",
-      "importedAt": "2026-06-24T17:07:14.092Z"
+      "importedAt": "2026-06-24T17:47:00.990Z"
     },
     {
       "expediente": "2026-C03",
@@ -3960,7 +3960,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 2026-C03; Órgano de Contratación: Cartográfica de Canarias S.A.; Importe: 30000 EUR; Estado: PUB",
-      "importedAt": "2026-06-24T17:04:57.822Z"
+      "importedAt": "2026-06-24T17:45:15.423Z"
     },
     {
       "expediente": "31/23 CCCV",
@@ -3989,7 +3989,7 @@
       "importeAdjudicacion": 62376.02,
       "fechaAdjudicacion": "2023-10-11",
       "rawSummary": "",
-      "importedAt": "2026-06-24T17:04:57.839Z"
+      "importedAt": "2026-06-24T17:45:15.438Z"
     },
     {
       "expediente": "TSA0083393",
@@ -4021,7 +4021,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: TSA0083393; Órgano de Contratación: Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA); Importe: 106505.31 EUR; Estado: EV",
-      "importedAt": "2026-06-24T17:04:57.855Z"
+      "importedAt": "2026-06-24T17:45:15.455Z"
     },
     {
       "expediente": "CONTR 8285/2026",
@@ -4044,7 +4044,7 @@
       "importeAdjudicacion": 27394.4,
       "fechaAdjudicacion": "2026-06-23",
       "rawSummary": "",
-      "importedAt": "2026-06-24T17:04:57.881Z"
+      "importedAt": "2026-06-24T17:45:15.484Z"
     },
     {
       "expediente": "1259/2024",
@@ -4067,7 +4067,7 @@
       "importeAdjudicacion": 25669.3,
       "fechaAdjudicacion": "2024-07-23",
       "rawSummary": "",
-      "importedAt": "2026-06-24T17:05:10.619Z"
+      "importedAt": "2026-06-24T17:45:25.365Z"
     },
     {
       "expediente": "AG-55/2026",
@@ -4105,7 +4105,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: AG-55/2026; Órgano de Contratación: Presidencia Organismo Autónomo de Museos y Centros del Cabildo Insular de Tenerife (OAMC); Importe: 91518.31 EUR; Estado: EV",
-      "importedAt": "2026-06-24T17:05:10.626Z"
+      "importedAt": "2026-06-24T17:45:25.373Z"
     },
     {
       "expediente": "66/2026/27006",
@@ -4141,7 +4141,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 66/2026/27006; Órgano de Contratación: Alcaldía del Ayuntamiento de Arganda del Rey ; Importe: 4958.68 EUR; Estado: EV",
-      "importedAt": "2026-06-24T17:05:10.662Z"
+      "importedAt": "2026-06-24T17:45:25.411Z"
     },
     {
       "expediente": "CB-13-AM 32/2024",
@@ -4164,7 +4164,7 @@
       "importeAdjudicacion": 2693.04,
       "fechaAdjudicacion": "2026-06-22",
       "rawSummary": "",
-      "importedAt": "2026-06-24T17:05:10.663Z"
+      "importedAt": "2026-06-24T17:45:25.412Z"
     },
     {
       "expediente": "202600005",
@@ -4197,7 +4197,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 202600005; Órgano de Contratación: Consejo de Administración de Medio Ambiente, Agua, Residuos y Energía de Cantabria, S.A.(MARE S.A.); Importe: 161280 EUR; Estado: PRE",
-      "importedAt": "2026-06-24T17:05:10.676Z"
+      "importedAt": "2026-06-24T17:45:25.425Z"
     },
     {
       "expediente": "2026/ES/0016",
@@ -4233,7 +4233,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 2026/ES/0016; Órgano de Contratación: Centro Nacional de Investigaciones Cardiovasculares Carlos III (F.S.P.); Importe: 116490 EUR; Estado: EV",
-      "importedAt": "2026-06-24T17:05:10.683Z"
+      "importedAt": "2026-06-24T17:45:25.433Z"
     },
     {
       "expediente": "AVSS 03213 26/18",
@@ -4257,7 +4257,7 @@
       "importeAdjudicacion": 18859.74,
       "fechaAdjudicacion": "2026-06-22",
       "rawSummary": "",
-      "importedAt": "2026-06-24T17:05:10.714Z"
+      "importedAt": "2026-06-24T17:45:25.467Z"
     },
     {
       "expediente": "D SE 139/26",
@@ -4298,7 +4298,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: D SE 139/26; Órgano de Contratación: Junta de Gobierno del Ayuntamiento de Marbella; Importe: 2314.04 EUR; Estado: PUB",
-      "importedAt": "2026-06-24T17:05:10.728Z"
+      "importedAt": "2026-06-24T17:45:25.479Z"
     },
     {
       "expediente": "SARGA-2026-00059",
@@ -4321,7 +4321,7 @@
       "importeAdjudicacion": 120879,
       "fechaAdjudicacion": "2026-06-23",
       "rawSummary": "",
-      "importedAt": "2026-06-24T17:05:10.729Z"
+      "importedAt": "2026-06-24T17:45:25.480Z"
     },
     {
       "expediente": "TSA0083230",
@@ -4353,7 +4353,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: TSA0083230; Órgano de Contratación: Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA); Importe: 214075 EUR; Estado: EV",
-      "importedAt": "2026-06-24T17:05:24.064Z"
+      "importedAt": "2026-06-24T17:45:34.509Z"
     },
     {
       "expediente": "30/2026/CMA",
@@ -4385,7 +4385,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 30/2026/CMA; Órgano de Contratación: Consejería de Hacienda de la Ciudad Autónoma de Melilla; Importe: 648427.61 EUR; Estado: EV",
-      "importedAt": "2026-06-24T17:05:24.099Z"
+      "importedAt": "2026-06-24T17:45:34.545Z"
     },
     {
       "expediente": "SE 139/26",
@@ -4409,7 +4409,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "2026-06-18",
       "rawSummary": "",
-      "importedAt": "2026-06-24T17:05:24.114Z"
+      "importedAt": "2026-06-24T17:45:34.562Z"
     },
     {
       "expediente": "TSA0083589",
@@ -4442,7 +4442,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: TSA0083589; Órgano de Contratación: Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA); Importe: 6997 EUR; Estado: PUB",
-      "importedAt": "2026-06-24T17:05:36.154Z"
+      "importedAt": "2026-06-24T17:45:43.983Z"
     },
     {
       "expediente": "CB-8-AM 32/2024",
@@ -4465,7 +4465,7 @@
       "importeAdjudicacion": 1793.44,
       "fechaAdjudicacion": "2026-06-22",
       "rawSummary": "",
-      "importedAt": "2026-06-24T17:05:36.187Z"
+      "importedAt": "2026-06-24T17:45:44.013Z"
     },
     {
       "expediente": "2026/EA23/00000376E",
@@ -4488,7 +4488,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "2026-06-19",
       "rawSummary": "",
-      "importedAt": "2026-06-24T17:05:36.189Z"
+      "importedAt": "2026-06-24T17:45:44.014Z"
     },
     {
       "expediente": "(2026/07) PRCNIBSAL/ICI23/00027/NORA/01/2026",
@@ -4529,7 +4529,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: (2026/07) PRCNIBSAL/ICI23/00027/NORA/01/2026; Órgano de Contratación: Director Científico del Instituto de Investigación Biomédica de Salamanca (IBSAL); Importe: 135000 EUR; Estado: EV",
-      "importedAt": "2026-06-24T17:05:49.930Z"
+      "importedAt": "2026-06-24T17:45:52.751Z"
     },
     {
       "expediente": "1563/25P",
@@ -4558,7 +4558,7 @@
       "importeAdjudicacion": 72279.97,
       "fechaAdjudicacion": "2026-06-19",
       "rawSummary": "",
-      "importedAt": "2026-06-24T17:05:49.974Z"
+      "importedAt": "2026-06-24T17:45:52.799Z"
     },
     {
       "expediente": "SARGA-2026-00071",
@@ -4591,7 +4591,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: SARGA-2026-00071; Órgano de Contratación: Sociedad Aragonesa de Gestión Agroambiental, S.L.U. (SARGA); Importe: 16850 EUR; Estado: EV",
-      "importedAt": "2026-06-24T17:05:49.984Z"
+      "importedAt": "2026-06-24T17:45:52.810Z"
     },
     {
       "expediente": "CC2026/75",
@@ -4635,7 +4635,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: CC2026/75; Órgano de Contratación: Junta de Gobierno del Ayuntamiento de Oviedo; Importe: 1657138.31 EUR; Estado: EV",
-      "importedAt": "2026-06-24T17:05:50.049Z"
+      "importedAt": "2026-06-24T17:45:52.871Z"
     },
     {
       "expediente": "0030026SR012",
@@ -4671,7 +4671,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 0030026SR012; Órgano de Contratación: Dirección Ejecutiva de la Agencia Española de Seguridad Alimentaria y Nutrición; Importe: 16528.93 EUR; Estado: PUB",
-      "importedAt": "2026-06-24T17:06:02.249Z"
+      "importedAt": "2026-06-24T17:46:02.576Z"
     },
     {
       "expediente": "2689883Z",
@@ -4695,7 +4695,7 @@
       "importeAdjudicacion": 17000,
       "fechaAdjudicacion": "2026-06-15",
       "rawSummary": "",
-      "importedAt": "2026-06-24T17:06:02.316Z"
+      "importedAt": "2026-06-24T17:46:02.645Z"
     }
   ]
 }
