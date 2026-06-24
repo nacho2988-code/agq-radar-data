@@ -503,16 +503,10 @@ footer.foot{
           <option value="IBV">IBV</option>
           <option value="JTG">JTG</option>
         </select>
-        <select class="sortsel" id="sel-rows-per-page" title="Líneas por página">
-          <option value="20">20 / pág.</option>
-          <option value="40">40 / pág.</option>
-          <option value="60">60 / pág.</option>
-        </select>
         <button class="btn ghost" id="btn-limpiar-filtros-finos" style="font-size:12px;padding:6px 10px;">Limpiar filtros</button>
       </div>
 
       <div class="list" id="list-abiertas"></div>
-      <div id="paginacion-abiertas" style="display:flex;align-items:center;justify-content:center;gap:8px;padding:14px;font-size:12.5px;"></div>
     </section>
 
     <!-- ================= VIEW: PIPELINE ================= -->
@@ -540,6 +534,17 @@ footer.foot{
         <input type="search" id="search-adjudicadas" placeholder="Buscar por adjudicatario, órgano, expediente…">
       </div>
       <div class="list" id="list-adjudicadas"></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 16px;border-top:1px solid var(--line);flex-wrap:wrap;gap:8px;">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <label style="font-size:12px;color:var(--ink-soft);">Mostrar:</label>
+          <select id="sel-rows-adj" style="font-size:12px;padding:5px 8px;border:1px solid var(--line);border-radius:6px;">
+            <option value="20">20 por página</option>
+            <option value="40">40 por página</option>
+            <option value="60">60 por página</option>
+          </select>
+        </div>
+        <div id="paginacion-adjudicadas" style="display:flex;align-items:center;gap:6px;font-size:12px;"></div>
+      </div>
     </section>
 
     <!-- ================= VIEW: ACREDITACIONES ================= -->
@@ -1006,8 +1011,8 @@ function emptyStateHTML(kind){
 }
 
 let currentFilter = { search:'', compat:'todas', sort:'deadline', importeMin:null, importeMax:null, matriz:'', provincia:'', pipeline:'', comercial:'' };
-let currentPage = 1;
-let rowsPerPage = 20;
+let adjPage = 1;
+let adjRowsPerPage = 20;
 
 function rowHTML(t, comp){
   const days = t.deadline ? daysUntil(t.deadline) : null;
@@ -1101,15 +1106,9 @@ function renderAbiertas(){
 
   updateDashboard();
 
-  if(items.length === 0){ container.innerHTML = emptyStateHTML('abiertas'); document.getElementById('paginacion-abiertas').innerHTML=''; return; }
+  if(items.length === 0){ container.innerHTML = emptyStateHTML('abiertas'); return; }
 
-  // Paginación
-  const totalItems = items.length;
-  const totalPages = Math.ceil(totalItems / rowsPerPage);
-  if(currentPage > totalPages) currentPage = 1;
-  const pageItems = items.slice((currentPage-1)*rowsPerPage, currentPage*rowsPerPage);
-
-  container.innerHTML = pageItems.map(({t,comp}) => rowHTML(t,comp)).join('');
+  container.innerHTML = items.map(({t,comp}) => rowHTML(t,comp)).join('');
   container.querySelectorAll('.row').forEach(row => row.addEventListener('click', () => openDetail(row.dataset.id)));
   container.querySelectorAll('.sel-comercial').forEach(sel => sel.addEventListener('change', (e)=>{
     const id = e.target.dataset.id;
@@ -1124,21 +1123,6 @@ function renderAbiertas(){
   container.querySelectorAll('.chk-presentar').forEach(chk => chk.addEventListener('change', (e)=>{
     togglePresentarLocal(e.target.dataset.id, e.target.checked);
   }));
-
-  // Renderizar controles de paginación
-  const pag = document.getElementById('paginacion-abiertas');
-  if(totalPages <= 1){ pag.innerHTML=''; return; }
-  let btns = `<span style="color:var(--ink-soft);">${totalItems} licitaciones · página ${currentPage} de ${totalPages}</span>`;
-  btns += `<button class="btn ghost" style="padding:5px 10px;font-size:12px;" id="pag-prev" ${currentPage===1?'disabled':''}>◀</button>`;
-  const start = Math.max(1, currentPage-2), end = Math.min(totalPages, currentPage+2);
-  for(let p=start; p<=end; p++){
-    btns += `<button class="btn ${p===currentPage?'primary':'ghost'}" style="padding:5px 10px;font-size:12px;" data-page="${p}">${p}</button>`;
-  }
-  btns += `<button class="btn ghost" style="padding:5px 10px;font-size:12px;" id="pag-next" ${currentPage===totalPages?'disabled':''}>▶</button>`;
-  pag.innerHTML = btns;
-  pag.querySelectorAll('[data-page]').forEach(b => b.addEventListener('click', ()=>{ currentPage=parseInt(b.dataset.page); renderAbiertas(); }));
-  document.getElementById('pag-prev')?.addEventListener('click', ()=>{ if(currentPage>1){currentPage--;renderAbiertas();} });
-  document.getElementById('pag-next')?.addEventListener('click', ()=>{ if(currentPage<totalPages){currentPage++;renderAbiertas();} });
 }
 
 // URL del proxy seguro (Cloudflare Worker) que escribe data/seleccion.json sin exponer
@@ -1260,7 +1244,13 @@ function renderAdjudicadas(){
   }
   items.sort((a,b) => (b.fechaAdjudicacion||b.updated||'').localeCompare(a.fechaAdjudicacion||a.updated||''));
 
-  if(items.length === 0){ container.innerHTML = emptyStateHTML('adjudicadas'); return; }
+  if(items.length === 0){ container.innerHTML = emptyStateHTML('adjudicadas'); document.getElementById('paginacion-adjudicadas').innerHTML=''; return; }
+
+  // Paginación
+  const totalAdj = items.length;
+  const totalPagesAdj = Math.ceil(totalAdj / adjRowsPerPage);
+  if(adjPage > totalPagesAdj) adjPage = 1;
+  const pageItems = items.slice((adjPage-1)*adjRowsPerPage, adjPage*adjRowsPerPage);
 
   const header = `<div class="award-row">
     <div>Título de la licitación</div>
@@ -1269,7 +1259,7 @@ function renderAdjudicadas(){
     <div>Importe</div>
   </div>`;
 
-  const rows = items.map(t=>{
+  const rows = pageItems.map(t=>{
     const isAgq = isAgqAdjudicatario(t.adjudicatario);
     const adjNombre = isAgq ? AGQ_LABEL : (t.adjudicatario||'No indicado');
     const importe = t.importeAdjudicacion ? formatMoney(t.importeAdjudicacion) : (t.importe ? formatMoney(t.importe) : '—');
@@ -1282,6 +1272,20 @@ function renderAdjudicadas(){
   }).join('');
 
   container.innerHTML = header + rows;
+
+  // Controles de paginación
+  const pag = document.getElementById('paginacion-adjudicadas');
+  if(!pag) return;
+  if(totalPagesAdj <= 1){ pag.innerHTML = `<span style="color:var(--ink-soft);">${totalAdj} resultados</span>`; return; }
+  let btns = `<span style="color:var(--ink-soft);">${totalAdj} resultados · pág. ${adjPage}/${totalPagesAdj}</span>`;
+  btns += `<button class="btn ghost" style="padding:4px 9px;font-size:12px;" id="adj-pag-prev" ${adjPage===1?'disabled':''}>◀</button>`;
+  const s = Math.max(1,adjPage-2), e = Math.min(totalPagesAdj,adjPage+2);
+  for(let p=s;p<=e;p++) btns+=`<button class="btn ${p===adjPage?'primary':'ghost'}" style="padding:4px 9px;font-size:12px;" data-adjpage="${p}">${p}</button>`;
+  btns += `<button class="btn ghost" style="padding:4px 9px;font-size:12px;" id="adj-pag-next" ${adjPage===totalPagesAdj?'disabled':''}>▶</button>`;
+  pag.innerHTML = btns;
+  pag.querySelectorAll('[data-adjpage]').forEach(b=>b.addEventListener('click',()=>{adjPage=parseInt(b.dataset.adjpage);renderAdjudicadas();}));
+  document.getElementById('adj-pag-prev')?.addEventListener('click',()=>{if(adjPage>1){adjPage--;renderAdjudicadas();}});
+  document.getElementById('adj-pag-next')?.addEventListener('click',()=>{if(adjPage<totalPagesAdj){adjPage++;renderAdjudicadas();}});
 }
 // === [MOD:PIPELINE-BOARD] ===
 // === [MOD:OFERTA-TECNICA] ===
@@ -2054,7 +2058,8 @@ document.querySelectorAll('.toolbar .chip').forEach(chip=>{
     renderAbiertas();
   });
 });
-document.getElementById('search-adjudicadas').addEventListener('input', renderAdjudicadas);
+document.getElementById('search-adjudicadas').addEventListener('input', ()=>{ adjPage=1; renderAdjudicadas(); });
+document.getElementById('sel-rows-adj').addEventListener('change', e=>{ adjRowsPerPage=parseInt(e.target.value)||20; adjPage=1; renderAdjudicadas(); });
 
 function initFiltrosFinos(){
   const selMatriz = document.getElementById('filtro-matriz');
@@ -2088,11 +2093,7 @@ function initFiltrosFinos(){
 
   // Filtro por comercial
   const selComercial = document.getElementById('filtro-comercial');
-  if(selComercial) selComercial.addEventListener('change', e=>{ currentFilter.comercial = e.target.value; currentPage=1; renderAbiertas(); });
-
-  // Selector de líneas por página
-  const selRowsPP = document.getElementById('sel-rows-per-page');
-  if(selRowsPP) selRowsPP.addEventListener('change', e=>{ rowsPerPage=parseInt(e.target.value)||20; currentPage=1; renderAbiertas(); });
+  if(selComercial) selComercial.addEventListener('change', e=>{ currentFilter.comercial = e.target.value; renderAbiertas(); });
 
   document.getElementById('btn-limpiar-filtros-finos').addEventListener('click', ()=>{
     currentFilter.importeMin = null; currentFilter.importeMax = null;
