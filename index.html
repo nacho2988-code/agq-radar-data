@@ -1179,7 +1179,7 @@ function rowHTML(t, comp){
     </label>
     <div><div class="seal ${comp.level}">${escapeHtml(sealText)}</div></div>
     <div class="main">
-      <div class="title">${escapeHtml(t.title)} ${t.resumenPdfPath ? '<span title="Resumen automático disponible" style="color:var(--agq-green);font-size:12px;">📄</span>' : ''} ${marcada ? '<span title="Marcada para presentar" style="color:var(--agq-purple);font-size:12px;">📌</span>' : ''} ${marcada && t.estadoPipeline ? `<span class="pipeline-badge" style="background:${pipelineMeta(t.estadoPipeline).color};">${pipelineMeta(t.estadoPipeline).label}</span>` : ''} ${t.comercial ? `<span class="pipeline-badge" style="background:var(--agq-purple);opacity:0.8;">${escapeHtml(t.comercial)}</span>` : ''}</div>
+      <div class="title">${escapeHtml(t.title)} ${t.resumenHtmlPath ? '<span title="Resumen automático disponible" style="color:var(--agq-green);font-size:12px;">📄</span>' : ''} ${marcada ? '<span title="Marcada para presentar" style="color:var(--agq-purple);font-size:12px;">📌</span>' : ''} ${marcada && t.estadoPipeline ? `<span class="pipeline-badge" style="background:${pipelineMeta(t.estadoPipeline).color};">${pipelineMeta(t.estadoPipeline).label}</span>` : ''} ${t.comercial ? `<span class="pipeline-badge" style="background:var(--agq-purple);opacity:0.8;">${escapeHtml(t.comercial)}</span>` : ''}</div>
       <div class="meta">
         <span>${escapeHtml(t.organo || 'Órgano no indicado')}</span>
         ${(t.cpv||[]).slice(0,3).map(c=>'<span class="cpv">'+c+'</span>').join('')}
@@ -1959,9 +1959,9 @@ function openDetail(expediente){
           ? '<ul style="padding-left:18px;font-size:12.5px;">'+t.documentos.map(d=>`<li><a href="${escapeAttr(d.url)}" target="_blank" rel="noopener">${escapeHtml(d.tipo)}</a></li>`).join('')+'</ul>'
           : '<p style="font-size:12px;color:var(--ink-soft);">El feed no trae enlaces directos a los pliegos. Descárgalos desde el expediente en la Plataforma y súbelos aquí para generar el resumen.</p>'}
 
-        ${t.resumenPdfPath ? `
+        ${t.resumenHtmlPath ? `
         <div class="callout" style="margin-top:12px;border-color:var(--agq-green);">
-          <a href="${escapeAttr(resolveRepoAssetUrl(t.resumenPdfPath))}" target="_blank" rel="noopener" style="font-weight:600;">📄 Descargar resumen automático (PDF) ↗</a>
+          <a href="${escapeAttr(resolveRepoAssetUrl(t.resumenHtmlPath))}" target="_blank" rel="noopener" style="font-weight:600;">📋 Ver resumen ejecutivo ↗</a>
           <div style="font-size:11px;color:var(--ink-soft);margin-top:4px;">Generado automáticamente a partir del pliego el ${formatDate(t.resumenGeneradoEn)}. Verifica siempre el pliego original antes de presentar oferta.</div>
         </div>` : ''}
 
