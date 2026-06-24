@@ -12,6 +12,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.3.0/exceljs.min.js"></script>
 <style>
 /* ============================================================
    TOKENS — AGQ Labs Corporate Identity
@@ -1520,42 +1521,242 @@ function renderAdjudicadas(){
   document.getElementById('adj-pag-next')?.addEventListener('click',()=>{if(adjPage<totalPagesAdj){adjPage++;renderAdjudicadas();}});
 }
 // === [MOD:EXCEL-EXPORT] ===
-function exportarExcel(vista){
-  let rows, filename, headers;
-  if(vista === 'abiertas'){
-    const items = getOpenTenders().filter(t => isSectorRelevant(t));
-    headers = ['Expediente','Título','Órgano','Importe (€)','Fecha límite','Estado pipeline','Comercial','CPV'];
-    rows = items.map(t => [
-      t.expediente, t.title, t.organo||'',
-      t.importe||'', t.deadline||'',
-      pipelineMeta(t.estadoPipeline||'').label,
-      t.comercial||'',
-      (t.cpv||[]).join(', ')
-    ]);
-    filename = `AGQ_Licitaciones_Abiertas_${new Date().toISOString().slice(0,10)}.csv`;
-  } else {
-    const items = getAwardedTenders();
-    headers = ['Expediente','Título','Órgano','Adjudicatario','Importe adjudicación (€)','Fecha adjudicación'];
-    rows = items.map(t => [
-      t.expediente, t.title, t.organo||'',
-      isAgqAdjudicatario(t.adjudicatario) ? AGQ_LABEL : (t.adjudicatario||''),
-      t.importeAdjudicacion||t.importe||'',
-      t.fechaAdjudicacion||''
-    ]);
-    filename = `AGQ_Licitaciones_Adjudicadas_${new Date().toISOString().slice(0,10)}.csv`;
+async function exportarExcel(vista){
+  if(typeof ExcelJS === 'undefined'){
+    alert('La librería de Excel aún se está cargando. Inténtalo en un momento.');
+    return;
   }
 
-  // Generar CSV (compatible con Excel con BOM UTF-8)
-  const escape = v => {
-    const s = String(v==null?'':v).replace(/"/g,'""');
-    return s.includes(',') || s.includes('"') || s.includes('\n') ? `"${s}"` : s;
-  };
-  const csv = '\uFEFF' + [headers, ...rows].map(r => r.map(escape).join(',')).join('\n');
-  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url; a.download = filename; a.click();
-  URL.revokeObjectURL(url);
+  const wb = new ExcelJS.Workbook();
+  wb.creator = 'AGQ Labs · Radar de Licitaciones';
+  wb.created = new Date();
+
+  // Colores corporativos
+  const PURPLE      = 'FF565294';
+  const PURPLE_LIGHT= 'FFECEAF6';
+  const GREEN       = 'FF84BD00';
+  const GREEN_LIGHT = 'FFEEF6DB';
+  const DARK        = 'FF1A1830';
+  const WHITE       = 'FFFFFFFF';
+  const GRAY_LIGHT  = 'FFF7F6F3';
+  const GRAY_ROW    = 'FFF0EEF8';
+
+  const headerFont  = { name:'Calibri', size:10, bold:true, color:{ argb:WHITE } };
+  const titleFont   = { name:'Calibri', size:14, bold:true, color:{ argb:DARK } };
+  const metaFont    = { name:'Calibri', size:9,  color:{ argb:'FF5A5870' } };
+  const cellFont    = { name:'Calibri', size:10, color:{ argb:DARK } };
+  const agqFont     = { name:'Calibri', size:10, bold:true, color:{ argb:'FF5E8500' } };
+
+  const borderThin  = { style:'thin', color:{ argb:'FFD8D5F0' } };
+  const allBorders  = { top:borderThin, left:borderThin, bottom:borderThin, right:borderThin };
+
+  const today = new Date().toLocaleDateString('es-ES',{day:'2-digit',month:'2-digit',year:'numeric'});
+
+  if(vista === 'abiertas'){
+    const ws = wb.addWorksheet('Licitaciones Abiertas', { views:[{state:'frozen',ySplit:4}] });
+
+    // ── Fila 1: título corporativo ─────────────────────────────────
+    ws.mergeCells('A1:G1');
+    const t1 = ws.getCell('A1');
+    t1.value = 'AGQ LABS · RADAR DE LICITACIONES';
+    t1.font = { name:'Calibri', size:16, bold:true, color:{ argb:WHITE } };
+    t1.fill = { type:'pattern', pattern:'solid', fgColor:{ argb:PURPLE } };
+    t1.alignment = { vertical:'middle', horizontal:'left', indent:1 };
+    ws.getRow(1).height = 32;
+
+    // ── Fila 2: subtítulo ─────────────────────────────────────────
+    ws.mergeCells('A2:G2');
+    const t2 = ws.getCell('A2');
+    t2.value = `Licitaciones Abiertas · Exportado el ${today}`;
+    t2.font = { name:'Calibri', size:9, color:{ argb:'FFD0CEEA' } };
+    t2.fill = { type:'pattern', pattern:'solid', fgColor:{ argb:DARK } };
+    t2.alignment = { vertical:'middle', horizontal:'left', indent:1 };
+    ws.getRow(2).height = 18;
+
+    // ── Fila 3: vacía separadora ──────────────────────────────────
+    ws.mergeCells('A3:G3');
+    ws.getCell('A3').fill = { type:'pattern', pattern:'solid', fgColor:{ argb:GREEN } };
+    ws.getRow(3).height = 4;
+
+    // ── Fila 4: cabecera de columnas ──────────────────────────────
+    const headers = ['Expediente','Título de la licitación','Órgano contratante','Importe (€)','Fecha límite','Estado pipeline','Comercial'];
+    headers.forEach((h, i) => {
+      const cell = ws.getCell(4, i+1);
+      cell.value = h;
+      cell.font = headerFont;
+      cell.fill = { type:'pattern', pattern:'solid', fgColor:{ argb:PURPLE } };
+      cell.alignment = { vertical:'middle', horizontal: i===3?'right':'left', wrapText:false };
+      cell.border = allBorders;
+    });
+    ws.getRow(4).height = 22;
+
+    // ── Datos ─────────────────────────────────────────────────────
+    const items = getOpenTenders().filter(t => isSectorRelevant(t));
+    items.forEach((t, idx) => {
+      const rn = idx + 5;
+      const isEven = idx % 2 === 0;
+      const bg = isEven ? WHITE : GRAY_ROW;
+      const pipeline = pipelineMeta(t.estadoPipeline||'');
+
+      const vals = [
+        t.expediente||'',
+        t.title||'',
+        t.organo||'',
+        t.importe||null,
+        t.deadline ? new Date(t.deadline) : '',
+        pipeline.label,
+        t.comercial||''
+      ];
+
+      vals.forEach((v, ci) => {
+        const cell = ws.getCell(rn, ci+1);
+        cell.value = v;
+        cell.font = cellFont;
+        cell.fill = { type:'pattern', pattern:'solid', fgColor:{ argb:bg } };
+        cell.border = allBorders;
+        cell.alignment = { vertical:'top', wrapText: ci===1 };
+
+        if(ci === 3 && v){ // importe
+          cell.numFmt = '#,##0.00 "€"';
+          cell.alignment = { horizontal:'right', vertical:'top' };
+        }
+        if(ci === 4 && v instanceof Date){ // fecha
+          cell.numFmt = 'dd/mm/yyyy';
+          cell.alignment = { horizontal:'center', vertical:'top' };
+        }
+        if(ci === 5 && t.estadoPipeline){ // estado pipeline con color
+          const colors = {
+            ganada:   { bg:'FF84BD00', fg:'FFFFFFFF' },
+            perdida:  { bg:'FFA23B3B', fg:'FFFFFFFF' },
+            rechazada:{ bg:'FF7A3D2E', fg:'FFFFFFFF' },
+            presentada:{ bg:'FF565294', fg:'FFFFFFFF' },
+            en_preparacion:{ bg:'FFC97B2E', fg:'FFFFFFFF' },
+            en_estudio:{ bg:'FF5b8def', fg:'FFFFFFFF' },
+          };
+          const c = colors[t.estadoPipeline];
+          if(c){
+            cell.fill = { type:'pattern', pattern:'solid', fgColor:{ argb:c.bg } };
+            cell.font = { name:'Calibri', size:10, bold:true, color:{ argb:c.fg } };
+          }
+          cell.alignment = { horizontal:'center', vertical:'top' };
+        }
+        if(ci === 6 && v){ // comercial
+          cell.alignment = { horizontal:'center', vertical:'top' };
+          cell.font = { name:'Calibri', size:10, bold:true, color:{ argb:PURPLE } };
+        }
+      });
+      ws.getRow(rn).height = t.title && t.title.length > 80 ? 30 : 18;
+    });
+
+    // ── Anchos de columna ─────────────────────────────────────────
+    ws.getColumn(1).width = 22;  // expediente
+    ws.getColumn(2).width = 55;  // título
+    ws.getColumn(3).width = 35;  // órgano
+    ws.getColumn(4).width = 16;  // importe
+    ws.getColumn(5).width = 16;  // fecha
+    ws.getColumn(6).width = 16;  // pipeline
+    ws.getColumn(7).width = 12;  // comercial
+
+    // ── Fila de totales ───────────────────────────────────────────
+    const lastRow = items.length + 5;
+    ws.mergeCells(`A${lastRow}:C${lastRow}`);
+    const totalCell = ws.getCell(`A${lastRow}`);
+    totalCell.value = `Total: ${items.length} licitaciones`;
+    totalCell.font = { name:'Calibri', size:10, bold:true, color:{ argb:PURPLE } };
+    totalCell.fill = { type:'pattern', pattern:'solid', fgColor:{ argb:PURPLE_LIGHT } };
+    totalCell.alignment = { horizontal:'center', vertical:'middle' };
+    ws.getRow(lastRow).height = 20;
+
+    const filename = `AGQ_Licitaciones_Abiertas_${new Date().toISOString().slice(0,10)}.xlsx`;
+    const buf = await wb.xlsx.writeBuffer();
+    const blob = new Blob([buf], { type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a'); a.href=url; a.download=filename; a.click();
+    URL.revokeObjectURL(url);
+
+  } else {
+    // ── ADJUDICADAS ───────────────────────────────────────────────
+    const ws = wb.addWorksheet('Adjudicadas', { views:[{state:'frozen',ySplit:4}] });
+
+    ws.mergeCells('A1:F1');
+    const t1 = ws.getCell('A1');
+    t1.value = 'AGQ LABS · RADAR DE LICITACIONES';
+    t1.font = { name:'Calibri', size:16, bold:true, color:{ argb:WHITE } };
+    t1.fill = { type:'pattern', pattern:'solid', fgColor:{ argb:PURPLE } };
+    t1.alignment = { vertical:'middle', horizontal:'left', indent:1 };
+    ws.getRow(1).height = 32;
+
+    ws.mergeCells('A2:F2');
+    const t2 = ws.getCell('A2');
+    t2.value = `Adjudicaciones del sector · Exportado el ${today}`;
+    t2.font = { name:'Calibri', size:9, color:{ argb:'FFD0CEEA' } };
+    t2.fill = { type:'pattern', pattern:'solid', fgColor:{ argb:DARK } };
+    t2.alignment = { vertical:'middle', horizontal:'left', indent:1 };
+    ws.getRow(2).height = 18;
+
+    ws.mergeCells('A3:F3');
+    ws.getCell('A3').fill = { type:'pattern', pattern:'solid', fgColor:{ argb:GREEN } };
+    ws.getRow(3).height = 4;
+
+    const headers = ['Expediente','Título de la licitación','Órgano contratante','Adjudicatario','Importe adjudicación (€)','Fecha adjudicación'];
+    headers.forEach((h, i) => {
+      const cell = ws.getCell(4, i+1);
+      cell.value = h;
+      cell.font = headerFont;
+      cell.fill = { type:'pattern', pattern:'solid', fgColor:{ argb:PURPLE } };
+      cell.alignment = { vertical:'middle', horizontal: i===4?'right':'left' };
+      cell.border = allBorders;
+    });
+    ws.getRow(4).height = 22;
+
+    const items = getAwardedTenders();
+    items.forEach((t, idx) => {
+      const rn = idx + 5;
+      const isAgq = isAgqAdjudicatario(t.adjudicatario);
+      const bg = isAgq ? GREEN_LIGHT : (idx%2===0 ? WHITE : GRAY_ROW);
+      const adjNombre = isAgq ? AGQ_LABEL : (t.adjudicatario||'');
+      const vals = [
+        t.expediente||'', t.title||'', t.organo||'',
+        adjNombre,
+        t.importeAdjudicacion||t.importe||null,
+        t.fechaAdjudicacion ? new Date(t.fechaAdjudicacion) : ''
+      ];
+      vals.forEach((v, ci) => {
+        const cell = ws.getCell(rn, ci+1);
+        cell.value = v;
+        cell.font = (ci===3 && isAgq) ? agqFont : cellFont;
+        cell.fill = { type:'pattern', pattern:'solid', fgColor:{ argb:bg } };
+        cell.border = allBorders;
+        cell.alignment = { vertical:'top', wrapText: ci===1 };
+        if(ci===4 && v){ cell.numFmt='#,##0.00 "€"'; cell.alignment={horizontal:'right',vertical:'top'}; }
+        if(ci===5 && v instanceof Date){ cell.numFmt='dd/mm/yyyy'; cell.alignment={horizontal:'center',vertical:'top'}; }
+      });
+      ws.getRow(rn).height = t.title && t.title.length > 80 ? 30 : 18;
+    });
+
+    ws.getColumn(1).width = 22;
+    ws.getColumn(2).width = 55;
+    ws.getColumn(3).width = 35;
+    ws.getColumn(4).width = 35;
+    ws.getColumn(5).width = 20;
+    ws.getColumn(6).width = 16;
+
+    const lastRow = items.length + 5;
+    ws.mergeCells(`A${lastRow}:C${lastRow}`);
+    const tc = ws.getCell(`A${lastRow}`);
+    tc.value = `Total: ${items.length} adjudicaciones`;
+    tc.font = { name:'Calibri', size:10, bold:true, color:{ argb:PURPLE } };
+    tc.fill = { type:'pattern', pattern:'solid', fgColor:{ argb:PURPLE_LIGHT } };
+    tc.alignment = { horizontal:'center', vertical:'middle' };
+    ws.getRow(lastRow).height = 20;
+
+    const filename = `AGQ_Licitaciones_Adjudicadas_${new Date().toISOString().slice(0,10)}.xlsx`;
+    const buf = await wb.xlsx.writeBuffer();
+    const blob = new Blob([buf], { type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a'); a.href=url; a.download=filename; a.click();
+    URL.revokeObjectURL(url);
+  }
 }
 
 // === [MOD:HISTORICO-PRECIO] ===
