@@ -12,19 +12,20 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
 <style>
 /* ============================================================
-   TOKENS
+   TOKENS — AGQ Labs Corporate Identity
    ============================================================ */
 :root{
-  --paper:#F5F4EF;
-  --paper-dim:#ECEAE2;
+  --paper:#F7F6F3;
+  --paper-dim:#EEECEA;
   --card:#FFFFFF;
-  --ink:#1D1B2A;
-  --ink-soft:#5C5A6B;
-  --line:#DAD7CC;
-  --line-strong:#C7C3B4;
+  --ink:#1A1830;
+  --ink-soft:#5A5870;
+  --line:#E0DED8;
+  --line-strong:#C8C5BA;
   --agq-purple:#565294;
   --agq-purple-deep:#3C3A6B;
-  --agq-purple-bg:#EAE9F4;
+  --agq-purple-mid:#6E6BAD;
+  --agq-purple-bg:#ECEAF6;
   --agq-green:#84BD00;
   --agq-green-deep:#5E8500;
   --agq-green-bg:#EEF6DB;
@@ -34,9 +35,13 @@
   --terracotta-bg:#F6E2DF;
   --slate:#6B7280;
   --slate-bg:#E9EAEC;
-  --radius-s:4px;
-  --radius-m:8px;
-  --shadow-panel:-12px 0 32px -8px rgba(29,27,42,0.18);
+  --header-h:68px;
+  --radius-s:5px;
+  --radius-m:10px;
+  --radius-l:14px;
+  --shadow-s:0 1px 4px rgba(29,27,42,0.08);
+  --shadow-m:0 4px 16px rgba(29,27,42,0.10);
+  --shadow-panel:-12px 0 40px -8px rgba(29,27,42,0.18);
   --font-display:'Space Grotesk',sans-serif;
   --font-body:'Inter',sans-serif;
   --font-mono:'IBM Plex Mono',monospace;
@@ -65,68 +70,112 @@ a{color:var(--agq-purple-deep);}
   min-height:100vh;
 }
 header.topbar{
-  background:var(--ink);
-  color:#EFEDF6;
+  background:linear-gradient(135deg, #1A1830 0%, #2D2B4E 60%, #3C3A6B 100%);
+  color:#fff;
   display:flex;
   align-items:center;
-  gap:28px;
-  padding:0 24px;
-  height:64px;
+  gap:0;
+  padding:0 28px;
+  height:var(--header-h);
   flex-shrink:0;
   position:sticky;
   top:0;
   z-index:30;
+  box-shadow:0 2px 12px rgba(29,27,42,0.25);
+}
+/* Línea verde inferior del header */
+header.topbar::after{
+  content:'';
+  position:absolute;
+  bottom:0;left:0;right:0;
+  height:3px;
+  background:linear-gradient(90deg, var(--agq-green) 0%, #a8d840 50%, var(--agq-green) 100%);
 }
 .brand{
   display:flex;
-  align-items:baseline;
-  gap:8px;
+  align-items:center;
+  gap:14px;
+  white-space:nowrap;
+  margin-right:32px;
+  flex-shrink:0;
+}
+.brand-logo{
+  display:flex;
+  align-items:center;
+}
+.brand-text{
+  display:flex;
+  flex-direction:column;
+  line-height:1.15;
+}
+.brand-text .brand-name{
   font-family:var(--font-display);
   font-weight:700;
-  font-size:17px;
+  font-size:16px;
+  color:#fff;
   letter-spacing:0.01em;
-  white-space:nowrap;
 }
-.brand .mark{
-  color:var(--agq-green);
-}
-.brand .sub{
+.brand-text .brand-tagline{
   font-family:var(--font-mono);
-  font-size:10px;
+  font-size:9.5px;
   font-weight:400;
-  color:#A6A2C2;
-  letter-spacing:0.06em;
+  color:var(--agq-green);
+  letter-spacing:0.10em;
   text-transform:uppercase;
+  margin-top:1px;
+}
+.brand-separator{
+  width:1px;
+  height:32px;
+  background:rgba(255,255,255,0.15);
+  margin-right:32px;
 }
 nav.tabs{
   display:flex;
-  gap:4px;
+  gap:2px;
   flex:1;
   overflow-x:auto;
+  scrollbar-width:none;
 }
+nav.tabs::-webkit-scrollbar{display:none;}
 nav.tabs button{
-  background:none;
+  background:transparent;
   border:none;
-  color:#C8C5DD;
+  color:rgba(255,255,255,0.65);
+  font-family:var(--font-display);
   font-size:13px;
-  font-weight:600;
-  padding:10px 14px;
-  border-radius:var(--radius-s);
+  font-weight:500;
+  padding:0 16px;
+  height:var(--header-h);
+  border-radius:0;
+  transition:color 0.15s, background 0.15s;
+  position:relative;
+  white-space:nowrap;
+  letter-spacing:0.01em;
+}
+nav.tabs button:hover{
+  color:#fff;
+  background:rgba(255,255,255,0.06);
+}
+nav.tabs button.active{
+  color:#fff;
+  background:rgba(132,189,0,0.12);
+}
+nav.tabs button.active::after{
+  content:'';
+  position:absolute;
+  bottom:0;left:8px;right:8px;
+  height:3px;
+  background:var(--agq-green);
+  border-radius:3px 3px 0 0;
+}
+.header-right{
   display:flex;
   align-items:center;
-  gap:8px;
-  white-space:nowrap;
+  gap:10px;
+  margin-left:auto;
+  flex-shrink:0;
 }
-nav.tabs button:hover{background:rgba(255,255,255,0.08);color:#fff;}
-nav.tabs button.active{background:var(--agq-purple);color:#fff;}
-nav.tabs button .count{
-  font-family:var(--font-mono);
-  font-size:11px;
-  background:rgba(255,255,255,0.18);
-  padding:1px 6px;
-  border-radius:10px;
-}
-nav.tabs button.active .count{background:rgba(255,255,255,0.28);}
 
 main{
   flex:1;
@@ -143,23 +192,36 @@ main{
    ============================================================ */
 .dash-strip{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:1px;
-  background:var(--line);
-  border:1px solid var(--line);
-  border-radius:var(--radius-m);
-  overflow:hidden;
-  margin-bottom:20px;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:12px;
+  margin-bottom:24px;
 }
 .dash-cell{
   background:var(--card);
-  padding:14px 18px;
+  padding:18px 20px;
+  border-radius:var(--radius-l);
+  border:1px solid var(--line);
+  box-shadow:var(--shadow-s);
+  position:relative;
+  overflow:hidden;
 }
+.dash-cell::before{
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;
+  height:3px;
+  background:var(--line);
+}
+.dash-cell.acc::before{ background:var(--agq-green); }
+.dash-cell.gap::before{ background:var(--terracotta); }
+.dash-cell.urgent::before{ background:var(--amber); }
 .dash-cell .num{
   font-family:var(--font-display);
-  font-size:28px;
+  font-size:30px;
   font-weight:700;
   line-height:1;
+  color:var(--ink);
+}
 }
 .dash-cell .lbl{
   font-size:11px;
@@ -185,34 +247,46 @@ main{
 .toolbar input[type="search"]{
   flex:1;
   min-width:180px;
-  padding:8px 12px;
-  border:1px solid var(--line-strong);
-  border-radius:var(--radius-s);
+  padding:9px 14px;
+  border:1px solid var(--line);
+  border-radius:var(--radius-m);
   background:var(--card);
   font-size:13px;
+  box-shadow:var(--shadow-s);
+  transition:border-color 0.15s, box-shadow 0.15s;
+}
+.toolbar input[type="search"]:focus{
+  outline:none;
+  border-color:var(--agq-purple);
+  box-shadow:0 0 0 3px var(--agq-purple-bg);
 }
 .chip{
-  border:1px solid var(--line-strong);
+  border:1.5px solid var(--line);
   background:var(--card);
   color:var(--ink-soft);
   font-size:12px;
   font-weight:600;
-  padding:6px 12px;
+  padding:6px 14px;
   border-radius:20px;
   white-space:nowrap;
+  transition:all 0.15s;
+  box-shadow:var(--shadow-s);
 }
+.chip:hover{ border-color:var(--agq-purple); color:var(--agq-purple); }
 .chip.active{
   background:var(--agq-purple);
   border-color:var(--agq-purple);
   color:#fff;
+  box-shadow:0 2px 8px rgba(86,82,148,0.3);
 }
 select.sortsel{
-  padding:7px 10px;
-  border:1px solid var(--line-strong);
-  border-radius:var(--radius-s);
+  padding:8px 12px;
+  border:1px solid var(--line);
+  border-radius:var(--radius-m);
   background:var(--card);
   font-size:12px;
   color:var(--ink-soft);
+  box-shadow:var(--shadow-s);
 }
 
 /* ============================================================
@@ -220,9 +294,10 @@ select.sortsel{
    ============================================================ */
 .list{
   border:1px solid var(--line);
-  border-radius:var(--radius-m);
+  border-radius:var(--radius-l);
   overflow:hidden;
   background:var(--card);
+  box-shadow:var(--shadow-s);
 }
 .row{
   display:grid;
@@ -376,8 +451,12 @@ textarea.notearea{
 }
 @keyframes spin{to{transform:rotate(360deg);}}
 .callout{
-  font-size:11.5px;color:var(--ink-soft);background:var(--paper-dim);
-  border-left:3px solid var(--agq-purple);padding:8px 12px;border-radius:0 4px 4px 0;margin-bottom:14px;
+  font-size:12px;color:var(--agq-purple-deep);
+  background:var(--agq-purple-bg);
+  border-left:3px solid var(--agq-purple);
+  padding:10px 14px;border-radius:0 var(--radius-m) var(--radius-m) 0;
+  margin-bottom:18px;
+  box-shadow:var(--shadow-s);
 }
 
 /* ============================================================
@@ -433,16 +512,41 @@ textarea.bigpaste{
 }
 
 footer.foot{
-  text-align:center;font-size:11px;color:var(--ink-soft);padding:18px;
+  background:var(--ink);
+  color:rgba(255,255,255,0.4);
+  text-align:center;
+  font-size:11px;
+  padding:16px 24px;
+  border-top:3px solid var(--agq-green);
+  letter-spacing:0.02em;
 }
+footer.foot strong{color:rgba(255,255,255,0.7);}
 </style>
 </head>
 <body>
 <div id="app">
 
   <header class="topbar">
-    <div class="brand"><span class="mark">●</span> AGQ <span class="sub">Radar de Licitaciones</span></div>
-    <span id="topbar-sync-indicator" style="font-size:10.5px;color:#9D99BD;font-family:var(--font-mono);white-space:nowrap;"></span>
+    <div class="brand">
+      <div class="brand-logo">
+        <svg width="112" height="38" viewBox="0 0 112 38" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="AGQ Labs">
+          <polygon points="19,2 33,10.5 33,27.5 19,36 5,27.5 5,10.5" fill="#565294"/>
+          <polygon points="19,5 30,11.5 30,25.5 19,32 8,25.5 8,11.5" fill="none" stroke="#84BD00" stroke-width="1"/>
+          <text x="10" y="24" font-family="Arial Black,Arial,sans-serif" font-size="11" font-weight="900" fill="#84BD00">A</text>
+          <text x="17.5" y="24" font-family="Arial Black,Arial,sans-serif" font-size="11" font-weight="900" fill="#ffffff">G</text>
+          <text x="25.5" y="24" font-family="Arial Black,Arial,sans-serif" font-size="11" font-weight="900" fill="#84BD00">Q</text>
+          <text x="41" y="20" font-family="Arial Black,Arial,sans-serif" font-size="18" font-weight="900" fill="#ffffff" letter-spacing="1">LABS</text>
+          <rect x="41" y="23" width="68" height="1.5" fill="#84BD00"/>
+          <text x="41" y="32" font-family="Arial,sans-serif" font-size="7" fill="#84BD00" letter-spacing="2">TECHNOLOGICAL SERVICES</text>
+        </svg>
+      </div>
+      <div class="brand-separator"></div>
+      <div class="brand-text">
+        <span class="brand-name">Radar de Licitaciones</span>
+        <span class="brand-tagline">Plataforma de Contratación del Sector Público</span>
+      </div>
+    </div>
+    <span id="topbar-sync-indicator" style="font-size:10.5px;color:rgba(132,189,0,0.7);font-family:var(--font-mono);white-space:nowrap;margin-left:auto;margin-right:16px;"></span>
     <nav class="tabs" id="tabs">
       <button data-view="abiertas" class="active">Abiertas</button>
       <button data-view="pipeline">Pipeline</button>
@@ -573,7 +677,7 @@ footer.foot{
 
   </main>
 
-  <footer class="foot">AGQ Radar de Licitaciones · Herramienta interna de apoyo comercial · datos actualizados automáticamente cada día desde la Plataforma de Contratación del Sector Público</footer>
+  <footer class="foot"><strong>AGQ Labs</strong> · Radar de Licitaciones · Herramienta interna de apoyo comercial · Datos actualizados automáticamente desde la Plataforma de Contratación del Sector Público</footer>
 </div>
 
 <div id="overlay"></div>
