@@ -264,12 +264,33 @@ Te paso a continuación el/los pliego(s) de la licitación "${entry.title}" (exp
     parts.push({ inline_data: { mime_type: 'application/pdf', data: d.buffer.toString('base64') } });
   });
   parts.push({
-    text: `Responde ÚNICAMENTE con un JSON válido (sin texto adicional, sin markdown, sin backticks) con esta forma exacta:
-{"descripcion_objeto":"...","aspectos_administrativos":["..."],"aspectos_tecnicos":["..."]}
-"descripcion_objeto" es un párrafo breve (2-4 frases) que explique en lenguaje claro qué se contrata, para quién y con qué finalidad, basado en el objeto del contrato del pliego.
-"aspectos_administrativos" es una lista de los puntos administrativos a tener en cuenta antes de presentar oferta: criterios de valoración y su ponderación, documentación a aportar, garantías (provisional/definitiva), solvencia económica exigida, plazo y forma de presentación, criterios de desempate, y cualquier otro requisito administrativo relevante.
-"aspectos_tecnicos" es una lista de los aspectos técnicos necesarios para poder ejecutar el contrato: alcance técnico del servicio, parámetros/matrices/ensayos requeridos, acreditaciones o habilitaciones técnicas exigidas (ISO 17025, ISO 17020, ENAC, registros sectoriales...), medios materiales o personal técnico exigido, plazos de ejecución y entrega de resultados, y cualquier otro requisito técnico relevante.
-Cada elemento de las listas debe ser una frase breve y concreta en español, basada solo en el texto de los pliegos proporcionados. Si una sección no tiene información, devuelve un array vacío para ella (o cadena vacía para descripcion_objeto). Máximo 8 elementos por lista.`
+    text: `Responde ÚNICAMENTE con un JSON válido (sin texto adicional, sin markdown, sin backticks) con esta estructura exacta:
+{
+  "descripcion_objeto": "...",
+  "criterios_valoracion": ["..."],
+  "aspectos_administrativos": ["..."],
+  "aspectos_tecnicos": ["..."],
+  "parametros_matrices": ["..."],
+  "acreditaciones_exigidas": ["..."],
+  "plazos_garantias": ["..."],
+  "riesgos_para_agq": ["..."],
+  "viabilidad": "ALTA|MEDIA|BAJA",
+  "viabilidad_justificacion": "..."
+}
+
+INSTRUCCIONES POR CAMPO:
+- "descripcion_objeto": párrafo breve (2-3 frases) que explique qué se contrata, para quién y con qué finalidad.
+- "criterios_valoracion": lista de criterios de puntuación con sus pesos/puntos exactos (ej: "Oferta económica: 60 puntos", "Mejoras técnicas: 40 puntos"). Máximo 6 elementos.
+- "aspectos_administrativos": requisitos administrativos clave (solvencia económica exigida, garantías, documentación obligatoria, forma y plazo de presentación). Máximo 6 elementos.
+- "aspectos_tecnicos": requisitos técnicos necesarios para ejecutar el contrato (alcance, medios, personal, plazos de entrega). Máximo 6 elementos.
+- "parametros_matrices": parámetros analíticos, matrices o ensayos concretos requeridos (ej: "Legionella spp. en agua fría y caliente"). Array vacío si no aplica.
+- "acreditaciones_exigidas": habilitaciones, certificaciones o registros que exige el pliego (ISO 17025, ISO 17020, ENAC, ROESB, ROLECE...). Array vacío si no se especifican.
+- "plazos_garantias": duración del contrato, prórrogas posibles, garantía definitiva, plazo de garantía del servicio.
+- "riesgos_para_agq": aspectos del pliego que pueden ser un problema para AGQ Labs (registros autonómicos específicos, subcontratación necesaria, restricciones geográficas, solvencia difícil de acreditar). Array vacío si no hay riesgos evidentes.
+- "viabilidad": valoración global de si AGQ puede presentar oferta: ALTA (cumple todos los requisitos evidentes), MEDIA (puede presentar con alguna subcontratación o limitación), BAJA (requisito difícil de cumplir o fuera de scope).
+- "viabilidad_justificacion": una frase explicando el motivo de la valoración de viabilidad.
+
+Basa todas las respuestas SOLO en el texto de los pliegos. Si una sección no tiene información, devuelve array vacío o cadena vacía.`
   });
 
   const url = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`;
@@ -340,90 +361,142 @@ function formatDeadlineEs(entry){
 
 async function generateSummaryPdf(entry, summary, docLabels){
   const doc = await PDFDocument.create();
-  const fontReg = await doc.embedFont(StandardFonts.Helvetica);
+  const fontReg  = await doc.embedFont(StandardFonts.Helvetica);
   const fontBold = await doc.embedFont(StandardFonts.HelveticaBold);
   let page = doc.addPage([PAGE_W, PAGE_H]);
   let y = PAGE_H - MARGIN;
 
-  function drawFooter(){
-    page.drawText('AGQ Radar de Licitaciones · Resumen generado automáticamente con IA a partir de: ' + docLabels.join(', ') + ' · verificar siempre el pliego original', {
-      x: MARGIN, y: 28, size: 7, font: fontReg, color: PDF_SOFT
-    });
-  }
-  function newPageIfNeeded(needed){
-    if(y - needed < MARGIN){
+  const CONTENT_W = PAGE_W - 2*MARGIN;
+
+  function checkPage(needed){
+    if(y - needed < MARGIN + 30){
+      drawPageFooter();
       page = doc.addPage([PAGE_W, PAGE_H]);
       y = PAGE_H - MARGIN;
-      page.drawRectangle({ x:0, y: PAGE_H - 6, width: PAGE_W, height: 6, color: PDF_PURPLE });
-      y -= 30;
+      // Línea de color superior en páginas adicionales
+      page.drawRectangle({ x:0, y:PAGE_H-4, width:PAGE_W, height:4, color:PDF_PURPLE });
+      page.drawRectangle({ x:0, y:PAGE_H-7, width:PAGE_W/2, height:3, color:PDF_GREEN });
+      y -= 28;
     }
   }
 
-  // 1) Cabecera de marca
-  page.drawRectangle({ x:0, y: PAGE_H - 6, width: PAGE_W, height: 6, color: PDF_PURPLE });
-  page.drawText('AGQ RADAR DE LICITACIONES', { x: MARGIN, y, size: 9, font: fontBold, color: PDF_PURPLE });
-  const tag = 'RESUMEN AUTOMÁTICO DE PLIEGO';
-  page.drawText(tag, { x: PAGE_W - MARGIN - fontReg.widthOfTextAtSize(tag, 9), y, size: 9, font: fontReg, color: PDF_GREEN });
-  y -= 22;
-  page.drawLine({ start:{x:MARGIN,y}, end:{x:PAGE_W-MARGIN,y}, thickness:0.75, color: rgb(0.85,0.85,0.87) });
-  y -= 26;
+  function drawPageFooter(){
+    page.drawLine({ start:{x:MARGIN,y:32}, end:{x:PAGE_W-MARGIN,y:32}, thickness:0.5, color:rgb(0.8,0.8,0.85) });
+    page.drawText(`AGQ Labs · Radar de Licitaciones · Resumen ejecutivo generado con IA · Fuente: ${docLabels.join(', ')} · Verificar siempre el pliego original`, {
+      x:MARGIN, y:20, size:6.5, font:fontReg, color:PDF_SOFT
+    });
+    page.drawText(new Date().toLocaleDateString('es-ES',{day:'2-digit',month:'2-digit',year:'numeric'}),
+      { x:PAGE_W-MARGIN-40, y:20, size:6.5, font:fontReg, color:PDF_SOFT });
+  }
 
-  // 2) Título
-  wrapText(entry.title, fontBold, 14, PAGE_W - 2*MARGIN).forEach(l=>{ page.drawText(l, { x: MARGIN, y, size: 14, font: fontBold, color: PDF_INK }); y -= 18; });
-  y -= 4;
-  page.drawText(sanitizeForPdf('Expediente ' + entry.expediente + (entry.organo ? ' · ' + entry.organo : '')), { x: MARGIN, y, size: 10, font: fontReg, color: PDF_SOFT });
-  y -= 24;
+  // ─── CABECERA CORPORATIVA ───────────────────────────────────────────
+  // Banda superior bicolor
+  page.drawRectangle({ x:0, y:PAGE_H-4, width:PAGE_W, height:4, color:PDF_PURPLE });
+  page.drawRectangle({ x:0, y:PAGE_H-7, width:PAGE_W/2, height:3, color:PDF_GREEN });
 
-  // 3) Ficha rápida: importe + fecha límite, en una caja de dos columnas
-  const fichaH = 46;
-  newPageIfNeeded(fichaH + 12);
-  const colW = (PAGE_W - 2*MARGIN) / 2;
-  page.drawRectangle({ x: MARGIN, y: y - fichaH, width: PAGE_W - 2*MARGIN, height: fichaH, color: rgb(0.96,0.96,0.97) });
-  page.drawText('IMPORTE DE LA LICITACIÓN', { x: MARGIN+12, y: y-16, size: 8, font: fontBold, color: PDF_PURPLE });
-  page.drawText(formatImporteEs(entry), { x: MARGIN+12, y: y-34, size: 12.5, font: fontBold, color: PDF_INK });
-  page.drawText('FECHA LÍMITE DE PRESENTACIÓN', { x: MARGIN+colW+12, y: y-16, size: 8, font: fontBold, color: PDF_PURPLE });
-  page.drawText(formatDeadlineEs(entry), { x: MARGIN+colW+12, y: y-34, size: 12.5, font: fontBold, color: PDF_INK });
-  page.drawLine({ start:{x:MARGIN+colW, y:y-8}, end:{x:MARGIN+colW, y:y-fichaH+8}, thickness:0.75, color: rgb(0.85,0.85,0.87) });
-  y -= (fichaH + 22);
+  // Fondo cabecera oscuro
+  page.drawRectangle({ x:0, y:PAGE_H-56, width:PAGE_W, height:49, color:rgb(0.10,0.09,0.15) });
 
-  // 4) Resumen del objeto de la licitación
+  // Texto AGQ LABS a la izquierda
+  page.drawText('AGQ LABS', { x:MARGIN, y:PAGE_H-28, size:16, font:fontBold, color:rgb(1,1,1) });
+  page.drawText('TECHNOLOGICAL SERVICES', { x:MARGIN, y:PAGE_H-40, size:7, font:fontReg, color:rgb(0.52,0.74,0) });
+  // Línea verde bajo AGQ LABS
+  page.drawLine({ start:{x:MARGIN,y:PAGE_H-44}, end:{x:MARGIN+92,y:PAGE_H-44}, thickness:1, color:PDF_GREEN });
+
+  // Título del documento a la derecha
+  const tipoDoc = 'RESUMEN EJECUTIVO';
+  const tipoW = fontBold.widthOfTextAtSize(tipoDoc, 9);
+  page.drawText(tipoDoc, { x:PAGE_W-MARGIN-tipoW, y:PAGE_H-28, size:9, font:fontBold, color:PDF_GREEN });
+  page.drawText('Licitación Pública · Plataforma de Contratación del Sector Público',
+    { x:PAGE_W-MARGIN-fontReg.widthOfTextAtSize('Licitación Pública · Plataforma de Contratación del Sector Público',7),
+      y:PAGE_H-40, size:7, font:fontReg, color:rgb(0.65,0.63,0.78) });
+
+  y = PAGE_H - 72;
+
+  // ─── TÍTULO Y EXPEDIENTE ────────────────────────────────────────────
+  const titleLines = wrapText(entry.title, fontBold, 13, CONTENT_W);
+  titleLines.forEach(l=>{ page.drawText(l, { x:MARGIN, y, size:13, font:fontBold, color:PDF_INK }); y -= 17; });
+  y -= 3;
+  const meta = sanitizeForPdf(`Expediente ${entry.expediente}${entry.organo?' · '+entry.organo:''}`);
+  page.drawText(meta, { x:MARGIN, y, size:9.5, font:fontReg, color:PDF_SOFT });
+  y -= 18;
+  page.drawLine({ start:{x:MARGIN,y}, end:{x:PAGE_W-MARGIN,y}, thickness:0.5, color:rgb(0.85,0.85,0.87) });
+  y -= 16;
+
+  // ─── FICHA RÁPIDA: importe + plazo ─────────────────────────────────
+  const fichaH = 44;
+  checkPage(fichaH + 20);
+  const colW = CONTENT_W / 2;
+  page.drawRectangle({ x:MARGIN, y:y-fichaH, width:CONTENT_W, height:fichaH, color:rgb(0.96,0.96,0.98), borderColor:rgb(0.85,0.85,0.90), borderWidth:0.5 });
+  // col izq: importe
+  page.drawText('PRESUPUESTO DE LICITACIÓN', { x:MARGIN+12, y:y-14, size:7.5, font:fontBold, color:PDF_PURPLE });
+  page.drawText(formatImporteEs(entry), { x:MARGIN+12, y:y-32, size:13, font:fontBold, color:PDF_INK });
+  // separador vertical
+  page.drawLine({ start:{x:MARGIN+colW,y:y-6}, end:{x:MARGIN+colW,y:y-fichaH+6}, thickness:0.5, color:rgb(0.82,0.82,0.88) });
+  // col der: fecha límite
+  page.drawText('FECHA LÍMITE DE PRESENTACIÓN', { x:MARGIN+colW+12, y:y-14, size:7.5, font:fontBold, color:PDF_PURPLE });
+  const deadlineStr = formatDeadlineEs(entry);
+  page.drawText(sanitizeForPdf(deadlineStr), { x:MARGIN+colW+12, y:y-32, size:13, font:fontBold, color:PDF_INK });
+  y -= (fichaH + 16);
+
+  // ─── SEMÁFORO DE VIABILIDAD ─────────────────────────────────────────
+  if(summary.viabilidad){
+    checkPage(36);
+    const vColor = summary.viabilidad==='ALTA' ? PDF_GREEN : summary.viabilidad==='MEDIA' ? rgb(0.79,0.49,0.16) : rgb(0.64,0.23,0.23);
+    const vBg    = summary.viabilidad==='ALTA' ? rgb(0.93,0.98,0.88) : summary.viabilidad==='MEDIA' ? rgb(0.99,0.95,0.88) : rgb(0.98,0.92,0.92);
+    const vLabel = `VIABILIDAD PARA AGQ: ${summary.viabilidad}`;
+    page.drawRectangle({ x:MARGIN, y:y-30, width:CONTENT_W, height:30, color:vBg, borderColor:vColor, borderWidth:1 });
+    page.drawRectangle({ x:MARGIN, y:y-30, width:4, height:30, color:vColor });
+    page.drawText(sanitizeForPdf(vLabel), { x:MARGIN+14, y:y-13, size:9, font:fontBold, color:vColor });
+    if(summary.viabilidad_justificacion){
+      const justLines = wrapText(summary.viabilidad_justificacion, fontReg, 8.5, CONTENT_W-28);
+      justLines.slice(0,1).forEach(l=>page.drawText(l, { x:MARGIN+14, y:y-24, size:8.5, font:fontReg, color:PDF_INK }));
+    }
+    y -= 44;
+  }
+
+  // ─── OBJETO DEL CONTRATO ────────────────────────────────────────────
   if(summary.descripcion_objeto && summary.descripcion_objeto.trim()){
-    newPageIfNeeded(30);
-    page.drawText('RESUMEN DEL OBJETO DE LA LICITACIÓN', { x: MARGIN, y, size: 10.5, font: fontBold, color: PDF_PURPLE });
-    y -= 16;
-    const descLines = wrapText(summary.descripcion_objeto, fontReg, 10.5, PAGE_W - 2*MARGIN - 16);
-    newPageIfNeeded(descLines.length*14 + 18);
-    const boxTop = y + 6;
-    descLines.forEach(l=>{ page.drawText(l, { x: MARGIN+8, y, size: 10.5, font: fontReg, color: PDF_INK }); y -= 14; });
-    const boxBottom = y + 2;
-    page.drawRectangle({ x: MARGIN, y: boxBottom, width: 3, height: boxTop - boxBottom, color: PDF_GREEN });
-    y -= 20;
+    checkPage(30);
+    page.drawText('OBJETO DEL CONTRATO', { x:MARGIN, y, size:9.5, font:fontBold, color:PDF_PURPLE });
+    y -= 14;
+    const dLines = wrapText(summary.descripcion_objeto, fontReg, 9.5, CONTENT_W-10);
+    checkPage(dLines.length*13+14);
+    const boxTop = y+4;
+    dLines.forEach(l=>{ page.drawText(l, { x:MARGIN+10, y, size:9.5, font:fontReg, color:PDF_INK }); y -= 13; });
+    page.drawRectangle({ x:MARGIN, y:y+2, width:3, height:boxTop-(y+2), color:PDF_GREEN });
+    y -= 18;
   }
 
-  function section(title, items){
-    newPageIfNeeded(40);
-    page.drawText(title.toUpperCase(), { x: MARGIN, y, size: 10.5, font: fontBold, color: PDF_PURPLE });
-    y -= 16;
-    if(!items || !items.length){
-      page.drawText('— Sin información detectada en el pliego —', { x: MARGIN+12, y, size: 9.5, font: fontReg, color: PDF_SOFT });
-      y -= 18; return;
-    }
+  // ─── FUNCIÓN GENÉRICA DE SECCIÓN ────────────────────────────────────
+  function section(title, items, color){
+    if(!items || !items.length) return;
+    checkPage(32);
+    const sColor = color || PDF_PURPLE;
+    page.drawText(title.toUpperCase(), { x:MARGIN, y, size:9.5, font:fontBold, color:sColor });
+    y -= 14;
     items.forEach(it=>{
-      const lines = wrapText(it, fontReg, 10, PAGE_W - 2*MARGIN - 14);
-      newPageIfNeeded(lines.length*13 + 6);
-      page.drawText('•', { x: MARGIN, y, size: 10, font: fontBold, color: PDF_GREEN });
-      lines.forEach(l=>{ page.drawText(l, { x: MARGIN+14, y, size: 10, font: fontReg, color: PDF_INK }); y -= 13; });
+      const lines = wrapText(sanitizeForPdf(it), fontReg, 9.5, CONTENT_W-16);
+      checkPage(lines.length*13+6);
+      // bullet cuadrado del color de la sección
+      page.drawRectangle({ x:MARGIN+1, y:y-1, width:5, height:5, color:sColor });
+      lines.forEach((l,i)=>{ page.drawText(l, { x:MARGIN+14, y, size:9.5, font:i===0?fontReg:fontReg, color:PDF_INK }); y -= 13; });
       y -= 3;
     });
     y -= 8;
   }
 
-  // 5) Aspectos administrativos a considerar
-  section('Aspectos administrativos a considerar', summary.aspectos_administrativos);
-  // 6) Aspectos técnicos necesarios
-  section('Aspectos técnicos necesarios', summary.aspectos_tecnicos);
-  drawFooter();
+  section('Criterios de valoración', summary.criterios_valoracion, PDF_PURPLE);
+  section('Aspectos administrativos clave', summary.aspectos_administrativos, PDF_PURPLE);
+  section('Aspectos técnicos requeridos', summary.aspectos_tecnicos, PDF_PURPLE);
+  section('Parámetros y matrices', summary.parametros_matrices, PDF_GREEN);
+  section('Acreditaciones exigidas en el pliego', summary.acreditaciones_exigidas, PDF_GREEN);
+  section('Plazos y garantías', summary.plazos_garantias, PDF_SOFT);
+  if(summary.riesgos_para_agq && summary.riesgos_para_agq.length){
+    section('⚠ Riesgos / aspectos a verificar para AGQ', summary.riesgos_para_agq, rgb(0.64,0.23,0.23));
+  }
 
+  drawPageFooter();
   return Buffer.from(await doc.save());
 }
 
@@ -590,7 +663,14 @@ async function generateSummariesForOpenTenders(entries){
     return diag;
   }
   fs.mkdirSync(RESUMENES_DIR, { recursive: true });
-  const candidates = entries.filter(e => isOpenForSubmission(e) && !e.resumenPdfPath);
+  const candidates = entries.filter(e => {
+    if(!isOpenForSubmission(e)) return false;
+    if(!e.resumenPdfPath) return true;
+    // Regenerar si el resumen es del formato antiguo (sin campos nuevos)
+    // Se detecta por la ausencia del campo resumenVersion en el snapshot
+    if(!e.resumenVersion || e.resumenVersion < 2) return true;
+    return false;
+  });
   diag.candidatos = candidates.length;
   console.log(`Resúmenes PDF: ${candidates.length} licitación(es) abierta(s) pendiente(s) de resumir.`);
 
@@ -624,6 +704,7 @@ async function generateSummariesForOpenTenders(entries){
       fs.writeFileSync(RESUMENES_DIR + '/' + filename, pdfBuffer);
       entry.resumenPdfPath = RESUMENES_DIR + '/' + filename;
       entry.resumenGeneradoEn = new Date().toISOString();
+      entry.resumenVersion = 2;
       diag.generados++;
       console.log(`[${entry.expediente}] resumen PDF generado (${docs.map(d=>d.label).join(' + ')}).`);
       await new Promise(r => setTimeout(r, 1500)); // ritmo prudente frente a la API y al feed
