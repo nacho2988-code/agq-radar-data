@@ -556,7 +556,7 @@ async function generateSummariesForOpenTenders(entries){
     if(!e.resumenHtmlPath) return true;
     if(!e.resumenVersion || e.resumenVersion < 2) return true;
     return false;
-  }).slice(0, 5); // máx 5 por barrido para no saturar el rate limit de Gemini
+  }); // sin límite — regeneración completa
   diag.candidatos = candidates.length;
   console.log(`Resúmenes PDF: ${candidates.length} licitación(es) abierta(s) pendiente(s) de resumir.`);
 
