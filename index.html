@@ -1132,10 +1132,14 @@ function configCpvCodes(){
   return STATE.config.cpv.map(line => (line.match(/^\d{8}/) || [])[0]).filter(Boolean);
 }
 
-const SUPPLY_TYPE_RE = /\bsuministros?\s+(de|del|de\s+los|de\s+las|y|e)\b|\badquisici[oó]n\s+de\b|\bsistema\s+din[aá]mico\s+de\s+adquisici[oó]n\b|\brenting\b|\barrendamiento\b/i;
+const SUPPLY_TYPE_RE = /\bsuministros?\s*(,|\s+y|\s+de|\s+e\s|\s+instalaci|\s+montaje|\s+puesta|\s+mantenimiento|\s+reparaci)|\badquisici[oó]n\s+de\b|\bsistema\s+din[aá]mico\s+de\s+adquisici[oó]n\b|\brenting\b|\barrendamiento\b/i;
 const STRONG_SERVICE_KEYWORDS = ['ensayo','ensayos','análisis','analisis','analítica','analitica','control analítico','control analitico','servicio de análisis','externalizacion','externalización','subcontratacion','subcontratación','muestreo','toma de muestra','vigilancia ambiental','auditoría ambiental','auditoria ambiental','evaluación ambiental','evaluacion ambiental','inspección ambiental','inspeccion ambiental'];
+const OUT_OF_SCOPE_RE = /\bveh[ií]culos?\b|\bautom[oó]viles?\b|\bturismos?\b|\bcamiones?\b|\bcombustible\b|\bpapeler[ií]a\b|\bmobiliario\b|\bvestuario\b|\buniformes?\b|\bcatering\b|\balimentaci[oó]n\s+(para|de\s+comedor)\b|\bseguridad\s+privada\b|\bvigilancia\s+privada\b|\bmantenimiento\s+de\s+(edificios?|instalaciones?\s+eléctricas?|ascensores?|la\s+climatizaci[oó]n)\b|\bobras?\s+de\s+(construcci[oó]n|reforma|rehabilitaci[oó]n|urbanizaci[oó]n)\b/i;
 
 function isSectorRelevant(tender){
+  // Descartar explícitamente contratos fuera de sector
+  if(OUT_OF_SCOPE_RE.test(tender.title || '')) return false;
+
   const cpvList = configCpvCodes();
   if(tender.cpv && tender.cpv.some(c => cpvList.includes(c))) return true;
   const text = (tender.title + ' ' + tender.rawSummary).toLowerCase();
