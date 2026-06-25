@@ -193,10 +193,16 @@ function keywordMatches(text, keyword){
 // externo como AGQ). En ese caso, palabras como "laboratorio" o "agua" ya no bastan
 // como señal de actividad: exigimos una señal fuerte de que también incluye un
 // servicio de análisis/inspección realmente prestado, no solo material/equipo.
-const SUPPLY_TYPE_RE = /\bsuministros?\s+(de|del|de\s+los|de\s+las|y|e)\b|\badquisici[oó]n\s+de\b|\bsistema\s+din[aá]mico\s+de\s+adquisici[oó]n\b|\brenting\b|\barrendamiento\b/i;
+const SUPPLY_TYPE_RE = /\bsuministros?\s*(,|\s+y|\s+de|\s+e\s|\s+instalaci|\s+montaje|\s+puesta|\s+mantenimiento|\s+reparaci)|\badquisici[oó]n\s+de\b|\bsistema\s+din[aá]mico\s+de\s+adquisici[oó]n\b|\brenting\b|\barrendamiento\b/i;
+
+// Palabras que indican contratos claramente fuera del sector AGQ
+const OUT_OF_SCOPE_RE = /\bveh[ií]culos?\b|\bautom[oó]viles?\b|\bturismos?\b|\bcamiones?\b|\bcombustible\b|\bpapeler[ií]a\b|\bmobiliario\b|\bvestuario\b|\buniformes?\b|\bcatering\b|\balimentaci[oó]n\s+(para|de\s+comedor)\b|\bservicio\s+de\s+limpieza\s+(de\s+(?!aguas|agua|suelos?|contaminaci))\b|\bseguridad\s+privada\b|\bvigilancia\s+privada\b|\bmantenimiento\s+de\s+(edificios?|instalaciones?\s+eléctricas?|ascensores?|la\s+climatizaci[oó]n)\b|\bobras?\s+de\s+(construcci[oó]n|reforma|rehabilitaci[oó]n|urbanizaci[oó]n)\b/i;
 const STRONG_SERVICE_KEYWORDS = ['ensayo','ensayos','análisis','analisis','analítica','analitica','control analítico','control analitico','servicio de análisis','externalizacion','externalización','subcontratacion','subcontratación','muestreo','toma de muestra','vigilancia ambiental','auditoría ambiental','auditoria ambiental','evaluación ambiental','evaluacion ambiental','inspección ambiental','inspeccion ambiental'];
 
 function isSectorRelevant(entry){
+  // Primero: descartar explícitamente contratos que nunca son de nuestro sector
+  if(OUT_OF_SCOPE_RE.test(entry.title)) return false;
+
   if(entry.cpv.some(c => cpvCodes.includes(c))) return true;
   const text = (entry.title + ' ' + entry.rawSummary).toLowerCase();
   const matched = allKeywords.filter(k => k && keywordMatches(text, k));
@@ -207,9 +213,6 @@ function isSectorRelevant(entry){
   if(esSuministro){
     return STRONG_SERVICE_KEYWORDS.some(k => keywordMatches(text, k));
   }
-  // Solo hay coincidencias de términos ambiguos (agua, suelo, residuos...): exigimos
-  // además una señal de que el contrato es de análisis/inspección, no de obra,
-  // suministro, recogida o concesión de un servicio que simplemente menciona esas palabras.
   return activityKeywords.some(k => keywordMatches(text, k));
 }
 
