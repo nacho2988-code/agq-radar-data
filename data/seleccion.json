@@ -19,5 +19,10 @@
     "seleccionado": false,
     "marcadoEn": "2026-06-24T18:47:36.195Z",
     "alertaEnviada": null
+  },
+  "2026/035228": {
+    "seleccionado": true,
+    "marcadoEn": "2026-06-25T04:33:12.996Z",
+    "alertaEnviada": null
   }
 }
