@@ -2847,24 +2847,99 @@ refreshAllViews();
 const _ghCfg = loadGithubConfig();
 // autoSync se inicia desde el login
 
-// === LOGIN ===
+// === LOGIN + CIERRE POR INACTIVIDAD ===
 (function initLogin(){
-  const USER = 'AGQLABS';
-  const PASS = 'RadarAGQLABS';
+  const USER        = 'AGQLABS';
+  const PASS        = 'RadarAGQLABS';
   const SESSION_KEY = 'agq_radar_auth';
+  const TIMEOUT_MS  = 30 * 60 * 1000; // 30 minutos
+  const WARN_MS     = 25 * 60 * 1000; // aviso a los 25 minutos
+  let inactivityTimer = null;
+  let warnTimer       = null;
+  let warnShown       = false;
+
+  // sessionStorage es POR PESTAÑA/VENTANA — cada usuario tiene su propia sesión
+  // independientemente de cuántos navegadores estén abiertos a la vez.
+
+  function logout(motivo){
+    sessionStorage.removeItem(SESSION_KEY);
+    // Limpiar timers
+    clearTimeout(inactivityTimer);
+    clearTimeout(warnTimer);
+    // Ocultar aviso si estaba visible
+    const warn = document.getElementById('inactivity-warn');
+    if(warn) warn.style.display = 'none';
+    // Mostrar login con mensaje opcional
+    const loginScreen = document.getElementById('login-screen');
+    loginScreen.style.display = 'flex';
+    document.getElementById('app').style.display = 'none';
+    const box = document.querySelector('.login-box');
+    box.style.opacity = '1'; box.style.transform = '';
+    document.getElementById('login-user').value = '';
+    document.getElementById('login-pass').value = '';
+    if(motivo === 'inactividad'){
+      const errEl = document.getElementById('login-error');
+      errEl.textContent = 'Sesión cerrada por inactividad (30 min). Vuelve a identificarte.';
+      errEl.style.background = 'rgba(86,82,148,0.2)';
+      errEl.style.borderColor = 'rgba(86,82,148,0.4)';
+      errEl.style.color = '#b8b4e8';
+      errEl.style.display = 'block';
+    }
+    document.getElementById('login-user').focus();
+    warnShown = false;
+  }
+
+  function resetInactivityTimer(){
+    clearTimeout(inactivityTimer);
+    clearTimeout(warnTimer);
+    // Ocultar aviso si estaba visible
+    if(warnShown){
+      const warn = document.getElementById('inactivity-warn');
+      if(warn) warn.style.display = 'none';
+      warnShown = false;
+    }
+    // Aviso a los 25 minutos
+    warnTimer = setTimeout(()=>{
+      if(sessionStorage.getItem(SESSION_KEY) !== 'ok') return;
+      warnShown = true;
+      let warn = document.getElementById('inactivity-warn');
+      if(!warn){
+        warn = document.createElement('div');
+        warn.id = 'inactivity-warn';
+        warn.style.cssText = 'position:fixed;bottom:20px;right:20px;z-index:9998;background:#2D2B4E;border:1px solid #565294;border-left:4px solid #84BD00;border-radius:10px;padding:14px 18px;color:#fff;font-size:13px;font-family:var(--font-body);box-shadow:0 4px 20px rgba(0,0,0,0.4);max-width:320px;';
+        warn.innerHTML = `<div style="font-weight:600;margin-bottom:4px;">⏱ Sesión a punto de expirar</div><div style="font-size:12px;color:rgba(255,255,255,0.6);">Tu sesión se cerrará en 5 minutos por inactividad.</div><button onclick="document.getElementById('inactivity-warn').style.display='none';warnShown=false;" style="margin-top:10px;background:#565294;border:none;color:#fff;padding:6px 14px;border-radius:6px;font-size:12px;cursor:pointer;">Seguir conectado</button>`;
+        document.body.appendChild(warn);
+      } else {
+        warn.style.display = 'block';
+      }
+    }, WARN_MS);
+    // Cierre a los 30 minutos
+    inactivityTimer = setTimeout(()=>{
+      if(sessionStorage.getItem(SESSION_KEY) === 'ok') logout('inactividad');
+    }, TIMEOUT_MS);
+  }
 
   function showApp(){
     document.getElementById('login-screen').style.display = 'none';
     document.getElementById('app').style.display = 'flex';
+    // Iniciar el temporizador de inactividad
+    resetInactivityTimer();
+    // Registrar eventos de actividad del usuario
+    ['mousemove','mousedown','keydown','touchstart','scroll','click'].forEach(ev=>{
+      document.addEventListener(ev, resetInactivityTimer, { passive:true });
+    });
   }
 
-  // Si ya está autenticado en esta sesión, mostrar la app directamente
+  // Si ya está autenticado en esta sesión (pestaña), mostrar la app directamente
   if(sessionStorage.getItem(SESSION_KEY) === 'ok'){
     showApp();
+    // Sincronizar con GitHub
+    const cfg = loadGithubConfig();
+    if(cfg.repo) autoSyncFromGitHub(true);
     return;
   }
 
-  const form = document.getElementById('login-form');
+  const form  = document.getElementById('login-form');
   const errEl = document.getElementById('login-error');
 
   form.addEventListener('submit', ()=>{
@@ -2873,30 +2948,30 @@ const _ghCfg = loadGithubConfig();
     if(user === USER && pass === PASS){
       sessionStorage.setItem(SESSION_KEY, 'ok');
       errEl.style.display = 'none';
-      // Animación de salida
       const box = document.querySelector('.login-box');
       box.style.transition = 'opacity 0.3s,transform 0.3s';
       box.style.opacity = '0';
       box.style.transform = 'scale(0.97)';
       setTimeout(()=>{
-        document.getElementById('login-screen').style.display = 'none';
-        document.getElementById('app').style.display = 'flex';
-        // Iniciar la sincronización automática ahora que el usuario está autenticado
+        showApp();
         const cfg = loadGithubConfig();
         if(cfg.repo) autoSyncFromGitHub(true);
       }, 280);
     } else {
+      errEl.textContent = 'Usuario o contraseña incorrectos';
+      errEl.style.background = 'rgba(162,59,59,0.2)';
+      errEl.style.borderColor = 'rgba(162,59,59,0.4)';
+      errEl.style.color = '#f08080';
       errEl.style.display = 'block';
       document.getElementById('login-pass').value = '';
       document.getElementById('login-pass').focus();
       const box = document.querySelector('.login-box');
       box.style.animation = 'none';
-      box.offsetHeight; // reflow
+      box.offsetHeight;
       box.style.animation = 'shake 0.4s ease';
     }
   });
 
-  // Enter en el campo de contraseña
   document.getElementById('login-pass').addEventListener('keydown', e=>{
     if(e.key === 'Enter') document.getElementById('login-submit').click();
   });
