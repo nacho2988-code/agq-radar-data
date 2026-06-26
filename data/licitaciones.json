@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-26T01:05:54.120Z",
+  "generatedAt": "2026-06-26T04:07:27.813Z",
   "totalEntriesScanned": 8498,
   "pagesFetched": 18,
   "coverageHoursTarget": 72,
@@ -7,7 +7,7 @@
   "resumenDiag": {
     "geminiKeyPresent": true,
     "candidatos": 16,
-    "generados": 1,
+    "generados": 2,
     "errores": [
       {
         "expediente": "2869898W",
@@ -15,10 +15,6 @@
       },
       {
         "expediente": "2026/ES/0010",
-        "motivo": "HTTP 429 de la API de Gemini: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: "
-      },
-      {
-        "expediente": "202605000061",
         "motivo": "HTTP 429 de la API de Gemini: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: "
       },
       {
@@ -818,7 +814,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 2784/2025; Órgano de Contratación: Presidencia del Consorcio Almanzora Levante Vélez Para La Recogida de Rsu; Importe: 110224.3 EUR; Estado: EV",
-      "importedAt": "2026-06-26T01:03:29.594Z"
+      "importedAt": "2026-06-26T04:04:03.213Z"
     },
     {
       "expediente": "2026/60162245",
@@ -1030,7 +1026,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: v-03/26-01; Órgano de Contratación: Comité Ejecutivo de la Mancomunidad de los Canales del Taibilla; Importe: 577282.14 EUR; Estado: EV",
-      "importedAt": "2026-06-26T01:03:29.596Z"
+      "importedAt": "2026-06-26T04:04:03.214Z"
     },
     {
       "expediente": "52002026RB01",
@@ -1279,9 +1275,9 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: C30268926002; Órgano de Contratación: Dirección General de Carreteras; Importe: 2573026.74 EUR; Estado: PUB",
-      "importedAt": "2026-06-26T01:02:58.261Z",
+      "importedAt": "2026-06-26T04:03:21.405Z",
       "resumenHtmlPath": "data/resumenes/C30268926002.html",
-      "resumenGeneradoEn": "2026-06-26T01:05:30.118Z",
+      "resumenGeneradoEn": "2026-06-26T04:06:28.942Z",
       "resumenVersion": 2
     },
     {
@@ -1323,7 +1319,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 2026/035113; Órgano de Contratación: Dirección Gerencia de Gestión Ambiental de Castilla-La Mancha S.A.; Importe: 40167.64 EUR; Estado: PUB",
-      "importedAt": "2026-06-26T01:04:48.670Z"
+      "importedAt": "2026-06-26T04:05:41.102Z"
     },
     {
       "expediente": "2368/2026",
@@ -1670,7 +1666,7 @@
       "importeAdjudicacion": 10543.46,
       "fechaAdjudicacion": "2026-06-19",
       "rawSummary": "",
-      "importedAt": "2026-06-26T01:03:39.636Z"
+      "importedAt": "2026-06-26T04:04:21.052Z"
     },
     {
       "expediente": "PSS/2026/0000036013",
@@ -1823,7 +1819,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: PSS/2026/0000056440; Órgano de Contratación: Dirección del Ente Público Extremeño de Servicios Educativos Complementarios; Importe: 34776 EUR; Estado: EV",
-      "importedAt": "2026-06-26T01:03:50.024Z"
+      "importedAt": "2026-06-26T04:04:34.104Z"
     },
     {
       "expediente": "SER/2026/0000005054",
@@ -2015,7 +2011,7 @@
       "importeAdjudicacion": 1500090.88,
       "fechaAdjudicacion": "2026-05-29",
       "rawSummary": "",
-      "importedAt": "2026-06-26T01:02:28.586Z"
+      "importedAt": "2026-06-26T04:02:31.840Z"
     },
     {
       "expediente": "ABR-2025000048",
@@ -2285,7 +2281,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: TSA0082686; Órgano de Contratación: Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA); Importe: 618046.4 EUR; Estado: EV",
-      "importedAt": "2026-06-26T01:03:19.656Z"
+      "importedAt": "2026-06-26T04:03:50.144Z"
     },
     {
       "expediente": "227/2026",
@@ -2465,7 +2461,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: PSS/2026/0000054604; Órgano de Contratación: Servicio Extremeño de Promoción de la Autonomía y Atención a la Dependencia (SEPAD).Gerencia Territorial de Cáceres; Importe: 39509.04 EUR; Estado: EV",
-      "importedAt": "2026-06-26T01:04:19.202Z"
+      "importedAt": "2026-06-26T04:05:00.200Z"
     },
     {
       "expediente": "2025036902 (Ref. 2784)",
@@ -2519,7 +2515,7 @@
       "importeAdjudicacion": 24103.2,
       "fechaAdjudicacion": "2026-05-28",
       "rawSummary": "",
-      "importedAt": "2026-06-26T01:03:49.886Z"
+      "importedAt": "2026-06-26T04:04:33.963Z"
     },
     {
       "expediente": "0017-26",
@@ -2543,7 +2539,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "2026-06-19",
       "rawSummary": "",
-      "importedAt": "2026-06-26T01:03:39.629Z"
+      "importedAt": "2026-06-26T04:04:21.042Z"
     },
     {
       "expediente": "DEMA-2026-018",
@@ -2763,7 +2759,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 2026/034792; Órgano de Contratación: Dirección Gerencia de Gestión Ambiental de Castilla-La Mancha S.A.; Importe: 34074.7 EUR; Estado: PUB",
-      "importedAt": "2026-06-26T01:04:48.767Z"
+      "importedAt": "2026-06-26T04:05:41.191Z"
     },
     {
       "expediente": "2024_CCSAB_00005",
@@ -2786,7 +2782,7 @@
       "importeAdjudicacion": 126498.24,
       "fechaAdjudicacion": "2024-10-29",
       "rawSummary": "",
-      "importedAt": "2026-06-26T01:04:48.771Z"
+      "importedAt": "2026-06-26T04:05:41.195Z"
     },
     {
       "expediente": "2025Z7Z00123",
@@ -2830,7 +2826,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 2025Z7Z00123; Órgano de Contratación: Centro de Estudios y Experimentación de Obras Públicas (CEDEX); Importe: 180000 EUR; Estado: EV",
-      "importedAt": "2026-06-26T01:04:39.160Z"
+      "importedAt": "2026-06-26T04:05:27.377Z"
     },
     {
       "expediente": "TSA0082445",
@@ -3070,7 +3066,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: CMAYOR/2026/FISAB/0013; Órgano de Contratación: Junta de Gobierno de la Fundación para el Fomento de la Investigación Sanitaria y Biomédica de la Comunitat Valenciana (FISABIO); Importe: 544000 EUR; Estado: EV",
-      "importedAt": "2026-06-26T01:02:48.996Z"
+      "importedAt": "2026-06-26T04:03:06.410Z"
     },
     {
       "expediente": "2026/141",
@@ -3153,7 +3149,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 2869898W; Órgano de Contratación: Alcaldía del Ayuntamiento de Cortes de Pallás; Importe: 72147.88 EUR; Estado: PUB",
-      "importedAt": "2026-06-26T01:04:48.649Z",
+      "importedAt": "2026-06-26T04:05:41.079Z",
       "resumenHtmlPath": "data/resumenes/2869898W.html",
       "resumenGeneradoEn": "2026-06-25T19:09:59.389Z"
     },
@@ -3310,9 +3306,10 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 202605000061; Órgano de Contratación: Junta de Contratación del Ministerio de Agricultura, Pesca y Alimentación; Importe: 444015 EUR; Estado: PUB",
-      "importedAt": "2026-06-26T01:02:58.257Z",
+      "importedAt": "2026-06-26T04:03:21.400Z",
       "resumenHtmlPath": "data/resumenes/202605000061.html",
-      "resumenGeneradoEn": "2026-06-25T09:27:05.822Z"
+      "resumenGeneradoEn": "2026-06-26T04:07:06.542Z",
+      "resumenVersion": 2
     },
     {
       "expediente": "2026 09",
@@ -3351,7 +3348,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 2026 09; Órgano de Contratación: Consejo de Administración de Rivas-Vaciamadrid Empresa Municipal de Servicios S.A. (Rivamadrid); Importe: 25000 EUR; Estado: PUB",
-      "importedAt": "2026-06-26T01:03:29.617Z"
+      "importedAt": "2026-06-26T04:04:03.235Z"
     },
     {
       "expediente": "2026-SES-040",
@@ -3525,7 +3522,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: C2026-00020; Órgano de Contratación: Presidencia de la Autoridad Portuaria de Santa Cruz de Tenerife; Importe: 114731.5 EUR; Estado: EV",
-      "importedAt": "2026-06-26T01:03:49.968Z"
+      "importedAt": "2026-06-26T04:04:34.051Z"
     },
     {
       "expediente": "TSA0079137-1001",
@@ -3607,7 +3604,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 2026-C03; Órgano de Contratación: Cartográfica de Canarias S.A.; Importe: 30000 EUR; Estado: PUB",
-      "importedAt": "2026-06-26T01:03:49.954Z"
+      "importedAt": "2026-06-26T04:04:34.038Z"
     },
     {
       "expediente": "31/23 CCCV",
@@ -3636,7 +3633,7 @@
       "importeAdjudicacion": 62376.02,
       "fechaAdjudicacion": "2023-10-11",
       "rawSummary": "",
-      "importedAt": "2026-06-26T01:03:49.970Z"
+      "importedAt": "2026-06-26T04:04:34.052Z"
     },
     {
       "expediente": "TSA0083393",
@@ -3668,7 +3665,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: TSA0083393; Órgano de Contratación: Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA); Importe: 106505.31 EUR; Estado: EV",
-      "importedAt": "2026-06-26T01:03:49.987Z"
+      "importedAt": "2026-06-26T04:04:34.068Z"
     },
     {
       "expediente": "CONTR 8285/2026",
@@ -3691,7 +3688,7 @@
       "importeAdjudicacion": 27394.4,
       "fechaAdjudicacion": "2026-06-23",
       "rawSummary": "",
-      "importedAt": "2026-06-26T01:03:50.012Z"
+      "importedAt": "2026-06-26T04:04:34.093Z"
     },
     {
       "expediente": "1259/2024",
@@ -3714,7 +3711,7 @@
       "importeAdjudicacion": 25669.3,
       "fechaAdjudicacion": "2024-07-23",
       "rawSummary": "",
-      "importedAt": "2026-06-26T01:04:06.427Z"
+      "importedAt": "2026-06-26T04:04:48.771Z"
     },
     {
       "expediente": "AG-55/2026",
@@ -3752,7 +3749,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: AG-55/2026; Órgano de Contratación: Presidencia Organismo Autónomo de Museos y Centros del Cabildo Insular de Tenerife (OAMC); Importe: 91518.31 EUR; Estado: EV",
-      "importedAt": "2026-06-26T01:04:06.434Z"
+      "importedAt": "2026-06-26T04:04:48.777Z"
     },
     {
       "expediente": "66/2026/27006",
@@ -3788,7 +3785,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 66/2026/27006; Órgano de Contratación: Alcaldía del Ayuntamiento de Arganda del Rey ; Importe: 4958.68 EUR; Estado: EV",
-      "importedAt": "2026-06-26T01:04:06.468Z"
+      "importedAt": "2026-06-26T04:04:48.810Z"
     },
     {
       "expediente": "CB-13-AM 32/2024",
@@ -3811,7 +3808,7 @@
       "importeAdjudicacion": 2693.04,
       "fechaAdjudicacion": "2026-06-22",
       "rawSummary": "",
-      "importedAt": "2026-06-26T01:04:06.469Z"
+      "importedAt": "2026-06-26T04:04:48.811Z"
     },
     {
       "expediente": "202600005",
@@ -3844,7 +3841,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 202600005; Órgano de Contratación: Consejo de Administración de Medio Ambiente, Agua, Residuos y Energía de Cantabria, S.A.(MARE S.A.); Importe: 161280 EUR; Estado: PRE",
-      "importedAt": "2026-06-26T01:04:06.482Z"
+      "importedAt": "2026-06-26T04:04:48.824Z"
     },
     {
       "expediente": "2026/ES/0016",
@@ -3880,7 +3877,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 2026/ES/0016; Órgano de Contratación: Centro Nacional de Investigaciones Cardiovasculares Carlos III (F.S.P.); Importe: 116490 EUR; Estado: EV",
-      "importedAt": "2026-06-26T01:04:06.489Z"
+      "importedAt": "2026-06-26T04:04:48.831Z"
     },
     {
       "expediente": "AVSS 03213 26/18",
@@ -3904,7 +3901,7 @@
       "importeAdjudicacion": 18859.74,
       "fechaAdjudicacion": "2026-06-22",
       "rawSummary": "",
-      "importedAt": "2026-06-26T01:04:06.520Z"
+      "importedAt": "2026-06-26T04:04:48.861Z"
     },
     {
       "expediente": "D SE 139/26",
@@ -3945,7 +3942,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: D SE 139/26; Órgano de Contratación: Junta de Gobierno del Ayuntamiento de Marbella; Importe: 2314.04 EUR; Estado: PUB",
-      "importedAt": "2026-06-26T01:04:06.531Z"
+      "importedAt": "2026-06-26T04:04:48.872Z"
     },
     {
       "expediente": "SARGA-2026-00059",
@@ -3968,7 +3965,7 @@
       "importeAdjudicacion": 120879,
       "fechaAdjudicacion": "2026-06-23",
       "rawSummary": "",
-      "importedAt": "2026-06-26T01:04:06.533Z"
+      "importedAt": "2026-06-26T04:04:48.873Z"
     },
     {
       "expediente": "TSA0083230",
@@ -4000,7 +3997,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: TSA0083230; Órgano de Contratación: Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA); Importe: 214075 EUR; Estado: EV",
-      "importedAt": "2026-06-26T01:04:19.123Z"
+      "importedAt": "2026-06-26T04:05:00.132Z"
     },
     {
       "expediente": "30/2026/CMA",
@@ -4032,7 +4029,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 30/2026/CMA; Órgano de Contratación: Consejería de Hacienda de la Ciudad Autónoma de Melilla; Importe: 648427.61 EUR; Estado: EV",
-      "importedAt": "2026-06-26T01:04:19.164Z"
+      "importedAt": "2026-06-26T04:05:00.167Z"
     },
     {
       "expediente": "SE 139/26",
@@ -4056,7 +4053,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "2026-06-18",
       "rawSummary": "",
-      "importedAt": "2026-06-26T01:04:19.182Z"
+      "importedAt": "2026-06-26T04:05:00.182Z"
     },
     {
       "expediente": "TSA0083589",
@@ -4089,7 +4086,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: TSA0083589; Órgano de Contratación: Empresa de Transformación Agraria S.A.,S.M.E., M.P., (TRAGSA); Importe: 6997 EUR; Estado: PUB",
-      "importedAt": "2026-06-26T01:04:30.252Z"
+      "importedAt": "2026-06-26T04:05:16.659Z"
     },
     {
       "expediente": "CB-8-AM 32/2024",
@@ -4112,7 +4109,7 @@
       "importeAdjudicacion": 1793.44,
       "fechaAdjudicacion": "2026-06-22",
       "rawSummary": "",
-      "importedAt": "2026-06-26T01:04:30.278Z"
+      "importedAt": "2026-06-26T04:05:16.689Z"
     },
     {
       "expediente": "2026/EA23/00000376E",
@@ -4135,7 +4132,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "2026-06-19",
       "rawSummary": "",
-      "importedAt": "2026-06-26T01:04:30.279Z"
+      "importedAt": "2026-06-26T04:05:16.690Z"
     },
     {
       "expediente": "(2026/07) PRCNIBSAL/ICI23/00027/NORA/01/2026",
@@ -4176,7 +4173,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: (2026/07) PRCNIBSAL/ICI23/00027/NORA/01/2026; Órgano de Contratación: Director Científico del Instituto de Investigación Biomédica de Salamanca (IBSAL); Importe: 135000 EUR; Estado: EV",
-      "importedAt": "2026-06-26T01:04:39.055Z"
+      "importedAt": "2026-06-26T04:05:27.276Z"
     },
     {
       "expediente": "1563/25P",
@@ -4205,7 +4202,7 @@
       "importeAdjudicacion": 72279.97,
       "fechaAdjudicacion": "2026-06-19",
       "rawSummary": "",
-      "importedAt": "2026-06-26T01:04:39.095Z"
+      "importedAt": "2026-06-26T04:05:27.315Z"
     },
     {
       "expediente": "SARGA-2026-00071",
@@ -4238,7 +4235,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: SARGA-2026-00071; Órgano de Contratación: Sociedad Aragonesa de Gestión Agroambiental, S.L.U. (SARGA); Importe: 16850 EUR; Estado: EV",
-      "importedAt": "2026-06-26T01:04:39.106Z"
+      "importedAt": "2026-06-26T04:05:27.325Z"
     },
     {
       "expediente": "CC2026/75",
@@ -4282,7 +4279,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: CC2026/75; Órgano de Contratación: Junta de Gobierno del Ayuntamiento de Oviedo; Importe: 1657138.31 EUR; Estado: EV",
-      "importedAt": "2026-06-26T01:04:39.166Z"
+      "importedAt": "2026-06-26T04:05:27.383Z"
     },
     {
       "expediente": "0030026SR012",
@@ -4318,7 +4315,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 0030026SR012; Órgano de Contratación: Dirección Ejecutiva de la Agencia Española de Seguridad Alimentaria y Nutrición; Importe: 16528.93 EUR; Estado: PUB",
-      "importedAt": "2026-06-26T01:04:48.627Z",
+      "importedAt": "2026-06-26T04:05:41.059Z",
       "resumenHtmlPath": "data/resumenes/0030026SR012.html",
       "resumenGeneradoEn": "2026-06-25T13:07:45.603Z"
     },
@@ -4344,7 +4341,7 @@
       "importeAdjudicacion": 17000,
       "fechaAdjudicacion": "2026-06-15",
       "rawSummary": "",
-      "importedAt": "2026-06-26T01:04:48.698Z"
+      "importedAt": "2026-06-26T04:05:41.126Z"
     },
     {
       "expediente": "2024/00024",
@@ -4398,7 +4395,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 2024/00024; Órgano de Contratación: Rectorado de la Universidad de Córdoba; Importe: 1702000 EUR; Estado: EV",
-      "importedAt": "2026-06-26T01:02:58.359Z"
+      "importedAt": "2026-06-26T04:03:21.498Z"
     },
     {
       "expediente": "1820844A",
@@ -4430,7 +4427,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 1820844A; Órgano de Contratación: Junta de Gobierno del Ayuntamiento de Jaca; Importe: 55445 EUR; Estado: PUB",
-      "importedAt": "2026-06-26T01:03:10.940Z",
+      "importedAt": "2026-06-26T04:03:38.001Z",
       "resumenHtmlPath": "data/resumenes/1820844A.html",
       "resumenGeneradoEn": "2026-06-25T09:28:01.349Z"
     },
@@ -4468,7 +4465,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 0030026SR008; Órgano de Contratación: Dirección Ejecutiva de la Agencia Española de Seguridad Alimentaria y Nutrición; Importe: 29809.42 EUR; Estado: EV",
-      "importedAt": "2026-06-26T01:03:19.688Z"
+      "importedAt": "2026-06-26T04:03:50.175Z"
     },
     {
       "expediente": "25-562-2",
@@ -4494,7 +4491,7 @@
       "importeAdjudicacion": 30139.87,
       "fechaAdjudicacion": "2026-06-24",
       "rawSummary": "",
-      "importedAt": "2026-06-26T01:03:19.691Z"
+      "importedAt": "2026-06-26T04:03:50.178Z"
     },
     {
       "expediente": "HSLL217/2025",
@@ -4517,7 +4514,7 @@
       "importeAdjudicacion": 397620.26,
       "fechaAdjudicacion": "2026-05-21",
       "rawSummary": "",
-      "importedAt": "2026-06-26T01:03:29.686Z"
+      "importedAt": "2026-06-26T04:04:03.302Z"
     },
     {
       "expediente": "43/2025",
@@ -4540,7 +4537,7 @@
       "importeAdjudicacion": 208120,
       "fechaAdjudicacion": "2026-05-14",
       "rawSummary": "",
-      "importedAt": "2026-06-26T01:03:29.687Z"
+      "importedAt": "2026-06-26T04:04:03.304Z"
     },
     {
       "expediente": "CON21-2025/0427",
@@ -4563,7 +4560,7 @@
       "importeAdjudicacion": 6699.73,
       "fechaAdjudicacion": "2026-05-27",
       "rawSummary": "",
-      "importedAt": "2026-06-26T01:03:29.723Z"
+      "importedAt": "2026-06-26T04:04:03.341Z"
     },
     {
       "expediente": "V-09/25-02",
@@ -4595,7 +4592,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: V-09/25-02; Órgano de Contratación: Comité Ejecutivo de la Mancomunidad de los Canales del Taibilla; Importe: 5281906.78 EUR; Estado: EV",
-      "importedAt": "2026-06-26T01:03:39.699Z"
+      "importedAt": "2026-06-26T04:04:21.115Z"
     },
     {
       "expediente": "132/2026",
@@ -4620,7 +4617,7 @@
       "importeAdjudicacion": 88987.13,
       "fechaAdjudicacion": "2026-06-23",
       "rawSummary": "",
-      "importedAt": "2026-06-26T01:03:39.741Z"
+      "importedAt": "2026-06-26T04:04:21.156Z"
     },
     {
       "expediente": "DNA 97/2025",
@@ -4643,7 +4640,7 @@
       "importeAdjudicacion": 83000,
       "fechaAdjudicacion": "2025-09-01",
       "rawSummary": "",
-      "importedAt": "2026-06-26T01:03:49.904Z"
+      "importedAt": "2026-06-26T04:04:33.985Z"
     },
     {
       "expediente": "2026/C004/000002",
@@ -4678,7 +4675,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 2026/C004/000002; Órgano de Contratación: Alcaldía del Ayuntamiento de Coirós; Importe: 21204.82 EUR; Estado: EV",
-      "importedAt": "2026-06-26T01:01:42.122Z"
+      "importedAt": "2026-06-26T04:01:48.526Z"
     },
     {
       "expediente": "130/2026",
@@ -4703,7 +4700,7 @@
       "importeAdjudicacion": 85544.64,
       "fechaAdjudicacion": "2026-06-23",
       "rawSummary": "",
-      "importedAt": "2026-06-26T01:01:42.152Z"
+      "importedAt": "2026-06-26T04:01:48.554Z"
     },
     {
       "expediente": "120/26",
@@ -4735,7 +4732,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 120/26; Órgano de Contratación: Presidencia de la Diputación de Badajoz; Importe: 35700 EUR; Estado: EV",
-      "importedAt": "2026-06-26T01:01:42.172Z"
+      "importedAt": "2026-06-26T04:01:48.573Z"
     },
     {
       "expediente": "2026046SUMASA",
@@ -4767,7 +4764,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 2026046SUMASA; Órgano de Contratación: Rectorado de la Universidad Rey Juan Carlos; Importe: 38533 EUR; Estado: PUB",
-      "importedAt": "2026-06-26T01:01:42.173Z"
+      "importedAt": "2026-06-26T04:01:48.574Z"
     },
     {
       "expediente": "SE/2/26",
@@ -4795,7 +4792,7 @@
       "importeAdjudicacion": 45563.82,
       "fechaAdjudicacion": "2026-06-25",
       "rawSummary": "",
-      "importedAt": "2026-06-26T01:01:42.237Z"
+      "importedAt": "2026-06-26T04:01:48.635Z"
     },
     {
       "expediente": "1884/2026",
@@ -4827,7 +4824,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 1884/2026; Órgano de Contratación: Alcaldia del Ayuntamiento de Valverde del Camino; Importe: 2000 EUR; Estado: PUB",
-      "importedAt": "2026-06-26T01:02:06.942Z"
+      "importedAt": "2026-06-26T04:02:15.398Z"
     },
     {
       "expediente": "6714/2026",
@@ -4864,7 +4861,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 6714/2026; Órgano de Contratación: Junta de Gobierno del Ayuntamiento de Callosa de Segura; Importe: 18000 EUR; Estado: EV",
-      "importedAt": "2026-06-26T01:02:06.947Z"
+      "importedAt": "2026-06-26T04:02:15.403Z"
     },
     {
       "expediente": "CONT178/2026",
@@ -4896,7 +4893,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: CONT178/2026; Órgano de Contratación: Presidencia del Instituto Insular de Atención Social y Sociosanitaria - IASS; Importe: 19250 EUR; Estado: PUB",
-      "importedAt": "2026-06-26T01:02:06.973Z"
+      "importedAt": "2026-06-26T04:02:15.428Z"
     },
     {
       "expediente": "2026/ASU_06/000002",
@@ -4920,7 +4917,7 @@
       "importeAdjudicacion": 4248.23,
       "fechaAdjudicacion": "2026-06-23",
       "rawSummary": "",
-      "importedAt": "2026-06-26T01:02:28.478Z"
+      "importedAt": "2026-06-26T04:02:31.737Z"
     },
     {
       "expediente": "43/2024",
@@ -4947,7 +4944,7 @@
       "importeAdjudicacion": 9544836.03,
       "fechaAdjudicacion": "2025-03-21",
       "rawSummary": "",
-      "importedAt": "2026-06-26T01:02:28.504Z"
+      "importedAt": "2026-06-26T04:02:31.763Z"
     },
     {
       "expediente": "2024/16797",
@@ -4972,7 +4969,7 @@
       "importeAdjudicacion": 72367.68,
       "fechaAdjudicacion": "2025-01-29",
       "rawSummary": "",
-      "importedAt": "2026-06-26T01:02:28.516Z"
+      "importedAt": "2026-06-26T04:02:31.772Z"
     },
     {
       "expediente": "2026040",
@@ -5004,7 +5001,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 2026040; Órgano de Contratación: Gerencia Fundación para la Investigación de Málaga en Biomedicina y Salud (FIMABIS); Importe: 48000 EUR; Estado: EV",
-      "importedAt": "2026-06-26T01:02:28.555Z"
+      "importedAt": "2026-06-26T04:02:31.809Z"
     },
     {
       "expediente": "TSA0082965",
@@ -5027,7 +5024,7 @@
       "importeAdjudicacion": 0,
       "fechaAdjudicacion": "2026-06-08",
       "rawSummary": "",
-      "importedAt": "2026-06-26T01:02:28.565Z"
+      "importedAt": "2026-06-26T04:02:31.819Z"
     },
     {
       "expediente": "2026/097",
@@ -5075,7 +5072,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 2026/097; Órgano de Contratación: Junta de Gobierno del Ayuntamiento de Cádiz; Importe: 8092 EUR; Estado: EV",
-      "importedAt": "2026-06-26T01:02:28.577Z"
+      "importedAt": "2026-06-26T04:02:31.830Z"
     },
     {
       "expediente": "TEC0007125",
@@ -5108,7 +5105,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: TEC0007125; Órgano de Contratación: Tecnologías y Servicios Agrarios S.A.,S.M.E., M.P., (TRAGSATEC); Importe: 171540 EUR; Estado: PUB",
-      "importedAt": "2026-06-26T01:02:28.632Z"
+      "importedAt": "2026-06-26T04:02:31.884Z"
     },
     {
       "expediente": "MM/2026/005",
@@ -5132,7 +5129,7 @@
       "importeAdjudicacion": 82329.12,
       "fechaAdjudicacion": "2026-05-04",
       "rawSummary": "",
-      "importedAt": "2026-06-26T01:02:38.984Z"
+      "importedAt": "2026-06-26T04:02:49.245Z"
     },
     {
       "expediente": "30-1553",
@@ -5155,7 +5152,7 @@
       "importeAdjudicacion": 312254.77,
       "fechaAdjudicacion": "2026-04-24",
       "rawSummary": "",
-      "importedAt": "2026-06-26T01:02:39.013Z"
+      "importedAt": "2026-06-26T04:02:49.272Z"
     },
     {
       "expediente": "2025/017",
@@ -5178,7 +5175,7 @@
       "importeAdjudicacion": 384232.66,
       "fechaAdjudicacion": "2026-05-27",
       "rawSummary": "",
-      "importedAt": "2026-06-26T01:02:39.057Z"
+      "importedAt": "2026-06-26T04:02:49.311Z"
     },
     {
       "expediente": "C4301/2026/000005",
@@ -5220,7 +5217,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: C4301/2026/000005; Órgano de Contratación: Consejo Ejecutivo del Consell Insular de Menorca (CIM); Importe: 129068.7 EUR; Estado: EV",
-      "importedAt": "2026-06-26T01:02:39.097Z"
+      "importedAt": "2026-06-26T04:02:49.349Z"
     },
     {
       "expediente": "CSE/1900/1101215453/26/PASU",
@@ -5243,7 +5240,7 @@
       "importeAdjudicacion": 22270,
       "fechaAdjudicacion": "2026-06-15",
       "rawSummary": "",
-      "importedAt": "2026-06-26T01:02:48.996Z"
+      "importedAt": "2026-06-26T04:03:06.409Z"
     },
     {
       "expediente": "2026/001932",
@@ -5266,7 +5263,7 @@
       "importeAdjudicacion": 11932.8,
       "fechaAdjudicacion": "2026-06-24",
       "rawSummary": "",
-      "importedAt": "2026-06-26T01:02:48.999Z"
+      "importedAt": "2026-06-26T04:03:06.412Z"
     },
     {
       "expediente": "DEMA-2026-010",
@@ -5291,7 +5288,7 @@
       "importeAdjudicacion": 106613.11,
       "fechaAdjudicacion": "2026-06-24",
       "rawSummary": "",
-      "importedAt": "2026-06-26T01:02:49.015Z"
+      "importedAt": "2026-06-26T04:03:06.427Z"
     },
     {
       "expediente": "004-SER-2026",
@@ -5316,7 +5313,7 @@
       "importeAdjudicacion": 1649479.26,
       "fechaAdjudicacion": "2026-05-27",
       "rawSummary": "",
-      "importedAt": "2026-06-26T01:02:49.019Z"
+      "importedAt": "2026-06-26T04:03:06.432Z"
     },
     {
       "expediente": "300/2024/00045-854",
@@ -5339,7 +5336,7 @@
       "importeAdjudicacion": 585.64,
       "fechaAdjudicacion": "2026-06-24",
       "rawSummary": "",
-      "importedAt": "2026-06-26T01:02:49.025Z"
+      "importedAt": "2026-06-26T04:03:06.438Z"
     },
     {
       "expediente": "12/2026",
@@ -5383,7 +5380,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 12/2026; Órgano de Contratación: Comisión Ejecutiva de Mercazaragoza S.A.; Importe: 29661.04 EUR; Estado: PUB",
-      "importedAt": "2026-06-26T01:02:49.093Z"
+      "importedAt": "2026-06-26T04:03:06.504Z"
     }
   ]
 }
