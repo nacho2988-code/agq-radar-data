@@ -24,5 +24,10 @@
     "seleccionado": false,
     "marcadoEn": "2026-06-25T04:33:12.996Z",
     "alertaEnviada": null
+  },
+  "26523/2025": {
+    "seleccionado": true,
+    "marcadoEn": "2026-06-26T07:03:18.753Z",
+    "alertaEnviada": null
   }
 }
