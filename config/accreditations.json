@@ -1,32 +1,50 @@
 {
   "accreditations": [
     {
-      "id": "a1", "norma": "17025", "expediente": "305/LE1322", "titulo": "Laboratorio de ensayo · Medioambiente",
+      "id": "a1",
+      "norma": "17025",
+      "expediente": "305/LE1322",
+      "titulo": "Laboratorio de ensayo · Medioambiente",
       "matrices": "Aguas de consumo, residuales, continentales y marinas; suelos; residuos; calidad del aire / emisiones / inmisión; ruido; protección radiológica",
       "keywords": "agua,aguas,residual,vertido,vertidos,suelo,suelos,contaminado,contaminados,residuo,residuos,calidad del aire,emisiones,inmision,inmisión,particulas,partículas,ruido,acustic,plaguicida,metales,dbo,dqo,conductividad,rd 9/2005,rd 817/2015"
     },
     {
-      "id": "a2", "norma": "17025", "expediente": "305/LE1323", "titulo": "Laboratorio de ensayo · Alimentos",
+      "id": "a2",
+      "norma": "17025",
+      "expediente": "305/LE1323",
+      "titulo": "Laboratorio de ensayo · Alimentos",
       "matrices": "Seguridad alimentaria, residuos de plaguicidas en alimentos, microbiología alimentaria",
       "keywords": "alimentari,alimento,seguridad alimentaria,microbiolog,plaguicida frutas,plaguicida hortalizas"
     },
     {
-      "id": "a3", "norma": "17025", "expediente": "229/LE1296", "titulo": "Laboratorio de ensayo · Biocidas / Legionella / Toma de muestra",
+      "id": "a3",
+      "norma": "17025",
+      "expediente": "229/LE1296",
+      "titulo": "Laboratorio de ensayo · Biocidas / Legionella / Toma de muestra",
       "matrices": "Biocidas, cosméticos, Legionella spp., toma de muestra acreditada bajo 17025",
       "keywords": "legionella,legionela,biocida,cosmetic"
     },
     {
-      "id": "a4", "norma": "17025", "expediente": "229/LE519", "titulo": "Laboratorio de ensayo · Alimentos (centro adicional)",
+      "id": "a4",
+      "norma": "17025",
+      "expediente": "229/LE519",
+      "titulo": "Laboratorio de ensayo · Alimentos (centro adicional)",
       "matrices": "Alimentos",
       "keywords": "alimentari,alimento"
     },
     {
-      "id": "a5", "norma": "17020", "expediente": "167/EI276", "titulo": "Entidad de Inspección · Medioambiente",
+      "id": "a5",
+      "norma": "17020",
+      "expediente": "167/EI276",
+      "titulo": "Entidad de Inspección · Medioambiente",
       "matrices": "Aguas, sedimentos subacuáticos, residuos, vertederos (RD 646/2020 Anexo III y VII), suelos y aguas subterráneas asociadas — incluye diseño de muestreo y toma de muestra bajo mandato normativo",
       "keywords": "vertedero,vertederos,rd 646/2020,admisibilidad,ler,caracterizacion,caracterización,sedimento,subacuatic,aguas subterraneas,aguas subterráneas,lixiviado,gas de vertedero,vigilancia ambiental,inspeccion,inspección,control y vigilancia,toma de muestra,muestreo"
     },
     {
-      "id": "a6", "norma": "17025/IAS", "expediente": "TL-475 / TL-923", "titulo": "IAS · Suelos, residuos y alimentos (acreditación complementaria)",
+      "id": "a6",
+      "norma": "17025/IAS",
+      "expediente": "TL-475 / TL-923",
+      "titulo": "IAS · Suelos, residuos y alimentos (acreditación complementaria)",
       "matrices": "Suelos y residuos (TL-475); análisis nutricionales/microbiológicos en alimentos y piensos, SARS-CoV-2 en aguas y superficies (TL-923)",
       "keywords": "sars-cov-2,nutricional,pienso,piensos"
     }
@@ -35,7 +53,6 @@
     "90711000 Servicios de consultoría de riesgos y gestión medioambiental",
     "90711400 Servicios de evaluación de riesgos medioambientales",
     "90712000 Planificación medioambiental",
-    "90713000 Servicios de consultoría sobre problemas medioambientales",
     "90731110 Servicios de control de la contaminación del aire",
     "90731200 Servicios de seguimiento de la contaminación del agua",
     "90731300 Servicios de seguimiento de la contaminación del suelo",
@@ -46,7 +63,6 @@
     "90742300 Servicios de seguimiento de la contaminación del suelo",
     "71600000 Servicios de ensayos técnicos, análisis y consultoría",
     "71610000 Servicios de análisis y ensayo de composiciones y de pureza",
-    "71620000 Servicios de análisis",
     "71621000 Servicios de análisis técnico o de ensayo",
     "73111000 Servicios de laboratorios de investigación",
     "71900000 Servicios de laboratorio",
@@ -54,17 +70,66 @@
     "71351000 Servicios geológicos, geofísicos y otros servicios de prospección científica"
   ],
   "activityKeywords": [
-    "ensayo","ensayos","análisis","analisis","analítica","analitica","analiticos","laboratorio",
-    "caracterización","caracterizacion","muestreo","toma de muestra","control de calidad",
-    "control analítico","control analitico","monitorización","monitorizacion","vigilancia ambiental",
-    "parámetros","parametros","determinación analítica","determinacion analitica",
-    "auditoría ambiental","auditoria ambiental","evaluación ambiental","evaluacion ambiental",
-    "inspección ambiental","inspeccion ambiental","acreditado","acreditación","acreditacion",
-    "enac","iso 17025","iso 17020"
+    "ensayo",
+    "ensayos",
+    "análisis",
+    "analisis",
+    "analítica",
+    "analitica",
+    "analiticos",
+    "laboratorio",
+    "caracterización",
+    "caracterizacion",
+    "muestreo",
+    "toma de muestra",
+    "control de calidad",
+    "control analítico",
+    "control analitico",
+    "monitorización",
+    "monitorizacion",
+    "vigilancia ambiental",
+    "parámetros",
+    "parametros",
+    "determinación analítica",
+    "determinacion analitica",
+    "auditoría ambiental",
+    "auditoria ambiental",
+    "evaluación ambiental",
+    "evaluacion ambiental",
+    "inspección ambiental",
+    "inspeccion ambiental",
+    "acreditado",
+    "acreditación",
+    "acreditacion",
+    "enac",
+    "iso 17025",
+    "iso 17020"
   ],
   "genericAmbiguous": [
-    "agua","aguas","residual","vertido","vertidos","suelo","suelos","contaminado","contaminados",
-    "residuo","residuos","emisiones","metales","control y vigilancia","inspeccion","inspección",
-    "alimentari","alimento","pienso","piensos","nutricional"
+    "agua",
+    "aguas",
+    "residual",
+    "vertido",
+    "vertidos",
+    "suelo",
+    "suelos",
+    "contaminado",
+    "contaminados",
+    "residuo",
+    "residuos",
+    "emisiones",
+    "metales",
+    "control y vigilancia",
+    "inspeccion",
+    "inspección",
+    "alimentari",
+    "alimento",
+    "pienso",
+    "piensos",
+    "nutricional"
+  ],
+  "cpvConKeyword": [
+    "90713000 Consultoría medioambiental (requiere keyword)",
+    "71620000 Servicios de análisis (requiere keyword)"
   ]
 }
