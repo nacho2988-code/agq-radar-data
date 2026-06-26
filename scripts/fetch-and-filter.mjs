@@ -200,19 +200,31 @@ const OUT_OF_SCOPE_RE = /\bveh[ií]culos?\b|\bautom[oó]viles?\b|\bturismos?\b|\
 const STRONG_SERVICE_KEYWORDS = ['ensayo','ensayos','análisis','analisis','analítica','analitica','control analítico','control analitico','servicio de análisis','externalizacion','externalización','subcontratacion','subcontratación','muestreo','toma de muestra','vigilancia ambiental','auditoría ambiental','auditoria ambiental','evaluación ambiental','evaluacion ambiental','inspección ambiental','inspeccion ambiental'];
 
 function isSectorRelevant(entry){
-  // Primero: descartar explícitamente contratos que nunca son de nuestro sector
+  // Descartar explícitamente contratos fuera de sector
   if(OUT_OF_SCOPE_RE.test(entry.title)) return false;
 
-  if(entry.cpv.some(c => cpvCodes.includes(c))) return true;
   const text = (entry.title + ' ' + entry.rawSummary).toLowerCase();
-  const matched = allKeywords.filter(k => k && keywordMatches(text, k));
+
+  // CPVs directos: siempre relevantes
+  if(entry.cpv.some(c => cpvCodes.includes(c))) return true;
+
+  // CPVs con keyword: solo relevantes si además hay keyword del sector
+  const cpvConKw = (config.cpvConKeyword || []).map(l=>(l.match(/^\d{8}/)||[])[0]).filter(Boolean);
+  const tieneCpvConKw = entry.cpv.some(c => cpvConKw.includes(c));
+
+  const allKw = [...new Set(config.accreditations.flatMap(a => a.keywords.split(',').map(k=>k.trim().toLowerCase()).filter(Boolean)))];
+  const matched = allKw.filter(k => k && keywordMatches(text, k));
+
+  // Si solo entra por CPV-con-keyword, exigir keyword confirmadora
+  if(tieneCpvConKw && !entry.cpv.some(c => cpvCodes.includes(c))){
+    if(!matched.length) return false;
+  }
+
   if(matched.length === 0) return false;
   const esSuministro = SUPPLY_TYPE_RE.test(entry.title);
   const nonAmbiguous = matched.filter(k => !genericAmbiguous.has(k));
   if(nonAmbiguous.length > 0 && !esSuministro) return true;
-  if(esSuministro){
-    return STRONG_SERVICE_KEYWORDS.some(k => keywordMatches(text, k));
-  }
+  if(esSuministro) return STRONG_SERVICE_KEYWORDS.some(k => keywordMatches(text, k));
   return activityKeywords.some(k => keywordMatches(text, k));
 }
 
