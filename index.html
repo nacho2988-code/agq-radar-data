@@ -1269,22 +1269,27 @@ const STRONG_SERVICE_KEYWORDS = ['ensayo','ensayos','análisis','analisis','anal
 const OUT_OF_SCOPE_RE = /\bveh[ií]culos?\b|\bautom[oó]viles?\b|\bturismos?\b|\bcamiones?\b|\bcombustible\b|\bpapeler[ií]a\b|\bmobiliario\b|\bvestuario\b|\buniformes?\b|\bcatering\b|\balimentaci[oó]n\s+(para|de\s+comedor)\b|\bseguridad\s+privada\b|\bvigilancia\s+privada\b|\bmantenimiento\s+de\s+(edificios?|instalaciones?\s+eléctricas?|ascensores?|la\s+climatizaci[oó]n)\b|\bobras?\s+de\s+(construcci[oó]n|reforma|rehabilitaci[oó]n|urbanizaci[oó]n)\b/i;
 
 function isSectorRelevant(tender){
-  // Descartar explícitamente contratos fuera de sector
   if(OUT_OF_SCOPE_RE.test(tender.title || '')) return false;
 
-  const cpvList = configCpvCodes();
-  if(tender.cpv && tender.cpv.some(c => cpvList.includes(c))) return true;
+  const cpvDirectos = configCpvCodes();
+  const cpvConKw = (STATE.config.cpvConKeyword || []).map(l=>(l.match(/^\d{8}/)||[])[0]).filter(Boolean);
   const text = (tender.title + ' ' + tender.rawSummary).toLowerCase();
   const allKw = [...new Set(STATE.config.accreditations.flatMap(acc => acc.keywords.split(',').map(k=>k.trim().toLowerCase()).filter(Boolean)))];
   const matched = allKw.filter(k => keywordMatches(text, k));
+
+  // CPVs directos: siempre relevantes
+  if(tender.cpv && tender.cpv.some(c => cpvDirectos.includes(c))) return true;
+
+  // CPVs con keyword: solo si además hay keyword confirmatoria
+  const tieneCpvConKw = tender.cpv && tender.cpv.some(c => cpvConKw.includes(c));
+  if(tieneCpvConKw && !matched.length) return false;
+
   if(matched.length === 0) return false;
   const esSuministro = SUPPLY_TYPE_RE.test(tender.title || '');
   const ambiguousSet = new Set((STATE.config.genericAmbiguous || []).map(k=>k.toLowerCase()));
   const nonAmbiguous = matched.filter(k => !ambiguousSet.has(k));
   if(nonAmbiguous.length > 0 && !esSuministro) return true;
-  if(esSuministro){
-    return STRONG_SERVICE_KEYWORDS.some(k => keywordMatches(text, k));
-  }
+  if(esSuministro) return STRONG_SERVICE_KEYWORDS.some(k => keywordMatches(text, k));
   const activity = STATE.config.activityKeywords || [];
   return activity.some(k => keywordMatches(text, k.toLowerCase()));
 }
