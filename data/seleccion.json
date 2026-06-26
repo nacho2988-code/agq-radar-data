@@ -28,6 +28,9 @@
   "26523/2025": {
     "seleccionado": true,
     "marcadoEn": "2026-06-26T07:03:18.753Z",
-    "alertaEnviada": null
+    "alertaEnviada": null,
+    "estadoPipeline": "perdida",
+    "estadoPipelineEn": "2026-06-26T07:04:27.869Z",
+    "estadoPipelinePor": null
   }
 }
