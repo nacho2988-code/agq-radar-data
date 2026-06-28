@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-28T21:15:47.024Z",
+  "generatedAt": "2026-06-28T21:22:49.862Z",
   "totalEntriesScanned": 3253,
   "pagesFetched": 7,
   "coverageHoursTarget": 72,
@@ -1420,43 +1420,6 @@
       "sectorTier": "B"
     },
     {
-      "expediente": "0030026SR008",
-      "atomId": "https://contrataciondelestado.es/sindicacion/licitacionesPerfilContratante/19500080",
-      "title": "Servicio de mensajería, transporte y reparto de la documentación oficial y paquetería; así como traslado de muebles y enseres, del Organismo Autónomo Agencia Española de Seguridad Alimentaria y Nutrición (AESAN, OA)",
-      "organo": "Dirección Ejecutiva de la Agencia Española de Seguridad Alimentaria y Nutrición",
-      "estado": "EV",
-      "estadoLabel": "En evaluación",
-      "importe": 29809.42,
-      "importeRaw": "29809.42 EUR",
-      "cpv": [
-        "64122000"
-      ],
-      "deadline": "2026-04-30",
-      "deadlineSource": "periodo de presentación",
-      "documentos": [
-        {
-          "tipo": "LegalDocumentReference",
-          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=ZkUA4jKTv3GbDBhaFS3N0rQLemebFb1osWTgslZBDvr4eakAXTm5Nr/YlT31eAXCcnCRS/FGCeSN%2BBNi18Q/27wah3Tiw5Cq/diJK4KnwZ7VTD3T98KC0nSgQFM0q%2B5s"
-        },
-        {
-          "tipo": "TechnicalDocumentReference",
-          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=R6IY9ty5S87ASKgZpU1t2y/oujJiC3vWiK8Yaba6UNCc2bb9nIvtNQhhSdZmKL5BNYGi26RTC/Ra8P/yiD8bJBtkJU9C9g3tuH30lBCzpcht/o8fNevwsujgRzaBbugn"
-        },
-        {
-          "tipo": "AdditionalDocumentReference",
-          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=YC6KT27ZwhrFvoJIrybW6%2Bwd%2B7Onpe0tAJ6IMNz0AlilYOuYmcoRG17ql5ChfTywPvJwvOzREu6fzU%2BeP84QAp3nVA7/emdo0r3ZeoMUqlnfdyQgZAdTm3EfcUAC7CJ6"
-        }
-      ],
-      "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=jL4%2FTP4HO52HCIsjvJ3rhQ%3D%3D",
-      "updated": "2026-06-24T11:57:18.444+02:00",
-      "adjudicatario": "",
-      "importeAdjudicacion": null,
-      "fechaAdjudicacion": "",
-      "rawSummary": "Id licitación: 0030026SR008; Órgano de Contratación: Dirección Ejecutiva de la Agencia Española de Seguridad Alimentaria y Nutrición; Importe: 29809.42 EUR; Estado: EV",
-      "importedAt": "2026-06-27T10:06:05.076Z",
-      "sectorTier": "C"
-    },
-    {
       "expediente": "CON21-2025/0427",
       "atomId": "https://contrataciondelestado.es/sindicacion/licitacionesPerfilContratante/18723490",
       "title": "Servicios de asistencia técnica para la realización de análisis de aguas",
@@ -1674,7 +1637,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "2024-06-12",
       "rawSummary": "",
-      "importedAt": "2026-06-28T21:14:53.617Z",
+      "importedAt": "2026-06-28T21:21:56.347Z",
       "sectorTier": "A"
     },
     {
@@ -1702,7 +1665,7 @@
       "importeAdjudicacion": 70908.79,
       "fechaAdjudicacion": "2026-06-26",
       "rawSummary": "",
-      "importedAt": "2026-06-28T21:15:03.397Z",
+      "importedAt": "2026-06-28T21:22:08.341Z",
       "sectorTier": "A"
     },
     {
@@ -1780,7 +1743,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 5/2026; Órgano de Contratación: Dirección General del Palacio de Ferias y Congresos de Málaga; Importe: 11600 EUR; Estado: EV",
-      "importedAt": "2026-06-28T21:15:26.403Z",
+      "importedAt": "2026-06-28T21:22:29.117Z",
       "sectorTier": "A"
     },
     {
@@ -1875,7 +1838,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 2025/354001/006-940/00002; Órgano de Contratación: Pleno del Ayuntamiento de Cuevas del Almanzora; Importe: 6341400 EUR; Estado: EV",
-      "importedAt": "2026-06-28T21:15:26.425Z",
+      "importedAt": "2026-06-28T21:22:29.142Z",
       "sectorTier": "A"
     },
     {
@@ -1899,7 +1862,7 @@
       "importeAdjudicacion": 13500,
       "fechaAdjudicacion": "2026-06-25",
       "rawSummary": "",
-      "importedAt": "2026-06-28T21:15:26.433Z",
+      "importedAt": "2026-06-28T21:22:29.151Z",
       "sectorTier": "A"
     },
     {
@@ -1924,7 +1887,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 560/2026; Órgano de Contratación: Consejo de Administración de la Agencia de Régimen Especial Ciclo Integral Aguas del Retortillo; Importe: 914520 EUR; Estado: PUB",
-      "importedAt": "2026-06-28T21:14:43.146Z",
+      "importedAt": "2026-06-28T21:21:45.978Z",
       "sectorTier": "B"
     },
     {
@@ -1974,7 +1937,7 @@
       "importeAdjudicacion": 96039.2,
       "fechaAdjudicacion": "2026-05-30",
       "rawSummary": "",
-      "importedAt": "2026-06-28T21:14:53.587Z",
+      "importedAt": "2026-06-28T21:21:56.319Z",
       "sectorTier": "C"
     },
     {
@@ -2015,59 +1978,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 672; Órgano de Contratación: Consejo de Administración de Parque Cementerio de Fuengirola S.A.M. (PARCESAM); Importe: 10000 EUR; Estado: EV",
-      "importedAt": "2026-06-28T21:14:53.660Z",
-      "sectorTier": "C"
-    },
-    {
-      "expediente": "20264039-V",
-      "atomId": "https://contrataciondelestado.es/sindicacion/licitacionesPerfilContratante/19806674",
-      "title": "Contrato de suministro, instalación, configuración y puesta en marcha de sistemas de monitorización ambiental IP para el centro de procesos de datos (CPD) de la Sociedad Estatal de Infraestructuras del Transporte Terrestre, S.M.E, S.A.",
-      "organo": "Presidencia del Consejo de Administración de la Sociedad Estatal de Infraestructuras del Transporte Terrestre, S.M.E., S.A.",
-      "estado": "EV",
-      "estadoLabel": "En evaluación",
-      "importe": 5062,
-      "importeRaw": "5062 EUR",
-      "cpv": [
-        "35125100",
-        "38424000",
-        "51110000",
-        "38400000"
-      ],
-      "deadline": "2026-06-12",
-      "deadlineSource": "periodo de presentación",
-      "documentos": [
-        {
-          "tipo": "LegalDocumentReference",
-          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=LavPlqM38u5zpdu3GWdIyhif7MeJk12Q%2B7pAYXUm3/eWv6u1aPgGar6ftDL1ygxH73DfE1QfeQ3fIRLJ1r6tObQa51%2BQJ96XrTSNeOmtPk21aXEvq3KHa/AEHgtDrQw0"
-        },
-        {
-          "tipo": "TechnicalDocumentReference",
-          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=Y45Ut0WdgOjQ%2BIYZji7T6lxdbUAk6t5bYO4khfRwONPFQHNhIP/YmJyCaExU9%2Bg0A9bgZVIjK03aKZad01Hp%2B3UKeOa072mh3JmTWICDSbNJOVDbGCDM%2BMigrvuVS7Rv"
-        },
-        {
-          "tipo": "AdditionalDocumentReference",
-          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=eDrMf4qi3Qs/NpaKtJaQ5XoEB0lC8/MjQXf1xPy9DYnwGPEpl/5dqcT6w0WhL6zZyEAIcXlenuexbNOKY2ct0BUM8/rAxPOgCWh8V/OTr1%2BHAj0WEJrB5sP7amrh2jBD"
-        },
-        {
-          "tipo": "AdditionalDocumentReference",
-          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=4BUFxtsiUnOcgx/Bq6bVY8ETtp8PBZBecTttQ476KDskjLm6MD5GFFJgRjIo5%2BofpK3h8o9FhLEhctSmQoPMkm8gshp2pOt4GJt1mN9RNKhJOVDbGCDM%2BMigrvuVS7Rv"
-        },
-        {
-          "tipo": "AdditionalDocumentReference",
-          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=wOZ1Fte3FPJpvjKH/q3ZsOHMc9Eh6CGVqHKP/XAxFPSVQ04GNoQU6acY28qHS9wngs8WiQxGOwUxgyyEhQCw2DpM9Mt6qr32HxONtc1b9P/DdQD9RyhUmzT4jZ2In4zL"
-        },
-        {
-          "tipo": "AdditionalDocumentReference",
-          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=jqYolgPDE4ZktnzfC5wEXVUMfB33djHXrLS/1%2BDPqQ1E2yiYlFCqWAGE7lyaVsw96i6JWufAiqt7/%2BbZE2HckEmhSK92XP1FhjQwrGP9NuqB0nvVKRzfe4rpHcnlPhSZ"
-        }
-      ],
-      "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=WK6yNJqbb2n%2B3JAijKO%2Bkg%3D%3D",
-      "updated": "2026-06-26T12:58:42.036+02:00",
-      "adjudicatario": "",
-      "importeAdjudicacion": null,
-      "fechaAdjudicacion": "",
-      "rawSummary": "Id licitación: 20264039-V; Órgano de Contratación: Presidencia del Consejo de Administración de la Sociedad Estatal de Infraestructuras del Transporte Terrestre, S.M.E., S.A.; Importe: 5062 EUR; Estado: EV",
-      "importedAt": "2026-06-28T21:15:03.463Z",
+      "importedAt": "2026-06-28T21:21:56.391Z",
       "sectorTier": "C"
     },
     {
@@ -2133,7 +2044,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 3902/2026; Órgano de Contratación: Junta de Gobierno del Ayuntamiento de Camas; Importe: 54132.62 EUR; Estado: EV",
-      "importedAt": "2026-06-28T21:15:15.916Z",
+      "importedAt": "2026-06-28T21:22:18.344Z",
       "sectorTier": "C"
     }
   ]
