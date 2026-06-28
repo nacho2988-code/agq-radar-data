@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-06-28T11:28:43.835Z",
-  "totalEntriesScanned": 4027,
-  "pagesFetched": 9,
+  "generatedAt": "2026-06-28T13:04:39.669Z",
+  "totalEntriesScanned": 3531,
+  "pagesFetched": 8,
   "coverageHoursTarget": 72,
-  "oldestEntrySeen": "2026-06-25T10:58:20.796Z",
+  "oldestEntrySeen": "2026-06-25T11:57:57.462Z",
   "resumenDiag": {
     "geminiKeyPresent": true,
-    "candidatos": 5,
-    "generados": 4,
+    "candidatos": 4,
+    "generados": 3,
     "errores": [
       {
         "expediente": "560/2026",
@@ -1468,7 +1468,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 63/2026; Órgano de Contratación: Diputación Provincial de Zamora; Importe: 1859504.13 EUR; Estado: EV",
-      "importedAt": "2026-06-28T11:25:18.725Z"
+      "importedAt": "2026-06-28T13:01:24.589Z"
     },
     {
       "expediente": "PSS/2026/0000056440",
@@ -1695,7 +1695,7 @@
       "importeAdjudicacion": 1500090.88,
       "fechaAdjudicacion": "2026-05-29",
       "rawSummary": "",
-      "importedAt": "2026-06-28T11:25:18.609Z"
+      "importedAt": "2026-06-28T13:01:24.473Z"
     },
     {
       "expediente": "ABR-2025000048",
@@ -2423,7 +2423,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 2025Z7Z00123; Órgano de Contratación: Centro de Estudios y Experimentación de Obras Públicas (CEDEX); Importe: 180000 EUR; Estado: EV",
-      "importedAt": "2026-06-28T11:25:09.037Z"
+      "importedAt": "2026-06-28T13:01:14.741Z"
     },
     {
       "expediente": "G-2026/17",
@@ -2778,7 +2778,7 @@
       "importeAdjudicacion": 15246,
       "fechaAdjudicacion": "2026-06-22",
       "rawSummary": "",
-      "importedAt": "2026-06-28T11:25:38.438Z"
+      "importedAt": "2026-06-28T13:01:44.570Z"
     },
     {
       "expediente": "5810/2026",
@@ -3548,9 +3548,9 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 0030026SR012; Órgano de Contratación: Dirección Ejecutiva de la Agencia Española de Seguridad Alimentaria y Nutrición; Importe: 16528.93 EUR; Estado: PUB",
-      "importedAt": "2026-06-28T11:25:48.775Z",
+      "importedAt": "2026-06-28T13:01:54.937Z",
       "resumenHtmlPath": "data/resumenes/0030026SR012.html",
-      "resumenGeneradoEn": "2026-06-28T11:26:47.545Z",
+      "resumenGeneradoEn": "2026-06-28T13:02:57.895Z",
       "resumenVersion": 2
     },
     {
@@ -3804,7 +3804,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: V-09/25-02; Órgano de Contratación: Comité Ejecutivo de la Mancomunidad de los Canales del Taibilla; Importe: 5281906.78 EUR; Estado: EV",
-      "importedAt": "2026-06-28T11:25:18.708Z"
+      "importedAt": "2026-06-28T13:01:24.572Z"
     },
     {
       "expediente": "132/2026",
@@ -3829,7 +3829,7 @@
       "importeAdjudicacion": 88987.13,
       "fechaAdjudicacion": "2026-06-23",
       "rawSummary": "",
-      "importedAt": "2026-06-28T11:25:27.899Z"
+      "importedAt": "2026-06-28T13:01:34.057Z"
     },
     {
       "expediente": "2026/C004/000002",
@@ -4548,7 +4548,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "2024-06-12",
       "rawSummary": "",
-      "importedAt": "2026-06-28T11:25:09.003Z"
+      "importedAt": "2026-06-28T13:01:14.708Z"
     },
     {
       "expediente": "2026/139",
@@ -4580,9 +4580,9 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 2026/139; Órgano de Contratación: Dirección de Gestión de la Fundación Instituto de Investigación Marqués de Valdecilla; Importe: 81600 EUR; Estado: PUB",
-      "importedAt": "2026-06-28T11:25:09.085Z",
+      "importedAt": "2026-06-28T13:01:14.788Z",
       "resumenHtmlPath": "data/resumenes/2026_139.html",
-      "resumenGeneradoEn": "2026-06-28T11:27:49.057Z",
+      "resumenGeneradoEn": "2026-06-28T13:03:31.800Z",
       "resumenVersion": 2
     },
     {
@@ -4618,7 +4618,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 2026/000621; Órgano de Contratación: Presidencia de Infraestructuras del Agua de Castilla-La Mancha; Importe: 4900027.23 EUR; Estado: EV",
-      "importedAt": "2026-06-28T11:25:18.561Z"
+      "importedAt": "2026-06-28T13:01:24.425Z"
     },
     {
       "expediente": "581/2025",
@@ -4645,7 +4645,7 @@
       "importeAdjudicacion": 70908.79,
       "fechaAdjudicacion": "2026-06-26",
       "rawSummary": "",
-      "importedAt": "2026-06-28T11:25:18.628Z"
+      "importedAt": "2026-06-28T13:01:24.494Z"
     },
     {
       "expediente": "80/2026",
@@ -4685,9 +4685,9 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 80/2026; Órgano de Contratación: Junta Vecinal de la Entidad Local Menor de la Bobadilla; Importe: 104563.22 EUR; Estado: PUB",
-      "importedAt": "2026-06-28T11:25:18.678Z",
+      "importedAt": "2026-06-28T13:01:24.543Z",
       "resumenHtmlPath": "data/resumenes/80_2026.html",
-      "resumenGeneradoEn": "2026-06-28T11:28:42.332Z",
+      "resumenGeneradoEn": "2026-06-28T13:04:38.167Z",
       "resumenVersion": 2
     },
     {
@@ -4711,7 +4711,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 2026/00000016; Órgano de Contratación: Dirección del Centro Penitenciario de Albolote; Importe: 108181.82 EUR; Estado: PRE",
-      "importedAt": "2026-06-28T11:25:27.915Z"
+      "importedAt": "2026-06-28T13:01:34.074Z"
     },
     {
       "expediente": "3902/2026",
@@ -4776,7 +4776,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 3902/2026; Órgano de Contratación: Junta de Gobierno del Ayuntamiento de Camas; Importe: 54132.62 EUR; Estado: EV",
-      "importedAt": "2026-06-28T11:25:27.928Z"
+      "importedAt": "2026-06-28T13:01:34.087Z"
     },
     {
       "expediente": "CO-TA-24-017",
@@ -4799,7 +4799,7 @@
       "importeAdjudicacion": 139203.24,
       "fechaAdjudicacion": "2024-11-13",
       "rawSummary": "",
-      "importedAt": "2026-06-28T11:25:27.942Z"
+      "importedAt": "2026-06-28T13:01:34.101Z"
     },
     {
       "expediente": "5/2026",
@@ -4876,7 +4876,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 5/2026; Órgano de Contratación: Dirección General del Palacio de Ferias y Congresos de Málaga; Importe: 11600 EUR; Estado: EV",
-      "importedAt": "2026-06-28T11:25:38.389Z"
+      "importedAt": "2026-06-28T13:01:44.519Z"
     },
     {
       "expediente": "2025/354001/006-940/00002",
@@ -4970,7 +4970,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 2025/354001/006-940/00002; Órgano de Contratación: Pleno del Ayuntamiento de Cuevas del Almanzora; Importe: 6341400 EUR; Estado: EV",
-      "importedAt": "2026-06-28T11:25:38.417Z"
+      "importedAt": "2026-06-28T13:01:44.546Z"
     },
     {
       "expediente": "0396/2026",
@@ -4993,7 +4993,7 @@
       "importeAdjudicacion": 13500,
       "fechaAdjudicacion": "2026-06-25",
       "rawSummary": "",
-      "importedAt": "2026-06-28T11:25:38.426Z"
+      "importedAt": "2026-06-28T13:01:44.556Z"
     },
     {
       "expediente": "TEC0007030",
@@ -5016,7 +5016,7 @@
       "importeAdjudicacion": 67842,
       "fechaAdjudicacion": "2026-05-31",
       "rawSummary": "",
-      "importedAt": "2026-06-28T11:25:38.431Z"
+      "importedAt": "2026-06-28T13:01:44.563Z"
     },
     {
       "expediente": "21368/2026",
@@ -5039,7 +5039,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "2026-06-25",
       "rawSummary": "",
-      "importedAt": "2026-06-28T11:25:58.637Z"
+      "importedAt": "2026-06-28T13:02:05.026Z"
     },
     {
       "expediente": "CMAYOR/2026/HLAFE/0005",
@@ -5063,7 +5063,7 @@
       "importeAdjudicacion": 98000,
       "fechaAdjudicacion": "2026-06-15",
       "rawSummary": "",
-      "importedAt": "2026-06-28T11:25:58.688Z"
+      "importedAt": "2026-06-28T13:02:05.075Z"
     },
     {
       "expediente": "560/2026",
@@ -5087,7 +5087,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 560/2026; Órgano de Contratación: Consejo de Administración de la Agencia de Régimen Especial Ciclo Integral Aguas del Retortillo; Importe: 914520 EUR; Estado: PUB",
-      "importedAt": "2026-06-28T11:24:58.843Z"
+      "importedAt": "2026-06-28T13:01:01.795Z"
     },
     {
       "expediente": "SCT2025000281",
