@@ -199,33 +199,40 @@ const SUPPLY_TYPE_RE = /\bsuministros?\s*(,|\s+y|\s+de|\s+e\s|\s+instalaci|\s+mo
 const OUT_OF_SCOPE_RE = /\bveh[ií]culos?\b|\bautom[oó]viles?\b|\bturismos?\b|\bcamiones?\b|\bcombustible\b|\bpapeler[ií]a\b|\bmobiliario\b|\bvestuario\b|\buniformes?\b|\bcatering\b|\balimentaci[oó]n\s+(para|de\s+comedor)\b|\bservicio\s+de\s+limpieza\s+(de\s+(?!aguas|agua|suelos?|contaminaci))\b|\bseguridad\s+privada\b|\bvigilancia\s+privada\b|\bmantenimiento\s+de\s+(edificios?|instalaciones?\s+eléctricas?|ascensores?|la\s+climatizaci[oó]n)\b|\bobras?\s+de\s+(construcci[oó]n|reforma|rehabilitaci[oó]n|urbanizaci[oó]n)\b/i;
 const STRONG_SERVICE_KEYWORDS = ['ensayo','ensayos','análisis','analisis','analítica','analitica','control analítico','control analitico','servicio de análisis','externalizacion','externalización','subcontratacion','subcontratación','muestreo','toma de muestra','vigilancia ambiental','auditoría ambiental','auditoria ambiental','evaluación ambiental','evaluacion ambiental','inspección ambiental','inspeccion ambiental'];
 
+// ── Motor de filtrado v2: 3 niveles de confianza ─────────────────────────────
+// Devuelve 'A' | 'B' | 'C' | null
+function getSectorTier(entry){
+  const title = (entry.title || '').toLowerCase();
+  const cpvs  = new Set(entry.cpv || []);
+
+  // OUT_OF_SCOPE: descartar siempre
+  if(OUT_OF_SCOPE_RE.test(entry.title)) return null;
+
+  const cpvA = new Set(config.cpvNivelA.map(l=>(l.match(/^\d{8}/)||[])[0]).filter(Boolean));
+  const cpvB = new Set(config.cpvNivelB.map(l=>(l.match(/^\d{8}/)||[])[0]).filter(Boolean));
+  const kwB  = config.keywordsFuertesNivelB || [];
+  const kwC  = config.keywordsNivelC || [];
+
+  // NIVEL A: CPV muy específico → siempre relevante
+  if([...cpvs].some(c => cpvA.has(c))) return 'A';
+
+  // NIVEL B: CPV amplio + keyword fuerte en el título
+  const tieneCpvB  = [...cpvs].some(c => cpvB.has(c));
+  const tieneKwB   = kwB.some(k => title.includes(k.toLowerCase()));
+  if(tieneCpvB && tieneKwB) return 'B';
+
+  // Si tiene CPV B pero sin keyword fuerte → descartar (evita falsos positivos)
+  if(tieneCpvB && !tieneKwB) return null;
+
+  // NIVEL C: Sin CPV de AGQ, pero frase muy específica en el título
+  const tieneKwC = kwC.some(k => title.includes(k.toLowerCase()));
+  if(tieneKwC) return 'C';
+
+  return null;
+}
+
 function isSectorRelevant(entry){
-  // Descartar explícitamente contratos fuera de sector
-  if(OUT_OF_SCOPE_RE.test(entry.title)) return false;
-
-  const text = (entry.title + ' ' + entry.rawSummary).toLowerCase();
-
-  // CPVs directos: siempre relevantes
-  if(entry.cpv.some(c => cpvCodes.includes(c))) return true;
-
-  // CPVs con keyword: solo relevantes si además hay keyword del sector
-  const cpvConKw = (config.cpvConKeyword || []).map(l=>(l.match(/^\d{8}/)||[])[0]).filter(Boolean);
-  const tieneCpvConKw = entry.cpv.some(c => cpvConKw.includes(c));
-
-  const allKw = [...new Set(config.accreditations.flatMap(a => a.keywords.split(',').map(k=>k.trim().toLowerCase()).filter(Boolean)))];
-  const matched = allKw.filter(k => k && keywordMatches(text, k));
-
-  // Si solo entra por CPV-con-keyword, exigir keyword confirmadora
-  if(tieneCpvConKw && !entry.cpv.some(c => cpvCodes.includes(c))){
-    if(!matched.length) return false;
-  }
-
-  if(matched.length === 0) return false;
-  const esSuministro = SUPPLY_TYPE_RE.test(entry.title);
-  const nonAmbiguous = matched.filter(k => !genericAmbiguous.has(k));
-  if(nonAmbiguous.length > 0 && !esSuministro) return true;
-  if(esSuministro) return STRONG_SERVICE_KEYWORDS.some(k => keywordMatches(text, k));
-  return activityKeywords.some(k => keywordMatches(text, k));
+  return getSectorTier(entry) !== null;
 }
 
 function nextLink(xml){
@@ -635,7 +642,7 @@ async function run(){
           const t = new Date(entry.updated).getTime();
           if(!isNaN(t) && t < oldestSeen) oldestSeen = t;
         }
-        if(isSectorRelevant(entry)) relevant.push(entry);
+        if(isSectorRelevant(entry)) relevant.push({ ...entry, sectorTier: getSectorTier(entry) });
       }catch(e){ console.warn('Entrada omitida por error de parseo:', e.message); }
     });
     pages++;
