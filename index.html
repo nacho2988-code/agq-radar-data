@@ -1404,7 +1404,7 @@ function rowHTML(t, comp){
     </label>
     <div><div class="seal ${comp.level}">${escapeHtml(sealText)}</div></div>
     <div class="main">
-      <div class="title">${tierBadge(getSectorTier(t))}${escapeHtml(t.title)} ${t.resumenHtmlPath ? '<span title="Resumen automático disponible" style="color:var(--agq-green);font-size:12px;">📄</span>' : ''} ${marcada ? '<span title="Marcada para presentar" style="color:var(--agq-purple);font-size:12px;">📌</span>' : ''} ${marcada && t.estadoPipeline ? `<span class="pipeline-badge" style="background:${pipelineMeta(t.estadoPipeline).color};">${pipelineMeta(t.estadoPipeline).label}</span>` : ''} ${t.comercial ? `<span class="pipeline-badge" style="background:var(--agq-purple);opacity:0.8;">${escapeHtml(t.comercial)}</span>` : ''}</div>
+      <div class="title">${escapeHtml(t.title)} ${t.resumenHtmlPath ? '<span title="Resumen automático disponible" style="color:var(--agq-green);font-size:12px;">📄</span>' : ''} ${marcada ? '<span title="Marcada para presentar" style="color:var(--agq-purple);font-size:12px;">📌</span>' : ''} ${marcada && t.estadoPipeline ? `<span class="pipeline-badge" style="background:${pipelineMeta(t.estadoPipeline).color};">${pipelineMeta(t.estadoPipeline).label}</span>` : ''} ${t.comercial ? `<span class="pipeline-badge" style="background:var(--agq-purple);opacity:0.8;">${escapeHtml(t.comercial)}</span>` : ''}</div>
       <div class="meta">
         <span>${escapeHtml(t.organo || 'Órgano no indicado')}</span>
         ${(t.cpv||[]).slice(0,3).map(c=>'<span class="cpv">'+c+'</span>').join('')}
@@ -2293,7 +2293,6 @@ function openDetail(expediente){
     <div class="panel-head">
       <button class="close-btn" id="btn-close-panel">×</button>
       <h2>${escapeHtml(t.title)}</h2>
-      <div style="margin-top:6px;">${tierBadge(getSectorTier(t))}</div>
       <div class="exp">Expediente ${escapeHtml(t.expediente)} · ${escapeHtml(t.estadoLabel)}</div>
     </div>
     <div class="panel-body">
