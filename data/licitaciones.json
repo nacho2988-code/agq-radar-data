@@ -1,29 +1,17 @@
 {
-  "generatedAt": "2026-06-28T21:08:59.929Z",
+  "generatedAt": "2026-06-28T21:15:47.024Z",
   "totalEntriesScanned": 3253,
   "pagesFetched": 7,
   "coverageHoursTarget": 72,
   "oldestEntrySeen": "2026-06-25T17:07:36.233Z",
   "resumenDiag": {
     "geminiKeyPresent": true,
-    "candidatos": 6,
-    "generados": 2,
+    "candidatos": 1,
+    "generados": 0,
     "errores": [
       {
         "expediente": "560/2026",
         "motivo": "sin pliego referenciado"
-      },
-      {
-        "expediente": "EC-1761/2026",
-        "motivo": "HTTP 429 de la API de Gemini: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: "
-      },
-      {
-        "expediente": "29/2026",
-        "motivo": "HTTP 429 de la API de Gemini: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: "
-      },
-      {
-        "expediente": "1221/2026",
-        "motivo": "HTTP 429 de la API de Gemini: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: "
       }
     ]
   },
@@ -219,43 +207,6 @@
       "importedAt": "2026-06-22T04:02:20.661Z",
       "resumenHtmlPath": "data/resumenes/2026_035228.html",
       "resumenGeneradoEn": "2026-06-25T01:05:27.944Z",
-      "resumenVersion": 2,
-      "sectorTier": "C"
-    },
-    {
-      "expediente": "Servicios  02/2026",
-      "atomId": "https://contrataciondelestado.es/sindicacion/licitacionesPerfilContratante/19886458",
-      "title": "Servicio de control in situ, muestreo, análisis y asistencia técnica para la gestión de la calidad del agua de consumo humano de Aguasvira",
-      "organo": "Dirección Gerente de Aguas Vega Sierra Elvira, S.A.",
-      "estado": "PUB",
-      "estadoLabel": "Publicada / en plazo",
-      "importe": 293833.64,
-      "importeRaw": "293833.64 EUR",
-      "cpv": [
-        "90711300",
-        "90713100"
-      ],
-      "deadline": "2026-07-23",
-      "deadlineSource": "periodo de presentación",
-      "documentos": [
-        {
-          "tipo": "LegalDocumentReference",
-          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=T/3Nt2vnnSaFEtGzkxclhd0JIZKADq8FAjDvXyCo8mKL/45oGKV7bH7aWEkkn3rRBJhfaD12VbT9ZyP5ZCM8GPG0/SJKx6b5pT9ZdCidsk545ClyWkoJ44mKM70IFcOu"
-        },
-        {
-          "tipo": "TechnicalDocumentReference",
-          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=9MbfdbwjbiYGZn6AhkGJbw20HMOJPXrHsYl9n9A8qdAla9AgPGF4rIU7uLExpkJU7B5Va9wra9KxiSzZgJM1eV6L6AEAxHdqCC8jNyxtMYbfdyQgZAdTm3EfcUAC7CJ6"
-        }
-      ],
-      "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=J92YqxnQ2lRxseVhcqrkhw%3D%3D",
-      "updated": "2026-06-18T12:29:32.974+02:00",
-      "adjudicatario": "",
-      "importeAdjudicacion": null,
-      "fechaAdjudicacion": "",
-      "rawSummary": "Id licitación: Servicios  02/2026; Órgano de Contratación: Dirección Gerente de Aguas Vega Sierra Elvira, S.A.; Importe: 293833.64 EUR; Estado: PUB",
-      "importedAt": "2026-06-21T01:02:58.063Z",
-      "resumenHtmlPath": "data/resumenes/Servicios_02_2026.html",
-      "resumenGeneradoEn": "2026-06-25T09:16:19.144Z",
       "resumenVersion": 2,
       "sectorTier": "C"
     },
@@ -1723,7 +1674,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "2024-06-12",
       "rawSummary": "",
-      "importedAt": "2026-06-28T21:06:12.548Z",
+      "importedAt": "2026-06-28T21:14:53.617Z",
       "sectorTier": "A"
     },
     {
@@ -1751,7 +1702,7 @@
       "importeAdjudicacion": 70908.79,
       "fechaAdjudicacion": "2026-06-26",
       "rawSummary": "",
-      "importedAt": "2026-06-28T21:06:22.233Z",
+      "importedAt": "2026-06-28T21:15:03.397Z",
       "sectorTier": "A"
     },
     {
@@ -1829,7 +1780,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 5/2026; Órgano de Contratación: Dirección General del Palacio de Ferias y Congresos de Málaga; Importe: 11600 EUR; Estado: EV",
-      "importedAt": "2026-06-28T21:06:44.037Z",
+      "importedAt": "2026-06-28T21:15:26.403Z",
       "sectorTier": "A"
     },
     {
@@ -1924,7 +1875,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 2025/354001/006-940/00002; Órgano de Contratación: Pleno del Ayuntamiento de Cuevas del Almanzora; Importe: 6341400 EUR; Estado: EV",
-      "importedAt": "2026-06-28T21:06:44.059Z",
+      "importedAt": "2026-06-28T21:15:26.425Z",
       "sectorTier": "A"
     },
     {
@@ -1948,7 +1899,7 @@
       "importeAdjudicacion": 13500,
       "fechaAdjudicacion": "2026-06-25",
       "rawSummary": "",
-      "importedAt": "2026-06-28T21:06:44.067Z",
+      "importedAt": "2026-06-28T21:15:26.433Z",
       "sectorTier": "A"
     },
     {
@@ -1973,7 +1924,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 560/2026; Órgano de Contratación: Consejo de Administración de la Agencia de Régimen Especial Ciclo Integral Aguas del Retortillo; Importe: 914520 EUR; Estado: PUB",
-      "importedAt": "2026-06-28T21:06:02.190Z",
+      "importedAt": "2026-06-28T21:14:43.146Z",
       "sectorTier": "B"
     },
     {
@@ -2003,55 +1954,6 @@
       "sectorTier": "B"
     },
     {
-      "expediente": "23/2026",
-      "atomId": "https://contrataciondelestado.es/sindicacion/licitacionesPerfilContratante/19140003",
-      "title": "Suministro de fabricación, diseño (ingeniería) y puesta en servicio de dos estaciones de regulación y medida para la desgasificación del vertedero de residuos no peligrosos de COGERSA\r",
-      "organo": "Consejo de Administración de la Compañía para la Gestión de Residuos Sólidos en Asturias S.A.",
-      "estado": "RES",
-      "estadoLabel": "Resuelta / Formalizada",
-      "importe": 380000,
-      "importeRaw": "380000 EUR",
-      "cpv": [
-        "42131140",
-        "38120000"
-      ],
-      "deadline": "2026-03-30",
-      "deadlineSource": "periodo de presentación",
-      "documentos": [],
-      "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=vKZtQZtH9HqkU02jNGj1Fw%3D%3D",
-      "updated": "2026-06-28T10:11:27.069+02:00",
-      "adjudicatario": "INGENIERÍA Y BIOGÁS S.L.",
-      "importeAdjudicacion": 434269,
-      "fechaAdjudicacion": "2026-05-27",
-      "rawSummary": "",
-      "importedAt": "2026-06-28T21:06:02.158Z",
-      "sectorTier": "C"
-    },
-    {
-      "expediente": "54N/2026",
-      "atomId": "https://contrataciondelestado.es/sindicacion/licitacionesPerfilContratante/19946545",
-      "title": "Construcción Estación Depuradora de Aguas Residuales en Arasan",
-      "organo": "Alcaldía del Ayuntamiento de Bisaurri",
-      "estado": "ADJ",
-      "estadoLabel": "Adjudicada (sin formalizar)",
-      "importe": 124049.29,
-      "importeRaw": "124049.29 EUR",
-      "cpv": [
-        "45252100"
-      ],
-      "deadline": "2026-06-17",
-      "deadlineSource": "periodo de presentación",
-      "documentos": [],
-      "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=6hnti1Nh6jsS7pcxhTeWOg%3D%3D",
-      "updated": "2026-06-26T21:49:32.013+02:00",
-      "adjudicatario": "AQLARA CICLO INTEGRAL DEL AGUA SA",
-      "importeAdjudicacion": 149977.39,
-      "fechaAdjudicacion": "2026-06-26",
-      "rawSummary": "",
-      "importedAt": "2026-06-28T21:06:12.512Z",
-      "sectorTier": "C"
-    },
-    {
       "expediente": "TSA0082563",
       "atomId": "https://contrataciondelestado.es/sindicacion/licitacionesPerfilContratante/18973066",
       "title": "Suministro y puesta en marcha de equipos de instrumentación para la medición en continua de parametros para la calidad del agua potable.",
@@ -2072,45 +1974,8 @@
       "importeAdjudicacion": 96039.2,
       "fechaAdjudicacion": "2026-05-30",
       "rawSummary": "",
-      "importedAt": "2026-06-28T21:06:12.519Z",
+      "importedAt": "2026-06-28T21:14:53.587Z",
       "sectorTier": "C"
-    },
-    {
-      "expediente": "CS/2026/28",
-      "atomId": "https://contrataciondelestado.es/sindicacion/licitacionesPerfilContratante/19854586",
-      "title": "Contratación del servicio de explotación y mantenimiento de las instalaciones de abastecimiento de agua potable de: consorcio zona norte Ávila, mancomunidad aguas del Burguillo, Burgohondo y las estaciones depuradoras de aguas residuales de Cardeñosa, Burgohondo, La Horcajada, Mingorría y Nava de Arévalo.",
-      "organo": "Sociedad Pública de Infraestructuras y Medio Ambiente de Castilla y León S.A.",
-      "estado": "PUB",
-      "estadoLabel": "Publicada / en plazo",
-      "importe": 2608523.62,
-      "importeRaw": "2608523.62 EUR",
-      "cpv": [
-        "65111000",
-        "65130000"
-      ],
-      "deadline": "2026-07-13",
-      "deadlineSource": "periodo de presentación",
-      "documentos": [
-        {
-          "tipo": "LegalDocumentReference",
-          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=ORyZUGkNKWoj%2BdrvHbyKIf6wNIs3UVYSwH4wEOpsyapverO1bH9UfAbdXsLm94yQyg0PdKtZW3H6Pvob9L50SAWTBEZEBa40%2B42/y2eAO7mB0nvVKRzfe4rpHcnlPhSZ"
-        },
-        {
-          "tipo": "TechnicalDocumentReference",
-          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=8W474AAWMhgEgO9F/TJF7kenzZxcRkpV%2BJS%2BS1lQu2tm5TF3F1ucnWHR7r4qNuNS6re0UOHHYeLfmzLev1HixPtufS%2BRuaLLiLddp20AOBsZyAJWGsSt0OzTSTyw9JAs"
-        }
-      ],
-      "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=5y35h3GV1fdWhbmkna2nXQ%3D%3D",
-      "updated": "2026-06-26T14:47:54.057+02:00",
-      "adjudicatario": "",
-      "importeAdjudicacion": null,
-      "fechaAdjudicacion": "",
-      "rawSummary": "Id licitación: CS/2026/28; Órgano de Contratación: Sociedad Pública de Infraestructuras y Medio Ambiente de Castilla y León S.A.; Importe: 2608523.62 EUR; Estado: PUB",
-      "importedAt": "2026-06-28T21:06:12.557Z",
-      "sectorTier": "C",
-      "resumenHtmlPath": "data/resumenes/CS_2026_28.html",
-      "resumenGeneradoEn": "2026-06-28T21:07:53.442Z",
-      "resumenVersion": 2
     },
     {
       "expediente": "672",
@@ -2150,78 +2015,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 672; Órgano de Contratación: Consejo de Administración de Parque Cementerio de Fuengirola S.A.M. (PARCESAM); Importe: 10000 EUR; Estado: EV",
-      "importedAt": "2026-06-28T21:06:12.590Z",
-      "sectorTier": "C"
-    },
-    {
-      "expediente": "1550806Y",
-      "atomId": "https://contrataciondelestado.es/sindicacion/licitacionesPerfilContratante/19938495",
-      "title": "La construcción  y explotación del Sistema Ecológico de Aguas Residuales en la pedanía de Estación de Chinchilla",
-      "organo": "Alcaldía del Ayuntamiento de Chinchilla de Montearagón",
-      "estado": "PUB",
-      "estadoLabel": "Publicada / en plazo",
-      "importe": 208440.83,
-      "importeRaw": "208440.83 EUR",
-      "cpv": [
-        "90481000",
-        "45252100"
-      ],
-      "deadline": "2026-07-13",
-      "deadlineSource": "periodo de presentación",
-      "documentos": [
-        {
-          "tipo": "LegalDocumentReference",
-          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=Jm4fEs1SNLMwBgbzmttQk97cE9Eyd2vdCsr428K5P8bRZAkkUozD9dNDtoakCeLnWQnxw37jY3IkKiK8uw8gF0cs6jsFXXYR%2BLqBkj1UarjVTD3T98KC0nSgQFM0q%2B5s"
-        },
-        {
-          "tipo": "TechnicalDocumentReference",
-          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=KUgrB0W0jCkpfy0b7Z8Yz/hGLdNp8OScr5BLdqcFoCFz/4WfbG%2B4K1FWzGmIdMYJ7CNMGvoGm35xnmQunbwW3o7ArNVpSU4OFdqsVJvXVsqB0nvVKRzfe4rpHcnlPhSZ"
-        }
-      ],
-      "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=OJOAsaygfUPI8aL3PRS10Q%3D%3D",
-      "updated": "2026-06-26T13:40:48.308+02:00",
-      "adjudicatario": "",
-      "importeAdjudicacion": null,
-      "fechaAdjudicacion": "",
-      "rawSummary": "Id licitación: 1550806Y; Órgano de Contratación: Alcaldía del Ayuntamiento de Chinchilla de Montearagón; Importe: 208440.83 EUR; Estado: PUB",
-      "importedAt": "2026-06-28T21:06:22.207Z",
-      "sectorTier": "C",
-      "resumenHtmlPath": "data/resumenes/1550806Y.html",
-      "resumenGeneradoEn": "2026-06-28T21:08:49.167Z",
-      "resumenVersion": 2
-    },
-    {
-      "expediente": "EC-1761/2026",
-      "atomId": "https://contrataciondelestado.es/sindicacion/licitacionesPerfilContratante/19772999",
-      "title": "Suministro de equipos electromecánicos para estaciones de bombeo y depósitos de tormenta de aguas residuales.",
-      "organo": "Consejería Delegada Mancomunada de Actuacions Ambientals Integrals, S.L.",
-      "estado": "PUB",
-      "estadoLabel": "Publicada / en plazo",
-      "importe": 240000,
-      "importeRaw": "240000 EUR",
-      "cpv": [
-        "42990000",
-        "42996000"
-      ],
-      "deadline": "2026-07-03",
-      "deadlineSource": "periodo de presentación",
-      "documentos": [
-        {
-          "tipo": "LegalDocumentReference",
-          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=uOktLHX7rGEmrQ8pxRxqOWv6XeNZpvF81EuSDF87YvQmkH0/SB/uRPWVlLaJHFhp1wuVW4ZnFHiLV5sKKUw7adB3Hk5KfjwPl/CQmjynIsN7QB3HKyQaFUExmUVQCerk"
-        },
-        {
-          "tipo": "TechnicalDocumentReference",
-          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=J5ZBUl74q63/9l8sUt0mqVHAhqVe8ad7Mp%2B2GZhtBCyYG%2BD2KSMFofcvFfCLWUn3A5N7XSgaNsZYCcFkysTwC3t%2BXGpqxsgLw0erGq1lUyMZyAJWGsSt0OzTSTyw9JAs"
-        }
-      ],
-      "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=icsZ1Q0vywHkY6rls5tG9A%3D%3D",
-      "updated": "2026-06-26T13:16:56.863+02:00",
-      "adjudicatario": "",
-      "importeAdjudicacion": null,
-      "fechaAdjudicacion": "",
-      "rawSummary": "Id licitación: EC-1761/2026; Órgano de Contratación: Consejería Delegada Mancomunada de Actuacions Ambientals Integrals, S.L.; Importe: 240000 EUR; Estado: PUB",
-      "importedAt": "2026-06-28T21:06:22.262Z",
+      "importedAt": "2026-06-28T21:14:53.660Z",
       "sectorTier": "C"
     },
     {
@@ -2273,180 +2067,73 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 20264039-V; Órgano de Contratación: Presidencia del Consejo de Administración de la Sociedad Estatal de Infraestructuras del Transporte Terrestre, S.M.E., S.A.; Importe: 5062 EUR; Estado: EV",
-      "importedAt": "2026-06-28T21:06:22.299Z",
+      "importedAt": "2026-06-28T21:15:03.463Z",
       "sectorTier": "C"
     },
     {
-      "expediente": "5843/2026",
-      "atomId": "https://contrataciondelestado.es/sindicacion/licitacionesPerfilContratante/19831446",
-      "title": "Redacción del proyecto de \" Desvío de impulsiones de aguas residuales de la c/ La Corte y Avd Ferrandis Salvador \" del Ayuntamiento de Benicàssim",
-      "organo": "Alcaldía del Ayuntamiento de Benicàssim",
+      "expediente": "3902/2026",
+      "atomId": "https://contrataciondelestado.es/sindicacion/licitacionesPerfilContratante/19723952",
+      "title": "Contrato de Servicios de Desratización, Desinsectación y Desinfección, Control y Prevención de Legionella y del Virus del Nilo en el Municipio de Camas",
+      "organo": "Junta de Gobierno del Ayuntamiento de Camas",
       "estado": "EV",
       "estadoLabel": "En evaluación",
-      "importe": 49644.63,
-      "importeRaw": "49644.63 EUR",
+      "importe": 54132.62,
+      "importeRaw": "54132.62 EUR",
       "cpv": [
-        "71300000"
+        "90900000",
+        "90920000",
+        "90923000",
+        "90924000",
+        "90921000",
+        "90922000"
       ],
-      "deadline": "2026-06-23",
+      "deadline": "2026-06-10",
       "deadlineSource": "periodo de presentación",
       "documentos": [
         {
           "tipo": "LegalDocumentReference",
-          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=9dFnAx%2BgIuShQVLhqq%2BqbE/8LoC3WYWnl9Mp3lxmOO6%2BXamQFKGiJJLQLZLRrE3sHlH358%2Bvzs9C%2BvT7BtabsM4mPyjs8gJaq8mas05q0Cv6CYyL7SIrUOBFfNf52ZqA"
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=H4EHke4fkBFhs3FUVuKb9HfY8hCuml%2BcpXMyqOapvmRAAUooq2cegmrWdllbyMtOdlw9LyjFs%2BqDmKrXD4gZoRkOoy1SpL%2BXtBslnGRixdOB0nvVKRzfe4rpHcnlPhSZ"
         },
         {
           "tipo": "TechnicalDocumentReference",
-          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=6Vp1jmUx4NaCdR8P/MgMu%2B%2BLE3ZZiG/oIstx4%2Be0y0vShvrb1MCUQS1mwoXy2jM6JKHHidVMKk0HtUnpMmSpR%2BkP1YR9qWlGN813jcV6U8XfdyQgZAdTm3EfcUAC7CJ6"
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=Rbmt17UQwLUVN/dCVyvvIGNGEn6YP5CvEW%2BzSq5mt5PkKhXLG2dK3H4jPsswP7baWSDKSFDl/b2TJVIvBdyX5EDRnwjbJcY2HYntY54CCrl45ClyWkoJ44mKM70IFcOu"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=fV2Da2rMm4CXKg2UTCa3Fco7zd1CCSmWrf8gcM3R6c9TjS5jaKSrN8Xj5KcvXUtAPFQXicLyq0JYxSh1rw%2B/8s3o71CDoMpSHbVdbfnOg2b6CYyL7SIrUOBFfNf52ZqA"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=ccpLXjVb6K7w3iIuziR9jly2CCAc5sJF7dZYoC2snQ8vxYiU99q4bDfQlX4Ti9gu3mK%2Bk9QX1DjTCjZppzFD%2Bs0ZwlmjbkuZb2hCi4T1hlVt/o8fNevwsujgRzaBbugn"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=LcqjUzY3ofka958CGQIz6UYiOI5kX1GitjZQYLUyr%2Ba/TqCOG6D6dj88D0EAXgF6NvQFVPzoNaInIzaa7RbjjZ/jfZng1YlFaVT%2BUjmcRQB45ClyWkoJ44mKM70IFcOu"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=f1D%2BXbIKffrSUXf2MKF9LT%2By06A83pKQEu9K3cLh1b%2B4WB6x5N8SJi6GsLayGERdBjo5G6%2BN7GgOQSDPTVwWxysGjtYF0fbm0Jer1rl81F/3GVhXrFFqN7yFncy7YfRK"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=wnRP6UlwwlFbglhcwe7y1Dn2XEdgG3jifEWQW08yH0v2/xdtruS3qsJtJmYCnijB4Lmkkz9gEMmMHfrR912yQHYeH4rElpzoSXasejrM9LuCx2e6p7hqtlp2aFupgHMr"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=Dx8HAZvjXDKv4RPjHYLtKMOaumM7Ce/DG2pWJvMCfP2RbrBPspbI2fiXl%2BNvWbxe279WYhTY0J2oe7wZ0r0vV0gGcMJJ8C6KRq50xkZ776v3GVhXrFFqN7yFncy7YfRK"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=48fM7/eG148VGpR1QNCvWI49ACdWFGkgqCKhN9mSB3EQdJSzHNXbebZIEYVPcN7Qirdd3AdEUKZajDsxMZdTeBeTWiFzQJ2EPRG9ztYiXl61aXEvq3KHa/AEHgtDrQw0"
         }
       ],
-      "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=dW9f5dDQmkU%2B1TMyIiZmzw%3D%3D",
-      "updated": "2026-06-26T12:45:09.473+02:00",
+      "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=95vHAw6w6tB6nTs9LZ9RhQ%3D%3D",
+      "updated": "2026-06-26T11:53:31.057+02:00",
       "adjudicatario": "",
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
-      "rawSummary": "Id licitación: 5843/2026; Órgano de Contratación: Alcaldía del Ayuntamiento de Benicàssim; Importe: 49644.63 EUR; Estado: EV",
-      "importedAt": "2026-06-28T21:06:33.650Z",
-      "sectorTier": "C"
-    },
-    {
-      "expediente": "2026060",
-      "atomId": "https://contrataciondelestado.es/sindicacion/licitacionesPerfilContratante/19821167",
-      "title": "Servicios necesarios para el vaciado, transporte y gestión de las aguas residuales de la fosa séptica en las instalaciones del Centro de Acogida Municipal de Animales de Compañía",
-      "organo": "Teniente de Alcalde delegado de Movilidad y Transportes, Igualdad, Món Rural, Bienestar Animal, Mantenimiento y Cultura del Ayuntamiento de Calviá",
-      "estado": "EV",
-      "estadoLabel": "En evaluación",
-      "importe": 37800,
-      "importeRaw": "37800 EUR",
-      "cpv": [
-        "90460000"
-      ],
-      "deadline": "2026-06-22",
-      "deadlineSource": "periodo de presentación",
-      "documentos": [
-        {
-          "tipo": "LegalDocumentReference",
-          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=Ugo3ODAT9Tg14YTiZuWPZtRLDzPIkC2in7Y7FrxCsQeM%2BjrTIGktWsQTdzsURAZe9oP30NxJrN19jTP8mEk84aaJQYrknXbynDzMYSgq/Vf3GVhXrFFqN7yFncy7YfRK"
-        },
-        {
-          "tipo": "TechnicalDocumentReference",
-          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=LByynYRfZdxe1y91taITObt6ik4F%2BypZMKNae3kndo054HWbu9hPN3QkgMYrdPCZzPcXOpIOB4zOKBZd11EaNk%2BFzyLkaAgGgu6cDmTEb0YC1/zDIE0Kw/PWNnLS0Z0z"
-        },
-        {
-          "tipo": "AdditionalDocumentReference",
-          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=veD0Rhl2G57/dyXeaseIxtNLaxJW02MJ2dOyg0RGmlNOdjiU6TM5zNySp7r2gw6Zdu2pUPNZU0MZdzeI9WssJNryryRU1RvnvbOGoeF301PfdyQgZAdTm3EfcUAC7CJ6"
-        },
-        {
-          "tipo": "AdditionalDocumentReference",
-          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=uEfUPZOD0SsUyh%2BV%2BR/6G5E6YGoa3t7FIhFrEKONFmZCpSwYXrnEhpRdrS7Te44n1qg7FzgPsFca9vqWAySW1C63uPZESWhQjDXd%2B%2Bi7njWCx2e6p7hqtlp2aFupgHMr"
-        },
-        {
-          "tipo": "AdditionalDocumentReference",
-          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=EgLaMhtXMxlcemiOsi05%2BzcKwrOmJ8LkUYD/UXOwC3L2QXodVTeMCIk/mnDr9vqRAE2Lw6wn7hkZ2M9XfsfVvzgKVN8iM%2BrDtzn4oiwPMrw//q7NB2iMZvNyf0xrJmjt"
-        },
-        {
-          "tipo": "AdditionalDocumentReference",
-          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=QXxiVhQ6/NhInzZ2Lg/E2ljEbQf5VPz1CEPRuz8onkvCQ2sHmwkyINWcg6J%2BuYYe6wuHMhyTF2Od2DGmFbXD6Luv3UG%2BGJfBLe9zpe711cnfdyQgZAdTm3EfcUAC7CJ6"
-        }
-      ],
-      "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=orrMKPShXupt5r0ngvMetA%3D%3D",
-      "updated": "2026-06-26T09:47:43.553+02:00",
-      "adjudicatario": "",
-      "importeAdjudicacion": null,
-      "fechaAdjudicacion": "",
-      "rawSummary": "Id licitación: 2026060; Órgano de Contratación: Teniente de Alcalde delegado de Movilidad y Transportes, Igualdad, Món Rural, Bienestar Animal, Mantenimiento y Cultura del Ayuntamiento de Calviá; Importe: 37800 EUR; Estado: EV",
-      "importedAt": "2026-06-28T21:06:54.482Z",
-      "sectorTier": "C"
-    },
-    {
-      "expediente": "29/2026",
-      "atomId": "https://contrataciondelestado.es/sindicacion/licitacionesPerfilContratante/19931446",
-      "title": "Servicio para la explotación, mantenimiento y conservación de la estación depuradora de aguas residuales (EDAR) de Deifontes (Granada) y las estaciones de bombeo EBAR I y II\r\n\r",
-      "organo": "Pleno del Ayuntamiento de Deifontes",
-      "estado": "PUB",
-      "estadoLabel": "Publicada / en plazo",
-      "importe": 247170.88,
-      "importeRaw": "247170.88 EUR",
-      "cpv": [
-        "65120000",
-        "90420000"
-      ],
-      "deadline": "2026-07-24",
-      "deadlineSource": "periodo de presentación",
-      "documentos": [
-        {
-          "tipo": "LegalDocumentReference",
-          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=u7yHu%2BPluCpfVx5GTYUHzfJ3cbVr1vga2llrimRRkyw2UyAZwjenvhNh2KhPmADuK%2Bj60%2BhlQX0qbh%2B1ptUMfjP83pfJwLUuVaxz83j3mu6HAj0WEJrB5sP7amrh2jBD"
-        },
-        {
-          "tipo": "TechnicalDocumentReference",
-          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=OeDUlOQcdeolxFoDSN5dw8TSG2JvgZZ3NMrTtamMriG/FXxhQAl4GEns5n1d7hwXwvYPo%2B7ogA%2BtrPO0fe91OjFK%2BPO5/CoUm/rsP0PGIyMC1/zDIE0Kw/PWNnLS0Z0z"
-        },
-        {
-          "tipo": "AdditionalDocumentReference",
-          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=SApIXx7KdsW0Y9yOMgxw4y/vtSXA0er5NWihyr1i7RbO%2BVlJ8dAQhx0N0Dbl2N5X9Q/5t%2BV7br2kZSwdNwgff8RC6I/hf59Fwzgo7CIt69h45ClyWkoJ44mKM70IFcOu"
-        },
-        {
-          "tipo": "AdditionalDocumentReference",
-          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=oGKKKz/nPDUZ6U19HfK159fL1HSvivWMjxS2yT6EnZGjQBNqZU4KQtca%2BGj2i769Ze34Y608oD55og2ACGbjaGwVe1TdOnivJ8b1DQzd/GxJOVDbGCDM%2BMigrvuVS7Rv"
-        },
-        {
-          "tipo": "AdditionalDocumentReference",
-          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=zXUu5ZTUgJto/Rl1kWXGVH3QJl8o0Zf%2BzEcMrVrSyeBFBOah3hUY1JjJ/GEhz45jM9SWe4ey3YHGg3BIGAygTLpL40NoxydMvLDQawzsSfN45ClyWkoJ44mKM70IFcOu"
-        }
-      ],
-      "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=FNJvSl5pnBvVGIpKDxgsAQ%3D%3D",
-      "updated": "2026-06-26T09:00:00.000+02:00",
-      "adjudicatario": "",
-      "importeAdjudicacion": null,
-      "fechaAdjudicacion": "",
-      "rawSummary": "Id licitación: 29/2026; Órgano de Contratación: Pleno del Ayuntamiento de Deifontes; Importe: 247170.88 EUR; Estado: PUB",
-      "importedAt": "2026-06-28T21:07:08.775Z",
-      "sectorTier": "C"
-    },
-    {
-      "expediente": "1221/2026",
-      "atomId": "https://contrataciondelestado.es/sindicacion/licitacionesPerfilContratante/19939010",
-      "title": "Suministro, instalación y puesta en marcha de estación depuradora de aguas residuales (EDAR) con tecnología de biorreactor de membranas (MBR) Centro Turístico Montañas del Fuego - Lanzarote",
-      "organo": "Entidad Pública Empresarial Local Centros de Arte, Cultura y Turismo de Lanzarote",
-      "estado": "PUB",
-      "estadoLabel": "Publicada / en plazo",
-      "importe": 317000,
-      "importeRaw": "317000 EUR",
-      "cpv": [
-        "42996000",
-        "45232420",
-        "45252130",
-        "45232421",
-        "45252127"
-      ],
-      "deadline": "2026-07-10",
-      "deadlineSource": "periodo de presentación",
-      "documentos": [
-        {
-          "tipo": "LegalDocumentReference",
-          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=yip7%2BuBHHAO7CNE8Q13ArXZXMIIGWPyVQDvp5eB%2B7x9ZyM19HCQQB6ow94GbQJku9q0984s472gEfeK7kUYTL5RhLFHWgqxSECVsoGLjPFX6CYyL7SIrUOBFfNf52ZqA"
-        },
-        {
-          "tipo": "TechnicalDocumentReference",
-          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=9XERMVJrjDS/gZ3pSWKPex7P9UWyXBNaoZH2KcUizPbybzJQseJ6nMEXUqdgimEEocVJ2pGIvJH4dLIxd%2BSZGIL8nZ6EbAwGM2GChEaFbYM//q7NB2iMZvNyf0xrJmjt"
-        },
-        {
-          "tipo": "AdditionalDocumentReference",
-          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=SFTMrwsxyNxtiYVHy60xT1TDh73mVMR5Wg0RrtBmULmwzfisbkX8icrOf7N1mz6QqVT9sxL%2B7h92C%2BpQL0SR7YzCgeZNw5axNTA1IbiNz7h45ClyWkoJ44mKM70IFcOu"
-        },
-        {
-          "tipo": "AdditionalDocumentReference",
-          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=TwoNqCCv5ba7AGmBs5LYUDvYc9Elh/1ASlSyuBC9Vg/LnQJk1BpP2rselCmdNLmC2zWBbDezFVbhxz6mYm7/OEKyfLgSiGlSd6NCi9CQcQBt/o8fNevwsujgRzaBbugn"
-        }
-      ],
-      "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=yFbDaFMzajZSYrkJkLlFdw%3D%3D",
-      "updated": "2026-06-26T08:24:29.890+02:00",
-      "adjudicatario": "",
-      "importeAdjudicacion": null,
-      "fechaAdjudicacion": "",
-      "rawSummary": "Id licitación: 1221/2026; Órgano de Contratación: Entidad Pública Empresarial Local Centros de Arte, Cultura y Turismo de Lanzarote; Importe: 317000 EUR; Estado: PUB",
-      "importedAt": "2026-06-28T21:07:08.826Z",
+      "rawSummary": "Id licitación: 3902/2026; Órgano de Contratación: Junta de Gobierno del Ayuntamiento de Camas; Importe: 54132.62 EUR; Estado: EV",
+      "importedAt": "2026-06-28T21:15:15.916Z",
       "sectorTier": "C"
     }
   ]
