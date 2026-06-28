@@ -330,6 +330,10 @@ select.sortsel{
 .sel-comercial{width:64px;padding:4px 2px;font-size:11px;border:1px solid var(--line);border-radius:5px;background:var(--paper-dim);cursor:pointer;text-align:center;}
 .sel-comercial:hover{border-color:var(--agq-purple);}
 .pipeline-badge{display:inline-block;font-size:10px;padding:2px 7px;border-radius:10px;color:#fff;font-weight:600;}
+.tier-badge{display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;font-family:var(--font-mono);letter-spacing:0.04em;vertical-align:middle;margin-right:4px;}
+.tier-A{background:#EEF6DB;color:#5E8500;border:1px solid #84BD00;}
+.tier-B{background:#ECEAF6;color:#565294;border:1px solid #565294;}
+.tier-C{background:#E8EDF5;color:#3B5EA6;border:1px solid #7895C8;}
 .check-presentar{display:flex;align-items:center;justify-content:center;cursor:pointer;height:100%;}
 .check-presentar input{width:17px;height:17px;accent-color:var(--agq-purple);cursor:pointer;}
 .row:last-child{border-bottom:none;}
@@ -1268,31 +1272,41 @@ const SUPPLY_TYPE_RE = /\bsuministros?\s*(,|\s+y|\s+de|\s+e\s|\s+instalaci|\s+mo
 const STRONG_SERVICE_KEYWORDS = ['ensayo','ensayos','análisis','analisis','analítica','analitica','control analítico','control analitico','servicio de análisis','externalizacion','externalización','subcontratacion','subcontratación','muestreo','toma de muestra','vigilancia ambiental','auditoría ambiental','auditoria ambiental','evaluación ambiental','evaluacion ambiental','inspección ambiental','inspeccion ambiental'];
 const OUT_OF_SCOPE_RE = /\bveh[ií]culos?\b|\bautom[oó]viles?\b|\bturismos?\b|\bcamiones?\b|\bcombustible\b|\bpapeler[ií]a\b|\bmobiliario\b|\bvestuario\b|\buniformes?\b|\bcatering\b|\balimentaci[oó]n\s+(para|de\s+comedor)\b|\bseguridad\s+privada\b|\bvigilancia\s+privada\b|\bmantenimiento\s+de\s+(edificios?|instalaciones?\s+eléctricas?|ascensores?|la\s+climatizaci[oó]n)\b|\bobras?\s+de\s+(construcci[oó]n|reforma|rehabilitaci[oó]n|urbanizaci[oó]n)\b/i;
 
-function isSectorRelevant(tender){
-  if(OUT_OF_SCOPE_RE.test(tender.title || '')) return false;
-
-  const cpvDirectos = configCpvCodes();
-  const cpvConKw = (STATE.config.cpvConKeyword || []).map(l=>(l.match(/^\d{8}/)||[])[0]).filter(Boolean);
-  const text = (tender.title + ' ' + tender.rawSummary).toLowerCase();
-  const allKw = [...new Set(STATE.config.accreditations.flatMap(acc => acc.keywords.split(',').map(k=>k.trim().toLowerCase()).filter(Boolean)))];
-  const matched = allKw.filter(k => keywordMatches(text, k));
-
-  // CPVs directos: siempre relevantes
-  if(tender.cpv && tender.cpv.some(c => cpvDirectos.includes(c))) return true;
-
-  // CPVs con keyword: solo si además hay keyword confirmatoria
-  const tieneCpvConKw = tender.cpv && tender.cpv.some(c => cpvConKw.includes(c));
-  if(tieneCpvConKw && !matched.length) return false;
-
-  if(matched.length === 0) return false;
-  const esSuministro = SUPPLY_TYPE_RE.test(tender.title || '');
-  const ambiguousSet = new Set((STATE.config.genericAmbiguous || []).map(k=>k.toLowerCase()));
-  const nonAmbiguous = matched.filter(k => !ambiguousSet.has(k));
-  if(nonAmbiguous.length > 0 && !esSuministro) return true;
-  if(esSuministro) return STRONG_SERVICE_KEYWORDS.some(k => keywordMatches(text, k));
-  const activity = STATE.config.activityKeywords || [];
-  return activity.some(k => keywordMatches(text, k.toLowerCase()));
+// ── Motor de filtrado v2: 3 niveles ──────────────────────────────────────────
+const TIER_META = {
+  A: { label:'CPV específico', title:'Coincidencia directa por CPV muy específico del sector (alta confianza)', cls:'tier-A' },
+  B: { label:'CPV + contexto', title:'CPV amplio confirmado por keyword del sector (confianza media)', cls:'tier-B' },
+  C: { label:'Por keywords',   title:'Detectado por frases específicas del sector sin CPV directo (revisar)', cls:'tier-C' },
+};
+function tierBadge(tier){
+  if(!tier || !TIER_META[tier]) return '';
+  const m = TIER_META[tier];
+  return `<span class="tier-badge ${m.cls}" title="${m.title}">${m.label}</span>`;
 }
+function getSectorTier(tender){
+  const title = (tender.title || '').toLowerCase();
+  const cpvs  = new Set(tender.cpv || []);
+  if(OUT_OF_SCOPE_RE.test(tender.title || '')) return null;
+
+  const cfg    = STATE.config;
+  const cpvA   = new Set((cfg.cpvNivelA||[]).map(l=>(l.match(/^\d{8}/)||[])[0]).filter(Boolean));
+  const cpvB   = new Set((cfg.cpvNivelB||[]).map(l=>(l.match(/^\d{8}/)||[])[0]).filter(Boolean));
+  const kwB    = (cfg.keywordsFuertesNivelB||[]).map(k=>k.toLowerCase());
+  const kwC    = (cfg.keywordsNivelC||[]).map(k=>k.toLowerCase());
+
+  // Si viene del snapshot ya tiene el tier calculado
+  if(tender.sectorTier) return tender.sectorTier;
+
+  if([...cpvs].some(c => cpvA.has(c))) return 'A';
+  const tieneCpvB = [...cpvs].some(c => cpvB.has(c));
+  const tieneKwB  = kwB.some(k => title.includes(k));
+  if(tieneCpvB && tieneKwB) return 'B';
+  if(tieneCpvB) return null;
+  if(kwC.some(k => title.includes(k))) return 'C';
+  return null;
+}
+
+function isSectorRelevant(tender){ return getSectorTier(tender) !== null; }
 
 function computeCompatibility(tender){
   const text = (tender.title + ' ' + tender.rawSummary).toLowerCase();
@@ -1390,7 +1404,7 @@ function rowHTML(t, comp){
     </label>
     <div><div class="seal ${comp.level}">${escapeHtml(sealText)}</div></div>
     <div class="main">
-      <div class="title">${escapeHtml(t.title)} ${t.resumenHtmlPath ? '<span title="Resumen automático disponible" style="color:var(--agq-green);font-size:12px;">📄</span>' : ''} ${marcada ? '<span title="Marcada para presentar" style="color:var(--agq-purple);font-size:12px;">📌</span>' : ''} ${marcada && t.estadoPipeline ? `<span class="pipeline-badge" style="background:${pipelineMeta(t.estadoPipeline).color};">${pipelineMeta(t.estadoPipeline).label}</span>` : ''} ${t.comercial ? `<span class="pipeline-badge" style="background:var(--agq-purple);opacity:0.8;">${escapeHtml(t.comercial)}</span>` : ''}</div>
+      <div class="title">${tierBadge(getSectorTier(t))}${escapeHtml(t.title)} ${t.resumenHtmlPath ? '<span title="Resumen automático disponible" style="color:var(--agq-green);font-size:12px;">📄</span>' : ''} ${marcada ? '<span title="Marcada para presentar" style="color:var(--agq-purple);font-size:12px;">📌</span>' : ''} ${marcada && t.estadoPipeline ? `<span class="pipeline-badge" style="background:${pipelineMeta(t.estadoPipeline).color};">${pipelineMeta(t.estadoPipeline).label}</span>` : ''} ${t.comercial ? `<span class="pipeline-badge" style="background:var(--agq-purple);opacity:0.8;">${escapeHtml(t.comercial)}</span>` : ''}</div>
       <div class="meta">
         <span>${escapeHtml(t.organo || 'Órgano no indicado')}</span>
         ${(t.cpv||[]).slice(0,3).map(c=>'<span class="cpv">'+c+'</span>').join('')}
@@ -2279,6 +2293,7 @@ function openDetail(expediente){
     <div class="panel-head">
       <button class="close-btn" id="btn-close-panel">×</button>
       <h2>${escapeHtml(t.title)}</h2>
+      <div style="margin-top:6px;">${tierBadge(getSectorTier(t))}</div>
       <div class="exp">Expediente ${escapeHtml(t.expediente)} · ${escapeHtml(t.estadoLabel)}</div>
     </div>
     <div class="panel-body">
