@@ -659,6 +659,12 @@ async function run(){
   // criterio se purgan en la siguiente ejecución en vez de quedarse para siempre.
   existing = existing.filter(isSectorRelevant);
 
+  // Recalcular tier en entradas existentes (pueden ser del motor v1 sin tier)
+  existing = existing.map(e => ({
+    ...e,
+    sectorTier: e.sectorTier || getSectorTier(e)
+  }));
+
   const byId = new Map(existing.map(e => [e.expediente, e]));
   relevant.forEach(e => {
     const prev = byId.get(e.expediente);
