@@ -37,12 +37,15 @@ const GEMINI_MODEL = 'gemini-2.5-flash'; // nivel gratuito de Google AI Studio, 
 const MAX_DOC_BYTES = 20 * 1024 * 1024; // no mandamos pliegos descomunales a la API
 
 const config = JSON.parse(fs.readFileSync(CONFIG_PATH, 'utf-8'));
-const cpvCodes = config.cpv.map(line => (line.match(/^\d{8}/) || [])[0]).filter(Boolean);
-const allKeywords = [...new Set(
-  config.accreditations.flatMap(a => a.keywords.split(',').map(k => k.trim().toLowerCase()).filter(Boolean))
-)];
-const activityKeywords = (config.activityKeywords || []).map(k => k.toLowerCase());
-const genericAmbiguous = new Set((config.genericAmbiguous || []).map(k => k.toLowerCase()));
+
+// Motor v2: pre-calcular sets de CPVs y keywords para eficiencia
+const CPV_NIVEL_A  = new Set((config.cpvNivelA || []).map(l=>(l.match(/^\d{8}/)||[])[0]).filter(Boolean));
+const CPV_NIVEL_B  = new Set((config.cpvNivelB || []).map(l=>(l.match(/^\d{8}/)||[])[0]).filter(Boolean));
+const KW_FUERTES_B = (config.keywordsFuertesNivelB || []).map(k=>k.toLowerCase());
+const KW_NIVEL_C   = (config.keywordsNivelC || []).map(k=>k.toLowerCase());
+
+// Compatibilidad: cpvCodes = unión de A+B para funciones auxiliares
+const cpvCodes = [...CPV_NIVEL_A, ...CPV_NIVEL_B];
 
 const ESTADO_LABELS = {
   PUB:'Publicada / en plazo', EV:'En evaluación', ADJ:'Adjudicada (sin formalizar)',
@@ -204,29 +207,19 @@ const STRONG_SERVICE_KEYWORDS = ['ensayo','ensayos','análisis','analisis','anal
 function getSectorTier(entry){
   const title = (entry.title || '').toLowerCase();
   const cpvs  = new Set(entry.cpv || []);
-
-  // OUT_OF_SCOPE: descartar siempre
   if(OUT_OF_SCOPE_RE.test(entry.title)) return null;
 
-  const cpvA = new Set(config.cpvNivelA.map(l=>(l.match(/^\d{8}/)||[])[0]).filter(Boolean));
-  const cpvB = new Set(config.cpvNivelB.map(l=>(l.match(/^\d{8}/)||[])[0]).filter(Boolean));
-  const kwB  = config.keywordsFuertesNivelB || [];
-  const kwC  = config.keywordsNivelC || [];
-
   // NIVEL A: CPV muy específico → siempre relevante
-  if([...cpvs].some(c => cpvA.has(c))) return 'A';
+  if([...cpvs].some(c => CPV_NIVEL_A.has(c))) return 'A';
 
-  // NIVEL B: CPV amplio + keyword fuerte en el título
-  const tieneCpvB  = [...cpvs].some(c => cpvB.has(c));
-  const tieneKwB   = kwB.some(k => title.includes(k.toLowerCase()));
+  // NIVEL B: CPV amplio + keyword fuerte
+  const tieneCpvB = [...cpvs].some(c => CPV_NIVEL_B.has(c));
+  const tieneKwB  = KW_FUERTES_B.some(k => title.includes(k));
   if(tieneCpvB && tieneKwB) return 'B';
+  if(tieneCpvB) return null; // CPV B sin keyword → descartar
 
-  // Si tiene CPV B pero sin keyword fuerte → descartar (evita falsos positivos)
-  if(tieneCpvB && !tieneKwB) return null;
-
-  // NIVEL C: Sin CPV de AGQ, pero frase muy específica en el título
-  const tieneKwC = kwC.some(k => title.includes(k.toLowerCase()));
-  if(tieneKwC) return 'C';
+  // NIVEL C: solo keywords muy específicas
+  if(KW_NIVEL_C.some(k => title.includes(k))) return 'C';
 
   return null;
 }
