@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-29T04:03:31.756Z",
+  "generatedAt": "2026-06-29T07:06:38.220Z",
   "totalEntriesScanned": 3253,
   "pagesFetched": 7,
   "coverageHoursTarget": 72,
@@ -1637,7 +1637,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "2024-06-12",
       "rawSummary": "",
-      "importedAt": "2026-06-29T04:01:53.461Z",
+      "importedAt": "2026-06-29T07:03:08.031Z",
       "sectorTier": "A"
     },
     {
@@ -1665,7 +1665,7 @@
       "importeAdjudicacion": 70908.79,
       "fechaAdjudicacion": "2026-06-26",
       "rawSummary": "",
-      "importedAt": "2026-06-29T04:02:17.082Z",
+      "importedAt": "2026-06-29T07:03:58.721Z",
       "sectorTier": "A"
     },
     {
@@ -1743,7 +1743,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 5/2026; Órgano de Contratación: Dirección General del Palacio de Ferias y Congresos de Málaga; Importe: 11600 EUR; Estado: EV",
-      "importedAt": "2026-06-29T04:02:55.124Z",
+      "importedAt": "2026-06-29T07:05:26.538Z",
       "sectorTier": "A"
     },
     {
@@ -1838,7 +1838,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 2025/354001/006-940/00002; Órgano de Contratación: Pleno del Ayuntamiento de Cuevas del Almanzora; Importe: 6341400 EUR; Estado: EV",
-      "importedAt": "2026-06-29T04:02:55.146Z",
+      "importedAt": "2026-06-29T07:05:26.562Z",
       "sectorTier": "A"
     },
     {
@@ -1862,7 +1862,7 @@
       "importeAdjudicacion": 13500,
       "fechaAdjudicacion": "2026-06-25",
       "rawSummary": "",
-      "importedAt": "2026-06-29T04:02:55.154Z",
+      "importedAt": "2026-06-29T07:05:26.570Z",
       "sectorTier": "A"
     },
     {
@@ -1887,7 +1887,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 560/2026; Órgano de Contratación: Consejo de Administración de la Agencia de Régimen Especial Ciclo Integral Aguas del Retortillo; Importe: 914520 EUR; Estado: PUB",
-      "importedAt": "2026-06-29T04:01:30.405Z",
+      "importedAt": "2026-06-29T07:01:55.717Z",
       "sectorTier": "B"
     },
     {
@@ -1937,7 +1937,7 @@
       "importeAdjudicacion": 96039.2,
       "fechaAdjudicacion": "2026-05-30",
       "rawSummary": "",
-      "importedAt": "2026-06-29T04:01:53.432Z",
+      "importedAt": "2026-06-29T07:03:07.999Z",
       "sectorTier": "C"
     },
     {
@@ -1978,7 +1978,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 672; Órgano de Contratación: Consejo de Administración de Parque Cementerio de Fuengirola S.A.M. (PARCESAM); Importe: 10000 EUR; Estado: EV",
-      "importedAt": "2026-06-29T04:01:53.502Z",
+      "importedAt": "2026-06-29T07:03:08.073Z",
       "sectorTier": "C"
     },
     {
@@ -2044,7 +2044,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 3902/2026; Órgano de Contratación: Junta de Gobierno del Ayuntamiento de Camas; Importe: 54132.62 EUR; Estado: EV",
-      "importedAt": "2026-06-29T04:02:34.068Z",
+      "importedAt": "2026-06-29T07:04:42.169Z",
       "sectorTier": "C"
     }
   ]
