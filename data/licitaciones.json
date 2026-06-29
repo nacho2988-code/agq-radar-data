@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-06-29T07:06:38.220Z",
-  "totalEntriesScanned": 3253,
-  "pagesFetched": 7,
+  "generatedAt": "2026-06-29T10:03:22.422Z",
+  "totalEntriesScanned": 1755,
+  "pagesFetched": 4,
   "coverageHoursTarget": 72,
-  "oldestEntrySeen": "2026-06-25T17:07:36.233Z",
+  "oldestEntrySeen": "2026-06-26T09:41:52.999Z",
   "resumenDiag": {
     "geminiKeyPresent": true,
     "candidatos": 1,
@@ -1637,7 +1637,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "2024-06-12",
       "rawSummary": "",
-      "importedAt": "2026-06-29T07:03:08.031Z",
+      "importedAt": "2026-06-29T10:02:10.277Z",
       "sectorTier": "A"
     },
     {
@@ -1665,7 +1665,7 @@
       "importeAdjudicacion": 70908.79,
       "fechaAdjudicacion": "2026-06-26",
       "rawSummary": "",
-      "importedAt": "2026-06-29T07:03:58.721Z",
+      "importedAt": "2026-06-29T10:02:53.748Z",
       "sectorTier": "A"
     },
     {
@@ -1887,7 +1887,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 560/2026; Órgano de Contratación: Consejo de Administración de la Agencia de Régimen Especial Ciclo Integral Aguas del Retortillo; Importe: 914520 EUR; Estado: PUB",
-      "importedAt": "2026-06-29T07:01:55.717Z",
+      "importedAt": "2026-06-29T10:01:39.922Z",
       "sectorTier": "B"
     },
     {
@@ -1937,7 +1937,7 @@
       "importeAdjudicacion": 96039.2,
       "fechaAdjudicacion": "2026-05-30",
       "rawSummary": "",
-      "importedAt": "2026-06-29T07:03:07.999Z",
+      "importedAt": "2026-06-29T10:02:10.245Z",
       "sectorTier": "C"
     },
     {
@@ -1978,7 +1978,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 672; Órgano de Contratación: Consejo de Administración de Parque Cementerio de Fuengirola S.A.M. (PARCESAM); Importe: 10000 EUR; Estado: EV",
-      "importedAt": "2026-06-29T07:03:08.073Z",
+      "importedAt": "2026-06-29T10:02:10.318Z",
       "sectorTier": "C"
     },
     {
@@ -2044,7 +2044,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 3902/2026; Órgano de Contratación: Junta de Gobierno del Ayuntamiento de Camas; Importe: 54132.62 EUR; Estado: EV",
-      "importedAt": "2026-06-29T07:04:42.169Z",
+      "importedAt": "2026-06-29T10:03:22.398Z",
       "sectorTier": "C"
     }
   ]
