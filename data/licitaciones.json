@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-06-29T10:03:22.422Z",
-  "totalEntriesScanned": 1755,
-  "pagesFetched": 4,
+  "generatedAt": "2026-06-29T13:01:36.218Z",
+  "totalEntriesScanned": 759,
+  "pagesFetched": 2,
   "coverageHoursTarget": 72,
-  "oldestEntrySeen": "2026-06-26T09:41:52.999Z",
+  "oldestEntrySeen": "2026-06-26T11:49:30.241Z",
   "resumenDiag": {
     "geminiKeyPresent": true,
     "candidatos": 1,
@@ -1637,7 +1637,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "2024-06-12",
       "rawSummary": "",
-      "importedAt": "2026-06-29T10:02:10.277Z",
+      "importedAt": "2026-06-29T13:01:36.107Z",
       "sectorTier": "A"
     },
     {
@@ -1887,7 +1887,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 560/2026; Órgano de Contratación: Consejo de Administración de la Agencia de Régimen Especial Ciclo Integral Aguas del Retortillo; Importe: 914520 EUR; Estado: PUB",
-      "importedAt": "2026-06-29T10:01:39.922Z",
+      "importedAt": "2026-06-29T13:01:18.700Z",
       "sectorTier": "B"
     },
     {
@@ -1937,7 +1937,7 @@
       "importeAdjudicacion": 96039.2,
       "fechaAdjudicacion": "2026-05-30",
       "rawSummary": "",
-      "importedAt": "2026-06-29T10:02:10.245Z",
+      "importedAt": "2026-06-29T13:01:36.074Z",
       "sectorTier": "C"
     },
     {
@@ -1978,7 +1978,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 672; Órgano de Contratación: Consejo de Administración de Parque Cementerio de Fuengirola S.A.M. (PARCESAM); Importe: 10000 EUR; Estado: EV",
-      "importedAt": "2026-06-29T10:02:10.318Z",
+      "importedAt": "2026-06-29T13:01:36.151Z",
       "sectorTier": "C"
     },
     {
