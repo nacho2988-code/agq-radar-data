@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-30T09:29:41.325Z",
+  "generatedAt": "2026-06-30T09:37:06.679Z",
   "totalEntriesScanned": 3755,
   "pagesFetched": 8,
   "coverageHoursTarget": 72,
@@ -2278,13 +2278,13 @@
     },
     {
       "expediente": "CONT178/2026",
-      "title": "Presidencia del Instituto Insular de Atención Social y Sociosanitaria - IASS",
+      "title": "Servicio de medición de gas radón en los centros de gestión directa del Instituto Insular de atención Social y Sociosanitaria.",
       "estado": "PUB",
       "cpv": [
         "71620000"
       ],
       "organo": "Presidencia del Instituto Insular de Atención Social y Sociosanitaria - IASS",
-      "importe": 38500,
+      "importe": 19250,
       "deadline": "2026-07-09",
       "deadlineSource": "fecha límite oficial",
       "docs": [
