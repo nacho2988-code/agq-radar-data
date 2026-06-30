@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-30T12:34:19.681Z",
+  "generatedAt": "2026-06-30T13:08:28.608Z",
   "totalEntriesScanned": 3256,
   "pagesFetched": 7,
   "coverageHoursTarget": 72,
@@ -1082,7 +1082,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 15241/2026; Órgano de Contratación: Junta de Gobierno del Ayuntamiento de Rivas Vaciamadrid; Importe: 66100.4 EUR; Estado: EV",
-      "importedAt": "2026-06-30T12:31:04.320Z",
+      "importedAt": "2026-06-30T13:02:41.594Z",
       "sectorTier": "A"
     },
     {
@@ -1471,7 +1471,7 @@
       "importeAdjudicacion": 25652,
       "fechaAdjudicacion": "2026-06-25",
       "rawSummary": "",
-      "importedAt": "2026-06-30T12:32:20.787Z",
+      "importedAt": "2026-06-30T13:04:55.673Z",
       "sectorTier": "A"
     },
     {
@@ -1557,7 +1557,7 @@
       "importeAdjudicacion": 312254.77,
       "fechaAdjudicacion": "2026-04-24",
       "rawSummary": "",
-      "importedAt": "2026-06-30T12:33:04.863Z",
+      "importedAt": "2026-06-30T13:06:46.817Z",
       "sectorTier": "C"
     },
     {
@@ -1882,7 +1882,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 560/2026; Órgano de Contratación: Consejo de Administración de la Agencia de Régimen Especial Ciclo Integral Aguas del Retortillo; Importe: 914520 EUR; Estado: PUB",
-      "importedAt": "2026-06-30T12:33:04.965Z",
+      "importedAt": "2026-06-30T13:06:46.917Z",
       "sectorTier": "B"
     },
     {
@@ -2002,7 +2002,7 @@
       "importeAdjudicacion": 46585,
       "fechaAdjudicacion": "2026-06-26",
       "rawSummary": "",
-      "importedAt": "2026-06-30T12:32:44.463Z",
+      "importedAt": "2026-06-30T13:06:02.017Z",
       "sectorTier": "C"
     },
     {
@@ -2039,7 +2039,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 2026/EA46/00001071; Órgano de Contratación: Jefatura de la Sección Económico-Administrativa 46 - Base Aérea de Matacán; Importe: 19159.82 EUR; Estado: PUB",
-      "importedAt": "2026-06-30T12:31:28.975Z",
+      "importedAt": "2026-06-30T13:03:24.685Z",
       "sectorTier": "A",
       "resumenHtmlPath": "data/resumenes/2026_EA46_00001071.html",
       "resumenGeneradoEn": "2026-06-30T08:14:05.625Z"
@@ -2076,10 +2076,10 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: SER.2026.08; Órgano de Contratación: Presidencia del Consejo de Administración de la Empresa Provincial de Residuos y Medio Ambiente, S.A. ; Importe: 32608 EUR; Estado: PUB",
-      "importedAt": "2026-06-30T12:31:29.053Z",
+      "importedAt": "2026-06-30T13:03:24.757Z",
       "sectorTier": "B",
       "resumenHtmlPath": "data/resumenes/SER_2026_08.html",
-      "resumenGeneradoEn": "2026-06-30T12:33:36.616Z",
+      "resumenGeneradoEn": "2026-06-30T13:07:52.004Z",
       "resumenVersion": 2
     },
     {
@@ -2105,7 +2105,7 @@
       "importeAdjudicacion": 8432.25,
       "fechaAdjudicacion": "2026-06-26",
       "rawSummary": "",
-      "importedAt": "2026-06-30T12:31:29.090Z",
+      "importedAt": "2026-06-30T13:03:24.794Z",
       "sectorTier": "C"
     },
     {
@@ -2129,7 +2129,7 @@
       "importeAdjudicacion": 14418.36,
       "fechaAdjudicacion": "2026-06-19",
       "rawSummary": "",
-      "importedAt": "2026-06-30T12:31:56.642Z",
+      "importedAt": "2026-06-30T13:04:05.449Z",
       "sectorTier": "C"
     },
     {
@@ -2191,7 +2191,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 2026/00004; Órgano de Contratación: Gerencia de la Entidad Estatal de Derecho Público Trabajo Penitenciario y Formación para el Empleo, M.P.; Importe: 85567.85 EUR; Estado: EV",
-      "importedAt": "2026-06-30T12:31:56.654Z",
+      "importedAt": "2026-06-30T13:04:05.461Z",
       "sectorTier": "A"
     },
     {
@@ -2216,7 +2216,7 @@
       "importeAdjudicacion": 33631.95,
       "fechaAdjudicacion": "2026-03-17",
       "rawSummary": "",
-      "importedAt": "2026-06-30T12:32:20.772Z",
+      "importedAt": "2026-06-30T13:04:55.658Z",
       "sectorTier": "A"
     },
     {
@@ -2240,7 +2240,7 @@
       "importeAdjudicacion": 56608.94,
       "fechaAdjudicacion": "2026-06-24",
       "rawSummary": "",
-      "importedAt": "2026-06-30T12:32:20.796Z",
+      "importedAt": "2026-06-30T13:04:55.681Z",
       "sectorTier": "A"
     },
     {
@@ -2273,10 +2273,10 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: CONTR 2026/13645; Órgano de Contratación: Consejería de Empresa, Autónomos y Energía de las Illes Balears; Importe: 15000 EUR; Estado: PUB",
-      "importedAt": "2026-06-30T12:33:04.891Z",
+      "importedAt": "2026-06-30T13:06:46.843Z",
       "sectorTier": "A",
       "resumenHtmlPath": "data/resumenes/CONTR_2026_13645.html",
-      "resumenGeneradoEn": "2026-06-30T12:34:18.179Z",
+      "resumenGeneradoEn": "2026-06-30T13:08:27.106Z",
       "resumenVersion": 2
     },
     {
