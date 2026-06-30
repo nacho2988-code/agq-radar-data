@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-30T09:18:05.877140+00:00",
+  "generatedAt": "2026-06-30T09:29:41.325Z",
   "totalEntriesScanned": 3755,
   "pagesFetched": 8,
   "coverageHoursTarget": 72,
@@ -2275,6 +2275,36 @@
       "resumenHtmlPath": "data/resumenes/CONTR_2026_13645.html",
       "resumenGeneradoEn": "2026-06-30T08:15:30.543Z",
       "resumenVersion": 2
+    },
+    {
+      "expediente": "CONT178/2026",
+      "title": "Presidencia del Instituto Insular de Atención Social y Sociosanitaria - IASS",
+      "estado": "PUB",
+      "cpv": [
+        "71620000"
+      ],
+      "organo": "Presidencia del Instituto Insular de Atención Social y Sociosanitaria - IASS",
+      "importe": 38500,
+      "deadline": "2026-07-09",
+      "deadlineSource": "fecha límite oficial",
+      "docs": [
+        {
+          "label": "Pliego administrativo",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=QsVgpgKNUkgJ5e2DidvqzNPUUfhgzn3EyPZlCByw%2BH8cWoe2RH8ldjl8GIdAxE%2B34Y8mmQQfinrLqd7%2BSJafKiaStslWGdTsIEPAovjP3cYC1/zDIE0Kw/PWNnLS0Z0z"
+        },
+        {
+          "label": "Pliego técnico",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=M%2B5FtSEjUP8JQuHGI4SEpRyRFPZxMnFdqG4zkARnaV6im4E1pic5akxXzGvwEAexO5L/sDwgC%2B2yYSjyAI4Jy/xfsMDrSqZprz%2BiSTqlR4pJOVDbGCDM%2BMigrvuVS7Rv"
+        }
+      ],
+      "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&amp;idEvl=CTLkXnE7nKvkY6rls5tG9A%3D%3D",
+      "updated": "2026-06-25T12:09:06.354+02:00",
+      "rawSummary": "",
+      "resumenHtmlPath": null,
+      "resumenGeneradoEn": null,
+      "resumenVersion": null,
+      "sectorTier": "B",
+      "fuente": "busqueda_manual"
     }
   ]
 }
