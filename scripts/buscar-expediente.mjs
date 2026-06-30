@@ -48,15 +48,22 @@ function nextLink(xml){
 
 function parseEntryBlock(block){
   const expediente = tag(block,'ContractFolderID') || tag(block,'id');
-  const title = tag(block,'Name') || tag(block,'title');
   const estado = tag(block,'ContractFolderStatusCode');
+
+  // El título real está dentro de <cac:ProcurementProject><cbc:Name>...
+  // (el primer <Name> del bloque suele ser el del órgano contratante, no el título)
+  let title = '';
+  const ppMatch = block.match(/<cac:ProcurementProject[^>]*>([\s\S]*?)<\/cac:ProcurementProject>/i);
+  if(ppMatch) title = tag(ppMatch[1], 'Name');
+  if(!title) title = tag(block,'Name') || tag(block,'title');
+
   const cpv = allTagValues(block,'ItemClassificationCode').map(c=>c.trim().slice(0,8)).filter(Boolean);
   let organo = '';
   const orgM = block.match(/<cac:PartyName[^>]*>\s*<cbc:Name>([^<]+)/i);
   if(orgM) organo = decodeXmlEntities(orgM[1].trim());
 
   let importe = null;
-  const impTags = ['EstimatedOverallContractAmount','TotalAmount','TaxExclusiveAmount'];
+  const impTags = ['TaxExclusiveAmount','TotalAmount','EstimatedOverallContractAmount'];
   for(const it of impTags){
     const v = tag(block, it);
     if(v){ const n = parseFloat(v.replace(/\./g,'').replace(',','.')); if(!isNaN(n)){ importe = n; break; } }
