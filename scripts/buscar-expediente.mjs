@@ -126,15 +126,17 @@ async function fetchPdfBuffer(url){
 }
 
 async function callGeminiSummary(entry, docs){
-  if(!GEMINI_KEY) return null;
+  if(!GEMINI_KEY){ console.log('⚠ GEMINI_API_KEY no configurada'); return null; }
   const parts = [];
   for(const d of docs.slice(0,2)){
     try{
+      console.log(`  Descargando ${d.label}: ${d.url.slice(0,80)}...`);
       const buf = await fetchPdfBuffer(d.url);
+      console.log(`  ✓ ${d.label}: ${buf.length} bytes`);
       parts.push({ inline_data: { mime_type:'application/pdf', data: buf.toString('base64') } });
-    }catch(e){ console.warn(`No se pudo descargar ${d.label}: ${e.message}`); }
+    }catch(e){ console.warn(`  ✗ Error descargando ${d.label}: ${e.message}`); }
   }
-  if(!parts.length) return null;
+  if(!parts.length){ console.log('⚠ No se pudo descargar ningún pliego'); return null; }
 
   parts.push({
     text: `Responde ÚNICAMENTE con un JSON válido (sin texto adicional, sin markdown, sin backticks) con esta estructura exacta:
@@ -153,15 +155,16 @@ async function callGeminiSummary(entry, docs){
 Basa todas las respuestas SOLO en el texto de los pliegos. Si una sección no tiene información, devuelve array vacío o cadena vacía.`
   });
 
-  const resp = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_KEY}`, {
+  const resp = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_KEY}`, {
     method:'POST', headers:{'Content-Type':'application/json'},
     body: JSON.stringify({ contents:[{ parts }] })
   });
-  if(!resp.ok){ console.warn(`Gemini HTTP ${resp.status}: ${(await resp.text()).slice(0,200)}`); return null; }
+  if(!resp.ok){ console.warn(`⚠ Gemini HTTP ${resp.status}: ${(await resp.text()).slice(0,300)}`); return null; }
   const data = await resp.json();
+  console.log('  Respuesta Gemini recibida, parseando...');
   const text = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
   const clean = text.replace(/```json|```/g,'').trim();
-  try{ return JSON.parse(clean); }catch(e){ console.warn('JSON de Gemini no parseable'); return null; }
+  try{ return JSON.parse(clean); }catch(e){ console.warn('⚠ JSON de Gemini no parseable:', clean.slice(0,200)); return null; }
 }
 
 function escHtml(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
