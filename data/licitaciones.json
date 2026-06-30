@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-30T09:37:06.679Z",
+  "generatedAt": "2026-06-30T09:46:06.149Z",
   "totalEntriesScanned": 3755,
   "pagesFetched": 8,
   "coverageHoursTarget": 72,
@@ -2300,9 +2300,9 @@
       "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&amp;idEvl=CTLkXnE7nKvkY6rls5tG9A%3D%3D",
       "updated": "2026-06-25T12:09:06.354+02:00",
       "rawSummary": "",
-      "resumenHtmlPath": null,
-      "resumenGeneradoEn": null,
-      "resumenVersion": null,
+      "resumenHtmlPath": "data/resumenes/CONT178_2026.html",
+      "resumenGeneradoEn": "2026-06-30T09:46:06.149Z",
+      "resumenVersion": 2,
       "sectorTier": "B",
       "fuente": "busqueda_manual"
     }
