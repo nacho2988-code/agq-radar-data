@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-30T08:15:32.045Z",
+  "generatedAt": "2026-06-30T08:37:11.445137+00:00",
   "totalEntriesScanned": 3755,
   "pagesFetched": 8,
   "coverageHoursTarget": 72,
@@ -2275,6 +2275,22 @@
       "resumenHtmlPath": "data/resumenes/CONTR_2026_13645.html",
       "resumenGeneradoEn": "2026-06-30T08:15:30.543Z",
       "resumenVersion": 2
+    },
+    {
+      "expediente": "31055010149261",
+      "title": "Servicio de medición de gas radón en los centros de gestión directa del Instituto Insular de Atención Social y Sociosanitaria",
+      "organo": "Instituto Insular de Atención Social y Sociosanitaria",
+      "estado": "PUB",
+      "cpv": [
+        "71620000"
+      ],
+      "importe": 19250.0,
+      "deadline": "2026-07-09T19:00:00",
+      "deadlineSource": "alta manual",
+      "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=CTLkXnE7nKvkY6rls5tG9A%3D%3D",
+      "updated": "2026-06-30T08:37:11.445068+00:00",
+      "sectorTier": "B",
+      "fuente": "alta_manual"
     }
   ]
 }
