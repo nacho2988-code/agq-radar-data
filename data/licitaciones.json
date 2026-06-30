@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-30T07:09:24.898Z",
+  "generatedAt": "2026-06-30T08:15:32.045Z",
   "totalEntriesScanned": 3755,
   "pagesFetched": 8,
   "coverageHoursTarget": 72,
@@ -1078,7 +1078,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 15241/2026; Órgano de Contratación: Junta de Gobierno del Ayuntamiento de Rivas Vaciamadrid; Importe: 66100.4 EUR; Estado: EV",
-      "importedAt": "2026-06-30T07:02:57.521Z",
+      "importedAt": "2026-06-30T08:09:33.806Z",
       "sectorTier": "A"
     },
     {
@@ -1467,7 +1467,7 @@
       "importeAdjudicacion": 25652,
       "fechaAdjudicacion": "2026-06-25",
       "rawSummary": "",
-      "importedAt": "2026-06-30T07:05:02.685Z",
+      "importedAt": "2026-06-30T08:11:37.408Z",
       "sectorTier": "A"
     },
     {
@@ -1553,7 +1553,7 @@
       "importeAdjudicacion": 312254.77,
       "fechaAdjudicacion": "2026-04-24",
       "rawSummary": "",
-      "importedAt": "2026-06-30T07:06:28.160Z",
+      "importedAt": "2026-06-30T08:12:49.380Z",
       "sectorTier": "C"
     },
     {
@@ -1628,7 +1628,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "2024-06-12",
       "rawSummary": "",
-      "importedAt": "2026-06-30T07:06:56.528Z",
+      "importedAt": "2026-06-30T08:13:13.921Z",
       "sectorTier": "A"
     },
     {
@@ -1878,7 +1878,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 560/2026; Órgano de Contratación: Consejo de Administración de la Agencia de Régimen Especial Ciclo Integral Aguas del Retortillo; Importe: 914520 EUR; Estado: PUB",
-      "importedAt": "2026-06-30T07:06:28.261Z",
+      "importedAt": "2026-06-30T08:12:49.483Z",
       "sectorTier": "B"
     },
     {
@@ -1928,7 +1928,7 @@
       "importeAdjudicacion": 96039.2,
       "fechaAdjudicacion": "2026-05-30",
       "rawSummary": "",
-      "importedAt": "2026-06-30T07:06:56.498Z",
+      "importedAt": "2026-06-30T08:13:13.888Z",
       "sectorTier": "C"
     },
     {
@@ -1969,7 +1969,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 672; Órgano de Contratación: Consejo de Administración de Parque Cementerio de Fuengirola S.A.M. (PARCESAM); Importe: 10000 EUR; Estado: EV",
-      "importedAt": "2026-06-30T07:06:56.569Z",
+      "importedAt": "2026-06-30T08:13:13.964Z",
       "sectorTier": "C"
     },
     {
@@ -1998,7 +1998,7 @@
       "importeAdjudicacion": 46585,
       "fechaAdjudicacion": "2026-06-26",
       "rawSummary": "",
-      "importedAt": "2026-06-30T07:05:48.172Z",
+      "importedAt": "2026-06-30T08:12:13.049Z",
       "sectorTier": "C"
     },
     {
@@ -2035,10 +2035,10 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 2026/EA46/00001071; Órgano de Contratación: Jefatura de la Sección Económico-Administrativa 46 - Base Aérea de Matacán; Importe: 19159.82 EUR; Estado: PUB",
-      "importedAt": "2026-06-30T07:03:47.135Z",
+      "importedAt": "2026-06-30T08:10:28.665Z",
       "sectorTier": "A",
       "resumenHtmlPath": "data/resumenes/2026_EA46_00001071.html",
-      "resumenGeneradoEn": "2026-06-30T07:07:48.575Z",
+      "resumenGeneradoEn": "2026-06-30T08:14:05.625Z",
       "resumenVersion": 2
     },
     {
@@ -2073,10 +2073,10 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: SER.2026.08; Órgano de Contratación: Presidencia del Consejo de Administración de la Empresa Provincial de Residuos y Medio Ambiente, S.A. ; Importe: 32608 EUR; Estado: PUB",
-      "importedAt": "2026-06-30T07:03:47.211Z",
+      "importedAt": "2026-06-30T08:10:28.739Z",
       "sectorTier": "B",
       "resumenHtmlPath": "data/resumenes/SER_2026_08.html",
-      "resumenGeneradoEn": "2026-06-30T07:08:43.855Z",
+      "resumenGeneradoEn": "2026-06-30T08:14:46.217Z",
       "resumenVersion": 2
     },
     {
@@ -2102,7 +2102,7 @@
       "importeAdjudicacion": 8432.25,
       "fechaAdjudicacion": "2026-06-26",
       "rawSummary": "",
-      "importedAt": "2026-06-30T07:03:47.248Z",
+      "importedAt": "2026-06-30T08:10:28.776Z",
       "sectorTier": "C"
     },
     {
@@ -2126,7 +2126,7 @@
       "importeAdjudicacion": 14418.36,
       "fechaAdjudicacion": "2026-06-19",
       "rawSummary": "",
-      "importedAt": "2026-06-30T07:04:18.697Z",
+      "importedAt": "2026-06-30T08:11:10.738Z",
       "sectorTier": "C"
     },
     {
@@ -2188,7 +2188,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 2026/00004; Órgano de Contratación: Gerencia de la Entidad Estatal de Derecho Público Trabajo Penitenciario y Formación para el Empleo, M.P.; Importe: 85567.85 EUR; Estado: EV",
-      "importedAt": "2026-06-30T07:04:18.710Z",
+      "importedAt": "2026-06-30T08:11:10.751Z",
       "sectorTier": "A"
     },
     {
@@ -2213,7 +2213,7 @@
       "importeAdjudicacion": 33631.95,
       "fechaAdjudicacion": "2026-03-17",
       "rawSummary": "",
-      "importedAt": "2026-06-30T07:05:02.670Z",
+      "importedAt": "2026-06-30T08:11:37.393Z",
       "sectorTier": "A"
     },
     {
@@ -2237,7 +2237,7 @@
       "importeAdjudicacion": 56608.94,
       "fechaAdjudicacion": "2026-06-24",
       "rawSummary": "",
-      "importedAt": "2026-06-30T07:05:02.693Z",
+      "importedAt": "2026-06-30T08:11:37.417Z",
       "sectorTier": "A"
     },
     {
@@ -2270,10 +2270,10 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: CONTR 2026/13645; Órgano de Contratación: Consejería de Empresa, Autónomos y Energía de las Illes Balears; Importe: 15000 EUR; Estado: PUB",
-      "importedAt": "2026-06-30T07:06:28.187Z",
+      "importedAt": "2026-06-30T08:12:49.408Z",
       "sectorTier": "A",
       "resumenHtmlPath": "data/resumenes/CONTR_2026_13645.html",
-      "resumenGeneradoEn": "2026-06-30T07:09:23.397Z",
+      "resumenGeneradoEn": "2026-06-30T08:15:30.543Z",
       "resumenVersion": 2
     }
   ]
