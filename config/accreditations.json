@@ -137,7 +137,13 @@
     "metales pesados",
     "contaminantes emergentes",
     "inspección ambiental",
-    "inspeccion ambiental"
+    "inspeccion ambiental",
+    "radón",
+    "radon",
+    "gas radón",
+    "gas radon",
+    "medición de radón",
+    "medicion de radon"
   ],
   "keywordsNivelC": [
     "análisis de aguas",
@@ -187,6 +193,12 @@
     "biocidas",
     "emisiones difusas en el vertedero",
     "gases del vertedero",
-    "lixiviados del vertedero"
+    "lixiviados del vertedero",
+    "medición de gas radón",
+    "medicion de gas radon",
+    "control de radón",
+    "control de radon",
+    "niveles de radón",
+    "niveles de radon"
   ]
 }
