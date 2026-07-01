@@ -559,6 +559,124 @@ async function sendNuevasLicitacionesAlert(merged, prevSnapshot){
   return diag;
 }
 
+// === [MOD:COLA-LICITADORAS] ===
+const COLA_PATH = 'data/licitadoras_pendientes.json';
+const HISTORICO_PATH = 'data/historico_adjudicaciones.json';
+
+async function procesarColaLicitadoras(){
+  if(!GEMINI_API_KEY){ console.log('[LICITADORAS] Sin GEMINI_API_KEY, se omite'); return; }
+
+  // Leer la cola
+  let cola = [];
+  if(!fs.existsSync(COLA_PATH)) return;
+  try{ cola = JSON.parse(fs.readFileSync(COLA_PATH,'utf-8')); }catch(e){ return; }
+  if(!cola.length){ console.log('[LICITADORAS] Cola vacía'); return; }
+
+  console.log(`[LICITADORAS] ${cola.length} expediente(s) pendiente(s): ${cola.join(', ')}`);
+
+  // Leer el histórico
+  let historico = { entries: [] };
+  if(fs.existsSync(HISTORICO_PATH)){
+    try{ historico = JSON.parse(fs.readFileSync(HISTORICO_PATH,'utf-8')); }catch(e){}
+  }
+
+  const pendientesDespues = [];
+
+  for(const expediente of cola){
+    console.log(`\n[LICITADORAS] Procesando: ${expediente}`);
+    try{
+      // 1. Buscar el expediente en el feed para obtener URLs de documentos
+      const docUrls = await buscarDocumentosExpediente(expediente);
+      if(!docUrls.length){
+        console.log(`  → Sin documentos descargables, pasa al siguiente barrido`);
+        pendientesDespues.push(expediente);
+        continue;
+      }
+
+      // 2. Descargar y parsear los documentos con Gemini
+      const pdfBufs = [];
+      for(const url of docUrls.slice(0,4)){
+        try{
+          const resp = await fetch(url, { headers:{ 'User-Agent':'AGQ-Radar/1.0' } });
+          if(resp.ok) pdfBufs.push(Buffer.from(await resp.arrayBuffer()));
+        }catch(e){ console.warn(`  URL ${url.slice(-30)}: ${e.message}`); }
+      }
+      if(!pdfBufs.length){ pendientesDespues.push(expediente); continue; }
+
+      const resultado = await extraerLicitadorasGemini(pdfBufs);
+      if(!resultado || !resultado.licitadoras?.length){
+        console.log(`  → Gemini no extrajo licitadoras`);
+        continue; // no reintentar
+      }
+
+      // 3. Guardar en el histórico
+      const idx = historico.entries.findIndex(e => e.expediente?.toLowerCase() === expediente.toLowerCase());
+      const datosLic = {
+        licitadoras: resultado.licitadoras,
+        n_ofertas: resultado.n_ofertas || resultado.licitadoras.length,
+        adjudicataria: resultado.adjudicataria || null,
+        criterio_principal: resultado.criterio_principal || null,
+        extraidoEn: new Date().toISOString()
+      };
+      if(idx >= 0) historico.entries[idx] = { ...historico.entries[idx], ...datosLic };
+      else historico.entries.push({ expediente, estado:'RES', ...datosLic, fuente:'cola_licitadoras' });
+
+      console.log(`  ✓ ${resultado.licitadoras.length} licitadoras guardadas`);
+
+    }catch(e){
+      console.warn(`  Error procesando ${expediente}: ${e.message}`);
+      pendientesDespues.push(expediente); // reintentar
+    }
+  }
+
+  // Guardar histórico actualizado
+  historico.generatedAt = new Date().toISOString();
+  fs.writeFileSync(HISTORICO_PATH, JSON.stringify(historico, null, 2));
+
+  // Actualizar la cola (solo los que fallaron)
+  fs.writeFileSync(COLA_PATH, JSON.stringify(pendientesDespues, null, 2));
+  console.log(`\n[LICITADORAS] Completado. ${cola.length - pendientesDespues.length} procesados, ${pendientesDespues.length} pendientes`);
+}
+
+async function buscarDocumentosExpediente(expediente){
+  const FEED_URL_BASE = 'https://contrataciondelestado.es/sindicacion/sindicacion_643/licitacionesPerfilesContratanteCompleto3.atom';
+  let url = FEED_URL_BASE;
+  const qLower = expediente.toLowerCase();
+  for(let page=0; page<20 && url; page++){
+    const resp = await fetch(url, { headers:{ 'User-Agent':'AGQ-Radar/1.0' } });
+    if(!resp.ok) break;
+    const xml = await resp.text();
+    if(xml.toLowerCase().includes(qLower)){
+      const blocks = xml.match(/<entry>[\s\S]*?<\/entry>/g) || [];
+      for(const block of blocks){
+        const id = (block.match(/<cbc:ContractFolderID>([^<]+)<\/cbc:ContractFolderID>/i)||[])[1]||'';
+        if(id.toLowerCase() === qLower){
+          const urls = [];
+          const docMatches = block.match(/<cbc:URI>([^<]+)<\/cbc:URI>/gi) || [];
+          docMatches.forEach(m=>{ const u=(m.match(/<cbc:URI>([^<]+)<\/cbc:URI>/i)||[])[1]; if(u) urls.push(u.replace(/&amp;/g,'&')); });
+          return urls;
+        }
+      }
+    }
+    const nextM = xml.match(/<link[^>]*rel=["']next["'][^>]*href=["']([^"']+)["']/i);
+    url = nextM ? nextM[1] : null;
+  }
+  return [];
+}
+
+async function extraerLicitadorasGemini(pdfBufs){
+  const parts = pdfBufs.map(buf => ({ inline_data: { mime_type:'application/pdf', data: buf.toString('base64') } }));
+  parts.push({ text: `Analiza este acta de adjudicación o resolución de licitación pública española. Extrae SOLO en JSON (sin texto, sin backticks):
+{"licitadoras":[{"empresa":"...","importe":0.0,"puntuacion_total":0.0,"posicion":1}],"adjudicataria":"...","n_ofertas":0,"criterio_principal":"..."}
+- Incluye TODAS las empresas. "importe" = precio ofertado sin IVA. "posicion"=1 para la ganadora. Si no hay dato usa null.` });
+  const resp = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`,
+    { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ contents:[{ parts }] }) });
+  if(!resp.ok){ console.warn(`Gemini HTTP ${resp.status}`); return null; }
+  const data = await resp.json();
+  const text = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
+  try{ return JSON.parse(text.replace(/```json|```/g,'').trim()); }catch(e){ return null; }
+}
+
 async function generateSummariesForOpenTenders(entries){
   const diag = { geminiKeyPresent: !!GEMINI_API_KEY, candidatos: 0, generados: 0, errores: [] };
   if(!GEMINI_API_KEY){
@@ -689,6 +807,9 @@ async function run(){
   const resumenDiag = await generateSummariesForOpenTenders(merged);
   const alertasDiag = await sendDeadlineAlerts(merged);
   const nuevasDiag = await sendNuevasLicitacionesAlert(merged, prevEntries);
+
+  // Procesar cola de solicitudes de licitadoras
+  await procesarColaLicitadoras();
 
   fs.mkdirSync('data', { recursive: true });
   fs.writeFileSync(OUTPUT_PATH, JSON.stringify({
