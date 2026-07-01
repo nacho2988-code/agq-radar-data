@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-01T19:09:48.978Z",
+  "generatedAt": "2026-07-01T22:08:18.331Z",
   "totalEntriesScanned": 9512,
   "pagesFetched": 20,
   "coverageHoursTarget": 72,
@@ -7,7 +7,7 @@
   "resumenDiag": {
     "geminiKeyPresent": true,
     "candidatos": 9,
-    "generados": 3,
+    "generados": 2,
     "errores": [
       {
         "expediente": "5/2026",
@@ -32,6 +32,10 @@
       {
         "expediente": "2026/290091",
         "motivo": "HTTP 429 de la API de Gemini: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: "
+      },
+      {
+        "expediente": "CONTR 2026 17062",
+        "motivo": "HTTP 429 de la API de Gemini: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: "
       }
     ]
   },
@@ -43,8 +47,8 @@
     "errores": []
   },
   "nuevasDiag": {
-    "enviado": true,
-    "nuevas": 1,
+    "enviado": false,
+    "nuevas": 0,
     "smtpConfigured": true,
     "error": null
   },
@@ -408,10 +412,10 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: C30268926002; Órgano de Contratación: Dirección General de Carreteras; Importe: 2573026.74 EUR; Estado: PUB",
-      "importedAt": "2026-07-01T19:03:11.605Z",
+      "importedAt": "2026-07-01T22:02:47.948Z",
       "sectorTier": "A",
       "resumenHtmlPath": "data/resumenes/C30268926002.html",
-      "resumenGeneradoEn": "2026-07-01T19:07:57.990Z",
+      "resumenGeneradoEn": "2026-07-01T22:06:37.974Z",
       "resumenVersion": 2
     },
     {
@@ -717,7 +721,7 @@
       "importeAdjudicacion": 5082,
       "fechaAdjudicacion": "2026-06-19",
       "rawSummary": "",
-      "importedAt": "2026-07-01T19:04:39.132Z",
+      "importedAt": "2026-07-01T22:03:58.330Z",
       "sectorTier": "A"
     },
     {
@@ -1089,7 +1093,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 15241/2026; Órgano de Contratación: Junta de Gobierno del Ayuntamiento de Rivas Vaciamadrid; Importe: 66100.4 EUR; Estado: EV",
-      "importedAt": "2026-07-01T19:05:31.438Z",
+      "importedAt": "2026-07-01T22:04:40.398Z",
       "sectorTier": "A"
     },
     {
@@ -1336,7 +1340,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 30/2026/CMA; Órgano de Contratación: Consejería de Hacienda de la Ciudad Autónoma de Melilla; Importe: 648427.61 EUR; Estado: EV",
-      "importedAt": "2026-07-01T19:04:39.107Z",
+      "importedAt": "2026-07-01T22:03:58.307Z",
       "sectorTier": "A"
     },
     {
@@ -1478,7 +1482,7 @@
       "importeAdjudicacion": 25652,
       "fechaAdjudicacion": "2026-06-25",
       "rawSummary": "",
-      "importedAt": "2026-07-01T19:06:20.564Z",
+      "importedAt": "2026-07-01T22:05:20.774Z",
       "sectorTier": "A"
     },
     {
@@ -1564,7 +1568,7 @@
       "importeAdjudicacion": 312254.77,
       "fechaAdjudicacion": "2026-04-24",
       "rawSummary": "",
-      "importedAt": "2026-07-01T19:06:56.447Z",
+      "importedAt": "2026-07-01T22:05:48.659Z",
       "sectorTier": "C"
     },
     {
@@ -1708,7 +1712,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 5/2026; Órgano de Contratación: Consejería Delegada de Arona Desarrollo, S.A.; Importe: 8.41 EUR; Estado: PUB",
-      "importedAt": "2026-07-01T19:04:21.719Z",
+      "importedAt": "2026-07-01T22:03:44.932Z",
       "sectorTier": "C",
       "resumenHtmlPath": "data/resumenes/5_2026.html",
       "resumenGeneradoEn": "2026-07-01T16:06:04.311Z"
@@ -1854,7 +1858,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 560/2026; Órgano de Contratación: Consejo de Administración de la Agencia de Régimen Especial Ciclo Integral Aguas del Retortillo; Importe: 914520 EUR; Estado: PUB",
-      "importedAt": "2026-07-01T19:06:56.548Z",
+      "importedAt": "2026-07-01T22:05:48.755Z",
       "sectorTier": "B"
     },
     {
@@ -1974,7 +1978,7 @@
       "importeAdjudicacion": 46585,
       "fechaAdjudicacion": "2026-06-26",
       "rawSummary": "",
-      "importedAt": "2026-07-01T19:06:39.155Z",
+      "importedAt": "2026-07-01T22:05:35.192Z",
       "sectorTier": "C"
     },
     {
@@ -2011,7 +2015,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 2026/EA46/00001071; Órgano de Contratación: Jefatura de la Sección Económico-Administrativa 46 - Base Aérea de Matacán; Importe: 19159.82 EUR; Estado: PUB",
-      "importedAt": "2026-07-01T19:05:49.316Z",
+      "importedAt": "2026-07-01T22:04:54.967Z",
       "sectorTier": "A",
       "resumenHtmlPath": "data/resumenes/2026_EA46_00001071.html",
       "resumenGeneradoEn": "2026-06-30T08:14:05.625Z"
@@ -2048,7 +2052,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: SER.2026.08; Órgano de Contratación: Presidencia del Consejo de Administración de la Empresa Provincial de Residuos y Medio Ambiente, S.A. ; Importe: 32608 EUR; Estado: PUB",
-      "importedAt": "2026-07-01T19:05:49.386Z",
+      "importedAt": "2026-07-01T22:04:55.036Z",
       "sectorTier": "B",
       "resumenHtmlPath": "data/resumenes/SER_2026_08.html",
       "resumenGeneradoEn": "2026-07-01T13:48:20.002Z"
@@ -2076,7 +2080,7 @@
       "importeAdjudicacion": 8432.25,
       "fechaAdjudicacion": "2026-06-26",
       "rawSummary": "",
-      "importedAt": "2026-07-01T19:05:49.426Z",
+      "importedAt": "2026-07-01T22:04:55.069Z",
       "sectorTier": "C"
     },
     {
@@ -2100,7 +2104,7 @@
       "importeAdjudicacion": 14418.36,
       "fechaAdjudicacion": "2026-06-19",
       "rawSummary": "",
-      "importedAt": "2026-07-01T19:06:04.735Z",
+      "importedAt": "2026-07-01T22:05:08.456Z",
       "sectorTier": "C"
     },
     {
@@ -2162,7 +2166,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 2026/00004; Órgano de Contratación: Gerencia de la Entidad Estatal de Derecho Público Trabajo Penitenciario y Formación para el Empleo, M.P.; Importe: 85567.85 EUR; Estado: EV",
-      "importedAt": "2026-07-01T19:06:04.747Z",
+      "importedAt": "2026-07-01T22:05:08.468Z",
       "sectorTier": "A"
     },
     {
@@ -2187,7 +2191,7 @@
       "importeAdjudicacion": 33631.95,
       "fechaAdjudicacion": "2026-03-17",
       "rawSummary": "",
-      "importedAt": "2026-07-01T19:06:20.549Z",
+      "importedAt": "2026-07-01T22:05:20.761Z",
       "sectorTier": "A"
     },
     {
@@ -2211,7 +2215,7 @@
       "importeAdjudicacion": 56608.94,
       "fechaAdjudicacion": "2026-06-24",
       "rawSummary": "",
-      "importedAt": "2026-07-01T19:06:20.572Z",
+      "importedAt": "2026-07-01T22:05:20.785Z",
       "sectorTier": "A"
     },
     {
@@ -2244,7 +2248,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: CONTR 2026/13645; Órgano de Contratación: Consejería de Empresa, Autónomos y Energía de las Illes Balears; Importe: 15000 EUR; Estado: PUB",
-      "importedAt": "2026-07-01T19:06:56.474Z",
+      "importedAt": "2026-07-01T22:05:48.684Z",
       "sectorTier": "A",
       "resumenHtmlPath": "data/resumenes/CONTR_2026_13645.html",
       "resumenGeneradoEn": "2026-07-01T13:49:00.582Z"
@@ -2323,7 +2327,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 2026/290091; Órgano de Contratación: TGSS-Dirección provincial de Málaga; Importe: 30000 EUR; Estado: PUB",
-      "importedAt": "2026-07-01T19:03:32.171Z",
+      "importedAt": "2026-07-01T22:03:03.686Z",
       "sectorTier": "A",
       "resumenHtmlPath": "data/resumenes/2026_290091.html",
       "resumenGeneradoEn": "2026-07-01T13:49:34.248Z"
@@ -2352,7 +2356,7 @@
       "importeAdjudicacion": 222096.65,
       "fechaAdjudicacion": "2026-05-25",
       "rawSummary": "",
-      "importedAt": "2026-07-01T19:03:32.222Z",
+      "importedAt": "2026-07-01T22:03:03.733Z",
       "sectorTier": "A"
     },
     {
@@ -2394,10 +2398,10 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: CC2026/145; Órgano de Contratación: Junta de Gobierno del Ayuntamiento de Oviedo; Importe: 96695.13 EUR; Estado: PUB",
-      "importedAt": "2026-07-01T19:04:06.375Z",
+      "importedAt": "2026-07-01T22:03:32.817Z",
       "sectorTier": "A",
       "resumenHtmlPath": "data/resumenes/CC2026_145.html",
-      "resumenGeneradoEn": "2026-07-01T19:09:03.659Z",
+      "resumenGeneradoEn": "2026-07-01T22:08:13.559Z",
       "resumenVersion": 2
     },
     {
@@ -2421,7 +2425,7 @@
       "importeAdjudicacion": 58031,
       "fechaAdjudicacion": "2023-07-13",
       "rawSummary": "",
-      "importedAt": "2026-07-01T19:04:39.064Z",
+      "importedAt": "2026-07-01T22:03:58.265Z",
       "sectorTier": "B"
     },
     {
@@ -2462,7 +2466,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: CON/2025/127; Órgano de Contratación: Alcaldía del Ayuntamiento de Pravia ; Importe: 209300 EUR; Estado: EV",
-      "importedAt": "2026-07-01T19:01:57.652Z",
+      "importedAt": "2026-07-01T22:01:51.688Z",
       "sectorTier": "B"
     },
     {
@@ -2487,7 +2491,7 @@
       "importeAdjudicacion": 3256.11,
       "fechaAdjudicacion": "2026-03-04",
       "rawSummary": "",
-      "importedAt": "2026-07-01T19:02:15.410Z",
+      "importedAt": "2026-07-01T22:02:04.725Z",
       "sectorTier": "C"
     },
     {
@@ -2513,7 +2517,7 @@
       "importeAdjudicacion": 574038.36,
       "fechaAdjudicacion": "2024-11-18",
       "rawSummary": "",
-      "importedAt": "2026-07-01T19:02:15.411Z",
+      "importedAt": "2026-07-01T22:02:04.726Z",
       "sectorTier": "C"
     },
     {
@@ -2537,7 +2541,7 @@
       "importeAdjudicacion": 37435.5,
       "fechaAdjudicacion": "2026-06-30",
       "rawSummary": "",
-      "importedAt": "2026-07-01T19:02:32.246Z",
+      "importedAt": "2026-07-01T22:02:20.144Z",
       "sectorTier": "C"
     },
     {
@@ -2598,11 +2602,10 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: CONTR 2026 17062; Órgano de Contratación: Consejería de Salud de las Illes Balears; Importe: 15934.68 EUR; Estado: PUB",
-      "importedAt": "2026-07-01T19:02:32.311Z",
+      "importedAt": "2026-07-01T22:02:20.207Z",
       "sectorTier": "B",
       "resumenHtmlPath": "data/resumenes/CONTR_2026_17062.html",
-      "resumenGeneradoEn": "2026-07-01T19:09:46.117Z",
-      "resumenVersion": 2
+      "resumenGeneradoEn": "2026-07-01T19:09:46.117Z"
     },
     {
       "expediente": "SER. PGS. 01-2026",
@@ -2640,7 +2643,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: SER. PGS. 01-2026; Órgano de Contratación: Consejo de Administración de Mercados Centrales de Abastecimiento de Las Palmas S.A. S.M.E. (MERCALASPALMAS, S.A. S.M.E.); Importe: 49240 EUR; Estado: EV",
-      "importedAt": "2026-07-01T19:02:51.679Z",
+      "importedAt": "2026-07-01T22:02:34.428Z",
       "sectorTier": "A"
     },
     {
@@ -2703,7 +2706,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 859.21; Órgano de Contratación: Rectorado de la Universidad de Almería; Importe: 7002006.58 EUR; Estado: EV",
-      "importedAt": "2026-07-01T19:02:51.739Z",
+      "importedAt": "2026-07-01T22:02:34.486Z",
       "sectorTier": "A"
     },
     {
@@ -2727,7 +2730,7 @@
       "importeAdjudicacion": 2801.91,
       "fechaAdjudicacion": "2026-06-22",
       "rawSummary": "",
-      "importedAt": "2026-07-01T19:03:11.608Z",
+      "importedAt": "2026-07-01T22:02:47.951Z",
       "sectorTier": "C"
     },
     {
@@ -2760,7 +2763,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: C/048/CON/2025-149B; Órgano de Contratación: Junta de Gobierno del Ayuntamiento de Móstoles; Importe: 78500 EUR; Estado: EV",
-      "importedAt": "2026-07-01T19:03:11.685Z",
+      "importedAt": "2026-07-01T22:02:48.023Z",
       "sectorTier": "C"
     }
   ]
