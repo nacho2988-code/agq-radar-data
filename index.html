@@ -869,7 +869,7 @@ body.dark .brand-logo div{ background:rgba(255,255,255,0.90)!important; }
     <section class="view" id="view-adjudicadas">
       
       <div class="toolbar">
-        <input type="search" id="search-adjudicadas" placeholder="Buscar por adjudicatario, órgano, expediente…">
+        <input type="search" id="search-adjudicadas" placeholder="Buscar por título, expediente, adjudicatario u órgano contratante…">
         <button class="btn ghost" onclick="exportarExcel('adjudicadas')" style="font-size:12px;padding:6px 10px;" title="Exportar a Excel">📥 Excel</button>
       </div>
       <div class="list" id="list-adjudicadas"></div>
@@ -1557,7 +1557,9 @@ async function togglePresentarLocal(expediente, marcada){
   const t = STATE.tenders[expediente];
   if(!t) return;
   t.presentarLocal = marcada;
-  t.presentarLocalEn = marcada ? new Date().toISOString() : null;
+  // Siempre guardamos el timestamp, incluso al desmarcar — si fuera null, la sync
+  // remota lo interpretaría como "sin cambio reciente" y lo sobreescribiría
+  t.presentarLocalEn = new Date().toISOString();
   if(marcada && !t.estadoPipeline) t.estadoPipeline = 'detectada';
   t.presentarSyncStatus = seleccionEndpoint() ? 'sincronizando' : 'sin-proxy';
   persistTenders();
@@ -1625,9 +1627,10 @@ function renderAdjudicadas(){
   const q = (document.getElementById('search-adjudicadas').value || '').trim().toLowerCase();
   if(q){
     items = items.filter(t =>
-      (t.adjudicatario||'').toLowerCase().includes(q) ||
+      (t.title||'').toLowerCase().includes(q) ||
       (t.expediente||'').toLowerCase().includes(q) ||
-      t.title.toLowerCase().includes(q)
+      (t.adjudicatario||'').toLowerCase().includes(q) ||
+      (t.organo||'').toLowerCase().includes(q)
     );
   }
   items.sort((a,b) => (b.fechaAdjudicacion||b.updated||'').localeCompare(a.fechaAdjudicacion||a.updated||''));
@@ -2351,18 +2354,59 @@ function openDetail(expediente){
         const previas = buscarAdjudicacionPrevia(t);
         if(!previas.length) return '';
         const ultima = previas[0];
-        const importe = ultima.importeAdjudicacion || ultima.importe;
+        const importeAdj = ultima.importeAdjudicacion || ultima.importe;
+        const importeSalida = t.importe; // presupuesto base de la licitación actual
         const esAgq = isAgqAdjudicatario(ultima.adjudicatario);
         const adjNombre = esAgq ? AGQ_LABEL : (ultima.adjudicatario||'No indicado');
         const fecha = ultima.fechaAdjudicacion ? ultima.fechaAdjudicacion.slice(0,10).split('-').reverse().join('/') : '—';
         const tipoCoincidencia = ultima.expediente?.trim().toUpperCase() === t.expediente?.trim().toUpperCase() ? 'Mismo expediente' : 'Mismo órgano y objeto';
+
+        // % bajada sobre precio de salida
+        const pctBajada = (importeAdj && importeSalida && importeSalida > 0)
+          ? ((importeSalida - importeAdj) / importeSalida * 100).toFixed(1)
+          : null;
+
+        // Análisis predictivo: cuándo puede volver a licitarse
+        // Basado en la fecha de adjudicación + duración típica (1 año base + prórrogas)
+        let prediccionHTML = '';
+        if(ultima.fechaAdjudicacion){
+          const fechaAdj = new Date(ultima.fechaAdjudicacion);
+          const ahora = new Date();
+          // Estimación: 1 año contrato + 1 prórroga típica = 2 años hasta nueva licitación
+          const finEstimado1 = new Date(fechaAdj); finEstimado1.setFullYear(finEstimado1.getFullYear() + 1);
+          const finEstimado2 = new Date(fechaAdj); finEstimado2.setFullYear(finEstimado2.getFullYear() + 2);
+          const fmt = d => d.toLocaleDateString('es-ES',{month:'short',year:'numeric'});
+          const mesesHasta1 = Math.round((finEstimado1 - ahora) / (1000*60*60*24*30));
+          const mesesHasta2 = Math.round((finEstimado2 - ahora) / (1000*60*60*24*30));
+
+          let prediccionTexto, prediccionColor, prediccionBg;
+          if(mesesHasta1 < 0 && mesesHasta2 < 0){
+            prediccionTexto = `Contrato previsiblemente expirado. Nueva licitación esperada en cualquier momento.`;
+            prediccionColor = '#A23B3B'; prediccionBg = 'var(--terracotta-bg)';
+          } else if(mesesHasta1 < 0){
+            prediccionTexto = `Sin prórroga: ya debería haber salido. Con prórroga: sale alrededor de ${fmt(finEstimado2)} (~${mesesHasta2} meses).`;
+            prediccionColor = '#C97B2E'; prediccionBg = 'var(--amber-bg)';
+          } else if(mesesHasta1 <= 3){
+            prediccionTexto = `Sale próximamente: ~${fmt(finEstimado1)} sin prórroga, ~${fmt(finEstimado2)} con prórroga.`;
+            prediccionColor = '#C97B2E'; prediccionBg = 'var(--amber-bg)';
+          } else {
+            prediccionTexto = `Ventana estimada: ${fmt(finEstimado1)}–${fmt(finEstimado2)} (1 año contrato + 1 prórroga).`;
+            prediccionColor = '#5E8500'; prediccionBg = 'var(--agq-green-bg)';
+          }
+          prediccionHTML = `<div style="background:${prediccionBg};border-left:3px solid ${prediccionColor};border-radius:0 6px 6px 0;padding:8px 12px;margin-top:10px;">
+            <div style="font-size:10px;font-weight:700;color:${prediccionColor};text-transform:uppercase;margin-bottom:2px;">📅 Previsión próxima licitación</div>
+            <div style="font-size:12px;color:var(--ink);">${prediccionTexto}</div>
+            <div style="font-size:10px;color:var(--ink-soft);margin-top:2px;">Basado en ${fecha} · estimación orientativa</div>
+          </div>`;
+        }
+
         return `<div class="section-block" style="border-left:3px solid var(--agq-purple);padding-left:14px;">
           <h3>📋 Adjudicación previa de este contrato</h3>
           <p style="font-size:11px;color:var(--ink-soft);margin:0 0 10px;">${tipoCoincidencia} detectado en el histórico (2020–hoy).</p>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;">
+          <div style="display:grid;grid-template-columns:1fr 1fr ${pctBajada?'1fr':''};gap:8px;margin-bottom:10px;">
             <div style="background:var(--agq-purple-bg);border-radius:8px;padding:10px;">
               <div style="font-size:10px;color:var(--agq-purple);font-weight:600;text-transform:uppercase;margin-bottom:3px;">Importe adjudicado</div>
-              <div style="font-size:18px;font-weight:700;color:var(--ink);">${importe ? formatMoney(importe) : '—'}</div>
+              <div style="font-size:18px;font-weight:700;color:var(--ink);">${importeAdj ? formatMoney(importeAdj) : '—'}</div>
               <div style="font-size:10px;color:var(--ink-soft);margin-top:2px;">${fecha}</div>
             </div>
             <div style="background:var(--paper-dim);border-radius:8px;padding:10px;">
@@ -2370,8 +2414,14 @@ function openDetail(expediente){
               <div style="font-size:13px;font-weight:700;color:${esAgq?'var(--agq-green-deep)':'var(--ink)'};">${escapeHtml(adjNombre.slice(0,40))}${adjNombre.length>40?'…':''}</div>
               ${esAgq ? '<div style="font-size:10px;color:var(--agq-green-deep);">✓ Lo ganó AGQ</div>' : ''}
             </div>
+            ${pctBajada ? `<div style="background:${parseFloat(pctBajada)>15?'var(--terracotta-bg)':parseFloat(pctBajada)>8?'var(--amber-bg)':'var(--agq-green-bg)'};border-radius:8px;padding:10px;">
+              <div style="font-size:10px;font-weight:600;text-transform:uppercase;margin-bottom:3px;color:var(--ink-soft);">% Bajada s/ salida</div>
+              <div style="font-size:20px;font-weight:700;color:${parseFloat(pctBajada)>15?'var(--terracotta)':parseFloat(pctBajada)>8?'var(--amber)':'var(--agq-green-deep)'};">${pctBajada}%</div>
+              <div style="font-size:10px;color:var(--ink-soft);margin-top:2px;">Salida: ${formatMoney(importeSalida)}</div>
+            </div>` : ''}
           </div>
-          ${previas.length > 1 ? `<p style="font-size:11px;color:var(--ink-soft);font-weight:600;margin:0 0 4px;">Adjudicaciones anteriores (${previas.length} en total):</p>
+          ${prediccionHTML}
+          ${previas.length > 1 ? `<p style="font-size:11px;color:var(--ink-soft);font-weight:600;margin:10px 0 4px;">Adjudicaciones anteriores (${previas.length} en total):</p>
           ${previas.slice(1,4).map(c=>{
             const imp = c.importeAdjudicacion||c.importe;
             const esA = isAgqAdjudicatario(c.adjudicatario);
