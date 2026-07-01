@@ -1954,7 +1954,7 @@ async function lanzarObtenerLicitadoras(expediente){
   if(!expediente){ alert('Expediente no disponible'); return; }
   const proxyUrl = seleccionEndpoint();
   if(!proxyUrl){
-    alert('El Worker de Cloudflare no está configurado. Contacta con el administrador.');
+    alert('El Worker de Cloudflare no está configurado.');
     return;
   }
   try{
@@ -1963,16 +1963,15 @@ async function lanzarObtenerLicitadoras(expediente){
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         secret: SELECCION_PROXY_SECRET,
-        action: 'dispatch-workflow',
-        workflow: 'obtener-licitadoras.yml',
-        inputs: { expediente }
+        action: 'solicitar-licitadoras',
+        expediente
       })
     });
     const data = await resp.json().catch(()=>({}));
     if(resp.ok && data.ok){
-      alert(`✅ Proceso iniciado para "${expediente}".\n\nEn 5-10 minutos se habrá extraído la lista de empresas concurrentes del acta de adjudicación.\n\nRecarga la app cuando termine para ver los resultados en este mismo panel.`);
+      alert(`✅ Solicitud enviada para "${expediente}".\n\nEl próximo barrido diario (o el de esta noche) extraerá automáticamente la lista de empresas concurrentes del acta de adjudicación.\n\nRecarga la app mañana para ver los resultados en este panel.`);
     } else {
-      alert(`Error al lanzar el proceso: ${data.error || 'HTTP '+resp.status}`);
+      alert(`Error: ${data.error || 'HTTP '+resp.status}`);
     }
   }catch(e){
     alert(`Error de conexión: ${e.message}`);
