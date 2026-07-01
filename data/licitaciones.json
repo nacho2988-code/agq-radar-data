@@ -1,14 +1,18 @@
 {
-  "generatedAt": "2026-07-01T16:06:18.893Z",
-  "totalEntriesScanned": 6364,
-  "pagesFetched": 13,
+  "generatedAt": "2026-07-01T19:09:48.978Z",
+  "totalEntriesScanned": 9512,
+  "pagesFetched": 20,
   "coverageHoursTarget": 72,
   "oldestEntrySeen": "2026-06-27T08:30:24.316Z",
   "resumenDiag": {
     "geminiKeyPresent": true,
-    "candidatos": 7,
-    "generados": 1,
+    "candidatos": 9,
+    "generados": 3,
     "errores": [
+      {
+        "expediente": "5/2026",
+        "motivo": "HTTP 429 de la API de Gemini: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: "
+      },
       {
         "expediente": "560/2026",
         "motivo": "sin pliego referenciado"
@@ -28,10 +32,6 @@
       {
         "expediente": "2026/290091",
         "motivo": "HTTP 429 de la API de Gemini: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: "
-      },
-      {
-        "expediente": "CC2026/145",
-        "motivo": "HTTP 429 de la API de Gemini: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: "
       }
     ]
   },
@@ -43,8 +43,8 @@
     "errores": []
   },
   "nuevasDiag": {
-    "enviado": false,
-    "nuevas": 0,
+    "enviado": true,
+    "nuevas": 1,
     "smtpConfigured": true,
     "error": null
   },
@@ -403,16 +403,16 @@
         }
       ],
       "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=XeGo12O3O%2FmLAncw3qdZkA%3D%3D",
-      "updated": "2026-06-25T08:05:15.329+02:00",
+      "updated": "2026-07-01T09:20:11.764+02:00",
       "adjudicatario": "",
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: C30268926002; Órgano de Contratación: Dirección General de Carreteras; Importe: 2573026.74 EUR; Estado: PUB",
-      "importedAt": "2026-06-28T04:04:55.731Z",
+      "importedAt": "2026-07-01T19:03:11.605Z",
+      "sectorTier": "A",
       "resumenHtmlPath": "data/resumenes/C30268926002.html",
-      "resumenGeneradoEn": "2026-06-28T04:06:01.335Z",
-      "resumenVersion": 2,
-      "sectorTier": "A"
+      "resumenGeneradoEn": "2026-07-01T19:07:57.990Z",
+      "resumenVersion": 2
     },
     {
       "expediente": "2026/035113",
@@ -717,7 +717,7 @@
       "importeAdjudicacion": 5082,
       "fechaAdjudicacion": "2026-06-19",
       "rawSummary": "",
-      "importedAt": "2026-07-01T16:03:08.584Z",
+      "importedAt": "2026-07-01T19:04:39.132Z",
       "sectorTier": "A"
     },
     {
@@ -1089,7 +1089,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 15241/2026; Órgano de Contratación: Junta de Gobierno del Ayuntamiento de Rivas Vaciamadrid; Importe: 66100.4 EUR; Estado: EV",
-      "importedAt": "2026-07-01T16:03:53.204Z",
+      "importedAt": "2026-07-01T19:05:31.438Z",
       "sectorTier": "A"
     },
     {
@@ -1336,7 +1336,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 30/2026/CMA; Órgano de Contratación: Consejería de Hacienda de la Ciudad Autónoma de Melilla; Importe: 648427.61 EUR; Estado: EV",
-      "importedAt": "2026-07-01T16:03:08.560Z",
+      "importedAt": "2026-07-01T19:04:39.107Z",
       "sectorTier": "A"
     },
     {
@@ -1478,7 +1478,7 @@
       "importeAdjudicacion": 25652,
       "fechaAdjudicacion": "2026-06-25",
       "rawSummary": "",
-      "importedAt": "2026-07-01T16:04:39.567Z",
+      "importedAt": "2026-07-01T19:06:20.564Z",
       "sectorTier": "A"
     },
     {
@@ -1564,7 +1564,7 @@
       "importeAdjudicacion": 312254.77,
       "fechaAdjudicacion": "2026-04-24",
       "rawSummary": "",
-      "importedAt": "2026-07-01T16:05:12.928Z",
+      "importedAt": "2026-07-01T19:06:56.447Z",
       "sectorTier": "C"
     },
     {
@@ -1708,11 +1708,10 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 5/2026; Órgano de Contratación: Consejería Delegada de Arona Desarrollo, S.A.; Importe: 8.41 EUR; Estado: PUB",
-      "importedAt": "2026-07-01T16:02:55.197Z",
+      "importedAt": "2026-07-01T19:04:21.719Z",
       "sectorTier": "C",
       "resumenHtmlPath": "data/resumenes/5_2026.html",
-      "resumenGeneradoEn": "2026-07-01T16:06:04.311Z",
-      "resumenVersion": 2
+      "resumenGeneradoEn": "2026-07-01T16:06:04.311Z"
     },
     {
       "expediente": "2025/354001/006-940/00002",
@@ -1855,7 +1854,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 560/2026; Órgano de Contratación: Consejo de Administración de la Agencia de Régimen Especial Ciclo Integral Aguas del Retortillo; Importe: 914520 EUR; Estado: PUB",
-      "importedAt": "2026-07-01T16:05:13.029Z",
+      "importedAt": "2026-07-01T19:06:56.548Z",
       "sectorTier": "B"
     },
     {
@@ -1975,7 +1974,7 @@
       "importeAdjudicacion": 46585,
       "fechaAdjudicacion": "2026-06-26",
       "rawSummary": "",
-      "importedAt": "2026-07-01T16:04:57.254Z",
+      "importedAt": "2026-07-01T19:06:39.155Z",
       "sectorTier": "C"
     },
     {
@@ -2012,7 +2011,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 2026/EA46/00001071; Órgano de Contratación: Jefatura de la Sección Económico-Administrativa 46 - Base Aérea de Matacán; Importe: 19159.82 EUR; Estado: PUB",
-      "importedAt": "2026-07-01T16:04:12.018Z",
+      "importedAt": "2026-07-01T19:05:49.316Z",
       "sectorTier": "A",
       "resumenHtmlPath": "data/resumenes/2026_EA46_00001071.html",
       "resumenGeneradoEn": "2026-06-30T08:14:05.625Z"
@@ -2049,7 +2048,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: SER.2026.08; Órgano de Contratación: Presidencia del Consejo de Administración de la Empresa Provincial de Residuos y Medio Ambiente, S.A. ; Importe: 32608 EUR; Estado: PUB",
-      "importedAt": "2026-07-01T16:04:12.093Z",
+      "importedAt": "2026-07-01T19:05:49.386Z",
       "sectorTier": "B",
       "resumenHtmlPath": "data/resumenes/SER_2026_08.html",
       "resumenGeneradoEn": "2026-07-01T13:48:20.002Z"
@@ -2077,7 +2076,7 @@
       "importeAdjudicacion": 8432.25,
       "fechaAdjudicacion": "2026-06-26",
       "rawSummary": "",
-      "importedAt": "2026-07-01T16:04:12.130Z",
+      "importedAt": "2026-07-01T19:05:49.426Z",
       "sectorTier": "C"
     },
     {
@@ -2101,7 +2100,7 @@
       "importeAdjudicacion": 14418.36,
       "fechaAdjudicacion": "2026-06-19",
       "rawSummary": "",
-      "importedAt": "2026-07-01T16:04:22.316Z",
+      "importedAt": "2026-07-01T19:06:04.735Z",
       "sectorTier": "C"
     },
     {
@@ -2163,7 +2162,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 2026/00004; Órgano de Contratación: Gerencia de la Entidad Estatal de Derecho Público Trabajo Penitenciario y Formación para el Empleo, M.P.; Importe: 85567.85 EUR; Estado: EV",
-      "importedAt": "2026-07-01T16:04:22.328Z",
+      "importedAt": "2026-07-01T19:06:04.747Z",
       "sectorTier": "A"
     },
     {
@@ -2188,7 +2187,7 @@
       "importeAdjudicacion": 33631.95,
       "fechaAdjudicacion": "2026-03-17",
       "rawSummary": "",
-      "importedAt": "2026-07-01T16:04:39.552Z",
+      "importedAt": "2026-07-01T19:06:20.549Z",
       "sectorTier": "A"
     },
     {
@@ -2212,7 +2211,7 @@
       "importeAdjudicacion": 56608.94,
       "fechaAdjudicacion": "2026-06-24",
       "rawSummary": "",
-      "importedAt": "2026-07-01T16:04:39.579Z",
+      "importedAt": "2026-07-01T19:06:20.572Z",
       "sectorTier": "A"
     },
     {
@@ -2245,7 +2244,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: CONTR 2026/13645; Órgano de Contratación: Consejería de Empresa, Autónomos y Energía de las Illes Balears; Importe: 15000 EUR; Estado: PUB",
-      "importedAt": "2026-07-01T16:05:12.954Z",
+      "importedAt": "2026-07-01T19:06:56.474Z",
       "sectorTier": "A",
       "resumenHtmlPath": "data/resumenes/CONTR_2026_13645.html",
       "resumenGeneradoEn": "2026-07-01T13:49:00.582Z"
@@ -2324,7 +2323,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 2026/290091; Órgano de Contratación: TGSS-Dirección provincial de Málaga; Importe: 30000 EUR; Estado: PUB",
-      "importedAt": "2026-07-01T16:01:55.113Z",
+      "importedAt": "2026-07-01T19:03:32.171Z",
       "sectorTier": "A",
       "resumenHtmlPath": "data/resumenes/2026_290091.html",
       "resumenGeneradoEn": "2026-07-01T13:49:34.248Z"
@@ -2353,7 +2352,7 @@
       "importeAdjudicacion": 222096.65,
       "fechaAdjudicacion": "2026-05-25",
       "rawSummary": "",
-      "importedAt": "2026-07-01T16:01:55.169Z",
+      "importedAt": "2026-07-01T19:03:32.222Z",
       "sectorTier": "A"
     },
     {
@@ -2395,10 +2394,11 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: CC2026/145; Órgano de Contratación: Junta de Gobierno del Ayuntamiento de Oviedo; Importe: 96695.13 EUR; Estado: PUB",
-      "importedAt": "2026-07-01T16:02:44.035Z",
+      "importedAt": "2026-07-01T19:04:06.375Z",
       "sectorTier": "A",
       "resumenHtmlPath": "data/resumenes/CC2026_145.html",
-      "resumenGeneradoEn": "2026-07-01T13:50:14.748Z"
+      "resumenGeneradoEn": "2026-07-01T19:09:03.659Z",
+      "resumenVersion": 2
     },
     {
       "expediente": "TSA0072613",
@@ -2421,8 +2421,347 @@
       "importeAdjudicacion": 58031,
       "fechaAdjudicacion": "2023-07-13",
       "rawSummary": "",
-      "importedAt": "2026-07-01T16:03:08.516Z",
+      "importedAt": "2026-07-01T19:04:39.064Z",
       "sectorTier": "B"
+    },
+    {
+      "expediente": "CON/2025/127",
+      "atomId": "https://contrataciondelestado.es/sindicacion/licitacionesPerfilContratante/19705360",
+      "title": "contratacion del servicio para la\r\nrealización de los análisis de autocontrol de la calidad del agua de consumo\r\nhumano y análisis de control del agua en grifo del consumidor, y su registro informático en el SINAC; así como el seguimiento y actualización de los planes sanitarios del agua y de los sistemas de municipales de abastecimiento,",
+      "organo": "Alcaldía del Ayuntamiento de Pravia",
+      "estado": "EV",
+      "estadoLabel": "En evaluación",
+      "importe": 209300,
+      "importeRaw": "209300 EUR",
+      "cpv": [
+        "71620000"
+      ],
+      "deadline": "2026-06-03",
+      "deadlineSource": "periodo de presentación",
+      "documentos": [
+        {
+          "tipo": "LegalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=v8aWgqjiBQ/0XLtMkCSAcPIMLoc6DrjbYhrp/X1KWdRTrQrw9zan3aabvBxgquvD8rnWEl3TjpTWemAT8uPHnwGXgupLsrrELjA%2BljbLaQHfdyQgZAdTm3EfcUAC7CJ6"
+        },
+        {
+          "tipo": "TechnicalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=7gW9TzHB0DAx58oJhfLu%2BVbHu2wcdw8HWuj0XrYjOybNMY/swlRf2UKi19WjeYobB4rs/rfHQSL7KyjJVgZq9plEOoLgdE44QChVBiwtGd6HAj0WEJrB5sP7amrh2jBD"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=Cb3FgLsyPqCh/1qkHu94MBqbsJZs8DOjiqgWla0BtA91Y1vVpjER9x23DFh5HV1DLxO3ABrHDaFGg0jlvzHl03DxCxfZ5oapdQWTF51bxGEC1/zDIE0Kw/PWNnLS0Z0z"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=v/H9887eUaLw7JOa47G0SigqvrQB1O6km7rAFYmf69A4v1PDaH2o%2BAskKmRJ8b3g4k0QoficpGumc8O5EiCQnwJFnJEmqIq/QCkgzTJhN%2BFt/o8fNevwsujgRzaBbugn"
+        }
+      ],
+      "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=gvDqcGbWRvCFlFRHfEzEaw%3D%3D",
+      "updated": "2026-07-01T13:12:28.429+02:00",
+      "adjudicatario": "",
+      "importeAdjudicacion": null,
+      "fechaAdjudicacion": "",
+      "rawSummary": "Id licitación: CON/2025/127; Órgano de Contratación: Alcaldía del Ayuntamiento de Pravia ; Importe: 209300 EUR; Estado: EV",
+      "importedAt": "2026-07-01T19:01:57.652Z",
+      "sectorTier": "B"
+    },
+    {
+      "expediente": "205/2025",
+      "atomId": "https://contrataciondelestado.es/sindicacion/licitacionesPerfilContratante/18420841",
+      "title": "Servicio de autocontrol Sanitario en Seguridad Alimentaria, del Patronato de personas con discapacidad.",
+      "organo": "Presidente del Patronato Municipal de Personas con Discapacidad de La Rinconada",
+      "estado": "RES",
+      "estadoLabel": "Resuelta / Formalizada",
+      "importe": 3719.01,
+      "importeRaw": "3719.01 EUR",
+      "cpv": [
+        "90922000",
+        "90921000"
+      ],
+      "deadline": "2025-12-05",
+      "deadlineSource": "periodo de presentación",
+      "documentos": [],
+      "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=CstJl0NsmA7IGlsa0Wad%2Bw%3D%3D",
+      "updated": "2026-07-01T12:39:00.883+02:00",
+      "adjudicatario": "IGNACIO PRIETO BENÉITEZ",
+      "importeAdjudicacion": 3256.11,
+      "fechaAdjudicacion": "2026-03-04",
+      "rawSummary": "",
+      "importedAt": "2026-07-01T19:02:15.410Z",
+      "sectorTier": "C"
+    },
+    {
+      "expediente": "1/2024",
+      "atomId": "https://contrataciondelestado.es/sindicacion/licitacionesPerfilContratante/15673613",
+      "title": "Servicio  de cocina  y restauración a colectividades de personas  mayores, en régimen de ingesta total, yu restauración a colectividades en riesgo de exclusión social, en régimen de ingesta de comida, con arreglo a criterios de seguridad alimentaria y alimentación saludable y sostenible de la Residencia de Mayores de Rafelbunyol SAMP SA, mediopropio y servicio técnico del Ayto Rafelbunyol",
+      "organo": "Consejo de Administración de la Residencia de Mayores Rafelbunyol SAMP",
+      "estado": "RES",
+      "estadoLabel": "Resuelta / Formalizada",
+      "importe": 561263.93,
+      "importeRaw": "561263.93 EUR",
+      "cpv": [
+        "55322000",
+        "55320000",
+        "55321000"
+      ],
+      "deadline": "2024-10-15",
+      "deadlineSource": "periodo de presentación",
+      "documentos": [],
+      "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=ggDl6dEkCojmnwcj%2BxbdTg%3D%3D",
+      "updated": "2026-07-01T12:38:12.040+02:00",
+      "adjudicatario": "T CUIDA SERVICIOS DE ALIMENTACION, TIEMPO LIBRE Y CATERING SL",
+      "importeAdjudicacion": 574038.36,
+      "fechaAdjudicacion": "2024-11-18",
+      "rawSummary": "",
+      "importedAt": "2026-07-01T19:02:15.411Z",
+      "sectorTier": "C"
+    },
+    {
+      "expediente": "2025/CMY_03/000055",
+      "atomId": "https://contrataciondelestado.es/sindicacion/licitacionesPerfilContratante/18812454",
+      "title": "Contrato de servicios de realización de muestreos y caracterización de residuos en las instalaciones del Servicio Provincial de Transporte y Tratamiento de Residuos no Peligrosos de la Provincia de Huelva",
+      "organo": "Presidencia de la Diputación Provincial de Huelva",
+      "estado": "ADJ",
+      "estadoLabel": "Adjudicada (sin formalizar)",
+      "importe": 44900,
+      "importeRaw": "44900 EUR",
+      "cpv": [
+        "79723000"
+      ],
+      "deadline": "2026-01-27",
+      "deadlineSource": "periodo de presentación",
+      "documentos": [],
+      "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=atpln%2Bh5vkg%2B1TMyIiZmzw%3D%3D",
+      "updated": "2026-07-01T11:45:16.441+02:00",
+      "adjudicatario": "SM SISTEMAS MEDIOAMBIENTALES, S.L.",
+      "importeAdjudicacion": 37435.5,
+      "fechaAdjudicacion": "2026-06-30",
+      "rawSummary": "",
+      "importedAt": "2026-07-01T19:02:32.246Z",
+      "sectorTier": "C"
+    },
+    {
+      "expediente": "CONTR 2026 17062",
+      "atomId": "https://contrataciondelestado.es/sindicacion/licitacionesPerfilContratante/19965289",
+      "title": "Servicio de laboratorios externos para la realización de análisis de muestras de aguas residuales de entrada al EDAR 2 de Palma con fines epidemiologicos",
+      "organo": "Consejería de Salud de las Illes Balears",
+      "estado": "PUB",
+      "estadoLabel": "Publicada / en plazo",
+      "importe": 15934.68,
+      "importeRaw": "15934.68 EUR",
+      "cpv": [
+        "71900000"
+      ],
+      "deadline": "2026-07-22",
+      "deadlineSource": "periodo de presentación",
+      "documentos": [
+        {
+          "tipo": "LegalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=/sUi26P2WE4JFNQgktk1TwDfYF4qXsOeCJPMKqvxCb4IlT%2B3/oS0Royy7PBjfGqq64efUG7raDTMfxCVP4MArvER6nFlEEJIaaLzbPgRkmffdyQgZAdTm3EfcUAC7CJ6"
+        },
+        {
+          "tipo": "TechnicalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=01MAugLogIlRpeSOJyp2UnmQY4yCUcFZX/gsnixeogDD8VCvhbY4SYd7fYpVNJdF%2B2LXtl4DsdXgvYWqEY43q4RLB0bKSsFKpXbDsHU2a4u1aXEvq3KHa/AEHgtDrQw0"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=AcmRrvqpzh3Sp58%2BR6l9ZWhjom%2B9MtMhZoW5ylfiRj9h2OGu03RMvyFm6bia%2BdRjJOUUdtW1Q4plf87oKROTLuaqm75cK23gGbQhdahFpdt45ClyWkoJ44mKM70IFcOu"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=qwt6jeFPuWGOAVNoy0d%2Bc%2BIpbxHAvSd50BXs8qER%2BpM9bUNr5Su9jbknF8b5wxVCUgfZOtjVROMzjPiC5NVIPw8CakMvkaUJ24LexwMuLJu1aXEvq3KHa/AEHgtDrQw0"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=Tta1dsxxqXVhW4KXgPFsZSh7MaTpS1mFcsnERGZ95pc/veoGu7/z69rgUoFG%2BcbEkKLmlch%2BlnLsNXkJvXk4TpEe1pdWtBC6gOJoGr82NOZJOVDbGCDM%2BMigrvuVS7Rv"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=MrVeOOFTZrhQ4qVeau7xzfcjVZh6ypeuGABZwRI7vHm6afAVYgIziF6h1pwHB5KexiS0yL8364%2BiTi59fAzRjULuDpf7Cw%2BJieaT8a6QbUx7QB3HKyQaFUExmUVQCerk"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=k3RE72dgT79XNU0OwZsQ6Ggk0%2BLZgH60%2B/aDpn3wH8CaKOGvo1buT/XCuIGtkAQZDPAtesTN8P8FFmaU%2Bi0EKRZNqvB6zgxLY7nW/C7Iv/eB0nvVKRzfe4rpHcnlPhSZ"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=iAdQZHHRerw66EyIYB87PYLSaM6ZXvX%2Bt7hWWaU8GkDCiFDsfiIRACC7wFvf45uAGh601sVid%2Bx2U3q2YkbsS34Yq9njm0PEZO%2ByD2b9qG2HAj0WEJrB5sP7amrh2jBD"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=RrRE88ZreBuCNaPcYOVf96k6V99zLd6IbKEWluN3GVerrmM6wtw%2BLhxN61TAofObHvWx31Ib0q8r5jUag9R0zhwb4LvoMV1APx9tHkedvFzVTD3T98KC0nSgQFM0q%2B5s"
+        }
+      ],
+      "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=2iBLyDlfu5QkJPJS%2BPS9vg%3D%3D",
+      "updated": "2026-07-01T11:09:26.568+02:00",
+      "adjudicatario": "",
+      "importeAdjudicacion": null,
+      "fechaAdjudicacion": "",
+      "rawSummary": "Id licitación: CONTR 2026 17062; Órgano de Contratación: Consejería de Salud de las Illes Balears; Importe: 15934.68 EUR; Estado: PUB",
+      "importedAt": "2026-07-01T19:02:32.311Z",
+      "sectorTier": "B",
+      "resumenHtmlPath": "data/resumenes/CONTR_2026_17062.html",
+      "resumenGeneradoEn": "2026-07-01T19:09:46.117Z",
+      "resumenVersion": 2
+    },
+    {
+      "expediente": "SER. PGS. 01-2026",
+      "atomId": "https://contrataciondelestado.es/sindicacion/licitacionesPerfilContratante/19798735",
+      "title": "El objeto del contrato es la prestación del servicio de auditoría técnica de las instalaciones de la unidad alimentaria comprendiendo la inspección, análisis, diagnóstico, evaluación y valoración integral del estado actual de las edificaciones, instalaciones e infraestructuras de MERCALASPALMAS.",
+      "organo": "Consejo de Administración de Mercados Centrales de Abastecimiento de Las Palmas S.A. S.M.E. (MERCALASPALMAS, S.A. S.M.E.)",
+      "estado": "EV",
+      "estadoLabel": "En evaluación",
+      "importe": 49240,
+      "importeRaw": "49240 EUR",
+      "cpv": [
+        "71356200",
+        "71335000",
+        "71621000"
+      ],
+      "deadline": "2026-06-17",
+      "deadlineSource": "periodo de presentación",
+      "documentos": [
+        {
+          "tipo": "LegalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=5KS4iyXhACZeSmm56hAkqnk77xvN/afUbEJxAxJAe1IVbv66xoSEY%2BmF63iB1tkw%2BhEDlQf1YCWK5G8Pz2tt8k0rE%2B34xmQ2cgL%2BvW5PQF8//q7NB2iMZvNyf0xrJmjt"
+        },
+        {
+          "tipo": "TechnicalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=1x0orK9/KZ/cLk80Nj4i3jT03/MdnQzfdP6AZuYt36L3GSKZIBd3TZ%2BrerXyAhYrNICzdTJwmOeFH05PJY8XA4rdJy6ZlovfY2q6EfwqTs945ClyWkoJ44mKM70IFcOu"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=veRubTMpnQvXy5MwFWcKp4ypf3Gu6LpEPU3Xp1KPBtg7GrLzyrEg8PU/GlCBLTJsWkCf0GbcxfYL8pGixU427i8VKRTAr9%2B11LAfkZ76YxKB0nvVKRzfe4rpHcnlPhSZ"
+        }
+      ],
+      "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=XSifZxQm5z6P66GS%2BONYvQ%3D%3D",
+      "updated": "2026-07-01T10:09:46.695+02:00",
+      "adjudicatario": "",
+      "importeAdjudicacion": null,
+      "fechaAdjudicacion": "",
+      "rawSummary": "Id licitación: SER. PGS. 01-2026; Órgano de Contratación: Consejo de Administración de Mercados Centrales de Abastecimiento de Las Palmas S.A. S.M.E. (MERCALASPALMAS, S.A. S.M.E.); Importe: 49240 EUR; Estado: EV",
+      "importedAt": "2026-07-01T19:02:51.679Z",
+      "sectorTier": "A"
+    },
+    {
+      "expediente": "859.21",
+      "atomId": "https://contrataciondelestado.es/sindicacion/licitacionesPerfilContratante/8738374",
+      "title": "Ofertas para la contratación de diversos servicios que promueve la Universidad de Almería en el presente procedimiento restringido, sujeto a regulación armonizada, mediante un Sistema Dinámico de Adquisición.",
+      "organo": "Rectorado de la Universidad de Almería",
+      "estado": "EV",
+      "estadoLabel": "En evaluación",
+      "importe": 7002006.58,
+      "importeRaw": "7002006.58 EUR",
+      "cpv": [
+        "65000000",
+        "71610000",
+        "72000000",
+        "77300000",
+        "90400000",
+        "50313100",
+        "60161000",
+        "71200000",
+        "45311000",
+        "50413200",
+        "45259000",
+        "79340000",
+        "79714000",
+        "90920000",
+        "50330000",
+        "60180000",
+        "79800000",
+        "79950000",
+        "85312320",
+        "92000000",
+        "45500000",
+        "50112000",
+        "50710000",
+        "50750000",
+        "55100000",
+        "50700000",
+        "80000000"
+      ],
+      "deadline": "2031-11-17",
+      "deadlineSource": "periodo de presentación",
+      "documentos": [
+        {
+          "tipo": "LegalDocumentReference",
+          "url": "https://contrataciondelestado.es/wps/wcm/connect/PLACE_es/Site/area/docAccCmpnt?srv=cmpnt&cmpntname=GetDocumentsById&source=library&DocumentIdParam=76ed65e5-2e5b-4743-bb94-4f1f576910ab"
+        },
+        {
+          "tipo": "TechnicalDocumentReference",
+          "url": "https://contrataciondelestado.es/wps/wcm/connect/PLACE_es/Site/area/docAccCmpnt?srv=cmpnt&cmpntname=GetDocumentsById&source=library&DocumentIdParam=8a4f079d-dc86-4297-b76b-8175b4ab2f78"
+        },
+        {
+          "tipo": "AdditionalDocumentReference",
+          "url": "https://contrataciondelestado.es/wps/wcm/connect/PLACE_es/Site/area/docAccCmpnt?srv=cmpnt&cmpntname=GetDocumentsById&source=library&DocumentIdParam=9c27a926-596f-4994-af2e-2ecd8ce0cfa9"
+        }
+      ],
+      "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=I5LrA4KoQmuXQV0WE7lYPw%3D%3D",
+      "updated": "2026-07-01T09:41:41.904+02:00",
+      "adjudicatario": "",
+      "importeAdjudicacion": null,
+      "fechaAdjudicacion": "",
+      "rawSummary": "Id licitación: 859.21; Órgano de Contratación: Rectorado de la Universidad de Almería; Importe: 7002006.58 EUR; Estado: EV",
+      "importedAt": "2026-07-01T19:02:51.739Z",
+      "sectorTier": "A"
+    },
+    {
+      "expediente": "AYTOCR2026/17301",
+      "atomId": "https://contrataciondelestado.es/sindicacion/licitacionesPerfilContratante/19617202",
+      "title": "Adquisición de productos biocidas para el control de plagas urbanas",
+      "organo": "Junta de Gobierno del Ayuntamiento de Ciudad Real",
+      "estado": "ADJ",
+      "estadoLabel": "Adjudicada (sin formalizar)",
+      "importe": 6074.37,
+      "importeRaw": "6074.37 EUR",
+      "cpv": [
+        "24000000"
+      ],
+      "deadline": "2026-05-26",
+      "deadlineSource": "periodo de presentación",
+      "documentos": [],
+      "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=twtt1Yx9OQp%2BF6L2uCfUWg%3D%3D",
+      "updated": "2026-07-01T09:16:49.666+02:00",
+      "adjudicatario": "GMB INTERNACIONAL, S.A.",
+      "importeAdjudicacion": 2801.91,
+      "fechaAdjudicacion": "2026-06-22",
+      "rawSummary": "",
+      "importedAt": "2026-07-01T19:03:11.608Z",
+      "sectorTier": "C"
+    },
+    {
+      "expediente": "C/048/CON/2025-149B",
+      "atomId": "https://contrataciondelestado.es/sindicacion/licitacionesPerfilContratante/19814295",
+      "title": "Servicios para la actualización del mapa estratégico de ruido y la redacción del plan de acción del ruido del municipio de Móstoles",
+      "organo": "Junta de Gobierno del Ayuntamiento de Móstoles",
+      "estado": "EV",
+      "estadoLabel": "En evaluación",
+      "importe": 78500,
+      "importeRaw": "78500 EUR",
+      "cpv": [
+        "71313100"
+      ],
+      "deadline": "2026-06-19",
+      "deadlineSource": "periodo de presentación",
+      "documentos": [
+        {
+          "tipo": "LegalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=MEtLnFnm8v9XQ0p3IJRbvrVpPRO3RgoFrfQ9ENVV5R5FOhfjSkoN%2Bf5ofSD52QrZnxDMg8B4AawDAPii0OcxcIgxOQeHjm5F8EfLAskymSPVTD3T98KC0nSgQFM0q%2B5s"
+        },
+        {
+          "tipo": "TechnicalDocumentReference",
+          "url": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=vInupnunYGzUutrjYssBpYN0B2hAqSm9Gc3g4/z/cvTOgmEr9s1lC5AH6/i/GQIVSnIzuGuGFsXsiHgWXareUIK2kFOuhHkUKGBJ9%2B/cabiB0nvVKRzfe4rpHcnlPhSZ"
+        }
+      ],
+      "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=TobcAW2RwriLAncw3qdZkA%3D%3D",
+      "updated": "2026-07-01T08:43:39.062+02:00",
+      "adjudicatario": "",
+      "importeAdjudicacion": null,
+      "fechaAdjudicacion": "",
+      "rawSummary": "Id licitación: C/048/CON/2025-149B; Órgano de Contratación: Junta de Gobierno del Ayuntamiento de Móstoles; Importe: 78500 EUR; Estado: EV",
+      "importedAt": "2026-07-01T19:03:11.685Z",
+      "sectorTier": "C"
     }
   ]
 }
