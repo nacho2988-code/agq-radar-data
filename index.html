@@ -1952,29 +1952,30 @@ function buscarAdjudicacionPrevia(tender){
 // === [MOD:LICITADORAS] ===
 async function lanzarObtenerLicitadoras(expediente){
   if(!expediente){ alert('Expediente no disponible'); return; }
-  const ghCfg = loadGithubConfig();
-  if(!ghCfg.token || !ghCfg.repo){
-    alert('Configura el repositorio y token GitHub en la app para usar esta función.');
+  const proxyUrl = seleccionEndpoint();
+  if(!proxyUrl){
+    alert('El Worker de Cloudflare no está configurado. Contacta con el administrador.');
     return;
   }
-  const [owner, repo] = ghCfg.repo.split('/');
   try{
-    const resp = await fetch(`https://api.github.com/repos/${owner}/${repo}/actions/workflows/obtener-licitadoras.yml/dispatches`, {
+    const resp = await fetch(proxyUrl, {
       method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${ghCfg.token}`,
-        'Accept': 'application/vnd.github+json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ ref:'main', inputs:{ expediente } })
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        secret: SELECCION_PROXY_SECRET,
+        action: 'dispatch-workflow',
+        workflow: 'obtener-licitadoras.yml',
+        inputs: { expediente }
+      })
     });
-    if(resp.ok || resp.status === 204){
-      alert(`✅ Proceso iniciado para "${expediente}".\n\nGitHub Actions buscará el acta de adjudicación y extraerá las empresas concurrentes en unos 5-10 minutos.\n\nRecarga la app cuando termine para ver los resultados.`);
+    const data = await resp.json().catch(()=>({}));
+    if(resp.ok && data.ok){
+      alert(`✅ Proceso iniciado para "${expediente}".\n\nEn 5-10 minutos se habrá extraído la lista de empresas concurrentes del acta de adjudicación.\n\nRecarga la app cuando termine para ver los resultados en este mismo panel.`);
     } else {
-      alert(`Error al lanzar el proceso: HTTP ${resp.status}`);
+      alert(`Error al lanzar el proceso: ${data.error || 'HTTP '+resp.status}`);
     }
   }catch(e){
-    alert(`Error: ${e.message}`);
+    alert(`Error de conexión: ${e.message}`);
   }
 }
 // === [MOD:OFERTA-TECNICA] ===
