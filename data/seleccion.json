@@ -37,8 +37,8 @@
     "seleccionado": true,
     "marcadoEn": "2026-07-01T07:27:56.181Z",
     "alertaEnviada": null,
-    "estadoPipeline": "detectada",
-    "estadoPipelineEn": "2026-07-01T07:28:04.271Z",
+    "estadoPipeline": "perdida",
+    "estadoPipelineEn": "2026-07-01T07:29:49.232Z",
     "estadoPipelinePor": null
   }
 }
