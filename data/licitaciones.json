@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-01T13:50:16.249Z",
+  "generatedAt": "2026-07-01T16:06:18.893Z",
   "totalEntriesScanned": 6364,
   "pagesFetched": 13,
   "coverageHoursTarget": 72,
@@ -7,7 +7,7 @@
   "resumenDiag": {
     "geminiKeyPresent": true,
     "candidatos": 7,
-    "generados": 5,
+    "generados": 1,
     "errores": [
       {
         "expediente": "560/2026",
@@ -16,12 +16,28 @@
       {
         "expediente": "2026/EA46/00001071",
         "motivo": "ningún pliego descargable"
+      },
+      {
+        "expediente": "SER.2026.08",
+        "motivo": "HTTP 429 de la API de Gemini: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: "
+      },
+      {
+        "expediente": "CONTR 2026/13645",
+        "motivo": "HTTP 429 de la API de Gemini: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: "
+      },
+      {
+        "expediente": "2026/290091",
+        "motivo": "HTTP 429 de la API de Gemini: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: "
+      },
+      {
+        "expediente": "CC2026/145",
+        "motivo": "HTTP 429 de la API de Gemini: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: "
       }
     ]
   },
   "alertasDiag": {
     "seleccionFileFound": true,
-    "seleccionadas": 1,
+    "seleccionadas": 0,
     "alertasEnviadas": 0,
     "smtpConfigured": true,
     "errores": []
@@ -701,7 +717,7 @@
       "importeAdjudicacion": 5082,
       "fechaAdjudicacion": "2026-06-19",
       "rawSummary": "",
-      "importedAt": "2026-07-01T13:45:09.096Z",
+      "importedAt": "2026-07-01T16:03:08.584Z",
       "sectorTier": "A"
     },
     {
@@ -1073,7 +1089,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 15241/2026; Órgano de Contratación: Junta de Gobierno del Ayuntamiento de Rivas Vaciamadrid; Importe: 66100.4 EUR; Estado: EV",
-      "importedAt": "2026-07-01T13:45:51.406Z",
+      "importedAt": "2026-07-01T16:03:53.204Z",
       "sectorTier": "A"
     },
     {
@@ -1320,7 +1336,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 30/2026/CMA; Órgano de Contratación: Consejería de Hacienda de la Ciudad Autónoma de Melilla; Importe: 648427.61 EUR; Estado: EV",
-      "importedAt": "2026-07-01T13:45:09.070Z",
+      "importedAt": "2026-07-01T16:03:08.560Z",
       "sectorTier": "A"
     },
     {
@@ -1462,7 +1478,7 @@
       "importeAdjudicacion": 25652,
       "fechaAdjudicacion": "2026-06-25",
       "rawSummary": "",
-      "importedAt": "2026-07-01T13:46:28.754Z",
+      "importedAt": "2026-07-01T16:04:39.567Z",
       "sectorTier": "A"
     },
     {
@@ -1548,7 +1564,7 @@
       "importeAdjudicacion": 312254.77,
       "fechaAdjudicacion": "2026-04-24",
       "rawSummary": "",
-      "importedAt": "2026-07-01T13:46:55.209Z",
+      "importedAt": "2026-07-01T16:05:12.928Z",
       "sectorTier": "C"
     },
     {
@@ -1692,10 +1708,10 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 5/2026; Órgano de Contratación: Consejería Delegada de Arona Desarrollo, S.A.; Importe: 8.41 EUR; Estado: PUB",
-      "importedAt": "2026-07-01T13:44:53.898Z",
+      "importedAt": "2026-07-01T16:02:55.197Z",
       "sectorTier": "C",
       "resumenHtmlPath": "data/resumenes/5_2026.html",
-      "resumenGeneradoEn": "2026-07-01T13:47:40.063Z",
+      "resumenGeneradoEn": "2026-07-01T16:06:04.311Z",
       "resumenVersion": 2
     },
     {
@@ -1839,7 +1855,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 560/2026; Órgano de Contratación: Consejo de Administración de la Agencia de Régimen Especial Ciclo Integral Aguas del Retortillo; Importe: 914520 EUR; Estado: PUB",
-      "importedAt": "2026-07-01T13:46:55.316Z",
+      "importedAt": "2026-07-01T16:05:13.029Z",
       "sectorTier": "B"
     },
     {
@@ -1959,7 +1975,7 @@
       "importeAdjudicacion": 46585,
       "fechaAdjudicacion": "2026-06-26",
       "rawSummary": "",
-      "importedAt": "2026-07-01T13:46:42.667Z",
+      "importedAt": "2026-07-01T16:04:57.254Z",
       "sectorTier": "C"
     },
     {
@@ -1996,7 +2012,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 2026/EA46/00001071; Órgano de Contratación: Jefatura de la Sección Económico-Administrativa 46 - Base Aérea de Matacán; Importe: 19159.82 EUR; Estado: PUB",
-      "importedAt": "2026-07-01T13:46:04.885Z",
+      "importedAt": "2026-07-01T16:04:12.018Z",
       "sectorTier": "A",
       "resumenHtmlPath": "data/resumenes/2026_EA46_00001071.html",
       "resumenGeneradoEn": "2026-06-30T08:14:05.625Z"
@@ -2033,11 +2049,10 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: SER.2026.08; Órgano de Contratación: Presidencia del Consejo de Administración de la Empresa Provincial de Residuos y Medio Ambiente, S.A. ; Importe: 32608 EUR; Estado: PUB",
-      "importedAt": "2026-07-01T13:46:04.959Z",
+      "importedAt": "2026-07-01T16:04:12.093Z",
       "sectorTier": "B",
       "resumenHtmlPath": "data/resumenes/SER_2026_08.html",
-      "resumenGeneradoEn": "2026-07-01T13:48:20.002Z",
-      "resumenVersion": 2
+      "resumenGeneradoEn": "2026-07-01T13:48:20.002Z"
     },
     {
       "expediente": "213.25.004",
@@ -2062,7 +2077,7 @@
       "importeAdjudicacion": 8432.25,
       "fechaAdjudicacion": "2026-06-26",
       "rawSummary": "",
-      "importedAt": "2026-07-01T13:46:04.997Z",
+      "importedAt": "2026-07-01T16:04:12.130Z",
       "sectorTier": "C"
     },
     {
@@ -2086,7 +2101,7 @@
       "importeAdjudicacion": 14418.36,
       "fechaAdjudicacion": "2026-06-19",
       "rawSummary": "",
-      "importedAt": "2026-07-01T13:46:16.638Z",
+      "importedAt": "2026-07-01T16:04:22.316Z",
       "sectorTier": "C"
     },
     {
@@ -2148,7 +2163,7 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 2026/00004; Órgano de Contratación: Gerencia de la Entidad Estatal de Derecho Público Trabajo Penitenciario y Formación para el Empleo, M.P.; Importe: 85567.85 EUR; Estado: EV",
-      "importedAt": "2026-07-01T13:46:16.651Z",
+      "importedAt": "2026-07-01T16:04:22.328Z",
       "sectorTier": "A"
     },
     {
@@ -2173,7 +2188,7 @@
       "importeAdjudicacion": 33631.95,
       "fechaAdjudicacion": "2026-03-17",
       "rawSummary": "",
-      "importedAt": "2026-07-01T13:46:28.739Z",
+      "importedAt": "2026-07-01T16:04:39.552Z",
       "sectorTier": "A"
     },
     {
@@ -2197,7 +2212,7 @@
       "importeAdjudicacion": 56608.94,
       "fechaAdjudicacion": "2026-06-24",
       "rawSummary": "",
-      "importedAt": "2026-07-01T13:46:28.766Z",
+      "importedAt": "2026-07-01T16:04:39.579Z",
       "sectorTier": "A"
     },
     {
@@ -2230,11 +2245,10 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: CONTR 2026/13645; Órgano de Contratación: Consejería de Empresa, Autónomos y Energía de las Illes Balears; Importe: 15000 EUR; Estado: PUB",
-      "importedAt": "2026-07-01T13:46:55.238Z",
+      "importedAt": "2026-07-01T16:05:12.954Z",
       "sectorTier": "A",
       "resumenHtmlPath": "data/resumenes/CONTR_2026_13645.html",
-      "resumenGeneradoEn": "2026-07-01T13:49:00.582Z",
-      "resumenVersion": 2
+      "resumenGeneradoEn": "2026-07-01T13:49:00.582Z"
     },
     {
       "expediente": "CONT178/2026",
@@ -2310,11 +2324,10 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: 2026/290091; Órgano de Contratación: TGSS-Dirección provincial de Málaga; Importe: 30000 EUR; Estado: PUB",
-      "importedAt": "2026-07-01T13:44:01.321Z",
+      "importedAt": "2026-07-01T16:01:55.113Z",
       "sectorTier": "A",
       "resumenHtmlPath": "data/resumenes/2026_290091.html",
-      "resumenGeneradoEn": "2026-07-01T13:49:34.248Z",
-      "resumenVersion": 2
+      "resumenGeneradoEn": "2026-07-01T13:49:34.248Z"
     },
     {
       "expediente": "79/25",
@@ -2340,7 +2353,7 @@
       "importeAdjudicacion": 222096.65,
       "fechaAdjudicacion": "2026-05-25",
       "rawSummary": "",
-      "importedAt": "2026-07-01T13:44:01.379Z",
+      "importedAt": "2026-07-01T16:01:55.169Z",
       "sectorTier": "A"
     },
     {
@@ -2382,11 +2395,10 @@
       "importeAdjudicacion": null,
       "fechaAdjudicacion": "",
       "rawSummary": "Id licitación: CC2026/145; Órgano de Contratación: Junta de Gobierno del Ayuntamiento de Oviedo; Importe: 96695.13 EUR; Estado: PUB",
-      "importedAt": "2026-07-01T13:44:40.946Z",
+      "importedAt": "2026-07-01T16:02:44.035Z",
       "sectorTier": "A",
       "resumenHtmlPath": "data/resumenes/CC2026_145.html",
-      "resumenGeneradoEn": "2026-07-01T13:50:14.748Z",
-      "resumenVersion": 2
+      "resumenGeneradoEn": "2026-07-01T13:50:14.748Z"
     },
     {
       "expediente": "TSA0072613",
@@ -2409,7 +2421,7 @@
       "importeAdjudicacion": 58031,
       "fechaAdjudicacion": "2023-07-13",
       "rawSummary": "",
-      "importedAt": "2026-07-01T13:45:09.028Z",
+      "importedAt": "2026-07-01T16:03:08.516Z",
       "sectorTier": "B"
     }
   ]
