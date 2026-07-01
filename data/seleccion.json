@@ -34,8 +34,8 @@
     "estadoPipelinePor": null
   },
   "713/2026": {
-    "seleccionado": false,
-    "marcadoEn": "2026-07-01T07:27:56.181Z",
+    "seleccionado": true,
+    "marcadoEn": "2026-07-01T07:37:31.556Z",
     "alertaEnviada": null,
     "estadoPipeline": "detectada",
     "estadoPipelineEn": "2026-07-01T07:37:18.558Z",
