@@ -2722,60 +2722,51 @@ async function autoSyncFromGitHub(showStatus){
     });
     if(purged) persistTenders();
 
-    // Sincronizar también la selección compartida del equipo (data/seleccion.json),
-    // que es la fuente de verdad: si alguien marcó/desmarcó desde otro dispositivo,
-    // debe reflejarse aquí también.
+    // Sincronizar selección del equipo — leer del Worker Cloudflare (fuente de verdad en tiempo real)
+    // NO de seleccion.json en GitHub que solo se actualiza una vez al día
     try{
-      const selUrl = location.hostname.endsWith('github.io')
-        ? `data/seleccion.json?_=${Date.now()}`
-        : `https://raw.githubusercontent.com/${cfg.repo}/${cfg.branch || 'main'}/data/seleccion.json?_=${Date.now()}`;
-      const selResp = await fetch(selUrl);
-      if(selResp.ok){
-        const seleccion = await selResp.json();
-        const ahora = Date.now();
-        const UMBRAL_LOCAL_MS = 2 * 60 * 1000; // 2 min: si el usuario cambió el estado hace menos de esto, el local manda
-        Object.keys(STATE.tenders).forEach(id=>{
-          const sel = seleccion[id];
-          const t = STATE.tenders[id];
-          // Si el expediente no existe en el remoto: el estado local es el correcto
-          if(!sel){
-            // Si el local dice marcado pero no existe en remoto, puede que se borrara;
-            // solo lo limpiamos si no hubo cambio local reciente
-            if(t.presentarLocal && t.presentarLocalEn){
-              const edadLocal = ahora - new Date(t.presentarLocalEn).getTime();
-              if(edadLocal > UMBRAL_LOCAL_MS) t.presentarLocal = false;
-            }
-            return;
-          }
-          const marcadaRemoto = !!sel.seleccionado;
-          // Solo sincronizar con el remoto si el estado local no cambió recientemente
-          const edadLocal = t.presentarLocalEn ? ahora - new Date(t.presentarLocalEn).getTime() : Infinity;
-          if(t.presentarLocal !== marcadaRemoto && edadLocal > UMBRAL_LOCAL_MS){
-            t.presentarLocal = marcadaRemoto;
-            // NO sobreescribimos presentarLocalEn con el remoto para no crear bucles de sync
-            // Solo actualizamos el status
-            t.presentarSyncStatus = 'sincronizada';
-          }
-          if(sel.estadoPipeline && sel.estadoPipeline !== t.estadoPipeline){
-            t.estadoPipeline = sel.estadoPipeline;
-            t.estadoPipelineEn = sel.estadoPipelineEn || null;
-            t.estadoPipelinePor = sel.estadoPipelinePor || null;
-          }
-          if(sel.notas !== undefined && sel.notasEn && sel.notasEn !== t.notasEn){
-            t.notas = sel.notas;
-            t.notasEn = sel.notasEn;
-            t.notasPor = sel.notasPor || null;
-          }
-          if(sel.comercial !== undefined && sel.comercial !== t.comercial){
-            t.comercial = sel.comercial || '';
-          }
-          if(sel.comercial !== undefined && sel.comercial !== t.comercial){
-            t.comercial = sel.comercial || '';
-          }
+      const proxyUrl = seleccionEndpoint();
+      if(proxyUrl){
+        const selResp = await fetch(proxyUrl + '?get=all&_=' + Date.now(), {
+          method: 'GET', headers:{'Content-Type':'application/json'}
         });
-        persistTenders();
+        if(selResp.ok){
+          const seleccion = await selResp.json();
+          const ahora = Date.now();
+          const UMBRAL_LOCAL_MS = 2 * 60 * 1000;
+          Object.keys(STATE.tenders).forEach(id=>{
+            const sel = seleccion[id];
+            const t = STATE.tenders[id];
+            if(!sel) return;
+            const marcadaRemoto = !!sel.seleccionado;
+            const edadLocal = t.presentarLocalEn ? ahora - new Date(t.presentarLocalEn).getTime() : Infinity;
+            if(t.presentarLocal !== marcadaRemoto && edadLocal > UMBRAL_LOCAL_MS){
+              t.presentarLocal = marcadaRemoto;
+              t.presentarSyncStatus = 'sincronizada';
+            }
+            const edadPipeline = t.estadoPipelineEn ? ahora - new Date(t.estadoPipelineEn).getTime() : Infinity;
+            if(sel.estadoPipeline && sel.estadoPipeline !== t.estadoPipeline && edadPipeline > UMBRAL_LOCAL_MS){
+              t.estadoPipeline = sel.estadoPipeline;
+              t.estadoPipelineEn = sel.estadoPipelineEn || null;
+              t.estadoPipelinePor = sel.estadoPipelinePor || null;
+            }
+            if(sel.notas !== undefined && sel.notasEn && sel.notasEn !== t.notasEn){
+              t.notas = sel.notas;
+              t.notasEn = sel.notasEn;
+              t.notasPor = sel.notasPor || null;
+            }
+            if(sel.comercial !== undefined && sel.comercial !== t.comercial){
+              t.comercial = sel.comercial || '';
+            }
+            if(sel.motivoRechazo !== undefined && sel.motivoRechazo !== t.motivoRechazo){
+              t.motivoRechazo = sel.motivoRechazo || '';
+            }
+          });
+          persistTenders();
+          Object.keys(STATE.tenders).forEach(id => rerenderAfterLocalChange(id));
+        }
       }
-    }catch(e){ /* si falla, mantenemos el estado local tal cual estaba */ }
+    }catch(e){ /* si falla el Worker, mantenemos el estado local */ }
 
     // Cargar el histórico de backfill (adjudicaciones 2021-hoy)
     try{
