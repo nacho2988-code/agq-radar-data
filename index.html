@@ -2752,7 +2752,8 @@ async function autoSyncFromGitHub(showStatus){
           const edadLocal = t.presentarLocalEn ? ahora - new Date(t.presentarLocalEn).getTime() : Infinity;
           if(t.presentarLocal !== marcadaRemoto && edadLocal > UMBRAL_LOCAL_MS){
             t.presentarLocal = marcadaRemoto;
-            t.presentarLocalEn = sel.marcadoEn || null;
+            // NO sobreescribimos presentarLocalEn con el remoto para no crear bucles de sync
+            // Solo actualizamos el status
             t.presentarSyncStatus = 'sincronizada';
           }
           if(sel.estadoPipeline && sel.estadoPipeline !== t.estadoPipeline){
