@@ -1949,7 +1949,34 @@ function buscarAdjudicacionPrevia(tender){
   return porSimilitud;
 }
 
-// === [MOD:PIPELINE-BOARD] ===
+// === [MOD:LICITADORAS] ===
+async function lanzarObtenerLicitadoras(expediente){
+  if(!expediente){ alert('Expediente no disponible'); return; }
+  const ghCfg = loadGithubConfig();
+  if(!ghCfg.token || !ghCfg.repo){
+    alert('Configura el repositorio y token GitHub en la app para usar esta función.');
+    return;
+  }
+  const [owner, repo] = ghCfg.repo.split('/');
+  try{
+    const resp = await fetch(`https://api.github.com/repos/${owner}/${repo}/actions/workflows/obtener-licitadoras.yml/dispatches`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${ghCfg.token}`,
+        'Accept': 'application/vnd.github+json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ ref:'main', inputs:{ expediente } })
+    });
+    if(resp.ok || resp.status === 204){
+      alert(`✅ Proceso iniciado para "${expediente}".\n\nGitHub Actions buscará el acta de adjudicación y extraerá las empresas concurrentes en unos 5-10 minutos.\n\nRecarga la app cuando termine para ver los resultados.`);
+    } else {
+      alert(`Error al lanzar el proceso: HTTP ${resp.status}`);
+    }
+  }catch(e){
+    alert(`Error: ${e.message}`);
+  }
+}
 // === [MOD:OFERTA-TECNICA] ===
 function sanitizeForPdfClient(s){
   if(s == null) return '';
@@ -2421,6 +2448,44 @@ function openDetail(expediente){
             </div>` : ''}
           </div>
           ${prediccionHTML}
+          ${(()=>{
+            // Panel de licitadoras si el histórico las tiene
+            const historico = getAwardedTenders();
+            const entradaHist = historico.find(h =>
+              h.expediente?.toLowerCase() === ultima.expediente?.toLowerCase()
+            );
+            if(!entradaHist) return '';
+            const lics = entradaHist.licitadoras;
+            if(lics && lics.length){
+              return `<div style="margin-top:12px;">
+                <p style="font-size:11px;color:var(--ink-soft);font-weight:600;margin:0 0 6px;">
+                  Empresas concurrentes (${entradaHist.n_ofertas || lics.length} ofertas · fuente: acta adjudicación)
+                </p>
+                <div style="border:1px solid var(--line);border-radius:8px;overflow:hidden;">
+                  <div style="display:grid;grid-template-columns:auto 1fr auto auto;gap:8px;padding:6px 10px;background:var(--agq-purple);font-size:10px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:0.05em;">
+                    <span>#</span><span>Empresa</span><span style="text-align:right;">Importe</span><span style="text-align:right;">Puntos</span>
+                  </div>
+                  ${lics.map((l,i)=>{
+                    const esGanadora = i === 0 || l.posicion === 1;
+                    const esAgqL = isAgqAdjudicatario(l.empresa||'');
+                    const bg = esAgqL ? 'var(--agq-green-bg)' : esGanadora ? 'var(--agq-purple-bg)' : (i%2===0?'var(--card)':'var(--paper-dim)');
+                    return `<div style="display:grid;grid-template-columns:auto 1fr auto auto;gap:8px;padding:6px 10px;background:${bg};border-top:1px solid var(--line);align-items:center;">
+                      <span style="font-size:11px;font-weight:700;color:${esGanadora?'var(--agq-purple)':'var(--ink-soft)'};">${l.posicion||i+1}</span>
+                      <span style="font-size:11.5px;font-weight:${esGanadora?'700':'400'};color:${esAgqL?'var(--agq-green-deep)':'var(--ink)'};">${escapeHtml((l.empresa||'').slice(0,45))}${(l.empresa||'').length>45?'…':''}</span>
+                      <span style="font-size:11px;font-weight:600;text-align:right;white-space:nowrap;">${l.importe?formatMoney(l.importe):'—'}</span>
+                      <span style="font-size:11px;text-align:right;color:var(--ink-soft);">${l.puntuacion_total!=null?l.puntuacion_total+'pts':'—'}</span>
+                    </div>`;
+                  }).join('')}
+                </div>
+                <p style="font-size:10px;color:var(--ink-soft);margin-top:4px;">Extraído el ${(entradaHist.extraidoEn||'').slice(0,10)} · verificar con el acta oficial</p>
+              </div>`;
+            }
+            // No hay licitadoras: mostrar botón para obtenerlas
+            return `<div style="margin-top:10px;padding:10px 12px;background:var(--paper-dim);border-radius:8px;display:flex;justify-content:space-between;align-items:center;gap:10px;">
+              <span style="font-size:12px;color:var(--ink-soft);">Empresas concurrentes no disponibles todavía.</span>
+              <button class="btn ghost" style="font-size:11px;padding:5px 12px;white-space:nowrap;" onclick="lanzarObtenerLicitadoras('${escapeAttr(ultima.expediente||'')}')">📋 Obtener licitadoras</button>
+            </div>`;
+          })()}
           ${previas.length > 1 ? `<p style="font-size:11px;color:var(--ink-soft);font-weight:600;margin:10px 0 4px;">Adjudicaciones anteriores (${previas.length} en total):</p>
           ${previas.slice(1,4).map(c=>{
             const imp = c.importeAdjudicacion||c.importe;
