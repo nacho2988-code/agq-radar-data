@@ -42,7 +42,7 @@
     "estadoPipelinePor": null
   },
   "5/2026": {
-    "seleccionado": true,
+    "seleccionado": false,
     "marcadoEn": "2026-07-01T07:37:32.903Z",
     "alertaEnviada": null
   }
