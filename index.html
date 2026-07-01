@@ -2722,44 +2722,39 @@ async function autoSyncFromGitHub(showStatus){
     });
     if(purged) persistTenders();
 
-    // Sincronizar selección del equipo — leer del Worker Cloudflare (fuente de verdad en tiempo real)
-    // NO de seleccion.json en GitHub que solo se actualiza una vez al día
+    // Sincronizar estado del equipo desde el Worker
+    // CLAVE: presentarLocal NO se sobreescribe en la sync periódica.
+    // Solo se sincroniza la primera vez que se carga la app.
+    // Los cambios del usuario (toggle) se envían al Worker en tiempo real — eso es suficiente.
     try{
       const proxyUrl = seleccionEndpoint();
       if(proxyUrl){
-        const selResp = await fetch(proxyUrl + '?get=all&_=' + Date.now(), {
-          method: 'GET', headers:{'Content-Type':'application/json'}
-        });
+        const selResp = await fetch(proxyUrl + '?_=' + Date.now());
         if(selResp.ok){
           const seleccion = await selResp.json();
           const ahora = Date.now();
-          const UMBRAL_LOCAL_MS = 2 * 60 * 1000;
+          const UMBRAL_MS = 2 * 60 * 1000;
           Object.keys(STATE.tenders).forEach(id=>{
             const sel = seleccion[id];
             const t = STATE.tenders[id];
             if(!sel) return;
-            const marcadaRemoto = !!sel.seleccionado;
-            const edadLocal = t.presentarLocalEn ? ahora - new Date(t.presentarLocalEn).getTime() : Infinity;
-            if(t.presentarLocal !== marcadaRemoto && edadLocal > UMBRAL_LOCAL_MS){
-              t.presentarLocal = marcadaRemoto;
-              t.presentarSyncStatus = 'sincronizada';
-            }
+            // Pipeline, notas, comercial, motivo — sí se sincronizan periódicamente
             const edadPipeline = t.estadoPipelineEn ? ahora - new Date(t.estadoPipelineEn).getTime() : Infinity;
-            if(sel.estadoPipeline && sel.estadoPipeline !== t.estadoPipeline && edadPipeline > UMBRAL_LOCAL_MS){
+            if(sel.estadoPipeline && sel.estadoPipeline !== t.estadoPipeline && edadPipeline > UMBRAL_MS){
               t.estadoPipeline = sel.estadoPipeline;
               t.estadoPipelineEn = sel.estadoPipelineEn || null;
               t.estadoPipelinePor = sel.estadoPipelinePor || null;
             }
             if(sel.notas !== undefined && sel.notasEn && sel.notasEn !== t.notasEn){
-              t.notas = sel.notas;
-              t.notasEn = sel.notasEn;
-              t.notasPor = sel.notasPor || null;
+              t.notas = sel.notas; t.notasEn = sel.notasEn; t.notasPor = sel.notasPor || null;
             }
-            if(sel.comercial !== undefined && sel.comercial !== t.comercial){
-              t.comercial = sel.comercial || '';
-            }
-            if(sel.motivoRechazo !== undefined && sel.motivoRechazo !== t.motivoRechazo){
-              t.motivoRechazo = sel.motivoRechazo || '';
+            if(sel.comercial !== undefined && sel.comercial !== t.comercial) t.comercial = sel.comercial || '';
+            if(sel.motivoRechazo !== undefined && sel.motivoRechazo !== t.motivoRechazo) t.motivoRechazo = sel.motivoRechazo || '';
+            // presentarLocal — SOLO en la primera carga de la sesión, nunca después
+            if(!t._presentarSyncDone){
+              t.presentarLocal = !!sel.seleccionado;
+              t.presentarLocalEn = sel.marcadoEn || null;
+              t._presentarSyncDone = true;
             }
           });
           persistTenders();
