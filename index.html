@@ -1637,7 +1637,6 @@ function renderAdjudicadas(){
 
   if(items.length === 0){ container.innerHTML = emptyStateHTML('adjudicadas'); document.getElementById('paginacion-adjudicadas').innerHTML=''; return; }
 
-  // Paginación
   const totalAdj = items.length;
   const totalPagesAdj = Math.ceil(totalAdj / adjRowsPerPage);
   if(adjPage > totalPagesAdj) adjPage = 1;
@@ -1647,24 +1646,41 @@ function renderAdjudicadas(){
     <div>Título de la licitación</div>
     <div>Expediente</div>
     <div>Adjudicatario</div>
-    <div>Importe</div>
+    <div>Importe adj.</div>
   </div>`;
 
   const rows = pageItems.map(t=>{
     const isAgq = isAgqAdjudicatario(t.adjudicatario);
     const adjNombre = isAgq ? AGQ_LABEL : (t.adjudicatario||'No indicado');
-    const importe = t.importeAdjudicacion ? formatMoney(t.importeAdjudicacion) : (t.importe ? formatMoney(t.importe) : '—');
-    return `<div class="award-row">
-      <div style="white-space:normal;line-height:1.4;">${escapeHtml(t.title)}</div>
-      <div class="exp">${escapeHtml(t.expediente||'—')}</div>
-      <div><span class="who ${isAgq?'agq':''}">${escapeHtml(adjNombre)}</span>${isAgq?'<span class="tag-agq-win">AGQ</span>':''}</div>
-      <div class="amount">${importe}</div>
+    const importeAdj = t.importeAdjudicacion ? formatMoney(t.importeAdjudicacion) : (t.importe ? formatMoney(t.importe) : '—');
+    const importeBase = t.importe ? formatMoney(t.importe) : null;
+    const pctBajada = (t.importeAdjudicacion && t.importe && parseFloat(t.importe) > 0)
+      ? ((parseFloat(t.importe) - t.importeAdjudicacion) / parseFloat(t.importe) * 100).toFixed(1) : null;
+    const hasLics = t.licitadoras && t.licitadoras.length > 0;
+
+    // Panel expandible de licitadoras
+    const licsPanel = buildLicitadorasPanel(t);
+
+    return `<div class="award-row" style="flex-direction:column;align-items:stretch;cursor:pointer;" onclick="toggleAdjDetail(this)">
+      <div style="display:grid;grid-template-columns:1fr 130px 1fr 120px;gap:8px;align-items:center;padding:2px 0;">
+        <div style="white-space:normal;line-height:1.4;font-size:13px;">${escapeHtml(t.title)}<br><span style="font-size:10px;color:var(--ink-soft);">${escapeHtml(t.organo||'')}</span></div>
+        <div class="exp">${escapeHtml(t.expediente||'—')}<br><span style="font-size:10px;">${t.fechaAdjudicacion||''}</span></div>
+        <div>
+          <span class="who ${isAgq?'agq':''}">${escapeHtml(adjNombre)}</span>${isAgq?'<span class="tag-agq-win">AGQ</span>':''}
+          ${pctBajada ? `<br><span style="font-size:10px;color:${parseFloat(pctBajada)>15?'var(--terracotta)':parseFloat(pctBajada)>8?'var(--amber)':'var(--agq-green-deep)'};font-weight:600;">↓${pctBajada}% bajada</span>` : ''}
+        </div>
+        <div class="amount" style="text-align:right;">
+          ${importeAdj}
+          ${importeBase && t.importeAdjudicacion ? `<br><span style="font-size:10px;color:var(--ink-soft);">Base: ${importeBase}</span>` : ''}
+          ${hasLics ? '<br><span style="font-size:10px;color:var(--agq-purple);">▼ '+t.licitadoras.length+' empresas</span>' : t.n_ofertas ? '<br><span style="font-size:10px;color:var(--ink-soft);">'+t.n_ofertas+' ofertas</span>' : ''}
+        </div>
+      </div>
+      <div class="adj-detail-panel" style="display:none;margin-top:10px;">${licsPanel}</div>
     </div>`;
   }).join('');
 
   container.innerHTML = header + rows;
 
-  // Controles de paginación
   const pag = document.getElementById('paginacion-adjudicadas');
   if(!pag) return;
   if(totalPagesAdj <= 1){ pag.innerHTML = `<span style="color:var(--ink-soft);">${totalAdj} resultados</span>`; return; }
@@ -1677,6 +1693,66 @@ function renderAdjudicadas(){
   pag.querySelectorAll('[data-adjpage]').forEach(b=>b.addEventListener('click',()=>{adjPage=parseInt(b.dataset.adjpage);renderAdjudicadas();}));
   document.getElementById('adj-pag-prev')?.addEventListener('click',()=>{if(adjPage>1){adjPage--;renderAdjudicadas();}});
   document.getElementById('adj-pag-next')?.addEventListener('click',()=>{if(adjPage<totalPagesAdj){adjPage++;renderAdjudicadas();}});
+}
+
+function toggleAdjDetail(row){
+  const panel = row.querySelector('.adj-detail-panel');
+  if(!panel) return;
+  panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
+}
+
+function buildLicitadorasPanel(t){
+  const lics = t.licitadoras;
+  const n = t.n_ofertas;
+  const min = t.importe_min;
+  const max = t.importe_max;
+  const importeBase = parseFloat(t.importe) || null;
+
+  let html = `<div style="border-top:1px solid var(--line);padding-top:10px;">`;
+
+  // Estadísticas rápidas
+  if(n || min || max){
+    html += `<div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:10px;">`;
+    if(n) html += `<div style="font-size:12px;"><span style="color:var(--ink-soft);">Ofertas recibidas:</span> <strong>${n}</strong></div>`;
+    if(min) html += `<div style="font-size:12px;"><span style="color:var(--ink-soft);">Oferta más baja:</span> <strong>${formatMoney(min)}</strong></div>`;
+    if(max) html += `<div style="font-size:12px;"><span style="color:var(--ink-soft);">Oferta más alta:</span> <strong>${formatMoney(max)}</strong></div>`;
+    html += `</div>`;
+  }
+
+  if(lics && lics.length){
+    html += `<table style="width:100%;border-collapse:collapse;font-size:12px;">
+      <thead>
+        <tr style="background:var(--agq-purple);color:#fff;">
+          <th style="padding:6px 10px;text-align:left;font-size:10px;font-weight:700;text-transform:uppercase;">#</th>
+          <th style="padding:6px 10px;text-align:left;font-size:10px;font-weight:700;text-transform:uppercase;">Empresa</th>
+          <th style="padding:6px 10px;text-align:right;font-size:10px;font-weight:700;text-transform:uppercase;">Importe ofertado</th>
+          ${importeBase ? '<th style="padding:6px 10px;text-align:right;font-size:10px;font-weight:700;text-transform:uppercase;">Bajada</th>' : ''}
+          <th style="padding:6px 10px;text-align:right;font-size:10px;font-weight:700;text-transform:uppercase;">Puntuación</th>
+        </tr>
+      </thead>
+      <tbody>`;
+    lics.forEach((l, i)=>{
+      const isAgqL = isAgqAdjudicatario(l.empresa||'');
+      const isWin = i === 0 || l.posicion === 1;
+      const bg = isAgqL ? 'var(--agq-green-bg)' : isWin ? 'var(--agq-purple-bg)' : (i%2===0?'#fff':'var(--paper-dim)');
+      const bajadaL = (l.importe && importeBase && importeBase > 0)
+        ? ((importeBase - l.importe) / importeBase * 100).toFixed(1) : null;
+      html += `<tr style="background:${bg};border-bottom:1px solid var(--line);">
+        <td style="padding:6px 10px;font-weight:700;color:${isWin?'var(--agq-purple)':'var(--ink-soft)'};">${l.posicion||i+1}</td>
+        <td style="padding:6px 10px;font-weight:${isWin?'700':'400'};color:${isAgqL?'var(--agq-green-deep)':'var(--ink)'};">${escapeHtml((l.empresa||'').slice(0,50))}${isWin?' ✓':''}</td>
+        <td style="padding:6px 10px;text-align:right;font-weight:600;">${l.importe ? formatMoney(l.importe) : '—'}</td>
+        ${importeBase ? `<td style="padding:6px 10px;text-align:right;color:${bajadaL&&parseFloat(bajadaL)>15?'var(--terracotta)':bajadaL&&parseFloat(bajadaL)>0?'var(--amber)':'var(--ink-soft)'};">${bajadaL ? bajadaL+'%' : '—'}</td>` : ''}
+        <td style="padding:6px 10px;text-align:right;color:var(--ink-soft);">${l.puntuacion_total != null ? l.puntuacion_total+'pts' : '—'}</td>
+      </tr>`;
+    });
+    html += `</tbody></table>`;
+    html += `<p style="font-size:10px;color:var(--ink-soft);margin-top:6px;">Extraído del acta de adjudicación · ${t.extraidoEn ? t.extraidoEn.slice(0,10) : '—'}</p>`;
+  } else {
+    html += `<p style="font-size:12px;color:var(--ink-soft);font-style:italic;">Datos de empresas concurrentes no disponibles. Se obtendrán automáticamente en próximos barridos.</p>`;
+  }
+
+  html += `</div>`;
+  return html;
 }
 // === [MOD:EXCEL-EXPORT] ===
 async function exportarExcel(vista){
@@ -2381,16 +2457,19 @@ function openDetail(expediente){
         const previas = buscarAdjudicacionPrevia(t);
         if(!previas.length) return '';
         const ultima = previas[0];
-        const importeAdj = ultima.importeAdjudicacion || ultima.importe;
-        const importeSalida = t.importe; // presupuesto base de la licitación actual
+        // importeAdjudicacion = precio REAL adjudicado (lo que pagó el adjudicatario)
+        // importe = presupuesto base de licitación (precio de salida)
+        const importeAdj    = ultima.importeAdjudicacion || null;
+        const importeBase   = parseFloat(ultima.importe) || null; // presupuesto base del contrato histórico
         const esAgq = isAgqAdjudicatario(ultima.adjudicatario);
         const adjNombre = esAgq ? AGQ_LABEL : (ultima.adjudicatario||'No indicado');
         const fecha = ultima.fechaAdjudicacion ? ultima.fechaAdjudicacion.slice(0,10).split('-').reverse().join('/') : '—';
         const tipoCoincidencia = ultima.expediente?.trim().toUpperCase() === t.expediente?.trim().toUpperCase() ? 'Mismo expediente' : 'Mismo órgano y objeto';
 
-        // % bajada sobre precio de salida
-        const pctBajada = (importeAdj && importeSalida && importeSalida > 0)
-          ? ((importeSalida - importeAdj) / importeSalida * 100).toFixed(1)
+        // % bajada = cuánto ofreció el adjudicatario por debajo del presupuesto base HISTÓRICO
+        // Solo se muestra cuando tenemos el precio real de adjudicación (no el presupuesto)
+        const pctBajada = (importeAdj && importeBase && importeBase > 0)
+          ? ((importeBase - importeAdj) / importeBase * 100).toFixed(1)
           : null;
 
         // Análisis predictivo: cuándo puede volver a licitarse
@@ -2444,7 +2523,7 @@ function openDetail(expediente){
             ${pctBajada ? `<div style="background:${parseFloat(pctBajada)>15?'var(--terracotta-bg)':parseFloat(pctBajada)>8?'var(--amber-bg)':'var(--agq-green-bg)'};border-radius:8px;padding:10px;">
               <div style="font-size:10px;font-weight:600;text-transform:uppercase;margin-bottom:3px;color:var(--ink-soft);">% Bajada s/ salida</div>
               <div style="font-size:20px;font-weight:700;color:${parseFloat(pctBajada)>15?'var(--terracotta)':parseFloat(pctBajada)>8?'var(--amber)':'var(--agq-green-deep)'};">${pctBajada}%</div>
-              <div style="font-size:10px;color:var(--ink-soft);margin-top:2px;">Salida: ${formatMoney(importeSalida)}</div>
+              <div style="font-size:10px;color:var(--ink-soft);margin-top:2px;">Presupuesto base: ${formatMoney(importeBase)}</div>
             </div>` : ''}
           </div>
           ${prediccionHTML}
