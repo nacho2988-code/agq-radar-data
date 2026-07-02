@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-02T13:31:53.315Z",
+  "generatedAt": "2026-07-02T16:19:45.749578+00:00",
   "years": [
     2020,
     2021,
@@ -27609,7 +27609,8 @@
       "importe": 1450492.14,
       "adjudicatario": "URBASER, S.A.",
       "fechaAdjudicacion": "2024-12-17",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 14400.0
     },
     {
       "expediente": "24B20056500",
@@ -52580,7 +52581,8 @@
       "importe": 180918.9,
       "adjudicatario": "INGENIERÍA QUIPÓNS, S.L.",
       "fechaAdjudicacion": "2023-04-06",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 40872.41
     },
     {
       "expediente": "1409_LASS_SU_1021",
@@ -54359,7 +54361,8 @@
       "importe": 79833.96,
       "adjudicatario": "LABORATORIOS MUNUERA S.L.U.",
       "fechaAdjudicacion": "2023-02-08",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 73553.72
     },
     {
       "expediente": "P4102600F-2022/000007-PAA",
@@ -56778,7 +56781,10 @@
       "importe": 74178.38,
       "adjudicatario": "INOHSA OBRAS HIDRAULICAS, S.A.",
       "fechaAdjudicacion": "2022-11-16",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 22500.0,
+      "importeAdjudicacion": 27225.0,
+      "n_ofertas": 1
     },
     {
       "expediente": "GC/TO/SER/01PASA_LEG",
@@ -60188,7 +60194,8 @@
       "importe": 190699,
       "adjudicatario": "SAITEC, S.A.-ENVIRONMENT, SCIENCE AND SOLUTIONS, S.L. (ESS BIOCONSULTING)",
       "fechaAdjudicacion": "2022-05-24",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 212700.0
     },
     {
       "expediente": "1425_LAS_SE_1121",
@@ -61798,7 +61805,8 @@
       "importe": 7275316.85,
       "adjudicatario": "UTE ACCIONA AGUA, S.A.- PROMED CONSULTING, S.L.U.",
       "fechaAdjudicacion": "2022-03-03",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 72571944.91
     },
     {
       "expediente": "T-EM SU 70.02/032022",
@@ -62906,7 +62914,8 @@
       "importe": 24368664.01,
       "adjudicatario": "ACCIONA SERVICIOS URBANOS, S.L.",
       "fechaAdjudicacion": "2022-01-18",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 23567373.32
     },
     {
       "expediente": "2021/SAS/000011 EDUSI",
@@ -63225,7 +63234,12 @@
       "importe": 114401.21,
       "adjudicatario": "LABORATORIO DEGESTIÓN AMBIENTAL S.L.U.",
       "fechaAdjudicacion": "2021-12-22",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 30000.0,
+      "importeAdjudicacion": 36300.0,
+      "n_ofertas": 1,
+      "importe_min": 30000.0,
+      "importe_max": 30000.0
     },
     {
       "expediente": "AG-06/2021",
@@ -63435,7 +63449,8 @@
       "importe": 7200,
       "adjudicatario": "EUROFINS IPROMA S.L.U.",
       "fechaAdjudicacion": "2021-12-09",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 468053.28
     },
     {
       "expediente": "2021/EA15/00002779E",
@@ -63621,7 +63636,8 @@
       "importe": 109986.37,
       "adjudicatario": "EVERIS SPAIN,S.L.U",
       "fechaAdjudicacion": "2021-11-30",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 300730.0
     },
     {
       "expediente": "ACE-62/2021",
@@ -64348,7 +64364,8 @@
       "importe": 279479.99,
       "adjudicatario": "zumain ingenieros, s.l.",
       "fechaAdjudicacion": "2021-10-26",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 148782.12
     },
     {
       "expediente": "2020/015",
@@ -64361,7 +64378,8 @@
       "importe": 463598.92,
       "adjudicatario": "LABAQUA, S.A.U. - ECOS Estudios Ambientales y Oceanografía, S.L.",
       "fechaAdjudicacion": "2021-10-26",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 2006.12
     },
     {
       "expediente": "785/2021",
@@ -65004,7 +65022,12 @@
       "importe": 50820,
       "adjudicatario": "LABAQUA, S.A.U.",
       "fechaAdjudicacion": "2021-09-13",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 278300.0,
+      "importeAdjudicacion": 336743.0,
+      "n_ofertas": 1,
+      "importe_min": 336743.0,
+      "importe_max": 336743.0
     },
     {
       "expediente": "AVS 03106 21/09",
@@ -65189,7 +65212,12 @@
       "importe": 5445,
       "adjudicatario": "Laboratorio Yolanda Partal, S.L",
       "fechaAdjudicacion": "2021-08-30",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 415091.87,
+      "importeAdjudicacion": 502261.16,
+      "n_ofertas": 3,
+      "importe_min": 330120.95,
+      "importe_max": 402711.45
     },
     {
       "expediente": "2021/036",
@@ -65455,7 +65483,8 @@
       "importe": 347480.18,
       "adjudicatario": "PW Advisory &amp; Capital Services, S.L.",
       "fechaAdjudicacion": "2021-08-04",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 335483.3
     },
     {
       "expediente": "6777/2021",
@@ -65698,7 +65727,12 @@
       "importe": 117753.5,
       "adjudicatario": "DAVID MARTIN BERMEJO",
       "fechaAdjudicacion": "2021-07-22",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 14900.0,
+      "importeAdjudicacion": 14335.68,
+      "n_ofertas": 2,
+      "importe_min": 14335.68,
+      "importe_max": 14769.5
     },
     {
       "expediente": "CB03026/2021",
@@ -65751,7 +65785,8 @@
       "importe": 304203.68,
       "adjudicatario": "CENTRO DE ESTUDIOS DE MATERIALES Y CONTROL DE OBRA,SA (CEMOSA)",
       "fechaAdjudicacion": "2021-07-19",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 380000.0
     },
     {
       "expediente": "755535E",
@@ -65794,7 +65829,8 @@
       "importe": 60041.1,
       "adjudicatario": "PW Advisory &amp; Capital Services, S.L.",
       "fechaAdjudicacion": "2021-07-14",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 65668.76
     },
     {
       "expediente": "2021000014",
@@ -66194,7 +66230,8 @@
       "importe": 141234.83,
       "adjudicatario": "JECMA CONSULTORIA Y MEDIO AMBIENTE S.L.",
       "fechaAdjudicacion": "2021-06-22",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 151187.95
     },
     {
       "expediente": "1764P",
@@ -66251,7 +66288,8 @@
       "importe": 142476.11,
       "adjudicatario": "Vermican Soluciones de Compostaje, SL",
       "fechaAdjudicacion": "2021-06-18",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 36363.64
     },
     {
       "expediente": "01-S/2021",
@@ -66342,7 +66380,8 @@
       "importe": 15740.94,
       "adjudicatario": "3C CALIDAD Y CONTROL, S.COOP.G.",
       "fechaAdjudicacion": "2021-06-15",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 75000.0
     },
     {
       "expediente": "128161",
@@ -66355,7 +66394,8 @@
       "importe": 77362.56,
       "adjudicatario": "TPF GETINSA-EUROESTUDIOS,S.L.",
       "fechaAdjudicacion": "2021-06-14",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 85071.81
     },
     {
       "expediente": "A2021/001785",
@@ -66495,7 +66535,8 @@
       "importe": 1481348.57,
       "adjudicatario": "Soluciones Industriales y Tratamientos Ambientales, S. L. (SITRA)",
       "fechaAdjudicacion": "2021-06-03",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 1249500.0
     },
     {
       "expediente": "2021/7",
@@ -66614,7 +66655,8 @@
       "importe": 56924,
       "adjudicatario": "PRESTA Servicios Ambientales S.L.",
       "fechaAdjudicacion": "2021-05-31",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 9586.78
     },
     {
       "expediente": "966/2021",
@@ -66856,7 +66898,8 @@
       "importe": 52713.81,
       "adjudicatario": "Intercontrol Levante, S.A.",
       "fechaAdjudicacion": "2021-05-21",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 57294.26
     },
     {
       "expediente": "2021/213/00001",
@@ -66901,7 +66944,8 @@
       "importe": 0,
       "adjudicatario": "CENTRO DE ESTUDIOS DE MATERIALES Y CONTROL DE OBRA,SA (CEMOSA)",
       "fechaAdjudicacion": "2021-05-19",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 80280.31
     },
     {
       "expediente": "263/20",
@@ -66918,7 +66962,8 @@
       "importe": 21774.81,
       "adjudicatario": "INVESTIGACIÓN DEL SUBSUELO Y TÉCNICAS INDUSTRIALES, S.L.",
       "fechaAdjudicacion": "2021-05-18",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 66115.7
     },
     {
       "expediente": "300/2017/01334-26",
@@ -66989,7 +67034,8 @@
       "importe": 2800278.8,
       "adjudicatario": "LABORATORIO DEGESTIÓN AMBIENTAL S.L.- BUREAU VERITAS",
       "fechaAdjudicacion": "2021-05-12",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 2314280.0
     },
     {
       "expediente": "10632/2019",
@@ -67061,7 +67107,8 @@
       "importe": 2707130.77,
       "adjudicatario": "SACYR FACILITIES, S.A.",
       "fechaAdjudicacion": "2021-05-07",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 7987112.02
     },
     {
       "expediente": "Huse 37/21 EM",
@@ -67090,7 +67137,8 @@
       "importe": 139043.52,
       "adjudicatario": "COSAPLAG, S.L.U.",
       "fechaAdjudicacion": "2021-05-07",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 244800.0
     },
     {
       "expediente": "45/2020-L2",
@@ -67109,7 +67157,8 @@
       "importe": 77512.2,
       "adjudicatario": "SM SISTEMAS MEDIOAMBIENTALES, S.L.",
       "fechaAdjudicacion": "2021-05-07",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 143123.76
     },
     {
       "expediente": "45/2020-L1",
@@ -67128,7 +67177,8 @@
       "importe": 69508.29,
       "adjudicatario": "SM SISTEMAS MEDIOAMBIENTALES, S.L.",
       "fechaAdjudicacion": "2021-05-07",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 143123.76
     },
     {
       "expediente": "CONTR/2020/912",
@@ -67143,7 +67193,8 @@
       "importe": 119790,
       "adjudicatario": "Fundación para el Desarrollo de las Nuevas Tecnologías del Hidrógeno en Aragón",
       "fechaAdjudicacion": "2021-05-06",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 120000.0
     },
     {
       "expediente": "34/2021",
@@ -67189,7 +67240,8 @@
       "importe": 31930332.83,
       "adjudicatario": "CONSTRUCCIONES MARIANO LÓPEZ NAVARRO, S.A.U.",
       "fechaAdjudicacion": "2021-05-04",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 71649752.49
     },
     {
       "expediente": "2020-IN-0030",
@@ -67202,7 +67254,8 @@
       "importe": 19505.08,
       "adjudicatario": "APPLUS NORCONTROL S.L.U.",
       "fechaAdjudicacion": "2021-05-04",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 16371.38
     },
     {
       "expediente": "2021/5",
@@ -67341,7 +67394,8 @@
       "importe": 66576.72,
       "adjudicatario": "DNOTA MEDIO AMBIENTE, S.L.",
       "fechaAdjudicacion": "2021-04-28",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 101018.12
     },
     {
       "expediente": "018/2021",
@@ -67418,7 +67472,8 @@
       "importe": 41839.14,
       "adjudicatario": "AVERIAS Y MANTENIMIENTOS, S.L.",
       "fechaAdjudicacion": "2021-04-26",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 55150.0
     },
     {
       "expediente": "244/18",
@@ -67432,7 +67487,8 @@
       "importe": 5509565.12,
       "adjudicatario": "CARMOCON, S.A.",
       "fechaAdjudicacion": "2021-04-26",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 5934559.67
     },
     {
       "expediente": "C23/21G1546/21",
@@ -67458,7 +67514,8 @@
       "importe": 353968.56,
       "adjudicatario": "TPF GETINSA EUROESTUDIOS, S.L.",
       "fechaAdjudicacion": "2021-04-22",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 306000.0
     },
     {
       "expediente": "021_07_AE_EDAR_EO",
@@ -67579,7 +67636,8 @@
       "importe": 133100,
       "adjudicatario": "Fábrica Nacional de Moneda y Timbre - Real Casa de la Moneda",
       "fechaAdjudicacion": "2021-04-14",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 110000.0
     },
     {
       "expediente": "311/2021",
@@ -67606,7 +67664,8 @@
       "importe": 970043.93,
       "adjudicatario": "UTE APPLUS GOC - EL CABRIL",
       "fechaAdjudicacion": "2021-04-13",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 826070.0
     },
     {
       "expediente": "1424/2020",
@@ -67619,7 +67678,8 @@
       "importe": 18929,
       "adjudicatario": "ADNCANINO S.L",
       "fechaAdjudicacion": "2021-04-13",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 14959.09
     },
     {
       "expediente": "VLC-48/2021",
@@ -67658,7 +67718,8 @@
       "importe": 2990361.03,
       "adjudicatario": "IDOM Consulting, Engineering, Architecture, SAU",
       "fechaAdjudicacion": "2021-04-13",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 3292968.36
     },
     {
       "expediente": "dc-soayc-000464",
@@ -67756,7 +67817,8 @@
       "importe": 57301.97,
       "adjudicatario": "CARLOS GUSTAVO GRAGERA GARRIGA",
       "fechaAdjudicacion": "2021-04-06",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 52041.32
     },
     {
       "expediente": "1264/2020",
@@ -67769,7 +67831,8 @@
       "importe": 8950.53,
       "adjudicatario": "LASAOSA PRODUCTOS QUIMICOS SL",
       "fechaAdjudicacion": "2021-04-06",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 13584.5
     },
     {
       "expediente": "107582",
@@ -67795,7 +67858,8 @@
       "importe": 82546.2,
       "adjudicatario": "SIGMAC SERVICIOS INTEGRADOS DE GEOTECNIA Y MATERIALES DE CONSTRUCCIÓN, SL.-ENMACOSA CONSULTORÍA TÉCNICA, S.A.",
       "fechaAdjudicacion": "2021-04-05",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 72530.0
     },
     {
       "expediente": "2020-00138",
@@ -67808,7 +67872,12 @@
       "importe": 246114,
       "adjudicatario": "PROINTEC, S.A.U.",
       "fechaAdjudicacion": "2021-03-31",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 48000.0,
+      "importeAdjudicacion": 58080.0,
+      "n_ofertas": 1,
+      "importe_min": 48000.0,
+      "importe_max": 48000.0
     },
     {
       "expediente": "007/2021",
@@ -67822,7 +67891,10 @@
       "importe": 9196,
       "adjudicatario": "ITIC, S.L.",
       "fechaAdjudicacion": "2021-03-30",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 923290.42,
+      "importeAdjudicacion": 923290.42,
+      "n_ofertas": 1
     },
     {
       "expediente": "2021-0015",
@@ -67851,7 +67923,8 @@
       "importe": 3527429.81,
       "adjudicatario": "GRUPO BERTOLIN, SAU",
       "fechaAdjudicacion": "2021-03-30",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 3119998.35
     },
     {
       "expediente": "921-P",
@@ -67916,7 +67989,8 @@
       "importe": 170379.24,
       "adjudicatario": "TERRITORIO Y CIUDAD, S.L.P.",
       "fechaAdjudicacion": "2021-03-26",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 5913.73
     },
     {
       "expediente": "UGR/2020/0123",
@@ -67929,7 +68003,8 @@
       "importe": 11800,
       "adjudicatario": "LABORATORIOS JIMENEZ Y MEDINA SL",
       "fechaAdjudicacion": "2021-03-25",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 9752.07
     },
     {
       "expediente": "2020031SERA",
@@ -67942,7 +68017,8 @@
       "importe": 65741,
       "adjudicatario": "EGUESAN ENERGY, S.L",
       "fechaAdjudicacion": "2021-03-24",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 121070.0
     },
     {
       "expediente": "1721/2019",
@@ -67955,7 +68031,12 @@
       "importe": 0,
       "adjudicatario": "Laboratorio de Calidad de Materiales, S.L.L.",
       "fechaAdjudicacion": "2021-03-24",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 32600.0,
+      "importeAdjudicacion": 36300.0,
+      "n_ofertas": 1,
+      "importe_min": 30000.0,
+      "importe_max": 30000.0
     },
     {
       "expediente": "CU(CO)-6377",
@@ -67968,7 +68049,8 @@
       "importe": 226388.58,
       "adjudicatario": "UTE LABS &amp; TECHNOLOGICAL SERVICES AGQ, S.L. - D-NOTA MEDIO AMBIENTE, S.L.",
       "fechaAdjudicacion": "2021-03-23",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 321133.4
     },
     {
       "expediente": "DD/003/21",
@@ -67995,7 +68077,8 @@
       "importe": 14980,
       "adjudicatario": "EUROFINS IPROMA SLU",
       "fechaAdjudicacion": "2021-03-23",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 14000.0
     },
     {
       "expediente": "23/2021",
@@ -68044,7 +68127,10 @@
       "importe": 13885.23,
       "adjudicatario": "CENTRO DE ESTUDIOS DE MATERIALES Y CONTROL DE OBRA,SA (CEMOSA)",
       "fechaAdjudicacion": "2021-03-22",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 127422.0,
+      "importeAdjudicacion": 143040.15,
+      "n_ofertas": 1
     },
     {
       "expediente": "G-2020/29",
@@ -68070,7 +68156,8 @@
       "importe": 164545.4,
       "adjudicatario": "SOCIEDAD ESPAÑOLA DE ORNITOLOGÍA (SEO/BirdLife)",
       "fechaAdjudicacion": "2021-03-22",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 227870.0
     },
     {
       "expediente": "2019-IN-0046",
@@ -68083,7 +68170,8 @@
       "importe": 19857.76,
       "adjudicatario": "APPLUS NORCONTROL S.L.U.",
       "fechaAdjudicacion": "2021-03-18",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 17132.7
     },
     {
       "expediente": "1079_LASI_SE_0320",
@@ -68098,7 +68186,8 @@
       "importe": 63903.34,
       "adjudicatario": "TECNOAMBIENTE, S.L.",
       "fechaAdjudicacion": "2021-03-16",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 64405.7
     },
     {
       "expediente": "SUM-11/21 OTT",
@@ -68139,7 +68228,8 @@
       "importe": 42120.55,
       "adjudicatario": "AGRESTA S. COOP.",
       "fechaAdjudicacion": "2021-03-11",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 308792.0
     },
     {
       "expediente": "2021/6",
@@ -68181,7 +68271,8 @@
       "importe": 241123.96,
       "adjudicatario": "LABSON GEOTECNIA Y SONDEOS, S.L.",
       "fechaAdjudicacion": "2021-03-02",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 322000.0
     },
     {
       "expediente": "2020CON00553",
@@ -68194,7 +68285,8 @@
       "importe": 190521.83,
       "adjudicatario": "DBO5 SL",
       "fechaAdjudicacion": "2021-03-01",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 175916.93
     },
     {
       "expediente": "EMER_HUMV_2021_63676000",
@@ -68265,7 +68357,8 @@
       "importe": 128023.03,
       "adjudicatario": "TECNIGRAL SL",
       "fechaAdjudicacion": "2021-02-26",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 515404.2
     },
     {
       "expediente": "PS 44/2020",
@@ -68283,7 +68376,8 @@
       "importe": 24818.26,
       "adjudicatario": "OCA INSPECCIÓN, CONTROL Y PREVENCIÓN , S.A.U",
       "fechaAdjudicacion": "2021-02-25",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 81440.0
     },
     {
       "expediente": "FFIS/2020/22",
@@ -68296,7 +68390,8 @@
       "importe": 30902.5,
       "adjudicatario": "Vet Med Labor (Division of IDEXX Laboratories)",
       "fechaAdjudicacion": "2021-02-24",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 29958.82
     },
     {
       "expediente": "1865/2019",
@@ -68309,7 +68404,8 @@
       "importe": 69811.91,
       "adjudicatario": "Acosta Ingeniería Subacuática S.L.",
       "fechaAdjudicacion": "2021-02-23",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 93340.17
     },
     {
       "expediente": "A10-CO-UT-2020-0004",
@@ -68322,7 +68418,8 @@
       "importe": 368475.1,
       "adjudicatario": "MEDIDAS AMBIENTALES SL",
       "fechaAdjudicacion": "2021-02-23",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 304524.88
     },
     {
       "expediente": "21313/2020",
@@ -68336,7 +68433,8 @@
       "importe": 22770,
       "adjudicatario": "DEMOLICIONES Y SERVICIOS MENGUILLO SL",
       "fechaAdjudicacion": "2021-02-22",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 20700.0
     },
     {
       "expediente": "021_2_PSA",
@@ -68377,7 +68475,8 @@
       "importe": 35090,
       "adjudicatario": "EUROFINS AGROAMBIENTAL, S.A.",
       "fechaAdjudicacion": "2021-02-17",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 29000.0
     },
     {
       "expediente": "SEGE-2020-050",
@@ -68390,7 +68489,8 @@
       "importe": 100,
       "adjudicatario": "HEALTH DIAGNOSTIC",
       "fechaAdjudicacion": "2021-02-16",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 99400.0
     },
     {
       "expediente": "072/2020",
@@ -68404,7 +68504,8 @@
       "importe": 7456.62,
       "adjudicatario": "LABIKER INGENIERIA Y CONTROL DE CALIDAD SL",
       "fechaAdjudicacion": "2021-02-11",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 7250.0
     },
     {
       "expediente": "A10-CO-UT-2020-0003",
@@ -68417,7 +68518,8 @@
       "importe": 102386.04,
       "adjudicatario": "TECNATOM, S.A.",
       "fechaAdjudicacion": "2021-02-11",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 84616.56
     },
     {
       "expediente": "10/2020",
@@ -68431,7 +68533,9 @@
       "importe": 133579.16,
       "adjudicatario": "LABAQUA, S.A.U.",
       "fechaAdjudicacion": "2021-02-11",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 32051.32,
+      "n_ofertas": 2
     },
     {
       "expediente": "2984/2020",
@@ -68465,7 +68569,8 @@
       "importe": 12354.54,
       "adjudicatario": "ADALMO SL",
       "fechaAdjudicacion": "2021-02-09",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 15399.35
     },
     {
       "expediente": "933_SAE_0619",
@@ -68487,7 +68592,8 @@
       "importe": 78731.05,
       "adjudicatario": "LABORATORIOS TECNOLOGICOS DE LEVANTE S.L",
       "fechaAdjudicacion": "2021-02-05",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 110825.62
     },
     {
       "expediente": "35/2021",
@@ -68501,7 +68607,10 @@
       "importe": 2252.36,
       "adjudicatario": "OXITAL SERVICIOS, S.L.",
       "fechaAdjudicacion": "2021-02-04",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 214400.89,
+      "importeAdjudicacion": 259425.08,
+      "n_ofertas": 5
     },
     {
       "expediente": "2020/000816",
@@ -68516,7 +68625,8 @@
       "importe": 138252.71,
       "adjudicatario": "Instalaciones y Mantenimiento de Gestiones Energéticas, S.A.",
       "fechaAdjudicacion": "2021-02-04",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 185671.94
     },
     {
       "expediente": "2020/SERV/005",
@@ -68531,7 +68641,8 @@
       "importe": 22999.53,
       "adjudicatario": "EUROFINS IPROMA, S.L.U.",
       "fechaAdjudicacion": "2021-02-03",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 32845.51
     },
     {
       "expediente": "1107662",
@@ -68571,7 +68682,8 @@
       "importe": 35483.25,
       "adjudicatario": "TURBEPAL, S.L.",
       "fechaAdjudicacion": "2021-01-29",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 34500.0
     },
     {
       "expediente": "TSA0070135",
@@ -68584,7 +68696,8 @@
       "importe": 64163.4,
       "adjudicatario": "LABIKER INGENIERIA Y CONTROL DE CALIDAD S.L.",
       "fechaAdjudicacion": "2021-01-29",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 73923.2
     },
     {
       "expediente": "UGR/2020/0120",
@@ -68597,7 +68710,8 @@
       "importe": 302.5,
       "adjudicatario": "LABORATORIOS JIMENEZ Y MEDINA SL",
       "fechaAdjudicacion": "2021-01-29",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 4000.0
     },
     {
       "expediente": "1198_SCE_LASSI_O_0720",
@@ -68612,7 +68726,8 @@
       "importe": 63525,
       "adjudicatario": "Applus Norcontrol S.L.U",
       "fechaAdjudicacion": "2021-01-27",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 70909.74
     },
     {
       "expediente": "47/2020",
@@ -68625,7 +68740,8 @@
       "importe": 32548.52,
       "adjudicatario": "LABORATORIO DE DIAGNOSTICOS Y ALIMENTACION 2008, S.L.U.",
       "fechaAdjudicacion": "2021-01-27",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "n_ofertas": 15
     },
     {
       "expediente": "EMG 105-20",
@@ -68640,7 +68756,8 @@
       "importe": 13009.92,
       "adjudicatario": "EUROFINS IPROMA S.L.U.",
       "fechaAdjudicacion": "2021-01-26",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 15800.0
     },
     {
       "expediente": "A07_2020",
@@ -68657,7 +68774,8 @@
       "importe": 41880.6,
       "adjudicatario": "AQUATEC, PROYECTOS PARA EL SECTOR DEL AGUA, S.A.U.",
       "fechaAdjudicacion": "2021-01-25",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 40721.13
     },
     {
       "expediente": "523/2020",
@@ -68672,7 +68790,8 @@
       "importe": 15088.94,
       "adjudicatario": "Analaqua laboratorio de aguas y consultoría ambiental, S.L.",
       "fechaAdjudicacion": "2021-01-25",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 49586.78
     },
     {
       "expediente": "080/2020",
@@ -68685,7 +68804,10 @@
       "importe": 24189.11,
       "adjudicatario": "TPF GETINSA EUROESTUDIOS, S.L.",
       "fechaAdjudicacion": "2021-01-22",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 31600.0,
+      "importeAdjudicacion": 38236.0,
+      "n_ofertas": 1
     },
     {
       "expediente": "93/2019",
@@ -68700,7 +68822,12 @@
       "importe": 12771.44,
       "adjudicatario": "GAMASER, S.L.",
       "fechaAdjudicacion": "2021-01-22",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 5950.41,
+      "importeAdjudicacion": 5400.0,
+      "n_ofertas": 2,
+      "importe_min": 3570.24,
+      "importe_max": 4462.81
     },
     {
       "expediente": "7887/2020",
@@ -68713,7 +68840,8 @@
       "importe": 171868.86,
       "adjudicatario": "EUSKONTROL, S.A. - TEKNES INNOVACIÓN, S.L.",
       "fechaAdjudicacion": "2021-01-20",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 148287.73
     },
     {
       "expediente": "6452",
@@ -68726,7 +68854,8 @@
       "importe": 28132.5,
       "adjudicatario": "EUROFINS IPROMA S.L.U.",
       "fechaAdjudicacion": "2021-01-18",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 25287.0
     },
     {
       "expediente": "CS_20_18",
@@ -68743,7 +68872,8 @@
       "importe": 40898.58,
       "adjudicatario": "AQUATEC, PROYECTOS PARA EL SECTOR DEL AGUA, S.A.U.",
       "fechaAdjudicacion": "2021-01-15",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 39765.27
     },
     {
       "expediente": "020_23_AE_ARENAS",
@@ -68757,7 +68887,8 @@
       "importe": 12410.68,
       "adjudicatario": "LABAQUA, S.A.U.",
       "fechaAdjudicacion": "2021-01-14",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 11516.26
     },
     {
       "expediente": "2020-007",
@@ -68773,7 +68904,8 @@
       "importe": 617070.96,
       "adjudicatario": "Tecno Ambiente, SLU",
       "fechaAdjudicacion": "2021-01-14",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 600000.0
     },
     {
       "expediente": "COVID-07",
@@ -68804,7 +68936,8 @@
       "importe": 75970,
       "adjudicatario": "Marco Diaz-Bertrana Sanchez",
       "fechaAdjudicacion": "2021-01-13",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 161682.24
     },
     {
       "expediente": "PA 27/20_2650",
@@ -68817,7 +68950,8 @@
       "importe": 67.53,
       "adjudicatario": "Universidad de Santiago de Compostela",
       "fechaAdjudicacion": "2021-01-13",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 32148.36
     },
     {
       "expediente": "020_22_AE_PANES",
@@ -68831,7 +68965,8 @@
       "importe": 10457.73,
       "adjudicatario": "LABAQUA, S.A.U.",
       "fechaAdjudicacion": "2021-01-13",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 11164.2
     },
     {
       "expediente": "1178_LANS_SE_0620",
@@ -68845,7 +68980,8 @@
       "importe": 109579.42,
       "adjudicatario": "EUROFINS IPROMA S.L.U.",
       "fechaAdjudicacion": "2021-01-13",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 90561.5
     },
     {
       "expediente": "2020/4834",
@@ -68871,7 +69007,8 @@
       "importe": 8636.98,
       "adjudicatario": "Antonio Ramirez Miranda, S.L.",
       "fechaAdjudicacion": "2021-01-13",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 27595.39
     },
     {
       "expediente": "7179/2020",
@@ -68884,7 +69021,8 @@
       "importe": 2398.22,
       "adjudicatario": "ANASUR LABORATORIOS, S.L.",
       "fechaAdjudicacion": "2021-01-13",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 4010.0
     },
     {
       "expediente": "2020/4833",
@@ -68922,7 +69060,8 @@
       "importe": 16597.57,
       "adjudicatario": "Antonio Ramirez Miranda, S.L.",
       "fechaAdjudicacion": "2021-01-12",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 43306.79
     },
     {
       "expediente": "1/11",
@@ -68945,7 +69084,8 @@
       "importe": 2670.72,
       "adjudicatario": "Innovaris S.L",
       "fechaAdjudicacion": "2021-01-11",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 12220.0
     },
     {
       "expediente": "CONT20089",
@@ -68958,7 +69098,8 @@
       "importe": 33291.11,
       "adjudicatario": "Labaqua, S.A.",
       "fechaAdjudicacion": "2021-01-10",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 34397.0
     },
     {
       "expediente": "045SER20",
@@ -68972,7 +69113,8 @@
       "importe": 5740.82,
       "adjudicatario": "INGENIERIA Y SERVICIOS EN ACUSTICA, IBERACUSTICA, S.L",
       "fechaAdjudicacion": "2021-01-07",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 10438.08
     },
     {
       "expediente": "DNA 64/2020",
@@ -68985,7 +69127,8 @@
       "importe": 300625.95,
       "adjudicatario": "UTE SS-MA ENAIRE",
       "fechaAdjudicacion": "2021-01-05",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 485200.0
     },
     {
       "expediente": "19/T/21/SS/DI/N/0113",
@@ -69012,7 +69155,8 @@
       "importe": 2780485.53,
       "adjudicatario": "EMS Brüel &amp; Kjaer Ibérica S.A.",
       "fechaAdjudicacion": "2020-12-30",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 2891158.8
     },
     {
       "expediente": "6146/2019",
@@ -69027,7 +69171,8 @@
       "importe": 36.91,
       "adjudicatario": "Universidade de Santiago de Compostela",
       "fechaAdjudicacion": "2020-12-29",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 20661.16
     },
     {
       "expediente": "348/2019",
@@ -69040,7 +69185,12 @@
       "importe": 26704.64,
       "adjudicatario": "NILSSON LABORATORIOS, S.L.",
       "fechaAdjudicacion": "2020-12-29",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 23966.44,
+      "importeAdjudicacion": 24200.0,
+      "n_ofertas": 5,
+      "importe_min": 17750.0,
+      "importe_max": 20550.0
     },
     {
       "expediente": "2020/OFI_01/000370",
@@ -69055,7 +69205,8 @@
       "importe": 5922.07,
       "adjudicatario": "Hidraqua, Gestión Integral de Aguas de Levante, S.A.",
       "fechaAdjudicacion": "2020-12-28",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 8250.0
     },
     {
       "expediente": "P/0013/Q/20/2",
@@ -69070,7 +69221,8 @@
       "importe": 15125,
       "adjudicatario": "Control Ambiental España sur S.L.",
       "fechaAdjudicacion": "2020-12-23",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 16186.68
     },
     {
       "expediente": "SC_2020_73 (22)",
@@ -69113,7 +69265,12 @@
       "importe": 13044,
       "adjudicatario": "COMPAÑIA DE TRATAMIENTOS LEVANTE,S.L.(CTL)",
       "fechaAdjudicacion": "2020-12-23",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 82644.63,
+      "importeAdjudicacion": 48977.0,
+      "n_ofertas": 3,
+      "importe_min": 48977.0,
+      "importe_max": 63097.89
     },
     {
       "expediente": "1211_ LASI_SE_0820",
@@ -69127,7 +69284,8 @@
       "importe": 70982.23,
       "adjudicatario": "AMPHOS 21 CONSULTING SL",
       "fechaAdjudicacion": "2020-12-22",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 79899.9
     },
     {
       "expediente": "20200500023",
@@ -69140,7 +69298,12 @@
       "importe": 50000,
       "adjudicatario": "Universidad de Valladolid",
       "fechaAdjudicacion": "2020-12-22",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 41322.31,
+      "importeAdjudicacion": 50000.0,
+      "n_ofertas": 1,
+      "importe_min": 41322.31,
+      "importe_max": 41322.31
     },
     {
       "expediente": "25/2020",
@@ -69159,7 +69322,8 @@
       "importe": 91269.17,
       "adjudicatario": "FUNDACIÓ CENTRE DE REGULACIÓ GENÒMICA",
       "fechaAdjudicacion": "2020-12-22",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 29838.0
     },
     {
       "expediente": "2017/286",
@@ -69175,7 +69339,8 @@
       "importe": 219133.14,
       "adjudicatario": "LABAQUA, S.A.U.",
       "fechaAdjudicacion": "2020-12-22",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 618053.91
     },
     {
       "expediente": "020_24_AE_SPS_BENIA",
@@ -69189,7 +69354,8 @@
       "importe": 16254.75,
       "adjudicatario": "control y calidad alimentaria s.l.",
       "fechaAdjudicacion": "2020-12-21",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 19505.68
     },
     {
       "expediente": "2020000523",
@@ -69202,7 +69368,8 @@
       "importe": 56991,
       "adjudicatario": "LABAQUA SA",
       "fechaAdjudicacion": "2020-12-21",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 61982.82
     },
     {
       "expediente": "3.19/49110.0080",
@@ -69218,7 +69385,8 @@
       "importe": 421421.39,
       "adjudicatario": "INDRA SISTEMAS SA",
       "fechaAdjudicacion": "2020-12-21",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 426975.01
     },
     {
       "expediente": "SER 64/2020",
@@ -69233,7 +69401,8 @@
       "importe": 9291.15,
       "adjudicatario": "TECNOAMBIENTE, S.L.",
       "fechaAdjudicacion": "2020-12-18",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 15616.77
     },
     {
       "expediente": "6201.4.1",
@@ -69249,7 +69418,10 @@
       "importe": 31944,
       "adjudicatario": "ACTIVIDADES DE CONSULTORIA TECNICA, INVESTIGACION Y SERVICIOS AVANZADOS S.L.",
       "fechaAdjudicacion": "2020-12-18",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 92850.0,
+      "importeAdjudicacion": 31944.0,
+      "n_ofertas": 5
     },
     {
       "expediente": "2020/558",
@@ -69262,7 +69434,12 @@
       "importe": 6891.71,
       "adjudicatario": "GAMASER, S.L.",
       "fechaAdjudicacion": "2020-12-18",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 934.6,
+      "importeAdjudicacion": 1130.87,
+      "n_ofertas": 1,
+      "importe_min": 934.6,
+      "importe_max": 934.6
     },
     {
       "expediente": "CP00007/2020",
@@ -69275,7 +69452,8 @@
       "importe": 27250.71,
       "adjudicatario": "Cerba Internacional S.A.E",
       "fechaAdjudicacion": "2020-12-18",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 37558.0
     },
     {
       "expediente": "400/2020",
@@ -69291,7 +69469,12 @@
       "importe": 33170,
       "adjudicatario": "MIGUEL ANTONIO PADRON MEDEROS",
       "fechaAdjudicacion": "2020-12-17",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 180.0,
+      "importeAdjudicacion": 212.0,
+      "n_ofertas": 1,
+      "importe_min": 212.0,
+      "importe_max": 212.0
     },
     {
       "expediente": "035-CO-SU-2020-0002",
@@ -69307,7 +69490,8 @@
       "importe": 56647.36,
       "adjudicatario": "CAASA TECNOLOGÍA DEL AGUA, S.A.",
       "fechaAdjudicacion": "2020-12-17",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 192448.0
     },
     {
       "expediente": "988/2020",
@@ -69321,7 +69505,8 @@
       "importe": 11067.01,
       "adjudicatario": "CIBUS SCIENTIA, S.L.",
       "fechaAdjudicacion": "2020-12-17",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 769766.97
     },
     {
       "expediente": "19/T/20/SS/DI/N/0069",
@@ -69347,7 +69532,8 @@
       "importe": 39468.02,
       "adjudicatario": "TECNOAMBIENTE, S.L.",
       "fechaAdjudicacion": "2020-12-15",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 34038.0
     },
     {
       "expediente": "1107218",
@@ -69373,7 +69559,9 @@
       "importe": 30737.51,
       "adjudicatario": "LABAQUA, S.A.U.",
       "fechaAdjudicacion": "2020-12-14",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 45878.92,
+      "n_ofertas": 1
     },
     {
       "expediente": "202000000077",
@@ -69389,7 +69577,8 @@
       "importe": 1020583,
       "adjudicatario": "INVESTIGACION, PLANIFICACION Y DESARROLLO, S.A.",
       "fechaAdjudicacion": "2020-12-14",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 1530667.62
     },
     {
       "expediente": "CSER/197/2020",
@@ -69403,7 +69592,8 @@
       "importe": 16106.96,
       "adjudicatario": "LABAQUA, S.A.U.",
       "fechaAdjudicacion": "2020-12-10",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 15240.76
     },
     {
       "expediente": "2020/000045",
@@ -69417,7 +69607,8 @@
       "importe": 7688.34,
       "adjudicatario": "GAMASER, S.L.",
       "fechaAdjudicacion": "2020-12-09",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 16000.0
     },
     {
       "expediente": "COVID06",
@@ -69448,7 +69639,8 @@
       "importe": 627990,
       "adjudicatario": "INVESTIGACION, PLANIFICACION Y DESARROLLO, S.A.",
       "fechaAdjudicacion": "2020-12-09",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 2178183.47
     },
     {
       "expediente": "020_20_AE_ESQUEIRO",
@@ -69462,7 +69654,8 @@
       "importe": 16830.4,
       "adjudicatario": "LABAQUA, S.A.U.",
       "fechaAdjudicacion": "2020-12-04",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 16924.97
     },
     {
       "expediente": "20sesuA33",
@@ -69614,7 +69807,8 @@
       "importe": 1069.17,
       "adjudicatario": "SEÑALIZACIONES HUELVA S.L.",
       "fechaAdjudicacion": "2020-12-04",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 2140495.87
     },
     {
       "expediente": "2019/000684",
@@ -69627,7 +69821,8 @@
       "importe": 425000,
       "adjudicatario": "CENTRO DE ESTUDIOS DE MATERIALES Y CONTROL DE OBRA,SA (CEMOSA)",
       "fechaAdjudicacion": "2020-12-04",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 351239.76
     },
     {
       "expediente": "CONTR/2020/572",
@@ -69642,7 +69837,8 @@
       "importe": 166273.36,
       "adjudicatario": "UNIVERSIDAD PONTIFICIA COMILLAS",
       "fechaAdjudicacion": "2020-12-03",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 150000.0
     },
     {
       "expediente": "3332-2020",
@@ -69659,7 +69855,8 @@
       "importe": 23078.83,
       "adjudicatario": "Grupo ICC-Carma Ingeniera Acústica",
       "fechaAdjudicacion": "2020-12-02",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 29147.47
     },
     {
       "expediente": "2020/00002134S",
@@ -69675,7 +69872,8 @@
       "importe": 42531.5,
       "adjudicatario": "UXAMA INGENIERÍA Y ARQUITECTURA, SLPU",
       "fechaAdjudicacion": "2020-12-02",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 54170.64
     },
     {
       "expediente": "GRX-182/2020",
@@ -69688,7 +69886,8 @@
       "importe": 390.44,
       "adjudicatario": "DNOTA MEDIO AMBIENTE  SL",
       "fechaAdjudicacion": "2020-12-01",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 380.0
     },
     {
       "expediente": "A10-CO-UT-2020-0002",
@@ -69703,7 +69902,8 @@
       "importe": 35031.92,
       "adjudicatario": "GD ENERGY SERVICES SAU",
       "fechaAdjudicacion": "2020-11-30",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 134599.32
     },
     {
       "expediente": "SER/20/0039",
@@ -69718,7 +69918,8 @@
       "importe": 57475,
       "adjudicatario": "ENMACOSA CONSULTORIA TECNICA, S.A.",
       "fechaAdjudicacion": "2020-11-30",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 58000.0
     },
     {
       "expediente": "8/2020",
@@ -69732,7 +69933,12 @@
       "importe": 26621.64,
       "adjudicatario": "QUIMICA DEL CENTRO, S.A.U.",
       "fechaAdjudicacion": "2020-11-30",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 6000.0,
+      "importeAdjudicacion": 6000.0,
+      "n_ofertas": 1,
+      "importe_min": 6000.0,
+      "importe_max": 6000.0
     },
     {
       "expediente": "20201006-00506",
@@ -69751,7 +69957,8 @@
       "importe": 110085.8,
       "adjudicatario": "GMV Aerospace and Defence, S.A.U.",
       "fechaAdjudicacion": "2020-11-26",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 90980.0
     },
     {
       "expediente": "22706.20.004",
@@ -69765,7 +69972,8 @@
       "importe": 61172.45,
       "adjudicatario": "CAASA TECNOLOGÍA DEL AGUA, S.A.",
       "fechaAdjudicacion": "2020-11-26",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 85906.1
     },
     {
       "expediente": "052020",
@@ -69778,7 +69986,8 @@
       "importe": 4706.9,
       "adjudicatario": "ENMACOSA CONSULTORIA TECNICA, S.A",
       "fechaAdjudicacion": "2020-11-26",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 32000.0
     },
     {
       "expediente": "23/T/20/SS/DG/A/0073",
@@ -69791,7 +70000,8 @@
       "importe": 49403.9,
       "adjudicatario": "LABETEC ENSAYOS TECNICOS CANARIOS, S.A.",
       "fechaAdjudicacion": "2020-11-26",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 47557.97
     },
     {
       "expediente": "COVID-04Bis",
@@ -69819,7 +70029,8 @@
       "importe": 0,
       "adjudicatario": "LABORATORIO ANDALUZ DE ENSAYOS PARA LA CONSTRUCCION S.R.L.",
       "fechaAdjudicacion": "2020-11-25",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 72478.74
     },
     {
       "expediente": "2020CONTRA000020",
@@ -69902,7 +70113,8 @@
       "importe": 19426.52,
       "adjudicatario": "Ferreteria Linde, S.L.",
       "fechaAdjudicacion": "2020-11-25",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 424532.59
     },
     {
       "expediente": "675/2020",
@@ -69915,7 +70127,8 @@
       "importe": 22070.4,
       "adjudicatario": "ENVIRA SOSTENIBLE, S.A.",
       "fechaAdjudicacion": "2020-11-25",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 57851.24
     },
     {
       "expediente": "032020",
@@ -69928,7 +70141,12 @@
       "importe": 63914.28,
       "adjudicatario": "CENTRO DE ESTUDIOS DE MATERIALES Y CONTROL DE OBRA,SA (CEMOSA)",
       "fechaAdjudicacion": "2020-11-25",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 34400.0,
+      "importeAdjudicacion": 27871.43,
+      "n_ofertas": 5,
+      "importe_min": 23034.24,
+      "importe_max": 31780.0
     },
     {
       "expediente": "2020/3/S218",
@@ -69943,7 +70161,8 @@
       "importe": 338.8,
       "adjudicatario": "ORENDA LABORATORIO DE AGUAS",
       "fechaAdjudicacion": "2020-11-24",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 43680.0
     },
     {
       "expediente": "16/2020",
@@ -69958,7 +70177,12 @@
       "importe": 111445.84,
       "adjudicatario": "SILVOTURISMO MEDITERRANEO, S.L.",
       "fechaAdjudicacion": "2020-11-23",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 121500.0,
+      "importeAdjudicacion": 136805.63,
+      "n_ofertas": 2,
+      "importe_min": 113062.5,
+      "importe_max": 121500.0
     },
     {
       "expediente": "02AR/003/2020",
@@ -69978,7 +70202,8 @@
       "importe": 0,
       "adjudicatario": "FCC AQUALIA, S.A.",
       "fechaAdjudicacion": "2020-11-23",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 591489.27
     },
     {
       "expediente": "A2020/005394",
@@ -69991,7 +70216,8 @@
       "importe": 57104.04,
       "adjudicatario": "CENTRO DE ESTUDIOS DE MATERIALES Y CONTROL DE OBRA,SA (CEMOSA)",
       "fechaAdjudicacion": "2020-11-20",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 69916.18
     },
     {
       "expediente": "1015158-19",
@@ -70004,7 +70230,8 @@
       "importe": 28000,
       "adjudicatario": "UNIVERSIDAD DE SANTIAGO DE COMPOTELA",
       "fechaAdjudicacion": "2020-11-20",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 23140.5
     },
     {
       "expediente": "1218_LASS_SE_0920",
@@ -70019,7 +70246,8 @@
       "importe": 13043.8,
       "adjudicatario": "PANTECNIA CONSULTING, S.L.",
       "fechaAdjudicacion": "2020-11-20",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 11649.05
     },
     {
       "expediente": "23/2020",
@@ -70032,7 +70260,10 @@
       "importe": 8894.93,
       "adjudicatario": "GEODOS Planificación y Servicios S.L.U.",
       "fechaAdjudicacion": "2020-11-19",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 150827.7,
+      "importeAdjudicacion": 90262.8,
+      "n_ofertas": 7
     },
     {
       "expediente": "202000005670",
@@ -70045,7 +70276,8 @@
       "importe": 1725302.7,
       "adjudicatario": "Instituto de Salud Carlos III",
       "fechaAdjudicacion": "2020-11-18",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 1425870.0
     },
     {
       "expediente": "FUE-52/2020",
@@ -70058,7 +70290,8 @@
       "importe": 16585.17,
       "adjudicatario": "LAQUAFUER AGUAS Y MEDIOAMBIENTE SL",
       "fechaAdjudicacion": "2020-11-18",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 15798.0
     },
     {
       "expediente": "SE.011/2020",
@@ -70071,7 +70304,12 @@
       "importe": 22936.76,
       "adjudicatario": "ACTYVA SOCIEDAD COOPERATIVA",
       "fechaAdjudicacion": "2020-11-16",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 18956.0,
+      "importeAdjudicacion": 22936.76,
+      "n_ofertas": 1,
+      "importe_min": 18956.0,
+      "importe_max": 18956.0
     },
     {
       "expediente": "SV 09/2020",
@@ -70087,7 +70325,8 @@
       "importe": 57626.27,
       "adjudicatario": "TECNOLAB LABORATORIOS S.L.",
       "fechaAdjudicacion": "2020-11-13",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 244369.09
     },
     {
       "expediente": "720 2020",
@@ -70109,7 +70348,8 @@
       "importe": 746001.77,
       "adjudicatario": "UTE LQO-EUROFINS IPROMA",
       "fechaAdjudicacion": "2020-11-12",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 1345117.95
     },
     {
       "expediente": "TSA0069754",
@@ -70122,7 +70362,8 @@
       "importe": 156360.58,
       "adjudicatario": "Universidad de Cordoba (UCO)",
       "fechaAdjudicacion": "2020-11-11",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 129223.62
     },
     {
       "expediente": "000-CO-DP-2020-0001",
@@ -70135,7 +70376,8 @@
       "importe": 181795.24,
       "adjudicatario": "TAUW IBERIA, S.A.U.",
       "fechaAdjudicacion": "2020-11-11",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 170731.82
     },
     {
       "expediente": "Serv.-021/2019",
@@ -70150,7 +70392,8 @@
       "importe": 31956.1,
       "adjudicatario": "Laboratorio Analítico Bioclínico SLU",
       "fechaAdjudicacion": "2020-11-11",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 60998.59
     },
     {
       "expediente": "C-1560/2020",
@@ -70194,7 +70437,8 @@
       "importe": 396.17,
       "adjudicatario": "Hormigones y Materiales  Nilcom S.L",
       "fechaAdjudicacion": "2020-11-11",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 7267.12
     },
     {
       "expediente": "A2021/000043",
@@ -70207,7 +70451,8 @@
       "importe": 3213634.97,
       "adjudicatario": "ENVIRA SOSTENIBLE, S.A.",
       "fechaAdjudicacion": "2020-11-11",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 3161781.75
     },
     {
       "expediente": "312/20",
@@ -70220,7 +70465,8 @@
       "importe": 34471.38,
       "adjudicatario": "COSELA, SL.",
       "fechaAdjudicacion": "2020-11-10",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 32123.9
     },
     {
       "expediente": "443944P",
@@ -70233,7 +70479,8 @@
       "importe": 0,
       "adjudicatario": "ADNCANINO S.L",
       "fechaAdjudicacion": "2020-11-09",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 11752.79
     },
     {
       "expediente": "2020/7",
@@ -70246,7 +70493,10 @@
       "importe": 238246.46,
       "adjudicatario": "Clínica Universidad de Navarra (Universidad de Navarra)",
       "fechaAdjudicacion": "2020-11-09",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 5507.64,
+      "importeAdjudicacion": 5597.0,
+      "n_ofertas": 4
     },
     {
       "expediente": "CON/2020/10",
@@ -70259,7 +70509,8 @@
       "importe": 38732.1,
       "adjudicatario": "MARICIELO, S.L.",
       "fechaAdjudicacion": "2020-11-06",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 17500.0
     },
     {
       "expediente": "2020000127",
@@ -70301,7 +70552,8 @@
       "importe": 3581.6,
       "adjudicatario": "SANIASTUR SL",
       "fechaAdjudicacion": "2020-11-06",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 24185.26
     },
     {
       "expediente": "060-CO-OE-2020-0007",
@@ -70316,7 +70568,8 @@
       "importe": 131115.6,
       "adjudicatario": "TECNATOM S.A.",
       "fechaAdjudicacion": "2020-11-05",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 158148.19
     },
     {
       "expediente": "70002-2020-305",
@@ -70330,7 +70583,8 @@
       "importe": 12501.72,
       "adjudicatario": "MICROAMBIENTE, S.L.",
       "fechaAdjudicacion": "2020-11-03",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 12460.0
     },
     {
       "expediente": "SV200314",
@@ -70343,7 +70597,8 @@
       "importe": 35083.95,
       "adjudicatario": "COLIN BUCHANAN CONSULTORES, S.A.- EN BICI POR LA MOVILIDAD EMPRESAS, S.L.",
       "fechaAdjudicacion": "2020-11-03",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 50000.0
     },
     {
       "expediente": "52018/2020",
@@ -70356,7 +70611,8 @@
       "importe": 599.5,
       "adjudicatario": "ARIDOS Y TRANSPORTES DEL ESTRECHO, S.A.",
       "fechaAdjudicacion": "2020-11-03",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 16000.0
     },
     {
       "expediente": "CT/20/2019",
@@ -70371,7 +70627,8 @@
       "importe": 3396.34,
       "adjudicatario": "LABORATORIO DE ANÁLISIS Y CONTROL, S.A.",
       "fechaAdjudicacion": "2020-11-03",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 10798.0
     },
     {
       "expediente": "170/2020",
@@ -70392,7 +70649,8 @@
       "importe": 43807.73,
       "adjudicatario": "LABAQUA, S.A.U.",
       "fechaAdjudicacion": "2020-10-30",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 32000.0
     },
     {
       "expediente": "A10-CO-UT-2020-0001",
@@ -70409,7 +70667,8 @@
       "importe": 863200.54,
       "adjudicatario": "ENUSA INDUSTRIAS AVANZADAS, S.A., S.M.E.",
       "fechaAdjudicacion": "2020-10-30",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 2512062.44
     },
     {
       "expediente": "6191",
@@ -70424,7 +70683,8 @@
       "importe": 56218.11,
       "adjudicatario": "LABORATORIOS MUNUERA S.L.U.",
       "fechaAdjudicacion": "2020-10-30",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 52843.8
     },
     {
       "expediente": "SE-11/2020",
@@ -70437,7 +70697,10 @@
       "importe": 250470,
       "adjudicatario": "AQUATEC PROYECTOS PARA EL SECTOR DEL AGUA S A",
       "fechaAdjudicacion": "2020-10-30",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 350000.0,
+      "importeAdjudicacion": 423500.0,
+      "n_ofertas": 1
     },
     {
       "expediente": "2020/ES/29",
@@ -70450,7 +70713,8 @@
       "importe": 37099.4,
       "adjudicatario": "CHARLES RIVER LABORATORIES FRANCE",
       "fechaAdjudicacion": "2020-10-29",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 60095.0
     },
     {
       "expediente": "23.02.11/2020/0004",
@@ -70463,7 +70727,8 @@
       "importe": 36179,
       "adjudicatario": "EVALUACIÓN AMBIENTAL, S.L.",
       "fechaAdjudicacion": "2020-10-29",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 45000.0
     },
     {
       "expediente": "COVID-05",
@@ -70487,7 +70752,10 @@
       "importe": 649097.29,
       "adjudicatario": "LABORATORIO DE GESTIÓN AMBIENTAL S.L.",
       "fechaAdjudicacion": "2020-10-29",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 1560698.04,
+      "importeAdjudicacion": 649097.29,
+      "n_ofertas": 3
     },
     {
       "expediente": "COVID-04",
@@ -70502,7 +70770,10 @@
       "importe": 374399.65,
       "adjudicatario": "ANALIZAGUA LABORATORIO DE RECURSOS NATURALES, S.L.",
       "fechaAdjudicacion": "2020-10-29",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 618842.4,
+      "importeAdjudicacion": 374399.65,
+      "n_ofertas": 7
     },
     {
       "expediente": "A32-CO-CB-2020-0004",
@@ -70516,7 +70787,8 @@
       "importe": 2902604.87,
       "adjudicatario": "GEOTECNIA Y CIMIENTOS S.A.",
       "fechaAdjudicacion": "2020-10-28",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 2398847.75
     },
     {
       "expediente": "060-CO-OE-2020-0003",
@@ -70532,7 +70804,8 @@
       "importe": 1630182.49,
       "adjudicatario": "GEOTECNIA Y CIMIENTOS, S.A.",
       "fechaAdjudicacion": "2020-10-28",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 2130089.11
     },
     {
       "expediente": "(A02003509)-I-200018; I-200019; I-200020",
@@ -70548,7 +70821,8 @@
       "importe": 21527.65,
       "adjudicatario": "GRUPO UNICA S.L.",
       "fechaAdjudicacion": "2020-10-28",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 65490.0
     },
     {
       "expediente": "(A02003509)-I-200015; I-200016;I-200017",
@@ -70564,7 +70838,8 @@
       "importe": 22687.5,
       "adjudicatario": "QILEX SOC.COOP.",
       "fechaAdjudicacion": "2020-10-28",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 65490.0
     },
     {
       "expediente": "2020 G 096",
@@ -70577,7 +70852,8 @@
       "importe": 84397.5,
       "adjudicatario": "ENVIRA SOSTENIBLE, S.A.",
       "fechaAdjudicacion": "2020-10-27",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 75000.0
     },
     {
       "expediente": "2020 62",
@@ -70590,7 +70866,8 @@
       "importe": 10041.79,
       "adjudicatario": "Centro de Estudios de Materiales y Control de Obra, SA (CEMOSA)",
       "fechaAdjudicacion": "2020-10-27",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 12356.87
     },
     {
       "expediente": "L020-2020",
@@ -70604,7 +70881,8 @@
       "importe": 8173.6,
       "adjudicatario": "EGUESAN ENERGY, SL",
       "fechaAdjudicacion": "2020-10-26",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 12020.0
     },
     {
       "expediente": "Emergencia 715/2020-23",
@@ -70632,7 +70910,10 @@
       "importe": 4833.06,
       "adjudicatario": "LASAOSA PRODUCTOS QUIMICOS SL",
       "fechaAdjudicacion": "2020-10-23",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 41460.87,
+      "importeAdjudicacion": 40969.68,
+      "n_ofertas": 2
     },
     {
       "expediente": "J18.024.12",
@@ -70647,7 +70928,8 @@
       "importe": 178462.9,
       "adjudicatario": "DEKRA TESTING AND CERTIFICATION, S.A.U.",
       "fechaAdjudicacion": "2020-10-23",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 433490.0
     },
     {
       "expediente": "217/20",
@@ -70661,7 +70943,8 @@
       "importe": 258310.8,
       "adjudicatario": "LABAQUA, S.A.U.",
       "fechaAdjudicacion": "2020-10-22",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 35060.17
     },
     {
       "expediente": "SV-2020-013",
@@ -70674,7 +70957,8 @@
       "importe": 217060.72,
       "adjudicatario": "Aquambiente servicios para el sector del agua, s.a.u",
       "fechaAdjudicacion": "2020-10-20",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 189995.0
     },
     {
       "expediente": "CO-2020/1830",
@@ -70687,7 +70971,10 @@
       "importe": 835501.37,
       "adjudicatario": "INPRONA 2010 S.L.",
       "fechaAdjudicacion": "2020-10-20",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 927465.38,
+      "importeAdjudicacion": 835501.37,
+      "n_ofertas": 1
     },
     {
       "expediente": "509704Y",
@@ -70700,7 +70987,8 @@
       "importe": 93311.09,
       "adjudicatario": "CHM OBRAS E INFRAESTRUCTURAS S.A.",
       "fechaAdjudicacion": "2020-10-20",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 96540.56
     },
     {
       "expediente": "PAA/219/2020",
@@ -70715,7 +71003,8 @@
       "importe": 244254.02,
       "adjudicatario": "DRAINSAL, S.L.U.",
       "fechaAdjudicacion": "2020-10-20",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 281480.77
     },
     {
       "expediente": "6201",
@@ -70747,7 +71036,8 @@
       "importe": 0,
       "adjudicatario": "INNOVACIÓN CIVIL ESPAÑOLA S.L.",
       "fechaAdjudicacion": "2020-10-19",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 650000.0
     },
     {
       "expediente": "181/20-S",
@@ -70760,7 +71050,8 @@
       "importe": 106658.13,
       "adjudicatario": "FCC AQUALIA, S.A.",
       "fechaAdjudicacion": "2020-10-19",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 99580.5
     },
     {
       "expediente": "300/2020/00398",
@@ -70775,7 +71066,8 @@
       "importe": 15932.07,
       "adjudicatario": "TÉCNICAS DE DOSIFICACIÓN Y FILTRACIÓN, S.L.",
       "fechaAdjudicacion": "2020-10-19",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 33000.0
     },
     {
       "expediente": "B41632266-2019/000119-PeA",
@@ -70788,7 +71080,8 @@
       "importe": 36065.28,
       "adjudicatario": "APPLUS NORCONTROL, S.L.U.",
       "fechaAdjudicacion": "2020-10-16",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 39735.0
     },
     {
       "expediente": "2019/00014898Z",
@@ -70801,7 +71094,10 @@
       "importe": 108887.9,
       "adjudicatario": "SINCOSUR Ingeniería Sostenible S.L.",
       "fechaAdjudicacion": "2020-10-16",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 205394.0,
+      "importeAdjudicacion": 108887.9,
+      "n_ofertas": 7
     },
     {
       "expediente": "SC-2020_69 (1)",
@@ -70814,7 +71110,10 @@
       "importe": 6292,
       "adjudicatario": "Asociación de investigación de la industria textil",
       "fechaAdjudicacion": "2020-10-15",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 5200.0,
+      "importeAdjudicacion": 6292.0,
+      "n_ofertas": 1
     },
     {
       "expediente": "44/2020",
@@ -70827,7 +71126,8 @@
       "importe": 34000,
       "adjudicatario": "SYNLAB DIAGNOSTICOS GLOBALES, S.A. Unipersonal",
       "fechaAdjudicacion": "2020-10-14",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 3909.92
     },
     {
       "expediente": "310/2020",
@@ -70840,7 +71140,8 @@
       "importe": 52522.47,
       "adjudicatario": "ASOCIACIÓN CERO RESIDUOS ORGÁNICOS",
       "fechaAdjudicacion": "2020-10-14",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 6223.0
     },
     {
       "expediente": "498/2020",
@@ -70855,7 +71156,12 @@
       "importe": 7482.64,
       "adjudicatario": "LASAOSA PRODUCTOS QUIMICOS SL",
       "fechaAdjudicacion": "2020-10-14",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 2747.41,
+      "importeAdjudicacion": 3324.37,
+      "n_ofertas": 1,
+      "importe_min": 3324.37,
+      "importe_max": 3324.37
     },
     {
       "expediente": "CON21-2020/0087",
@@ -70868,7 +71174,8 @@
       "importe": 286161.43,
       "adjudicatario": "Laboratorios Analisis COFLR, S.L.U.",
       "fechaAdjudicacion": "2020-10-14",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 253127.52
     },
     {
       "expediente": "2020/050.SUM.ABR.MC",
@@ -70881,7 +71188,8 @@
       "importe": 61932.64,
       "adjudicatario": "BONSAI LAB",
       "fechaAdjudicacion": "2020-10-14",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 51184.0
     },
     {
       "expediente": "252/2019. DIRECCION COORD Y SEGURIDAD Y SALUD",
@@ -70902,7 +71210,8 @@
       "importe": 7321,
       "adjudicatario": "Gabinete Técnico de Estructuras de Hormigón, EHE, S.L.",
       "fechaAdjudicacion": "2020-10-13",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 8068.2
     },
     {
       "expediente": "252/2019. DIRECCION DE OBRA DE ARQUITECTURA",
@@ -70923,7 +71232,8 @@
       "importe": 13908.95,
       "adjudicatario": "JAVIER SERRANO EGIDO",
       "fechaAdjudicacion": "2020-10-09",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 12102.3
     },
     {
       "expediente": "LIC-20-004",
@@ -70937,7 +71247,8 @@
       "importe": 74143.51,
       "adjudicatario": "CANARAGUA CONCESIONES,S.A.",
       "fechaAdjudicacion": "2020-10-09",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 70000.0
     },
     {
       "expediente": "EC20-C03-06240",
@@ -70950,7 +71261,8 @@
       "importe": 4881.49,
       "adjudicatario": "GAMASER, S.L.",
       "fechaAdjudicacion": "2020-10-08",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 6040.0
     },
     {
       "expediente": "PSS 2/2020",
@@ -70963,7 +71275,11 @@
       "importe": 11499.84,
       "adjudicatario": "ADNCANINO S.L",
       "fechaAdjudicacion": "2020-10-08",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 14700.0,
+      "importeAdjudicacion": 4591.1,
+      "n_ofertas": 10,
+      "importe_max": 3794.3
     },
     {
       "expediente": "P.A 485/2020",
@@ -70976,7 +71292,8 @@
       "importe": 0,
       "adjudicatario": "CAFEMAX SL",
       "fechaAdjudicacion": "2020-10-08",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "n_ofertas": 4
     },
     {
       "expediente": "V-11/19-07",
@@ -70989,7 +71306,8 @@
       "importe": 7320.5,
       "adjudicatario": "GABINETE DE SERVICIOS PARA LA CALIDAD, SLU",
       "fechaAdjudicacion": "2020-10-06",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 8893.8
     },
     {
       "expediente": "BC_5000013597_SERVICIO DE INSPECCIONES DE CALIDAD",
@@ -71002,7 +71320,8 @@
       "importe": 605000,
       "adjudicatario": "EUROCONTROL",
       "fechaAdjudicacion": "2020-10-06",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 2000000.0
     },
     {
       "expediente": "2.20/23607.0008",
@@ -71015,7 +71334,10 @@
       "importe": 3484.8,
       "adjudicatario": "BUREAU VERITAS INS Y TESTING SL UNI",
       "fechaAdjudicacion": "2020-10-06",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 2880.0,
+      "importeAdjudicacion": 3484.8,
+      "n_ofertas": 1
     },
     {
       "expediente": "CONSORCIO - EXP. 8/2020",
@@ -71032,7 +71354,8 @@
       "importe": 147584.76,
       "adjudicatario": "HORMIGONES GRAÑEN, S.L.",
       "fechaAdjudicacion": "2020-10-06",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 152692.64
     },
     {
       "expediente": "20/23493",
@@ -71045,7 +71368,8 @@
       "importe": 0,
       "adjudicatario": "UNIVERSITAT AUTÒNOMA DE BARCELONA",
       "fechaAdjudicacion": "2020-10-02",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 27500.0
     },
     {
       "expediente": "SEGE-2020-028",
@@ -71060,7 +71384,8 @@
       "importe": 21536,
       "adjudicatario": "QUIRON PREVENCION S.L.U",
       "fechaAdjudicacion": "2020-10-01",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 26400.0
     },
     {
       "expediente": "G.400/2020",
@@ -71074,7 +71399,8 @@
       "importe": 3603.38,
       "adjudicatario": "ANTICIMEX 3D SANIDAD AMBIENTAL S.A.U",
       "fechaAdjudicacion": "2020-10-01",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 3300.0
     },
     {
       "expediente": "DPM-134/2020",
@@ -71087,7 +71413,10 @@
       "importe": 62920,
       "adjudicatario": "WSP UK LIMITED",
       "fechaAdjudicacion": "2020-10-01",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 52000.0,
+      "importeAdjudicacion": 62920.0,
+      "n_ofertas": 1
     },
     {
       "expediente": "E19-0144",
@@ -71100,7 +71429,8 @@
       "importe": 38239.78,
       "adjudicatario": "CIDESAL ANALISIS DE ALIMENTOS SL",
       "fechaAdjudicacion": "2020-09-30",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 65472.41
     },
     {
       "expediente": "2020.C004.000002",
@@ -71123,7 +71453,8 @@
       "importe": 2848.34,
       "adjudicatario": "CYE CONTROL Y ESTUDIOS, S.L.",
       "fechaAdjudicacion": "2020-09-29",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 19789.19
     },
     {
       "expediente": "P.O.58.19",
@@ -71136,7 +71467,10 @@
       "importe": 470944.1,
       "adjudicatario": "TÉCNICA Y PROYECTOS, S.A.",
       "fechaAdjudicacion": "2020-09-28",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 598800.0,
+      "importeAdjudicacion": 470944.1,
+      "n_ofertas": 4
     },
     {
       "expediente": "SER 10/2020",
@@ -71149,7 +71483,8 @@
       "importe": 12342,
       "adjudicatario": "VIROCEM, S.L.",
       "fechaAdjudicacion": "2020-09-28",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 64069.11
     },
     {
       "expediente": "TSA0069599",
@@ -71162,7 +71497,8 @@
       "importe": 5203,
       "adjudicatario": "SGS TECNOS, S.A",
       "fechaAdjudicacion": "2020-09-24",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 5100.0
     },
     {
       "expediente": "6/20",
@@ -71175,7 +71511,10 @@
       "importe": 782802.24,
       "adjudicatario": "AB SCIEX SPAIN",
       "fechaAdjudicacion": "2020-09-24",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 47000.0,
+      "importeAdjudicacion": 37657.33,
+      "n_ofertas": 8
     },
     {
       "expediente": "2020CON00394",
@@ -71188,7 +71527,8 @@
       "importe": 798.6,
       "adjudicatario": "ARTE Y GESTIÓN AMBIENTAL, S.L.",
       "fechaAdjudicacion": "2020-09-23",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 1157.03
     },
     {
       "expediente": "3/CET/2020",
@@ -71201,7 +71541,8 @@
       "importe": 52223.6,
       "adjudicatario": "LABORATORIO ANALÍTICO BIOCLÍNICO, S.L.U.",
       "fechaAdjudicacion": "2020-09-23",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 52000.0
     },
     {
       "expediente": "CSRV. 22/20",
@@ -71214,7 +71555,8 @@
       "importe": 29712.06,
       "adjudicatario": "IMPELLO DESARROLLOS, SLU.",
       "fechaAdjudicacion": "2020-09-23",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 30992.0
     },
     {
       "expediente": "0363 C.Sv.",
@@ -71230,7 +71572,8 @@
       "importe": 4406.75,
       "adjudicatario": "LABORATORIO ANAYCO, S.L.",
       "fechaAdjudicacion": "2020-09-22",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 10000.0
     },
     {
       "expediente": "TSA0069612",
@@ -71245,7 +71588,8 @@
       "importe": 12826,
       "adjudicatario": "TPF, GETINSA-EUROESTUDIOS, S.L",
       "fechaAdjudicacion": "2020-09-22",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 140209.0
     },
     {
       "expediente": "2020/6",
@@ -71258,7 +71602,8 @@
       "importe": 223843.95,
       "adjudicatario": "PLASMIDFACTORY GMBH &amp; CO. KG",
       "fechaAdjudicacion": "2020-09-21",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 500000.0
     },
     {
       "expediente": "2020 61",
@@ -71271,7 +71616,8 @@
       "importe": 6981.7,
       "adjudicatario": "Centro de Estudios de Materiales y Control de Obra, SA (CEMOSA)",
       "fechaAdjudicacion": "2020-09-21",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 9385.6
     },
     {
       "expediente": "48/2019.0-SOS",
@@ -71286,7 +71632,8 @@
       "importe": 57016.26,
       "adjudicatario": "LABORATORIOS MUNUERA S.L.U.",
       "fechaAdjudicacion": "2020-09-18",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 60000.0
     },
     {
       "expediente": "2020-009",
@@ -71301,7 +71648,8 @@
       "importe": 45314.5,
       "adjudicatario": "Soluciones Integrales BFOR, S.L.",
       "fechaAdjudicacion": "2020-09-18",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 52180.0
     },
     {
       "expediente": "2020/SV-05",
@@ -71316,7 +71664,8 @@
       "importe": 0,
       "adjudicatario": "Grupo CONSIDERA SL",
       "fechaAdjudicacion": "2020-09-18",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 85037.9
     },
     {
       "expediente": "CON/16/2019",
@@ -71331,7 +71680,12 @@
       "importe": 2662,
       "adjudicatario": "SONINGEO, S.L.",
       "fechaAdjudicacion": "2020-09-18",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 7260.0,
+      "importeAdjudicacion": 8784.6,
+      "n_ofertas": 1,
+      "importe_min": 7260.0,
+      "importe_max": 7260.0
     },
     {
       "expediente": "020_13_AE_EO",
@@ -71345,7 +71699,8 @@
       "importe": 22437.76,
       "adjudicatario": "EUROFINS IPROMA S.L.U.",
       "fechaAdjudicacion": "2020-09-17",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 26361.34
     },
     {
       "expediente": "PAE/009/SERV/2020",
@@ -71365,7 +71720,8 @@
       "importe": 89882.99,
       "adjudicatario": "LABAQUA, S.A.U.",
       "fechaAdjudicacion": "2020-09-15",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 404024.0
     },
     {
       "expediente": "A6S-022/2020",
@@ -71381,7 +71737,8 @@
       "importe": 39912,
       "adjudicatario": "BELDA INGENIEROS, S.L.",
       "fechaAdjudicacion": "2020-09-14",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 39669.42
     },
     {
       "expediente": "541/2019/2448",
@@ -71403,7 +71760,8 @@
       "importe": 29620,
       "adjudicatario": "CELTA INGENIEROS S.L.",
       "fechaAdjudicacion": "2020-09-14",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 28000.0
     },
     {
       "expediente": "TSA0069395",
@@ -71418,7 +71776,8 @@
       "importe": 65340,
       "adjudicatario": "INSTITUTO DE CIENCIAS DE LA CONSTRUCCIÓN EDUARDO TORROJA (CSIC)",
       "fechaAdjudicacion": "2020-09-14",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 101369.0
     },
     {
       "expediente": "2033SE1FR003",
@@ -71431,7 +71790,8 @@
       "importe": 221430,
       "adjudicatario": "Ambling Ingeniería y Servicios SL",
       "fechaAdjudicacion": "2020-09-14",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 311202.3
     },
     {
       "expediente": "2020/26",
@@ -71444,7 +71804,10 @@
       "importe": 149018.54,
       "adjudicatario": "Fundació Centre de Regulació Genòmica",
       "fechaAdjudicacion": "2020-09-11",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 53719.0,
+      "importeAdjudicacion": 58557.95,
+      "n_ofertas": 5
     },
     {
       "expediente": "99/19",
@@ -71458,7 +71821,11 @@
       "importe": 81547.9,
       "adjudicatario": "VIROCEM, S.L.",
       "fechaAdjudicacion": "2020-09-10",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "importeAdjudicacion": 1.0,
+      "n_ofertas": 1,
+      "importe_min": 1.0,
+      "importe_max": 1.0
     },
     {
       "expediente": "021-SER-2020",
@@ -71473,7 +71840,8 @@
       "importe": 1281568.09,
       "adjudicatario": "Interlab Laboratorios, S.L.U.",
       "fechaAdjudicacion": "2020-09-09",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 1141375.32
     },
     {
       "expediente": "0485894-19",
@@ -71488,7 +71856,8 @@
       "importe": 38311.02,
       "adjudicatario": "DIAMA SC",
       "fechaAdjudicacion": "2020-09-09",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 31662.0
     },
     {
       "expediente": "C-20/0846",
@@ -71504,7 +71873,8 @@
       "importe": 7060.01,
       "adjudicatario": "Rodisur Juralca S.L",
       "fechaAdjudicacion": "2020-09-08",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 40459.71
     },
     {
       "expediente": "000025/2020-1081",
@@ -71519,7 +71889,8 @@
       "importe": 34649.97,
       "adjudicatario": "Dnota Medio Ambiente, S.L.",
       "fechaAdjudicacion": "2020-09-03",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 45454.54
     },
     {
       "expediente": "147/2020",
@@ -71534,7 +71905,10 @@
       "importe": 5426.46,
       "adjudicatario": "LASAOSA PRODUCTOS QUIMICOS SL",
       "fechaAdjudicacion": "2020-09-03",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 66000.0,
+      "importeAdjudicacion": 79860.0,
+      "n_ofertas": 1
     },
     {
       "expediente": "71/2020",
@@ -71549,7 +71923,8 @@
       "importe": 4905.73,
       "adjudicatario": "LASAOSA PRODUCTOS QUIMICOS SL",
       "fechaAdjudicacion": "2020-09-01",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 379673.54
     },
     {
       "expediente": "527/2020",
@@ -71562,7 +71937,8 @@
       "importe": 18405.73,
       "adjudicatario": "CYE CONTROL Y ESTUDIOS, S.L.",
       "fechaAdjudicacion": "2020-08-31",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 50631.32
     },
     {
       "expediente": "1859/2020",
@@ -71575,7 +71951,8 @@
       "importe": 3649.75,
       "adjudicatario": "GAMASER, S.L.",
       "fechaAdjudicacion": "2020-08-31",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 4356.0
     },
     {
       "expediente": "PA 40/2020",
@@ -71589,7 +71966,8 @@
       "importe": 16000,
       "adjudicatario": "AQM Laboratorios, S.L",
       "fechaAdjudicacion": "2020-08-31",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 13223.14
     },
     {
       "expediente": "48/2020",
@@ -71603,7 +71981,10 @@
       "importe": 5442.58,
       "adjudicatario": "AQUYMA S.L.",
       "fechaAdjudicacion": "2020-08-28",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 45816.9,
+      "importeAdjudicacion": 37771.0,
+      "n_ofertas": 4
     },
     {
       "expediente": "XP0565/2019",
@@ -71616,7 +71997,8 @@
       "importe": 368790.48,
       "adjudicatario": "FRANCISCO ORIOL ALONSO NAVARRO",
       "fechaAdjudicacion": "2020-08-28",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 398556.0
     },
     {
       "expediente": "1205/2019",
@@ -71632,7 +72014,8 @@
       "importe": 240108,
       "adjudicatario": "FCC MEDIO AMBIENTE, S.A.",
       "fechaAdjudicacion": "2020-08-27",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 26287.42
     },
     {
       "expediente": "22199.20.001",
@@ -71666,7 +72049,8 @@
       "importe": 51858.22,
       "adjudicatario": "VWR International Eurolab, S.L.U.",
       "fechaAdjudicacion": "2020-08-26",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 196806.23
     },
     {
       "expediente": "6203",
@@ -71682,7 +72066,8 @@
       "importe": 36993.33,
       "adjudicatario": "ESTUDIO 7 SOLUCIONES INTEGRALES S.L.",
       "fechaAdjudicacion": "2020-08-25",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 45000.0
     },
     {
       "expediente": "2020/C004/000009",
@@ -71695,7 +72080,8 @@
       "importe": 18331.83,
       "adjudicatario": "3C CALIDAD Y CONTROL, S.COOP.G.",
       "fechaAdjudicacion": "2020-08-25",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 18687.56
     },
     {
       "expediente": "SC_2020_065B (18)",
@@ -71712,7 +72098,10 @@
       "importe": 228.39,
       "adjudicatario": "Serigrafías y Rotulaciones del Principado, S.L.",
       "fechaAdjudicacion": "2020-08-24",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 6825.09,
+      "importeAdjudicacion": 228.39,
+      "n_ofertas": 5
     },
     {
       "expediente": "SSCC EM 393/20",
@@ -71726,7 +72115,10 @@
       "importe": 3687823.76,
       "adjudicatario": "Hospital Sant Joan de Déu",
       "fechaAdjudicacion": "2020-08-24",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 3687823.76,
+      "importeAdjudicacion": 3687823.76,
+      "n_ofertas": 1
     },
     {
       "expediente": "1105685",
@@ -71767,7 +72159,8 @@
       "importe": 145200,
       "adjudicatario": "Rocio Hurtado Roa",
       "fechaAdjudicacion": "2020-08-20",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 27370.0
     },
     {
       "expediente": "2020/22C SER",
@@ -71780,7 +72173,8 @@
       "importe": 25928.62,
       "adjudicatario": "Gestión y Estudios Ambientales S.Coop",
       "fechaAdjudicacion": "2020-08-20",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 24500.0
     },
     {
       "expediente": "LICT/99/114/2020/0108",
@@ -71795,7 +72189,8 @@
       "importe": 2710.4,
       "adjudicatario": "CONTROL MICROBIOLOGICO BILACON SLU",
       "fechaAdjudicacion": "2020-08-20",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 15600.0
     },
     {
       "expediente": "CONT00075/20",
@@ -71808,7 +72203,10 @@
       "importe": 31353.74,
       "adjudicatario": "Tecnologías y Servicios Agrarios, S.A., S.M.E., M.P.",
       "fechaAdjudicacion": "2020-08-20",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 31353.74,
+      "importeAdjudicacion": 31353.74,
+      "n_ofertas": 1
     },
     {
       "expediente": "TSA0069288",
@@ -71821,7 +72219,8 @@
       "importe": 36354.45,
       "adjudicatario": "SIVER UNE-104 S.L.",
       "fechaAdjudicacion": "2020-08-19",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 45306.0
     },
     {
       "expediente": "2020000774",
@@ -71837,7 +72236,8 @@
       "importe": 1354.92,
       "adjudicatario": "LABAQUA, S.A.U.",
       "fechaAdjudicacion": "2020-08-18",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 17748.0
     },
     {
       "expediente": "4154/2020",
@@ -71850,7 +72250,8 @@
       "importe": 329021.93,
       "adjudicatario": "EUSKONTROL, S.A.",
       "fechaAdjudicacion": "2020-08-17",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 302200.53
     },
     {
       "expediente": "159/2020",
@@ -71866,7 +72267,8 @@
       "importe": 28930,
       "adjudicatario": "Marco Diaz-Bertrana Sanchez",
       "fechaAdjudicacion": "2020-08-14",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 10001.84
     },
     {
       "expediente": "SERV-SEC/01-2020",
@@ -71880,7 +72282,8 @@
       "importe": 36763.2,
       "adjudicatario": "GAMASER, S.L.",
       "fechaAdjudicacion": "2020-08-13",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 44628.1
     },
     {
       "expediente": "282887",
@@ -71894,7 +72297,12 @@
       "importe": 101009.59,
       "adjudicatario": "LIMCAMAR, SL",
       "fechaAdjudicacion": "2020-08-12",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 88400.0,
+      "importeAdjudicacion": 101009.59,
+      "n_ofertas": 2,
+      "importe_min": 83479.0,
+      "importe_max": 86331.44
     },
     {
       "expediente": "AC/CON/032/19",
@@ -71907,7 +72315,8 @@
       "importe": 66989.17,
       "adjudicatario": "INVESTIGACIÓN Y CONTROL DE CALIDAD, S.A.U. (INCOSA)",
       "fechaAdjudicacion": "2020-08-12",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 80000.0
     },
     {
       "expediente": "9267/2019",
@@ -71922,7 +72331,12 @@
       "importe": 15222,
       "adjudicatario": "SM SISTEMAS MEDIOAMBIENTALES, S.L.",
       "fechaAdjudicacion": "2020-08-11",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 31074.38,
+      "importeAdjudicacion": 15222.0,
+      "n_ofertas": 3,
+      "importe_min": 12443.88,
+      "importe_max": 14627.0
     },
     {
       "expediente": "856/2020",
@@ -71935,7 +72349,8 @@
       "importe": 6924.67,
       "adjudicatario": "MARICIELO, S.L.",
       "fechaAdjudicacion": "2020-08-11",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 35815.0
     },
     {
       "expediente": "TSA0069247",
@@ -71950,7 +72365,8 @@
       "importe": 10621.38,
       "adjudicatario": "TPF, GETINSA-EUROESTUDIOS, S.L",
       "fechaAdjudicacion": "2020-08-10",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 123521.5
     },
     {
       "expediente": "202017320067",
@@ -71963,7 +72379,8 @@
       "importe": 22106.7,
       "adjudicatario": "SERVICIO DE CONTENEDORES HIGIÉNICOS SAU",
       "fechaAdjudicacion": "2020-08-10",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 34972.44
     },
     {
       "expediente": "DD/016/20",
@@ -71977,7 +72394,8 @@
       "importe": 31501.91,
       "adjudicatario": "Juan Miguel Mas Moll",
       "fechaAdjudicacion": "2020-08-07",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 37267.02
     },
     {
       "expediente": "1028_SAOS_0120",
@@ -71991,7 +72409,8 @@
       "importe": 20235.6,
       "adjudicatario": "SYNLAB DIAGNÓSTICOS GLOBALES,S.A.U",
       "fechaAdjudicacion": "2020-08-06",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 19272.0
     },
     {
       "expediente": "HSLL134/2020",
@@ -72004,7 +72423,8 @@
       "importe": 341359.24,
       "adjudicatario": "REFERENCE LABORATORY SA",
       "fechaAdjudicacion": "2020-08-03",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 370216.7
     },
     {
       "expediente": "508/2020",
@@ -72017,7 +72437,10 @@
       "importe": 37923.69,
       "adjudicatario": "EUROFINS IPROMA S.L.U.",
       "fechaAdjudicacion": "2020-07-31",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 23400.0,
+      "importeAdjudicacion": 11101.75,
+      "n_ofertas": 3
     },
     {
       "expediente": "1/2020SER",
@@ -72032,7 +72455,8 @@
       "importe": 4333.5,
       "adjudicatario": "KALAMAZOO SUAREZ MARRERO SL",
       "fechaAdjudicacion": "2020-07-30",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 8100.0
     },
     {
       "expediente": "000028/2020-1081",
@@ -72047,7 +72471,8 @@
       "importe": 54028.92,
       "adjudicatario": "HOP Ubiquitous S.L.",
       "fechaAdjudicacion": "2020-07-30",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 50000.0
     },
     {
       "expediente": "CC2020/45",
@@ -72060,7 +72485,8 @@
       "importe": 85.9,
       "adjudicatario": "Analiza Control de Calidad, S.L.",
       "fechaAdjudicacion": "2020-07-30",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 36363.64
     },
     {
       "expediente": "BC_5000011437",
@@ -72073,7 +72499,8 @@
       "importe": 41140,
       "adjudicatario": "TITANIA ENSAYOS Y PROYECTOS INDUSTRIALES S.L.",
       "fechaAdjudicacion": "2020-07-30",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 34000.0
     },
     {
       "expediente": "117/19",
@@ -72090,7 +72517,12 @@
       "importe": 458287.5,
       "adjudicatario": "Centro de Estudios de Materiales y Control de Obra, SA (CEMOSA)",
       "fechaAdjudicacion": "2020-07-30",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 264439.55,
+      "importeAdjudicacion": 281575.23,
+      "n_ofertas": 3,
+      "importe_min": 281575.23,
+      "importe_max": 309380.79
     },
     {
       "expediente": "ALC-57/2020",
@@ -72103,7 +72535,8 @@
       "importe": 159175.5,
       "adjudicatario": "ENVIRA SOSTENIBLE SA",
       "fechaAdjudicacion": "2020-07-29",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 140000.0
     },
     {
       "expediente": "SE/3/20",
@@ -72116,7 +72549,8 @@
       "importe": 108900,
       "adjudicatario": "ASOCIACIÓN DE INVESTIGACIÓN DE LAS INDUSTRIAS CERAMICAS (ITC-AICE)",
       "fechaAdjudicacion": "2020-07-28",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 90000.0
     },
     {
       "expediente": "20/06182",
@@ -72129,7 +72563,8 @@
       "importe": 4994.88,
       "adjudicatario": "AQUYMA S.L.",
       "fechaAdjudicacion": "2020-07-28",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 7000.0
     },
     {
       "expediente": "009/20-S",
@@ -72144,7 +72579,8 @@
       "importe": 147174.48,
       "adjudicatario": "DBO5, S.L.",
       "fechaAdjudicacion": "2020-07-28",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 206155.6
     },
     {
       "expediente": "P/0005/Y/20/2",
@@ -72160,7 +72596,11 @@
       "importe": 8221.95,
       "adjudicatario": "ECOSTUDI SIMA SLP",
       "fechaAdjudicacion": "2020-07-27",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "importeAdjudicacion": 8221.95,
+      "n_ofertas": 3,
+      "importe_min": 7835.48,
+      "importe_max": 8267.79
     },
     {
       "expediente": "A2020/004431",
@@ -72173,7 +72613,12 @@
       "importe": 47665.53,
       "adjudicatario": "TPF GETINSA EUROESTUDIOS, S.L.",
       "fechaAdjudicacion": "2020-07-24",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 58875.02,
+      "importeAdjudicacion": 47665.53,
+      "n_ofertas": 3,
+      "importe_min": 39393.0,
+      "importe_max": 48266.0
     },
     {
       "expediente": "(A02022452)-5500011-05",
@@ -72188,7 +72633,8 @@
       "importe": 59637.27,
       "adjudicatario": "Centro de Investigaciones Energéticas, Medioambientales y Tecnológicas (CIEMAT)",
       "fechaAdjudicacion": "2020-07-24",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 49287.0
     },
     {
       "expediente": "2020/10",
@@ -72202,7 +72648,8 @@
       "importe": 15945.77,
       "adjudicatario": "CONTROL MICROBIOLÓGICO BILACON, S.L.U",
       "fechaAdjudicacion": "2020-07-23",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 16353.06
     },
     {
       "expediente": "1/2020",
@@ -72217,7 +72664,11 @@
       "importe": 85417.29,
       "adjudicatario": "VERMICAN SOLUCIONES DE COMPOSTAJE, S.L.",
       "fechaAdjudicacion": "2020-07-22",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 99141.71,
+      "importeAdjudicacion": 102971.0,
+      "n_ofertas": 6,
+      "importe_max": 94184.62
     },
     {
       "expediente": "153/2019",
@@ -72232,7 +72683,10 @@
       "importe": 17424,
       "adjudicatario": "VERMICAN SOLUCIONES DE COMPOSTAJE, S.L.",
       "fechaAdjudicacion": "2020-07-22",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 27212.11,
+      "importeAdjudicacion": 25682.79,
+      "n_ofertas": 8
     },
     {
       "expediente": "1068_LASS_SU_0220",
@@ -72247,7 +72701,12 @@
       "importe": 18609.8,
       "adjudicatario": "ALFESTAL SL",
       "fechaAdjudicacion": "2020-07-20",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 26181.99,
+      "importeAdjudicacion": 18609.8,
+      "n_ofertas": 5,
+      "importe_min": 15380.0,
+      "importe_max": 24915.0
     },
     {
       "expediente": "188/2020",
@@ -72261,7 +72720,12 @@
       "importe": 1321.32,
       "adjudicatario": "ECO-TRATAMIENTOS Y SERVICIOS S.L",
       "fechaAdjudicacion": "2020-07-20",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 413223.14,
+      "importeAdjudicacion": 481237.61,
+      "n_ofertas": 6,
+      "importe_min": 377231.4,
+      "importe_max": 413223.14
     },
     {
       "expediente": "012/2020",
@@ -72281,7 +72745,10 @@
       "importe": 58793.9,
       "adjudicatario": "ITIC, S.L.",
       "fechaAdjudicacion": "2020-07-17",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 858864.8,
+      "importeAdjudicacion": 58793.9,
+      "n_ofertas": 11
     },
     {
       "expediente": "2020/00004",
@@ -72309,7 +72776,8 @@
       "importe": 14547.5,
       "adjudicatario": "Aquimisa, S.L.",
       "fechaAdjudicacion": "2020-07-17",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 134400.0
     },
     {
       "expediente": "125/19",
@@ -72322,7 +72790,8 @@
       "importe": 11664.4,
       "adjudicatario": "FUNDACIÓN CENTRO GALLEGO DE INVESTIGACIONES DEL AGUA",
       "fechaAdjudicacion": "2020-07-14",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 619834.71
     },
     {
       "expediente": "A2020/001072",
@@ -72335,7 +72804,12 @@
       "importe": 63842.02,
       "adjudicatario": "Eptisa Servicios de Ingeniería, S.L.",
       "fechaAdjudicacion": "2020-07-13",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 65228.87,
+      "importeAdjudicacion": 63842.02,
+      "n_ofertas": 5,
+      "importe_min": 40337.0,
+      "importe_max": 52762.0
     },
     {
       "expediente": "60/UC-79/20",
@@ -72348,7 +72822,11 @@
       "importe": 2964.5,
       "adjudicatario": "QUIMICRAL, S.L.",
       "fechaAdjudicacion": "2020-07-13",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 3461.5,
+      "importeAdjudicacion": 2964.5,
+      "n_ofertas": 4,
+      "importe_max": 2693.0
     },
     {
       "expediente": "4023020001000",
@@ -72364,7 +72842,10 @@
       "importe": 20000,
       "adjudicatario": "SOOLOGIC TECHNOLOGICAL SOLUTIONS SL",
       "fechaAdjudicacion": "2020-07-10",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 66115.7,
+      "importeAdjudicacion": 20000.0,
+      "n_ofertas": 3
     },
     {
       "expediente": "2.19/30108.0050",
@@ -72377,7 +72858,10 @@
       "importe": 157629.31,
       "adjudicatario": "UTE CAASA TA- CAASA FS II",
       "fechaAdjudicacion": "2020-07-09",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 182332.8,
+      "importeAdjudicacion": 157629.31,
+      "n_ofertas": 3
     },
     {
       "expediente": "3182/2020",
@@ -72390,7 +72874,10 @@
       "importe": 356224,
       "adjudicatario": "FUNDACION TECNALIA RESEARCH &amp; INNOVATION",
       "fechaAdjudicacion": "2020-07-08",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 320000.0,
+      "importeAdjudicacion": 356224.0,
+      "n_ofertas": 1
     },
     {
       "expediente": "TSA0068962",
@@ -72403,7 +72890,10 @@
       "importe": 40255.85,
       "adjudicatario": "CENTRO DE ESTUDIOS DE MATERIALES Y CONTROL DE OBRA S.A.",
       "fechaAdjudicacion": "2020-07-08",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 34994.0,
+      "importeAdjudicacion": 40255.85,
+      "n_ofertas": 3
     },
     {
       "expediente": "127556",
@@ -72416,7 +72906,10 @@
       "importe": 28377.59,
       "adjudicatario": "TPF GETINSA EUROESTUDIOS, S.L.",
       "fechaAdjudicacion": "2020-07-08",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 24799.1,
+      "importeAdjudicacion": 28377.59,
+      "n_ofertas": 1
     },
     {
       "expediente": "VDE-13/2020",
@@ -72429,7 +72922,10 @@
       "importe": 3094.05,
       "adjudicatario": "ADIQUIMICA SA",
       "fechaAdjudicacion": "2020-07-08",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 4000.0,
+      "importeAdjudicacion": 3094.05,
+      "n_ofertas": 2
     },
     {
       "expediente": "22706.19.035",
@@ -72444,7 +72940,12 @@
       "importe": 80544.86,
       "adjudicatario": "INTECSA-INARSA, S.A. Unipersonal",
       "fechaAdjudicacion": "2020-07-07",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 112653.71,
+      "importeAdjudicacion": 80544.86,
+      "n_ofertas": 6,
+      "importe_min": 66000.0,
+      "importe_max": 74633.8
     },
     {
       "expediente": "(A02022452)-5719001-17",
@@ -72459,7 +72960,10 @@
       "importe": 175383.45,
       "adjudicatario": "Adiego Hermanos, S.A.",
       "fechaAdjudicacion": "2020-07-07",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 144945.0,
+      "importeAdjudicacion": 175383.45,
+      "n_ofertas": 2
     },
     {
       "expediente": "(A02022452)-5500011-07-08-09",
@@ -72479,7 +72983,10 @@
       "importe": 9599.9,
       "adjudicatario": "Labaqua, S.A.U.",
       "fechaAdjudicacion": "2020-07-07",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 34654.61,
+      "importeAdjudicacion": 9599.9,
+      "n_ofertas": 2
     },
     {
       "expediente": "79/2020",
@@ -72492,7 +72999,8 @@
       "importe": 5659.61,
       "adjudicatario": "LABORATORIOS MUNUERA S.L.U.",
       "fechaAdjudicacion": "2020-07-07",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 126713.23
     },
     {
       "expediente": "CU(CO)-6281",
@@ -72506,7 +73014,12 @@
       "importe": 64574.76,
       "adjudicatario": "DBO5, S.L.",
       "fechaAdjudicacion": "2020-07-06",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 69907.74,
+      "importeAdjudicacion": 64574.76,
+      "n_ofertas": 1,
+      "importe_min": 53367.57,
+      "importe_max": 53367.57
     },
     {
       "expediente": "2020009760",
@@ -72519,7 +73032,10 @@
       "importe": 3599.73,
       "adjudicatario": "AENOR",
       "fechaAdjudicacion": "2020-07-06",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 2975.21,
+      "importeAdjudicacion": 3599.73,
+      "n_ofertas": 2
     },
     {
       "expediente": "A10-CO-UT-2019-0001",
@@ -72533,7 +73049,10 @@
       "importe": 109426.35,
       "adjudicatario": "Geotecnia y Cimientos, S.A.",
       "fechaAdjudicacion": "2020-07-03",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 94785.0,
+      "importeAdjudicacion": 109426.35,
+      "n_ofertas": 1
     },
     {
       "expediente": "TSA0069187",
@@ -72548,7 +73067,10 @@
       "importe": 18399.26,
       "adjudicatario": "EPTISA SERVICIOS DE INGENIERIA S.L.",
       "fechaAdjudicacion": "2020-07-03",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 149673.2,
+      "importeAdjudicacion": 18399.26,
+      "n_ofertas": 4
     },
     {
       "expediente": "CON-SER-0021-2019.1",
@@ -72561,7 +73083,10 @@
       "importe": 15000,
       "adjudicatario": "INTERLUN, SOCIEDAD LIMITADA",
       "fechaAdjudicacion": "2020-06-30",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 13636.36,
+      "importeAdjudicacion": 15000.0,
+      "n_ofertas": 1
     },
     {
       "expediente": "15/2020 SV PAS",
@@ -72580,7 +73105,12 @@
       "importe": 46778.6,
       "adjudicatario": "ASTROÁNDALUS, S.L.",
       "fechaAdjudicacion": "2020-06-30",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 48826.45,
+      "importeAdjudicacion": 46778.6,
+      "n_ofertas": 5,
+      "importe_min": 46778.6,
+      "importe_max": 53336.8
     },
     {
       "expediente": "1327/2020",
@@ -72594,7 +73124,12 @@
       "importe": 36511.75,
       "adjudicatario": "ADNCANINO S.L",
       "fechaAdjudicacion": "2020-06-30",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 35500.0,
+      "importeAdjudicacion": 36511.75,
+      "n_ofertas": 1,
+      "importe_min": 30175.0,
+      "importe_max": 30175.0
     },
     {
       "expediente": "CON/16/2020",
@@ -72607,7 +73142,10 @@
       "importe": 7686.8,
       "adjudicatario": "BIESCA AGROFORESTAL Y MEDIOAMBIENTE S.L.",
       "fechaAdjudicacion": "2020-06-29",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 12096.92,
+      "importeAdjudicacion": 7686.8,
+      "n_ofertas": 7
     },
     {
       "expediente": "PEA/127/2020",
@@ -72621,7 +73159,12 @@
       "importe": 138987.52,
       "adjudicatario": "DBO5, S.L.",
       "fechaAdjudicacion": "2020-06-29",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 126504.1,
+      "importeAdjudicacion": 138987.52,
+      "n_ofertas": 2,
+      "importe_min": 114865.72,
+      "importe_max": 121724.24
     },
     {
       "expediente": "00009/2019-2.06.03.01",
@@ -72637,7 +73180,8 @@
       "importe": 118217.44,
       "adjudicatario": "LABORATORIOS MUNUERA S.L.U.",
       "fechaAdjudicacion": "2020-06-26",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 140055.8
     },
     {
       "expediente": "20204038-V",
@@ -72650,7 +73194,12 @@
       "importe": 15681.89,
       "adjudicatario": "EUROCONSULT NUEVAS TECNOLOGÍAS, S.A.",
       "fechaAdjudicacion": "2020-06-24",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 14846.79,
+      "importeAdjudicacion": 15681.89,
+      "n_ofertas": 3,
+      "importe_min": 12960.24,
+      "importe_max": 14343.9
     },
     {
       "expediente": "561 2019",
@@ -72663,7 +73212,8 @@
       "importe": 27043.5,
       "adjudicatario": "SGS INSPECCIONES REGLAMENTARIAS S.A.",
       "fechaAdjudicacion": "2020-06-24",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 43190.76
     },
     {
       "expediente": "SV  02 20",
@@ -72676,7 +73226,11 @@
       "importe": 60648.59,
       "adjudicatario": "TECNOLAB LABORATORIOS S.L.",
       "fechaAdjudicacion": "2020-06-23",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 55692.0,
+      "importeAdjudicacion": 60648.59,
+      "n_ofertas": 3,
+      "importe_max": 50122.8
     },
     {
       "expediente": "228/2020",
@@ -72697,7 +73251,12 @@
       "importe": 9455.61,
       "adjudicatario": "LASAOSA PRODUCTOS QUIMICOS SL",
       "fechaAdjudicacion": "2020-06-23",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 21573.5,
+      "importeAdjudicacion": 9455.61,
+      "n_ofertas": 3,
+      "importe_min": 7814.55,
+      "importe_max": 11529.0
     },
     {
       "expediente": "A32-CO-CB-2019-0051",
@@ -72711,7 +73270,10 @@
       "importe": 23379.62,
       "adjudicatario": "Atme Menendez, S.L.",
       "fechaAdjudicacion": "2020-06-23",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 24115.6,
+      "importeAdjudicacion": 23379.62,
+      "n_ofertas": 1
     },
     {
       "expediente": "060-CO-OE-2020-0001",
@@ -72724,7 +73286,10 @@
       "importe": 94259,
       "adjudicatario": "Geotecnia y Cimientos, S.A.",
       "fechaAdjudicacion": "2020-06-22",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 77900.0,
+      "importeAdjudicacion": 94259.0,
+      "n_ofertas": 1
     },
     {
       "expediente": "SERV-03/2020",
@@ -72737,7 +73302,12 @@
       "importe": 6052.42,
       "adjudicatario": "LABORATORIOS ENA S.L",
       "fechaAdjudicacion": "2020-06-19",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 10000.0,
+      "importeAdjudicacion": 6052.42,
+      "n_ofertas": 3,
+      "importe_min": 5002.0,
+      "importe_max": 9000.0
     },
     {
       "expediente": "SSCC EM 304/20",
@@ -72751,7 +73321,10 @@
       "importe": 408673.35,
       "adjudicatario": "Agrupación Médica Balear SA",
       "fechaAdjudicacion": "2020-06-19",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 408673.35,
+      "importeAdjudicacion": 408673.35,
+      "n_ofertas": 1
     },
     {
       "expediente": "SSCC EM 299/20",
@@ -72765,7 +73338,10 @@
       "importe": 2106881.56,
       "adjudicatario": "Hospital Sant Joan de Déu",
       "fechaAdjudicacion": "2020-06-19",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 2106881.56,
+      "importeAdjudicacion": 2106881.56,
+      "n_ofertas": 1
     },
     {
       "expediente": "SSCC EM 300/20",
@@ -72779,7 +73355,10 @@
       "importe": 572173.8,
       "adjudicatario": "Cruz Roja Española en las Islas Baleares",
       "fechaAdjudicacion": "2020-06-19",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 572173.8,
+      "importeAdjudicacion": 572173.8,
+      "n_ofertas": 1
     },
     {
       "expediente": "20200520-00289",
@@ -72794,7 +73373,12 @@
       "importe": 24865.5,
       "adjudicatario": "UNIVERSIDAD DE CANTABRIA",
       "fechaAdjudicacion": "2020-06-18",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 21123.2,
+      "importeAdjudicacion": 24865.5,
+      "n_ofertas": 1,
+      "importe_min": 20550.0,
+      "importe_max": 20550.0
     },
     {
       "expediente": "283/2020",
@@ -72807,7 +73391,10 @@
       "importe": 1782.33,
       "adjudicatario": "OX COMPAÑÍA DE TRATAMIENTO DE AGUAS, S.L.",
       "fechaAdjudicacion": "2020-06-16",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 1944.0,
+      "importeAdjudicacion": 1782.33,
+      "n_ofertas": 4
     },
     {
       "expediente": "18-SER-24",
@@ -72834,7 +73421,12 @@
       "importe": 67968.19,
       "adjudicatario": "CANARAGUA CONCESIONES,S.A.",
       "fechaAdjudicacion": "2020-06-16",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 143680.6,
+      "importeAdjudicacion": 67968.19,
+      "n_ofertas": 5,
+      "importe_min": 51325.82,
+      "importe_max": 71560.65
     },
     {
       "expediente": "13/2020",
@@ -72847,7 +73439,8 @@
       "importe": 16500,
       "adjudicatario": "Instituto Tecnológico de Informática",
       "fechaAdjudicacion": "2020-06-15",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 130000.0
     },
     {
       "expediente": "14/2020",
@@ -72861,7 +73454,8 @@
       "importe": 16500,
       "adjudicatario": "Universidad de Alicante",
       "fechaAdjudicacion": "2020-06-15",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 40000.0
     },
     {
       "expediente": "2020/CM-1",
@@ -72877,7 +73471,8 @@
       "importe": 53845,
       "adjudicatario": "Crsitobal Perez Barea",
       "fechaAdjudicacion": "2020-06-15",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 44694.54
     },
     {
       "expediente": "7/2020",
@@ -72891,7 +73486,8 @@
       "importe": 6988.23,
       "adjudicatario": "TECNICAS VALENCIANAS DEL AGUA, S.A.",
       "fechaAdjudicacion": "2020-06-12",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 13228.45
     },
     {
       "expediente": "20203492",
@@ -72904,7 +73500,10 @@
       "importe": 39450.84,
       "adjudicatario": "SOCIEDAD DE FOMENTO AGRICOLA CASTELLONENSE",
       "fechaAdjudicacion": "2020-06-12",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 32604.0,
+      "importeAdjudicacion": 39450.84,
+      "n_ofertas": 1
     },
     {
       "expediente": "20203491",
@@ -72917,7 +73516,10 @@
       "importe": 8549.07,
       "adjudicatario": "EUROFINS IPROMA S.L.U.",
       "fechaAdjudicacion": "2020-06-12",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 7065.35,
+      "importeAdjudicacion": 8549.07,
+      "n_ofertas": 1
     },
     {
       "expediente": "001/2020",
@@ -72933,7 +73535,10 @@
       "importe": 52190.08,
       "adjudicatario": "ITIC, S.L.",
       "fechaAdjudicacion": "2020-06-10",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 111600.0,
+      "n_ofertas": 5,
+      "importe_max": 93744.0
     },
     {
       "expediente": "2020/005601",
@@ -72946,7 +73551,10 @@
       "importe": 16300,
       "adjudicatario": "INST.VALENCIANO MICROBIOLOGIA",
       "fechaAdjudicacion": "2020-06-10",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 16300.0,
+      "importeAdjudicacion": 16300.0,
+      "n_ofertas": 1
     },
     {
       "expediente": "TSA0068117",
@@ -72959,7 +73567,12 @@
       "importe": 105669.3,
       "adjudicatario": "EUROFINS ANALYTICO, B.V. SUCURSAL EN ESPAÑA",
       "fechaAdjudicacion": "2020-06-10",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 117406.2,
+      "importeAdjudicacion": 105669.3,
+      "n_ofertas": 4,
+      "importe_min": 87330.0,
+      "importe_max": 111511.7
     },
     {
       "expediente": "019/2020-CONTR",
@@ -72972,7 +73585,12 @@
       "importe": 5662.8,
       "adjudicatario": "NOVAPLANT SUR",
       "fechaAdjudicacion": "2020-06-09",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 5800.0,
+      "importeAdjudicacion": 5662.8,
+      "n_ofertas": 3,
+      "importe_min": 4680.0,
+      "importe_max": 5700.0
     },
     {
       "expediente": "CE-02-3/2020-FRM",
@@ -72985,7 +73603,10 @@
       "importe": 11153.31,
       "adjudicatario": "INSTITUTO SR CANARIAS, S. L.",
       "fechaAdjudicacion": "2020-06-05",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 10423.65,
+      "importeAdjudicacion": 11153.31,
+      "n_ofertas": 1
     },
     {
       "expediente": "(A02003511)-ITAINNOVA 01_2020",
@@ -73000,7 +73621,10 @@
       "importe": 54020.15,
       "adjudicatario": "ENTIDAD NACIONAL DE ACREDITACION (ENAC)",
       "fechaAdjudicacion": "2020-06-04",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 46471.5,
+      "importeAdjudicacion": 54020.15,
+      "n_ofertas": 1
     },
     {
       "expediente": "1756/2019",
@@ -73015,7 +73639,8 @@
       "importe": 17666.61,
       "adjudicatario": "CENTRO DE ESTUDIOS DE MATERIALES Y CONTROL DE OBRA,SA (CEMOSA)",
       "fechaAdjudicacion": "2020-06-04",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 31248.2
     },
     {
       "expediente": "15/2020",
@@ -73028,7 +73653,8 @@
       "importe": 16500,
       "adjudicatario": "Universidad Politécnica de Valencia",
       "fechaAdjudicacion": "2020-06-03",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 67992.43
     },
     {
       "expediente": "2020339",
@@ -73043,7 +73669,12 @@
       "importe": 2714.46,
       "adjudicatario": "EUROFINS IPROMA S.L.U.",
       "fechaAdjudicacion": "2020-06-02",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 5757.28,
+      "importeAdjudicacion": 2714.46,
+      "n_ofertas": 1,
+      "importe_min": 2243.36,
+      "importe_max": 2243.36
     },
     {
       "expediente": "TSA0068372",
@@ -73060,7 +73691,10 @@
       "importe": 55844.75,
       "adjudicatario": "INSITUTO DE INVESTIGACIONES AGROBIOLÓGICAS DE GALICIA DE LA AGENCIA ESTATAL CONSEJO SUPERIOR DE INVESTIGACIONES CIENTÍFICAS (IIAG-CSIC)",
       "fechaAdjudicacion": "2020-06-01",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 207801.35,
+      "importeAdjudicacion": 55844.75,
+      "n_ofertas": 1
     },
     {
       "expediente": "12-2019 ctr-med",
@@ -73073,7 +73707,10 @@
       "importe": 17462.72,
       "adjudicatario": "INGENIERIA SANPE",
       "fechaAdjudicacion": "2020-05-29",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 42240.0,
+      "importeAdjudicacion": 17462.72,
+      "n_ofertas": 1
     },
     {
       "expediente": "20/083",
@@ -73088,7 +73725,10 @@
       "importe": 60500,
       "adjudicatario": "AGENCIA ESTATAL CONSEJO SUPERIOR DE INVESTIGACIONES CIENTÍFICAS M.P. (CSIC) - INSTITUTO DE AGROQUÍMICA Y TECNOLOGÍA DE ALIMENTOS (IATA)",
       "fechaAdjudicacion": "2020-05-27",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 75000.0,
+      "importeAdjudicacion": 60500.0,
+      "n_ofertas": 1
     },
     {
       "expediente": "TSA0068724",
@@ -73101,7 +73741,10 @@
       "importe": 159236,
       "adjudicatario": "LUBRICATION MANAGEMENT, S.L.",
       "fechaAdjudicacion": "2020-05-26",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 185000.0,
+      "importeAdjudicacion": 159236.0,
+      "n_ofertas": 1
     },
     {
       "expediente": "21/covid-19",
@@ -73114,7 +73757,10 @@
       "importe": 3120,
       "adjudicatario": "LABORATORIO MUNICIPAL DE ALCOBENDAS",
       "fechaAdjudicacion": "2020-05-26",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 3120.0,
+      "importeAdjudicacion": 3120.0,
+      "n_ofertas": 1
     },
     {
       "expediente": "(A02003509)-I-200013",
@@ -73127,7 +73773,10 @@
       "importe": 143022.54,
       "adjudicatario": "Sociedad Aragonesa de Gestión Agroambiental S.L.U (SARGA)",
       "fechaAdjudicacion": "2020-05-25",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 143022.54,
+      "importeAdjudicacion": 143022.54,
+      "n_ofertas": 1
     },
     {
       "expediente": "921_SEAP_0519",
@@ -73141,7 +73790,12 @@
       "importe": 99110.63,
       "adjudicatario": "CBBA SL - IPROMA SL UTE",
       "fechaAdjudicacion": "2020-05-22",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 81909.61,
+      "importeAdjudicacion": 99110.63,
+      "n_ofertas": 3,
+      "importe_min": 54802.2,
+      "importe_max": 65535.0
     },
     {
       "expediente": "2019-1718173",
@@ -73157,7 +73811,10 @@
       "importe": 229900,
       "adjudicatario": "SERVICIOS POLITÉCNICOS AÉREOS, S.A.",
       "fechaAdjudicacion": "2020-05-20",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 680159.53,
+      "importeAdjudicacion": 229900.0,
+      "n_ofertas": 1
     },
     {
       "expediente": "19/01267-ADS-0009",
@@ -73170,7 +73827,10 @@
       "importe": 113926.82,
       "adjudicatario": "CENTRO DE ESTUDIOS DE MATERIALES Y CONTROL DE OBRA, S. A.",
       "fechaAdjudicacion": "2020-05-20",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 120510.0,
+      "importeAdjudicacion": 113926.82,
+      "n_ofertas": 4
     },
     {
       "expediente": "20-SE-03",
@@ -73183,7 +73843,12 @@
       "importe": 35.09,
       "adjudicatario": "ADNCANINO S.L",
       "fechaAdjudicacion": "2020-05-20",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 41119.83,
+      "importeAdjudicacion": 35.09,
+      "n_ofertas": 1,
+      "importe_min": 35.09,
+      "importe_max": 35.09
     },
     {
       "expediente": "23/T/20/SS/DG/A/0007",
@@ -73196,7 +73861,12 @@
       "importe": 25366.28,
       "adjudicatario": "SGS TECNOS S.A",
       "fechaAdjudicacion": "2020-05-18",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 28593.61,
+      "importeAdjudicacion": 25366.28,
+      "n_ofertas": 1,
+      "importe_min": 23706.8,
+      "importe_max": 23706.8
     },
     {
       "expediente": "2020_023",
@@ -73209,7 +73879,12 @@
       "importe": 144163.65,
       "adjudicatario": "GEOTECNIA I CONTROL DE QUALITAT, S.A.",
       "fechaAdjudicacion": "2020-05-18",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 160000.0,
+      "importeAdjudicacion": 144163.65,
+      "n_ofertas": 8,
+      "importe_min": 119143.65,
+      "importe_max": 157202.0
     },
     {
       "expediente": "EC20-C01-05310",
@@ -73222,7 +73897,10 @@
       "importe": 58150,
       "adjudicatario": "LABORATORIOS ECHEVARNE, S.A.",
       "fechaAdjudicacion": "2020-05-18",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 58150.0,
+      "importeAdjudicacion": 58150.0,
+      "n_ofertas": 1
     },
     {
       "expediente": "111/20",
@@ -73235,7 +73913,8 @@
       "importe": 201949,
       "adjudicatario": "General de Análisis Materiales y Servicios, S.L. (GAMASER)",
       "fechaAdjudicacion": "2020-05-15",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 199574.73
     },
     {
       "expediente": "002-SER-2020",
@@ -73253,7 +73932,10 @@
       "importe": 24830.07,
       "adjudicatario": "AFESA MEDIO AMBIENTE SA",
       "fechaAdjudicacion": "2020-05-12",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 29998.74,
+      "importeAdjudicacion": 24830.07,
+      "n_ofertas": 6
     },
     {
       "expediente": "20/2018/P15003",
@@ -73273,7 +73955,10 @@
       "importe": 6162944.59,
       "adjudicatario": "FCC Medio Ambiente, SA",
       "fechaAdjudicacion": "2020-05-12",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 6750215.0,
+      "importeAdjudicacion": 6162944.59,
+      "n_ofertas": 5
     },
     {
       "expediente": "19/03597-ADS-0022",
@@ -73286,7 +73971,10 @@
       "importe": 116765,
       "adjudicatario": "XTANDARD SG AUDITORES, S.L.",
       "fechaAdjudicacion": "2020-05-11",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 132000.0,
+      "importeAdjudicacion": 116765.0,
+      "n_ofertas": 17
     },
     {
       "expediente": "TSA0068717",
@@ -73299,7 +73987,10 @@
       "importe": 11717.64,
       "adjudicatario": "LABORATORIOS ENTECSA S.A.",
       "fechaAdjudicacion": "2020-05-11",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 12000.0,
+      "importeAdjudicacion": 11717.64,
+      "n_ofertas": 4
     },
     {
       "expediente": "19/covid-19",
@@ -73312,7 +74003,10 @@
       "importe": 52,
       "adjudicatario": "Laboratorio Municipal del PBS Alcobendas",
       "fechaAdjudicacion": "2020-05-11",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 52.0,
+      "importeAdjudicacion": 52.0,
+      "n_ofertas": 1
     },
     {
       "expediente": "ERGAG20014",
@@ -73325,7 +74019,11 @@
       "importe": 9353.12,
       "adjudicatario": "GENERAL DE INGENIERÍA Y ESTRUCTURAS, S.L.",
       "fechaAdjudicacion": "2020-05-11",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 7729.85,
+      "importeAdjudicacion": 9353.12,
+      "n_ofertas": 1,
+      "importe_min": 7729.85
     },
     {
       "expediente": "C-99/20",
@@ -73338,7 +74036,10 @@
       "importe": 18900.2,
       "adjudicatario": "ALMERIUNE, S.L",
       "fechaAdjudicacion": "2020-05-09",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 15620.0,
+      "importeAdjudicacion": 18900.2,
+      "n_ofertas": 1
     },
     {
       "expediente": "4/2020",
@@ -73351,7 +74052,12 @@
       "importe": 24200,
       "adjudicatario": "LABORATORIO ECHEVARNE, S.A.",
       "fechaAdjudicacion": "2020-05-07",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 56050.0,
+      "importeAdjudicacion": 53393.0,
+      "n_ofertas": 3,
+      "importe_min": 48607.72,
+      "importe_max": 55000.0
     },
     {
       "expediente": "201900053",
@@ -73364,7 +74070,11 @@
       "importe": 40224.58,
       "adjudicatario": "ONDOAN SERVICIOS",
       "fechaAdjudicacion": "2020-05-07",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 55654.27,
+      "importeAdjudicacion": 40224.58,
+      "n_ofertas": 11,
+      "importe_max": 50200.0
     },
     {
       "expediente": "CONT00035/20",
@@ -73377,7 +74087,10 @@
       "importe": 36897.54,
       "adjudicatario": "Tecnologías y Servicios Agrarios, S.A., S.M.E., M.P. (Tragsatec)",
       "fechaAdjudicacion": "2020-05-05",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 36897.54,
+      "importeAdjudicacion": 36897.54,
+      "n_ofertas": 1
     },
     {
       "expediente": "6/2020",
@@ -73390,7 +74103,8 @@
       "importe": 69612.81,
       "adjudicatario": "APPLUS NORCONTROL, S.L.U.",
       "fechaAdjudicacion": "2020-04-29",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "n_ofertas": 2
     },
     {
       "expediente": "219.19.009",
@@ -73403,7 +74117,12 @@
       "importe": 7986,
       "adjudicatario": "ASM SOFT, S.L.",
       "fechaAdjudicacion": "2020-04-29",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 6600.0,
+      "importeAdjudicacion": 7986.0,
+      "n_ofertas": 1,
+      "importe_min": 6600.0,
+      "importe_max": 6600.0
     },
     {
       "expediente": "3.19/20830.0330",
@@ -73416,7 +74135,10 @@
       "importe": 319440,
       "adjudicatario": "FUNDACION UNIVERSIDAD DE OVIEDO",
       "fechaAdjudicacion": "2020-04-26",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 288880.0,
+      "importeAdjudicacion": 319440.0,
+      "n_ofertas": 1
     },
     {
       "expediente": "069/19-S",
@@ -73430,7 +74152,12 @@
       "importe": 240850.5,
       "adjudicatario": "TÉCNICA Y PROYECTOS, S.A.",
       "fechaAdjudicacion": "2020-04-23",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 295328.25,
+      "importeAdjudicacion": 240850.5,
+      "n_ofertas": 4,
+      "importe_min": 186130.77,
+      "importe_max": 260000.0
     },
     {
       "expediente": "20200210-00119",
@@ -73454,7 +74181,9 @@
       "importe": 0,
       "adjudicatario": "AMAC EUROPA S.L.",
       "fechaAdjudicacion": "2020-04-23",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 400000.0,
+      "n_ofertas": 4
     },
     {
       "expediente": "16/covid-19",
@@ -73467,7 +74196,10 @@
       "importe": 1404,
       "adjudicatario": "LABORATORIO MUNICIPAL PBS",
       "fechaAdjudicacion": "2020-04-22",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 1404.0,
+      "importeAdjudicacion": 1404.0,
+      "n_ofertas": 1
     },
     {
       "expediente": "673-2020",
@@ -73481,7 +74213,10 @@
       "importe": 17461.01,
       "adjudicatario": "NITLUX SA",
       "fechaAdjudicacion": "2020-04-21",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 32464.76,
+      "importeAdjudicacion": 17461.01,
+      "n_ofertas": 3
     },
     {
       "expediente": "219.19.007",
@@ -73496,7 +74231,12 @@
       "importe": 16704.34,
       "adjudicatario": "Sociedad Merck Chemical &amp; Life Science",
       "fechaAdjudicacion": "2020-04-21",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 13805.28,
+      "importeAdjudicacion": 16704.34,
+      "n_ofertas": 1,
+      "importe_min": 13805.24,
+      "importe_max": 13805.24
     },
     {
       "expediente": "V.19/2019",
@@ -73511,7 +74251,12 @@
       "importe": 40327.19,
       "adjudicatario": "EULEN, S.A.",
       "fechaAdjudicacion": "2020-04-17",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 37190.08,
+      "importeAdjudicacion": 40327.19,
+      "n_ofertas": 2,
+      "importe_min": 33328.26,
+      "importe_max": 36260.33
     },
     {
       "expediente": "CL163/2019",
@@ -73525,7 +74270,8 @@
       "importe": 1037.13,
       "adjudicatario": "BIOLAB SIETE MARES S.L.",
       "fechaAdjudicacion": "2020-04-17",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 1200.0
     },
     {
       "expediente": "ERGAG20010",
@@ -73538,7 +74284,11 @@
       "importe": 85886.82,
       "adjudicatario": "INYGES CONSULTORES S.L.",
       "fechaAdjudicacion": "2020-04-13",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 70980.84,
+      "importeAdjudicacion": 85886.82,
+      "n_ofertas": 1,
+      "importe_min": 70980.84
     },
     {
       "expediente": "11000/2018/000100",
@@ -73553,7 +74303,12 @@
       "importe": 126785.8,
       "adjudicatario": "LURGINTZA INGENIERIA GEOLOGICA SL",
       "fechaAdjudicacion": "2020-04-13",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 145520.84,
+      "importeAdjudicacion": 126785.8,
+      "n_ofertas": 2,
+      "importe_min": 104781.65,
+      "importe_max": 104781.65
     },
     {
       "expediente": "EXP 131/2018",
@@ -73566,7 +74321,10 @@
       "importe": 277813.6,
       "adjudicatario": "CENTRO DE ESTUDIOS DE MATERIALES Y CONTROL DE OBRA, S.A.",
       "fechaAdjudicacion": "2020-04-08",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 395041.32,
+      "importeAdjudicacion": 277813.6,
+      "n_ofertas": 5
     },
     {
       "expediente": "2020-00014",
@@ -73579,7 +74337,8 @@
       "importe": 28952.88,
       "adjudicatario": "PILOT 3D S.L.",
       "fechaAdjudicacion": "2020-04-07",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 65000.0
     },
     {
       "expediente": "11370/2018",
@@ -73593,7 +74352,12 @@
       "importe": 76680,
       "adjudicatario": "CENTRO DE ESTUDIOS DE MATERIALES Y CONTROL DE OBRA,SA (CEMOSA)",
       "fechaAdjudicacion": "2020-04-06",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 99360.0,
+      "importeAdjudicacion": 76680.0,
+      "n_ofertas": 5,
+      "importe_min": 72000.0,
+      "importe_max": 95000.0
     },
     {
       "expediente": "223/19",
@@ -73606,7 +74370,10 @@
       "importe": 41858.74,
       "adjudicatario": "ECOHYDROS SL",
       "fechaAdjudicacion": "2020-04-03",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 37197.66,
+      "importeAdjudicacion": 41858.74,
+      "n_ofertas": 1
     },
     {
       "expediente": "01/20",
@@ -73619,7 +74386,12 @@
       "importe": 242000,
       "adjudicatario": "Transnetyx Inc",
       "fechaAdjudicacion": "2020-04-02",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 122231.4,
+      "importeAdjudicacion": 130506.27,
+      "n_ofertas": 13,
+      "importe_min": 105000.0,
+      "importe_max": 121892.0
     },
     {
       "expediente": "219.19.004",
@@ -73633,7 +74405,12 @@
       "importe": 14467.73,
       "adjudicatario": "Agilent Technologies Spain, S.L",
       "fechaAdjudicacion": "2020-04-02",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 11956.8,
+      "importeAdjudicacion": 14467.73,
+      "n_ofertas": 1,
+      "importe_min": 11956.8,
+      "importe_max": 11956.8
     },
     {
       "expediente": "219.19.003",
@@ -73647,7 +74424,12 @@
       "importe": 12008.95,
       "adjudicatario": "Solventalia Violante S.L",
       "fechaAdjudicacion": "2020-04-02",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 9924.76,
+      "importeAdjudicacion": 12008.95,
+      "n_ofertas": 1,
+      "importe_min": 9924.76,
+      "importe_max": 9924.76
     },
     {
       "expediente": "PEA/405/2019",
@@ -73661,7 +74443,11 @@
       "importe": 72468.96,
       "adjudicatario": "INVESTIGACION Y PROYECTOS MEDIO AMBIENTE SLU",
       "fechaAdjudicacion": "2020-04-01",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 73580.57,
+      "importeAdjudicacion": 72468.96,
+      "n_ofertas": 2,
+      "importe_max": 59891.7
     },
     {
       "expediente": "(221.19) 19.235976W",
@@ -73674,7 +74460,10 @@
       "importe": 217829.7,
       "adjudicatario": "LABORATORIOS ANALÍTICOS AGROVET, S.L.",
       "fechaAdjudicacion": "2020-03-20",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 243150.0,
+      "importeAdjudicacion": 217829.7,
+      "n_ofertas": 1
     },
     {
       "expediente": "TSA0068701",
@@ -73687,7 +74476,10 @@
       "importe": 13543.77,
       "adjudicatario": "EPTISA SERVICIOS DE INGENIERÍA S.L.",
       "fechaAdjudicacion": "2020-03-19",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 15999.72,
+      "importeAdjudicacion": 13543.77,
+      "n_ofertas": 2
     },
     {
       "expediente": "TSA0068395",
@@ -73700,7 +74492,10 @@
       "importe": 137657.34,
       "adjudicatario": "Investigación y Control de Calidad, S.A.U. (INCOSA)",
       "fechaAdjudicacion": "2020-03-17",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 113766.4,
+      "importeAdjudicacion": 137657.34,
+      "n_ofertas": 3
     },
     {
       "expediente": "TSA0068577",
@@ -73713,7 +74508,10 @@
       "importe": 31587.05,
       "adjudicatario": "Ensayos y Geotecnia Endusa, S.L.",
       "fechaAdjudicacion": "2020-03-16",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 34380.0,
+      "importeAdjudicacion": 31587.05,
+      "n_ofertas": 5
     },
     {
       "expediente": "TSA0068349",
@@ -73728,7 +74526,10 @@
       "importe": 11211.86,
       "adjudicatario": "Eptisa Servicios de Ingeniería, S.L.",
       "fechaAdjudicacion": "2020-03-16",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 124146.0,
+      "importeAdjudicacion": 11211.86,
+      "n_ofertas": 3
     },
     {
       "expediente": "TSA0068682",
@@ -73743,7 +74544,10 @@
       "importe": 7358.01,
       "adjudicatario": "EPTISA SERVICIOS DE INGENIERÍA S.L.",
       "fechaAdjudicacion": "2020-03-16",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 85701.4,
+      "importeAdjudicacion": 7358.01,
+      "n_ofertas": 3
     },
     {
       "expediente": "8906/2019",
@@ -73759,7 +74563,10 @@
       "importe": 31338,
       "adjudicatario": "ADNCANINO, SL",
       "fechaAdjudicacion": "2020-03-12",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 27239.66,
+      "importeAdjudicacion": 31338.0,
+      "n_ofertas": 1
     },
     {
       "expediente": "20200210-00118",
@@ -73779,7 +74586,12 @@
       "importe": 218816.47,
       "adjudicatario": "EUROCONSULT NUEVAS TECNOLOGÍAS, S.A.",
       "fechaAdjudicacion": "2020-03-12",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 500000.0,
+      "importeAdjudicacion": 218816.47,
+      "n_ofertas": 3,
+      "importe_min": 180840.06,
+      "importe_max": 223805.48
     },
     {
       "expediente": "202001",
@@ -73792,7 +74604,8 @@
       "importe": 55488.18,
       "adjudicatario": "Interlab Laboratorios S.L.U.",
       "fechaAdjudicacion": "2020-03-12",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 56712.7
     },
     {
       "expediente": "2019-074",
@@ -73805,7 +74618,8 @@
       "importe": 0,
       "adjudicatario": "MARICIELO S.L.",
       "fechaAdjudicacion": "2020-03-11",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "n_ofertas": 1
     },
     {
       "expediente": "2019/0256",
@@ -73821,7 +74635,10 @@
       "importe": 8704.74,
       "adjudicatario": "Labs &amp; Tecnological Services AGQ, S.L.",
       "fechaAdjudicacion": "2020-03-11",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 76475.42,
+      "importeAdjudicacion": 8704.74,
+      "n_ofertas": 4
     },
     {
       "expediente": "1624/2019",
@@ -73838,7 +74655,11 @@
       "importe": 302500,
       "adjudicatario": "JLP-GAAT",
       "fechaAdjudicacion": "2020-03-09",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 325000.0,
+      "importeAdjudicacion": 302500.0,
+      "n_ofertas": 7,
+      "importe_max": 273000.0
     },
     {
       "expediente": "80/19",
@@ -73851,7 +74672,11 @@
       "importe": 8167.5,
       "adjudicatario": "Universidad de Santiago de Compostela",
       "fechaAdjudicacion": "2020-03-09",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 7561.98,
+      "importeAdjudicacion": 8167.5,
+      "n_ofertas": 3,
+      "importe_max": 6750.0
     },
     {
       "expediente": "440/2019",
@@ -73866,7 +74691,8 @@
       "importe": 5477.67,
       "adjudicatario": "GAMASER, S.L.",
       "fechaAdjudicacion": "2020-03-09",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 6414.09
     },
     {
       "expediente": "20200162",
@@ -73882,7 +74708,12 @@
       "importe": 8203.8,
       "adjudicatario": "MF TECNICA INDUSTRIAL I MEDIAMBIENTAL SL",
       "fechaAdjudicacion": "2020-03-05",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 7700.0,
+      "importeAdjudicacion": 8203.8,
+      "n_ofertas": 3,
+      "importe_min": 6780.0,
+      "importe_max": 7350.0
     },
     {
       "expediente": "108/2019",
@@ -73898,7 +74729,10 @@
       "importe": 42761.4,
       "adjudicatario": "Universidad de Jaén",
       "fechaAdjudicacion": "2020-03-04",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 148760.33,
+      "importeAdjudicacion": 147272.73,
+      "n_ofertas": 1
     },
     {
       "expediente": "TSA0068555",
@@ -73913,7 +74747,10 @@
       "importe": 12156.39,
       "adjudicatario": "CENTRO DE ESTUDIOS DE MATERIALES Y CONTROL DE OBRA S.A.",
       "fechaAdjudicacion": "2020-03-04",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 20277.35,
+      "importeAdjudicacion": 12156.39,
+      "n_ofertas": 3
     },
     {
       "expediente": "375/2019",
@@ -73927,7 +74764,8 @@
       "importe": 10727.01,
       "adjudicatario": "ADNCANINO S.L",
       "fechaAdjudicacion": "2020-03-04",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 8865.3
     },
     {
       "expediente": "638/2019",
@@ -73943,7 +74781,12 @@
       "importe": 80162.5,
       "adjudicatario": "CALTEX SISTEMAS SL",
       "fechaAdjudicacion": "2020-03-03",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 123150.0,
+      "importeAdjudicacion": 88088.0,
+      "n_ofertas": 3,
+      "importe_min": 72800.0,
+      "importe_max": 83922.25
     },
     {
       "expediente": "CA-005-20",
@@ -73958,7 +74801,10 @@
       "importe": 59253.7,
       "adjudicatario": "UNIVERSIDAD DE HUELVA",
       "fechaAdjudicacion": "2020-03-02",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 50434.54,
+      "importeAdjudicacion": 59253.7,
+      "n_ofertas": 1
     },
     {
       "expediente": "RI204D120001",
@@ -73980,7 +74826,12 @@
       "importe": 32326.08,
       "adjudicatario": "LIMYCON S.L.",
       "fechaAdjudicacion": "2020-03-02",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 197321.65,
+      "importeAdjudicacion": 32326.08,
+      "n_ofertas": 1,
+      "importe_min": 26715.77,
+      "importe_max": 26715.77
     },
     {
       "expediente": "20191128-00777",
@@ -74001,7 +74852,9 @@
       "importe": 0,
       "adjudicatario": "UTE GEOTECNIA NOR-ESTE (EUSKONTROL-ENSAYA-APPLUS-GEODESER-IGT)",
       "fechaAdjudicacion": "2020-02-28",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 4320000.0,
+      "n_ofertas": 3
     },
     {
       "expediente": "0015-19pse",
@@ -74017,7 +74870,10 @@
       "importe": 60986.96,
       "adjudicatario": "LABORATORIOS MUNUERA, S.L.U.",
       "fechaAdjudicacion": "2020-02-28",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 84689.5,
+      "importeAdjudicacion": 60986.96,
+      "n_ofertas": 2
     },
     {
       "expediente": "300/2019/00426",
@@ -74031,7 +74887,12 @@
       "importe": 336319.5,
       "adjudicatario": "Fundación para el Fomento de la Innovación Industrial",
       "fechaAdjudicacion": "2020-02-27",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 327000.0,
+      "importeAdjudicacion": 336319.5,
+      "n_ofertas": 3,
+      "importe_min": 256695.0,
+      "importe_max": 277950.0
     },
     {
       "expediente": "109/2019",
@@ -74047,7 +74908,12 @@
       "importe": 139337,
       "adjudicatario": "INSTITUTO IMEDES S.L.",
       "fechaAdjudicacion": "2020-02-26",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 11835.72,
+      "importeAdjudicacion": 14321.22,
+      "n_ofertas": 1,
+      "importe_min": 14321.22,
+      "importe_max": 14321.22
     },
     {
       "expediente": "22199.19.001",
@@ -74062,7 +74928,12 @@
       "importe": 25091.77,
       "adjudicatario": "AL AIR LIQUIDE ESPAÑA S.A.",
       "fechaAdjudicacion": "2020-02-26",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 27489.0,
+      "importeAdjudicacion": 25091.77,
+      "n_ofertas": 2,
+      "importe_min": 20737.0,
+      "importe_max": 26114.55
     },
     {
       "expediente": "19.202.NGC3006.CC.01",
@@ -74075,7 +74946,12 @@
       "importe": 28757.46,
       "adjudicatario": "Centro de Estudios de Materiales y Control de Obra, SA (CEMOSA)",
       "fechaAdjudicacion": "2020-02-25",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 36496.47,
+      "importeAdjudicacion": 28757.46,
+      "n_ofertas": 4,
+      "importe_min": 22445.33,
+      "importe_max": 25328.55
     },
     {
       "expediente": "20191112-00734",
@@ -74092,7 +74968,10 @@
       "importe": 17217.49,
       "adjudicatario": "TPF GETINSA-EUROESTUDIOS,S.L.",
       "fechaAdjudicacion": "2020-02-20",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 16165.0,
+      "importeAdjudicacion": 17217.49,
+      "n_ofertas": 2
     },
     {
       "expediente": "Exp.20.024.CA.SE.",
@@ -74107,7 +74986,10 @@
       "importe": 26620,
       "adjudicatario": "SERVICIOS VETERINARIOS DE CANTABRIA. S.A.",
       "fechaAdjudicacion": "2020-02-20",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 61710.0,
+      "importeAdjudicacion": 26620.0,
+      "n_ofertas": 3
     },
     {
       "expediente": "133/2019",
@@ -74123,7 +75005,12 @@
       "importe": 65941.72,
       "adjudicatario": "CEMOSA INGENIERÍA Y CONTROL",
       "fechaAdjudicacion": "2020-02-19",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 235297.44,
+      "importeAdjudicacion": 65941.72,
+      "n_ofertas": 4,
+      "importe_min": 65941.72,
+      "importe_max": 75232.17
     },
     {
       "expediente": "98/2019",
@@ -74137,7 +75024,10 @@
       "importe": 45094.2,
       "adjudicatario": "METRICA6 INGENIERIA Y DESARROLLOS, SL",
       "fechaAdjudicacion": "2020-02-19",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 24000.0,
+      "importeAdjudicacion": 29040.0,
+      "n_ofertas": 1
     },
     {
       "expediente": "2067/20",
@@ -74150,7 +75040,12 @@
       "importe": 72307.95,
       "adjudicatario": "FUNDACIÓ CENTRE DE REGULACIÓ GENÒMICA",
       "fechaAdjudicacion": "2020-02-18",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 61814.0,
+      "importeAdjudicacion": 72307.95,
+      "n_ofertas": 1,
+      "importe_min": 59758.64,
+      "importe_max": 59758.64
     },
     {
       "expediente": "C-4036-20/D-1450",
@@ -74163,7 +75058,10 @@
       "importe": 101342.34,
       "adjudicatario": "APPLUS NORCONTROL, S.L.U",
       "fechaAdjudicacion": "2020-02-18",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 30000.0,
+      "importeAdjudicacion": 101342.34,
+      "n_ofertas": 1
     },
     {
       "expediente": "EXG19-0093",
@@ -74178,7 +75076,10 @@
       "importe": 6860.7,
       "adjudicatario": "JM SOLUCIONES APLICADAS AL AGUA, S.L.U.",
       "fechaAdjudicacion": "2020-02-18",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 8000.0,
+      "importeAdjudicacion": 6860.7,
+      "n_ofertas": 3
     },
     {
       "expediente": "060-CO-OE-2019-0012",
@@ -74193,7 +75094,10 @@
       "importe": 79593.8,
       "adjudicatario": "Geotecnia y Cimientos, S.A.",
       "fechaAdjudicacion": "2020-02-18",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 204099.0,
+      "importeAdjudicacion": 79593.8,
+      "n_ofertas": 1
     },
     {
       "expediente": "18/2020",
@@ -74206,7 +75110,8 @@
       "importe": 4212.74,
       "adjudicatario": "APPLUS NORCONTROL, S.L.U.",
       "fechaAdjudicacion": "2020-02-17",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 26446.28
     },
     {
       "expediente": "201900000828",
@@ -74219,7 +75124,10 @@
       "importe": 17424.21,
       "adjudicatario": "QUÍMICAS DE ALMARAZ, SL",
       "fechaAdjudicacion": "2020-02-17",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 15000.0,
+      "importeAdjudicacion": 17424.21,
+      "n_ofertas": 2
     },
     {
       "expediente": "2019/00140",
@@ -74245,7 +75153,10 @@
       "importe": 49905.24,
       "adjudicatario": "Analiza control de calidad S.L.",
       "fechaAdjudicacion": "2020-02-13",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 248400.0,
+      "importeAdjudicacion": 49905.24,
+      "n_ofertas": 4
     },
     {
       "expediente": "TSA0068235",
@@ -74262,7 +75173,10 @@
       "importe": 74756.7,
       "adjudicatario": "UNIVERSIDAD DE EXTREMADURA",
       "fechaAdjudicacion": "2020-02-13",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 191490.44,
+      "importeAdjudicacion": 74756.7,
+      "n_ofertas": 1
     },
     {
       "expediente": "5.4.14/19",
@@ -74275,7 +75189,12 @@
       "importe": 37950,
       "adjudicatario": "CESPA GESTIÓN DE RESIDUOS, S.A.",
       "fechaAdjudicacion": "2020-02-13",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 45245.49,
+      "importeAdjudicacion": 37950.0,
+      "n_ofertas": 4,
+      "importe_min": 34500.0,
+      "importe_max": 44865.0
     },
     {
       "expediente": "TSA0068419",
@@ -74288,7 +75207,12 @@
       "importe": 128275.13,
       "adjudicatario": "UNIVERSIDAD DE EXTREMADURA",
       "fechaAdjudicacion": "2020-02-10",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 106746.6,
+      "importeAdjudicacion": 128275.13,
+      "n_ofertas": 1,
+      "importe_min": 106012.5,
+      "importe_max": 106012.5
     },
     {
       "expediente": "0333 C.Sv.",
@@ -74301,7 +75225,10 @@
       "importe": 72595.16,
       "adjudicatario": "SERVIPLAGA CONTROL DE PLAGAS PEST CONTROL SL",
       "fechaAdjudicacion": "2020-02-10",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 104000.0,
+      "importeAdjudicacion": 72595.16,
+      "n_ofertas": 5
     },
     {
       "expediente": "CON 60/2019 SE AB",
@@ -74314,7 +75241,12 @@
       "importe": 20000,
       "adjudicatario": "UTE Eurofins Megalab SAU - Alfredo Montoro Soriano SLU",
       "fechaAdjudicacion": "2020-02-06",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 20000.0,
+      "importeAdjudicacion": 20000.0,
+      "n_ofertas": 2,
+      "importe_min": 20000.0,
+      "importe_max": 20000.0
     },
     {
       "expediente": "2019/003158",
@@ -74327,7 +75259,10 @@
       "importe": 1401308.32,
       "adjudicatario": "Técnica y Proyectos, S.A..",
       "fechaAdjudicacion": "2020-02-05",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 1158106.05,
+      "importeAdjudicacion": 1401308.32,
+      "n_ofertas": 6
     },
     {
       "expediente": "19.188.RGC3501.CC.01",
@@ -74340,7 +75275,12 @@
       "importe": 31124.88,
       "adjudicatario": "LABETEC ENSAYOS TECNICOS CANARIOS, S.A.",
       "fechaAdjudicacion": "2020-02-03",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 30442.96,
+      "importeAdjudicacion": 31124.88,
+      "n_ofertas": 1,
+      "importe_min": 29225.24,
+      "importe_max": 29225.24
     },
     {
       "expediente": "gen-ctte/2019/128",
@@ -74353,7 +75293,10 @@
       "importe": 5469.2,
       "adjudicatario": "PAF CILAB, S.L.",
       "fechaAdjudicacion": "2020-02-03",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 4520.0,
+      "importeAdjudicacion": 5469.2,
+      "n_ofertas": 4
     },
     {
       "expediente": "TSA0068365",
@@ -74366,7 +75309,10 @@
       "importe": 26818.44,
       "adjudicatario": "GIKESA",
       "fechaAdjudicacion": "2020-01-31",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 28323.6,
+      "importeAdjudicacion": 26818.44,
+      "n_ofertas": 1
     },
     {
       "expediente": "63/19.- SERVICIO",
@@ -74379,7 +75325,12 @@
       "importe": 53.24,
       "adjudicatario": "EVINTES CALIDAD S.L.L.",
       "fechaAdjudicacion": "2020-01-31",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 4958.68,
+      "importeAdjudicacion": 53.24,
+      "n_ofertas": 1,
+      "importe_min": 44.0,
+      "importe_max": 44.0
     },
     {
       "expediente": "87/2019",
@@ -74393,7 +75344,12 @@
       "importe": 23958,
       "adjudicatario": "BIOMERIEUX ESPAÑA, SAU",
       "fechaAdjudicacion": "2020-01-29",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 51643.19,
+      "importeAdjudicacion": 54900.0,
+      "n_ofertas": 3,
+      "importe_min": 46443.0,
+      "importe_max": 51549.3
     },
     {
       "expediente": "191/2019",
@@ -74408,7 +75364,8 @@
       "importe": 38083.54,
       "adjudicatario": "URIKER SLU",
       "fechaAdjudicacion": "2020-01-28",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 100000.0
     },
     {
       "expediente": "2019/262-GUA",
@@ -74427,7 +75384,10 @@
       "importe": 54994.5,
       "adjudicatario": "Centro de Estudios de Materiales y Control de Obra, SA (CEMOSA)",
       "fechaAdjudicacion": "2020-01-28",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 52150.0,
+      "importeAdjudicacion": 54994.5,
+      "n_ofertas": 4
     },
     {
       "expediente": "3854419054500",
@@ -74440,7 +75400,10 @@
       "importe": 3000,
       "adjudicatario": "HOSPITAL DE NUESTRA SEÑORA DEL PERPETUO SOCORRO, S.A.",
       "fechaAdjudicacion": "2020-01-27",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 3000.0,
+      "importeAdjudicacion": 3000.0,
+      "n_ofertas": 1
     },
     {
       "expediente": "SUM02/2019 Valencia Ventoso",
@@ -74481,7 +75444,12 @@
       "importe": 192.39,
       "adjudicatario": "FERRAM MOVIMIENTOS DE TIERRAS SL",
       "fechaAdjudicacion": "2020-01-24",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 50581.39,
+      "importeAdjudicacion": 192.39,
+      "n_ofertas": 1,
+      "importe_min": 192.39,
+      "importe_max": 192.39
     },
     {
       "expediente": "843/2019 bis",
@@ -74495,7 +75463,10 @@
       "importe": 8474.84,
       "adjudicatario": "INVESTIGACION Y PROYECTOS MEDIO AMBIENTE S.L.",
       "fechaAdjudicacion": "2020-01-24",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 9051.0,
+      "importeAdjudicacion": 8474.84,
+      "n_ofertas": 3
     },
     {
       "expediente": "2019-22 MURADAANALITQ",
@@ -74508,7 +75479,12 @@
       "importe": 2691.03,
       "adjudicatario": "LABAQUA, S.A.U.",
       "fechaAdjudicacion": "2020-01-23",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 3345.0,
+      "importeAdjudicacion": 2691.03,
+      "n_ofertas": 2,
+      "importe_min": 2223.99,
+      "importe_max": 2375.45
     },
     {
       "expediente": "P/0023/R/19/2",
@@ -74523,7 +75499,12 @@
       "importe": 16153.5,
       "adjudicatario": "CAASA TECNOLOGÍA DEL AGUA, S.A.",
       "fechaAdjudicacion": "2020-01-21",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 19008.26,
+      "importeAdjudicacion": 16153.5,
+      "n_ofertas": 10,
+      "importe_min": 13350.0,
+      "importe_max": 18825.0
     },
     {
       "expediente": "150/19",
@@ -74536,7 +75517,12 @@
       "importe": 54903.75,
       "adjudicatario": "Tradesegur, S.A.",
       "fechaAdjudicacion": "2020-01-21",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 101239.67,
+      "importeAdjudicacion": 19521.28,
+      "n_ofertas": 6,
+      "importe_min": 19521.28,
+      "importe_max": 23725.56
     },
     {
       "expediente": "PIC2019_25004",
@@ -74549,7 +75535,10 @@
       "importe": 0.01,
       "adjudicatario": "LABAQUA, S.A.U.",
       "fechaAdjudicacion": "2020-01-21",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 64800.0,
+      "importeAdjudicacion": 0.01,
+      "n_ofertas": 4
     },
     {
       "expediente": "3936/2019",
@@ -74562,7 +75551,12 @@
       "importe": 48787.2,
       "adjudicatario": "ADNCANINO S.L",
       "fechaAdjudicacion": "2020-01-21",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 44560.0,
+      "importeAdjudicacion": 48787.2,
+      "n_ofertas": 1,
+      "importe_min": 48787.2,
+      "importe_max": 48787.2
     },
     {
       "expediente": "EX19-S-0009",
@@ -74577,7 +75571,10 @@
       "importe": 40919.97,
       "adjudicatario": "ANASUR LABORATORIOS, S.L.",
       "fechaAdjudicacion": "2020-01-20",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 40959.82,
+      "importeAdjudicacion": 40919.97,
+      "n_ofertas": 1
     },
     {
       "expediente": "201917320136",
@@ -74590,7 +75587,12 @@
       "importe": 126822.1,
       "adjudicatario": "SGS ESPAÑOLA DE CONTROL S.A.",
       "fechaAdjudicacion": "2020-01-20",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 126077.47,
+      "importeAdjudicacion": 126822.1,
+      "n_ofertas": 1,
+      "importe_min": 104811.65,
+      "importe_max": 104811.65
     },
     {
       "expediente": "SE27/19",
@@ -74603,7 +75605,12 @@
       "importe": 38720,
       "adjudicatario": "JOSE IGNACIO MARTIN CRUZ",
       "fechaAdjudicacion": "2020-01-20",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 32000.0,
+      "importeAdjudicacion": 38720.0,
+      "n_ofertas": 1,
+      "importe_min": 38720.0,
+      "importe_max": 38720.0
     },
     {
       "expediente": "060-CO-UT-2019-0001",
@@ -74616,7 +75623,10 @@
       "importe": 50610.86,
       "adjudicatario": "LABS &amp; TECHNOLOGICAL SERVICES AGQ S.L.",
       "fechaAdjudicacion": "2020-01-20",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 70307.58,
+      "importeAdjudicacion": 50610.86,
+      "n_ofertas": 2
     },
     {
       "expediente": "EC/21/19",
@@ -74629,7 +75639,12 @@
       "importe": 2740.65,
       "adjudicatario": "AQM Laboratorios SL",
       "fechaAdjudicacion": "2020-01-14",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 3020.0,
+      "importeAdjudicacion": 2740.65,
+      "n_ofertas": 2,
+      "importe_min": 2265.0,
+      "importe_max": 2786.0
     },
     {
       "expediente": "056/19-AF",
@@ -74649,7 +75664,10 @@
       "importe": 253313.5,
       "adjudicatario": "PRICEWATERHOUSECOOPERS AUDITORES, S.L.",
       "fechaAdjudicacion": "2020-01-14",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 313616.77,
+      "importeAdjudicacion": 253313.5,
+      "n_ofertas": 5
     },
     {
       "expediente": "EXCA0082019",
@@ -74662,7 +75680,9 @@
       "importe": 0,
       "adjudicatario": "Cibus Scientia SL",
       "fechaAdjudicacion": "2020-01-13",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 26285.0,
+      "n_ofertas": 4
     },
     {
       "expediente": "SOLPED5722",
@@ -74676,7 +75696,10 @@
       "importe": 6036.69,
       "adjudicatario": "INGENIERÍA DE GESTIÓN INDUSTRIAL SLU",
       "fechaAdjudicacion": "2020-01-09",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 6000.0,
+      "importeAdjudicacion": 6036.69,
+      "n_ofertas": 1
     },
     {
       "expediente": "MOT-20191211-AMT INSPECCION END",
@@ -74690,7 +75713,10 @@
       "importe": 235262.72,
       "adjudicatario": "QUEST GLOBAL ENGINEERING ESPAÑA S.L.U.",
       "fechaAdjudicacion": "2020-01-08",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 194432.0,
+      "importeAdjudicacion": 235262.72,
+      "n_ofertas": 6
     },
     {
       "expediente": "92/2019",
@@ -74706,7 +75732,10 @@
       "importe": 9680,
       "adjudicatario": "DISTRIBUCIONES INDUSTRIALES Y CIENTIFICAS, SL",
       "fechaAdjudicacion": "2020-01-07",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 8000.0,
+      "importeAdjudicacion": 9680.0,
+      "n_ofertas": 2
     },
     {
       "expediente": "GE. 14/2019",
@@ -74719,7 +75748,10 @@
       "importe": 23229.58,
       "adjudicatario": "Llopis Servicios Ambientales S.L.",
       "fechaAdjudicacion": "2020-01-02",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 20640.0,
+      "importeAdjudicacion": 23229.58,
+      "n_ofertas": 1
     },
     {
       "expediente": "EX19-S-0010",
@@ -74732,7 +75764,12 @@
       "importe": 18048.79,
       "adjudicatario": "FCC AQUALIA, S.A.",
       "fechaAdjudicacion": "2020-01-02",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 18437.0,
+      "importeAdjudicacion": 18048.79,
+      "n_ofertas": 3,
+      "importe_min": 14654.19,
+      "importe_max": 16625.0
     },
     {
       "expediente": "(A02003509)-I-200003",
@@ -74745,7 +75782,10 @@
       "importe": 229931.33,
       "adjudicatario": "Sociedad Aragonesa de Gestión Agroambiental S.L.U (SARGA)",
       "fechaAdjudicacion": "2020-01-01",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 229931.33,
+      "importeAdjudicacion": 229931.33,
+      "n_ofertas": 1
     },
     {
       "expediente": "(A02003509)-I-200004",
@@ -74758,7 +75798,10 @@
       "importe": 133038.24,
       "adjudicatario": "Sociedad Aragonesa de Gestión Agroambiental S.L.U (SARGA)",
       "fechaAdjudicacion": "2020-01-01",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 133038.24,
+      "importeAdjudicacion": 133038.24,
+      "n_ofertas": 1
     },
     {
       "expediente": "(A02003509)-I-200006",
@@ -74771,7 +75814,10 @@
       "importe": 140412.87,
       "adjudicatario": "Sociedad Aragonesa de Gestión Agroambiental S.L.U (SARGA)",
       "fechaAdjudicacion": "2020-01-01",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 140412.87,
+      "importeAdjudicacion": 140412.87,
+      "n_ofertas": 1
     },
     {
       "expediente": "(A02003509)-I-200005",
@@ -74784,7 +75830,10 @@
       "importe": 134958.05,
       "adjudicatario": "Sociedad Aragonesa de Gestión Agroambiental S.L.U (SARGA)",
       "fechaAdjudicacion": "2020-01-01",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 134958.05,
+      "importeAdjudicacion": 134958.05,
+      "n_ofertas": 1
     },
     {
       "expediente": "(A02003509)-I-20001/2/7/10/11",
@@ -74797,7 +75846,10 @@
       "importe": 201836.55,
       "adjudicatario": "Sociedad Aragonesa de Gestión Agroambiental S.L.U (SARGA)",
       "fechaAdjudicacion": "2020-01-01",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 201836.55,
+      "importeAdjudicacion": 201836.55,
+      "n_ofertas": 1
     },
     {
       "expediente": "02-TGSS-2020-PASS-03",
@@ -74810,7 +75862,10 @@
       "importe": 2383.7,
       "adjudicatario": "ICISER, S.L.",
       "fechaAdjudicacion": "2019-12-30",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 2479.34,
+      "importeAdjudicacion": 2383.7,
+      "n_ofertas": 5
     },
     {
       "expediente": "2019/22",
@@ -74823,7 +75878,11 @@
       "importe": 114997.23,
       "adjudicatario": "FUNDACION CENTRO NACIONAL DE INVESTIGACIONES ONCOLOGICAS CARLOS III \"CNIO\" FUNDACION CNIO CARLOS III",
       "fechaAdjudicacion": "2019-12-27",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 126500.0,
+      "importeAdjudicacion": 153065.0,
+      "n_ofertas": 2,
+      "importe_max": 126500.0
     },
     {
       "expediente": "060-CO-OE-2019-0014",
@@ -74839,7 +75898,10 @@
       "importe": 15357.32,
       "adjudicatario": "CONTROL MICROBIOLOGICO BILACON",
       "fechaAdjudicacion": "2019-12-27",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 27092.0,
+      "importeAdjudicacion": 15357.32,
+      "n_ofertas": 10
     },
     {
       "expediente": "279701",
@@ -74852,7 +75914,10 @@
       "importe": 172906.69,
       "adjudicatario": "LIMCAMAR, S.L.",
       "fechaAdjudicacion": "2019-12-27",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 170400.0,
+      "importeAdjudicacion": 172906.69,
+      "n_ofertas": 4
     },
     {
       "expediente": "0030019SR024",
@@ -74867,7 +75932,10 @@
       "importe": 75000,
       "adjudicatario": "MOROTE TRADUCCIONES",
       "fechaAdjudicacion": "2019-12-27",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 126016.53,
+      "importeAdjudicacion": 75000.0,
+      "n_ofertas": 4
     },
     {
       "expediente": "2019/2826",
@@ -74910,7 +75978,12 @@
       "importe": 34725.79,
       "adjudicatario": "ANTONIO RAMIREZ MIRANDA, S.L.",
       "fechaAdjudicacion": "2019-12-26",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 145438.21,
+      "importeAdjudicacion": 34725.79,
+      "n_ofertas": 3,
+      "importe_min": 28699.0,
+      "importe_max": 31979.0
     },
     {
       "expediente": "3.4.8/19",
@@ -74924,7 +75997,12 @@
       "importe": 21622.7,
       "adjudicatario": "Alameda Recalde, 27 - 5ª planta. 48009 Bilbao (Vizcaya)",
       "fechaAdjudicacion": "2019-12-26",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 24000.0,
+      "importeAdjudicacion": 21622.7,
+      "n_ofertas": 3,
+      "importe_min": 15069.6,
+      "importe_max": 19200.0
     },
     {
       "expediente": "9599/2019",
@@ -74938,7 +76016,10 @@
       "importe": 3419.71,
       "adjudicatario": "CANARIAS LABTEC SLU",
       "fechaAdjudicacion": "2019-12-23",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 4940.0,
+      "importeAdjudicacion": 3419.71,
+      "n_ofertas": 1
     },
     {
       "expediente": "XPS0101/2019",
@@ -74991,7 +76072,12 @@
       "importe": 131488.28,
       "adjudicatario": "CANON MEDICAL SYSTEMS SA",
       "fechaAdjudicacion": "2019-12-20",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 511194.2,
+      "importeAdjudicacion": 131488.28,
+      "n_ofertas": 1,
+      "importe_min": 131488.28,
+      "importe_max": 131488.28
     },
     {
       "expediente": "P/0032/Y/19/2",
@@ -75006,7 +76092,11 @@
       "importe": 9989,
       "adjudicatario": "INDUSTRIA DE LA SALUD FERROL S.L.",
       "fechaAdjudicacion": "2019-12-20",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 11613.01,
+      "importeAdjudicacion": 9989.0,
+      "n_ofertas": 3,
+      "importe_max": 10020.0
     },
     {
       "expediente": "127782",
@@ -75019,7 +76109,10 @@
       "importe": 36151.93,
       "adjudicatario": "TPF GETINSA EUROESTUDIOS, S.L.",
       "fechaAdjudicacion": "2019-12-19",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 31683.6,
+      "importeAdjudicacion": 36151.93,
+      "n_ofertas": 5
     },
     {
       "expediente": "19F.2.1.0013",
@@ -75032,7 +76125,10 @@
       "importe": 329380.22,
       "adjudicatario": "LABORATORIO DE CALIDAD DE MATERIALES, SLL",
       "fechaAdjudicacion": "2019-12-18",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 272215.06,
+      "importeAdjudicacion": 329380.22,
+      "n_ofertas": 3
     },
     {
       "expediente": "B41632266-2019/000066-PeA",
@@ -75045,7 +76141,10 @@
       "importe": 99123.93,
       "adjudicatario": "LABYGEMA, S.L.",
       "fechaAdjudicacion": "2019-12-18",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 116400.0,
+      "importeAdjudicacion": 99123.93,
+      "n_ofertas": 2
     },
     {
       "expediente": "079-CO-IN-2019-0006",
@@ -75060,7 +76159,10 @@
       "importe": 234609.32,
       "adjudicatario": "FUNDACIÓN INVESTIGACIÓN UNIVERSIDAD DE SEVILLA",
       "fechaAdjudicacion": "2019-12-17",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 198000.0,
+      "importeAdjudicacion": 234609.32,
+      "n_ofertas": 1
     },
     {
       "expediente": "060-CO-OE-2019-0011",
@@ -75073,7 +76175,10 @@
       "importe": 78378.96,
       "adjudicatario": "SRCL CONSENUR SL",
       "fechaAdjudicacion": "2019-12-17",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 86400.0,
+      "importeAdjudicacion": 78378.96,
+      "n_ofertas": 1
     },
     {
       "expediente": "EPE 271-19",
@@ -75086,7 +76191,12 @@
       "importe": 55242.38,
       "adjudicatario": "INVESTIGACION Y PROYECTOS MEDIO AMBIENTE S.L.U.",
       "fechaAdjudicacion": "2019-12-17",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 80315.84,
+      "importeAdjudicacion": 55242.38,
+      "n_ofertas": 3,
+      "importe_min": 45654.86,
+      "importe_max": 56106.98
     },
     {
       "expediente": "079-CO-IN-2019-0005",
@@ -75099,7 +76209,10 @@
       "importe": 1075652.71,
       "adjudicatario": "Centro de Investigaciones Energéticas Medioambientales y Tecnológicas, CIEMAT",
       "fechaAdjudicacion": "2019-12-17",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 891000.0,
+      "importeAdjudicacion": 1075652.71,
+      "n_ofertas": 1
     },
     {
       "expediente": "A32-CO-CB-2019-0021",
@@ -75114,7 +76227,10 @@
       "importe": 68724.52,
       "adjudicatario": "SRCL CONSENUR SL",
       "fechaAdjudicacion": "2019-12-13",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 106340.8,
+      "importeAdjudicacion": 68724.52,
+      "n_ofertas": 2
     },
     {
       "expediente": "EC19-C02-06010",
@@ -75127,7 +76243,10 @@
       "importe": 1555499.89,
       "adjudicatario": "UTE INTERCONTROL LEVANTE S.A., BAC&amp; VENTAYOL, GEO-SERVEIS, S.L., LABORATORIO ENSAYOS TÉCNICOS, S.A.",
       "fechaAdjudicacion": "2019-12-13",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 1285537.1,
+      "importeAdjudicacion": 1555499.89,
+      "n_ofertas": 3
     },
     {
       "expediente": "EXP0016SE19ABO",
@@ -75143,7 +76262,10 @@
       "importe": 88952.17,
       "adjudicatario": "Eptisa Servicios de Ingeniería, S.L.",
       "fechaAdjudicacion": "2019-12-13",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 193342.05,
+      "importeAdjudicacion": 88952.17,
+      "n_ofertas": 4
     },
     {
       "expediente": "366/19",
@@ -75157,7 +76279,12 @@
       "importe": 15642.94,
       "adjudicatario": "LABORATORIOS MUNUERA, S.L.U.",
       "fechaAdjudicacion": "2019-12-12",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 20099.0,
+      "importeAdjudicacion": 15642.94,
+      "n_ofertas": 6,
+      "importe_min": 15642.94,
+      "importe_max": 18506.35
     },
     {
       "expediente": "32/19",
@@ -75175,7 +76302,12 @@
       "importe": 120945.26,
       "adjudicatario": "PROAMB INTEGRADA SL",
       "fechaAdjudicacion": "2019-12-10",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 73477.14,
+      "importeAdjudicacion": 66120.1,
+      "n_ofertas": 7,
+      "importe_min": 54644.71,
+      "importe_max": 73477.14
     },
     {
       "expediente": "2018/058",
@@ -75188,7 +76320,12 @@
       "importe": 95232.3,
       "adjudicatario": "APPLUS NORCONTROL, S.L.U.",
       "fechaAdjudicacion": "2019-12-05",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 93500.0,
+      "importeAdjudicacion": 95232.3,
+      "n_ofertas": 1,
+      "importe_min": 89420.0,
+      "importe_max": 89420.0
     },
     {
       "expediente": "SS 18/19",
@@ -75208,7 +76345,11 @@
       "importe": 17244.19,
       "adjudicatario": "FCC AQUALIA SA",
       "fechaAdjudicacion": "2019-12-05",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 41116.8,
+      "importeAdjudicacion": 17244.19,
+      "n_ofertas": 2,
+      "importe_max": 16191.73
     },
     {
       "expediente": "201907PA0006",
@@ -75236,7 +76377,12 @@
       "importe": 32670,
       "adjudicatario": "LABORATORIO KUDAM, S.L.U.",
       "fechaAdjudicacion": "2019-12-05",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 548500.0,
+      "importeAdjudicacion": 32670.0,
+      "n_ofertas": 6,
+      "importe_min": 21300.0,
+      "importe_max": 34500.0
     },
     {
       "expediente": "CA 08-18",
@@ -75251,7 +76397,10 @@
       "importe": 23595,
       "adjudicatario": "INÉS ESTEVE SEBASTIÁ",
       "fechaAdjudicacion": "2019-12-03",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 26500.0,
+      "importeAdjudicacion": 23595.0,
+      "n_ofertas": 3
     },
     {
       "expediente": "2019/AS/021",
@@ -75264,7 +76413,10 @@
       "importe": 8380.22,
       "adjudicatario": "LABORATORIO DE CALIDAD Y TECNOLOGÍA DE LOS MATERIALES, S.L.",
       "fechaAdjudicacion": "2019-12-03",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 10597.41,
+      "importeAdjudicacion": 8380.22,
+      "n_ofertas": 1
     },
     {
       "expediente": "2019/AS/020",
@@ -75290,7 +76442,10 @@
       "importe": 12196.8,
       "adjudicatario": "AQUIMISA SL",
       "fechaAdjudicacion": "2019-12-02",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 10800.0,
+      "importeAdjudicacion": 12196.8,
+      "n_ofertas": 2
     },
     {
       "expediente": "2019/00012959F",
@@ -75306,7 +76461,10 @@
       "importe": 60112.8,
       "adjudicatario": "ADC INFRAESTRUCTURAS Y SISTEMAS, S.L.",
       "fechaAdjudicacion": "2019-11-29",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 55200.1,
+      "importeAdjudicacion": 60112.8,
+      "n_ofertas": 2
     },
     {
       "expediente": "123/2019",
@@ -75319,7 +76477,10 @@
       "importe": 9680,
       "adjudicatario": "AQUILAB VILAREAL S.L",
       "fechaAdjudicacion": "2019-11-27",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 6500.0,
+      "importeAdjudicacion": 7865.0,
+      "n_ofertas": 1
     },
     {
       "expediente": "060-CO-TA-2019-0002",
@@ -75352,7 +76513,12 @@
       "importe": 313413.82,
       "adjudicatario": "ULLASTRES, SA",
       "fechaAdjudicacion": "2019-11-21",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 345359.57,
+      "importeAdjudicacion": 313413.82,
+      "n_ofertas": 4,
+      "importe_min": 259019.69,
+      "importe_max": 322765.95
     },
     {
       "expediente": "168/19",
@@ -75366,7 +76532,10 @@
       "importe": 17666,
       "adjudicatario": "SYNLAB DIAGNOSTICOS GLOBALES,S.A.U.",
       "fechaAdjudicacion": "2019-11-19",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 18950.0,
+      "importeAdjudicacion": 17666.0,
+      "n_ofertas": 2
     },
     {
       "expediente": "2019/AS/017",
@@ -75392,7 +76561,12 @@
       "importe": 20442.95,
       "adjudicatario": "LABORATORIOS ENTECSA S.A.",
       "fechaAdjudicacion": "2019-11-18",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 26840.0,
+      "importeAdjudicacion": 20442.95,
+      "n_ofertas": 5,
+      "importe_min": 16895.0,
+      "importe_max": 20745.0
     },
     {
       "expediente": "8511/2019 CONTROL LEGIONELOSIS",
@@ -75459,7 +76633,10 @@
       "importe": 5107.63,
       "adjudicatario": "Sociedad Aragonesa de Gestión Agroambiental S.L.U (SARGA)",
       "fechaAdjudicacion": "2019-11-11",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 5107.63,
+      "importeAdjudicacion": 5107.63,
+      "n_ofertas": 1
     },
     {
       "expediente": "060-CO-TA-2019-0001",
@@ -75522,7 +76699,10 @@
       "importe": 68984.04,
       "adjudicatario": "AQM Laboratorios SL",
       "fechaAdjudicacion": "2019-11-07",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 211884.5,
+      "importeAdjudicacion": 68984.04,
+      "n_ofertas": 12
     },
     {
       "expediente": "SOS2019/698",
@@ -75562,7 +76742,10 @@
       "importe": 13205.94,
       "adjudicatario": "ANTICIMEX 3D SANIDAD AMBIENTAL S.A.U",
       "fechaAdjudicacion": "2019-10-30",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 16500.0,
+      "importeAdjudicacion": 13205.94,
+      "n_ofertas": 2
     },
     {
       "expediente": "2019337",
@@ -75614,7 +76797,12 @@
       "importe": 56942.6,
       "adjudicatario": "INSTITUTO TECNICO DE MATERIALES Y CONSTRUCCIONES, S.A INTEMAC",
       "fechaAdjudicacion": "2019-10-29",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 19743.75,
+      "importeAdjudicacion": 22502.83,
+      "n_ofertas": 1,
+      "importe_min": 22502.83,
+      "importe_max": 22502.83
     },
     {
       "expediente": "SV-058/19/LO",
@@ -75640,7 +76828,12 @@
       "importe": 20110.2,
       "adjudicatario": "Iberoptics, Sistemas Ópticos, S.L.",
       "fechaAdjudicacion": "2019-10-22",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 23500.0,
+      "importeAdjudicacion": 20110.2,
+      "n_ofertas": 1,
+      "importe_min": 16620.0,
+      "importe_max": 16620.0
     },
     {
       "expediente": "2019/000400",
@@ -75722,7 +76915,12 @@
       "importe": 311584.68,
       "adjudicatario": "INVESTIGACION Y PROYECTOS MEDIO AMBIENTE S.L.",
       "fechaAdjudicacion": "2019-10-09",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 696784.0,
+      "importeAdjudicacion": 311584.68,
+      "n_ofertas": 5,
+      "importe_min": 123603.84,
+      "importe_max": 209740.27
     },
     {
       "expediente": "1714/2019",
@@ -75750,7 +76948,12 @@
       "importe": 17094629.32,
       "adjudicatario": "CESPA, S.A.",
       "fechaAdjudicacion": "2019-10-03",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 15718333.36,
+      "importeAdjudicacion": 17094629.32,
+      "n_ofertas": 4,
+      "importe_min": 15526511.68,
+      "importe_max": 15540572.11
     },
     {
       "expediente": "19.121.NPN2001.CC.01",
@@ -75776,7 +76979,12 @@
       "importe": 13.85,
       "adjudicatario": "FCC AQUALIA S.A.",
       "fechaAdjudicacion": "2019-09-26",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 42482.0,
+      "importeAdjudicacion": 13.85,
+      "n_ofertas": 3,
+      "importe_min": 7.12,
+      "importe_max": 13.85
     },
     {
       "expediente": "B41632266-2019/000026-PeA",
@@ -75803,7 +77011,9 @@
       "importe": 0,
       "adjudicatario": "RENTOKIL INITIAL ESPAÑA S.A.",
       "fechaAdjudicacion": "2019-09-25",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 194200.0,
+      "n_ofertas": 6
     },
     {
       "expediente": "(A02018561)-09/PASA/19",
@@ -75829,7 +77039,12 @@
       "importe": 29705.5,
       "adjudicatario": "LABRUM DIAGNOSIS Y ASESORAMIENTO ESPECIALIZADO, S.L.",
       "fechaAdjudicacion": "2019-09-24",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 5000.0,
+      "importeAdjudicacion": 4522.92,
+      "n_ofertas": 3,
+      "importe_min": 4227.03,
+      "importe_max": 4733.96
     },
     {
       "expediente": "015/19",
@@ -75896,7 +77111,12 @@
       "importe": 4599589.21,
       "adjudicatario": "UTE LABORATORIOS TECNOLOGICOS DE LEVANTE S.L Y CIMERA ESTUDIOS APLICADOS S.L",
       "fechaAdjudicacion": "2019-09-18",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 7513326.56,
+      "importeAdjudicacion": 4599589.21,
+      "n_ofertas": 3,
+      "importe_min": 3801313.4,
+      "importe_max": 7213544.83
     },
     {
       "expediente": "20190621-00467",
@@ -75912,7 +77132,12 @@
       "importe": 11071.5,
       "adjudicatario": "Centro de Estudios de Materiales y Control de Obra, SA (CEMOSA)",
       "fechaAdjudicacion": "2019-09-12",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 9368.5,
+      "importeAdjudicacion": 11071.5,
+      "n_ofertas": 2,
+      "importe_min": 9018.0,
+      "importe_max": 9150.0
     },
     {
       "expediente": "6/CET/2019",
@@ -75942,7 +77167,10 @@
       "importe": 34.67,
       "adjudicatario": "CYE CONTROL Y ESTUDIOS, S.L.",
       "fechaAdjudicacion": "2019-09-09",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 247933.88,
+      "importeAdjudicacion": 34.67,
+      "n_ofertas": 6
     },
     {
       "expediente": "500089009500",
@@ -75957,7 +77185,12 @@
       "importe": 48138,
       "adjudicatario": "francisco Javier Berastegui Afonso",
       "fechaAdjudicacion": "2019-09-04",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 93500.0,
+      "importeAdjudicacion": 48138.0,
+      "n_ofertas": 1,
+      "importe_min": 45200.0,
+      "importe_max": 45200.0
     },
     {
       "expediente": "3.19/20830.0019",
@@ -76010,7 +77243,12 @@
       "importe": 42285.63,
       "adjudicatario": "LABOCAT CALIDAD S.L.",
       "fechaAdjudicacion": "2019-08-26",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 43280.2,
+      "importeAdjudicacion": 42285.63,
+      "n_ofertas": 5,
+      "importe_min": 34946.8,
+      "importe_max": 37567.21
     },
     {
       "expediente": "08/2018.0-Inf.940",
@@ -76067,7 +77305,10 @@
       "importe": 1944.14,
       "adjudicatario": "Desarrollos Tecnológicos Proteo S.L.",
       "fechaAdjudicacion": "2019-08-12",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 18000.0,
+      "importeAdjudicacion": 1944.14,
+      "n_ofertas": 1
     },
     {
       "expediente": "ALC-70/2019",
@@ -76148,7 +77389,11 @@
       "importe": 13788.46,
       "adjudicatario": "Centro de Estudios de Materiales y Control de Obra, SA (CEMOSA)",
       "fechaAdjudicacion": "2019-06-20",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 33850.0,
+      "importeAdjudicacion": 13788.46,
+      "n_ofertas": 2,
+      "importe_max": 14490.4
     },
     {
       "expediente": "300-2018-01768",
@@ -76210,7 +77455,10 @@
       "importe": 50218.63,
       "adjudicatario": "LIMPALGES, S.L.U.",
       "fechaAdjudicacion": "2019-06-11",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 139915.63,
+      "importeAdjudicacion": 59238.27,
+      "n_ofertas": 3
     },
     {
       "expediente": "TSA0066236",
@@ -76229,7 +77477,10 @@
       "importe": 8133.62,
       "adjudicatario": "LABORATORIOS HERGOLAB S. L.",
       "fechaAdjudicacion": "2019-06-06",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 149930.0,
+      "importeAdjudicacion": 8133.62,
+      "n_ofertas": 5
     },
     {
       "expediente": "3128/2019 VIGILANCIA SANITARIA DEL AGUA POTABLE",
@@ -76255,7 +77506,12 @@
       "importe": 0,
       "adjudicatario": "control y calidad alimentaria s.l.",
       "fechaAdjudicacion": "2019-05-30",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 83660.14,
+      "importeAdjudicacion": 86124.72,
+      "n_ofertas": 1,
+      "importe_min": 82212.0,
+      "importe_max": 82212.0
     },
     {
       "expediente": "2018000193T",
@@ -76283,7 +77539,10 @@
       "importe": 181434.66,
       "adjudicatario": "ONDAX SCIENTIFIC, S. L.",
       "fechaAdjudicacion": "2019-05-06",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 150000.0,
+      "importeAdjudicacion": 181434.66,
+      "n_ofertas": 1
     },
     {
       "expediente": "9/19",
@@ -76296,7 +77555,12 @@
       "importe": 33998.39,
       "adjudicatario": "LABSON GEOTECNIA Y SONDEOS, S.L.",
       "fechaAdjudicacion": "2019-04-29",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 28097.84,
+      "importeAdjudicacion": 33998.39,
+      "n_ofertas": 2,
+      "importe_min": 14859.3,
+      "importe_max": 15041.8
     },
     {
       "expediente": "0028/2018",
@@ -76365,7 +77629,12 @@
       "importe": 42349.99,
       "adjudicatario": "Centro de Estudios de Materiales y Control de Obra, SA (CEMOSA)",
       "fechaAdjudicacion": "2019-04-23",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 34999.99,
+      "importeAdjudicacion": 42349.99,
+      "n_ofertas": 2,
+      "importe_min": 12135.9,
+      "importe_max": 12323.4
     },
     {
       "expediente": "3.18/20830.0346",
@@ -76378,7 +77647,10 @@
       "importe": 1288643.18,
       "adjudicatario": "CENTRO ESTUD MATERIALES CONTROL SA",
       "fechaAdjudicacion": "2019-04-22",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 1418102.93,
+      "importeAdjudicacion": 1288643.18,
+      "n_ofertas": 9
     },
     {
       "expediente": "126/2019",
@@ -76394,7 +77666,12 @@
       "importe": 786.5,
       "adjudicatario": "MARSAN INGENIEROS, S.L.U.",
       "fechaAdjudicacion": "2019-04-16",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 37461.2,
+      "importeAdjudicacion": 39207.47,
+      "n_ofertas": 4,
+      "importe_min": 32402.87,
+      "importe_max": 37449.41
     },
     {
       "expediente": "2019004264",
@@ -76407,7 +77684,9 @@
       "importe": 0,
       "adjudicatario": "3C CALIDADE E CONTROL S COOP G",
       "fechaAdjudicacion": "2019-04-11",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 18427.49,
+      "n_ofertas": 4
     },
     {
       "expediente": "426-SER",
@@ -76420,7 +77699,12 @@
       "importe": 15450,
       "adjudicatario": "Cibus Scientia SL",
       "fechaAdjudicacion": "2019-04-11",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 19000.0,
+      "importeAdjudicacion": 15450.0,
+      "n_ofertas": 1,
+      "importe_min": 7725.0,
+      "importe_max": 7725.0
     },
     {
       "expediente": "3.18/20830.0348",
@@ -76466,7 +77750,12 @@
       "importe": 134310,
       "adjudicatario": "AGENCIA ESTATAL CONSEJO SUPERIOR DE INVESTIGACIONES CIENTIFICAS M. P.",
       "fechaAdjudicacion": "2019-03-29",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 867768.59,
+      "importeAdjudicacion": 134310.0,
+      "n_ofertas": 2,
+      "importe_min": 111000.0,
+      "importe_max": 114049.59
     },
     {
       "expediente": "1/19",
@@ -76479,7 +77768,9 @@
       "importe": 33049.04,
       "adjudicatario": "Centro de Estudios de Materiales y Control de Obra, SA (CEMOSA)",
       "fechaAdjudicacion": "2019-03-26",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 30000000.0,
+      "n_ofertas": 2
     },
     {
       "expediente": "3.18/21506.0021",
@@ -76564,7 +77855,10 @@
       "importe": 103495.45,
       "adjudicatario": "MOISES GARCÍA NUÑEZ",
       "fechaAdjudicacion": "2019-02-04",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 92381.0,
+      "importeAdjudicacion": 103495.45,
+      "n_ofertas": 2
     },
     {
       "expediente": "SB/S-2018/01",
@@ -76579,7 +77873,10 @@
       "importe": 63729.73,
       "adjudicatario": "INTERLAB LABORATORIOS, S.L.U.",
       "fechaAdjudicacion": "2019-01-31",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 69625.8,
+      "importeAdjudicacion": 63729.73,
+      "n_ofertas": 3
     },
     {
       "expediente": "CON/2018/59",
@@ -76592,7 +77889,11 @@
       "importe": 7258.21,
       "adjudicatario": "LABORATORIOS MUNUERA S.L.U.",
       "fechaAdjudicacion": "2019-01-14",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 10200.0,
+      "importeAdjudicacion": 7258.21,
+      "n_ofertas": 9,
+      "importe_max": 10050.0
     },
     {
       "expediente": "18/108/3",
@@ -76655,7 +77956,12 @@
       "importe": 4065.6,
       "adjudicatario": "otraplasa",
       "fechaAdjudicacion": "2018-11-20",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 22912.0,
+      "importeAdjudicacion": 4065.6,
+      "n_ofertas": 10,
+      "importe_min": 3696.0,
+      "importe_max": 4076.0
     },
     {
       "expediente": "CON 2018/10",
@@ -76668,7 +77974,10 @@
       "importe": 10635.9,
       "adjudicatario": "COMPAÑÍA DE TRATAMIENTOS LEVANTE, SL",
       "fechaAdjudicacion": "2018-10-18",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 12809.92,
+      "importeAdjudicacion": 10635.9,
+      "n_ofertas": 7
     },
     {
       "expediente": "CNMY18/IN10S/10",
@@ -76707,7 +78016,10 @@
       "importe": 8408.98,
       "adjudicatario": "LABORATORIO DE GESTIÓN AMBIENTAL S.L.",
       "fechaAdjudicacion": "2018-04-27",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 11466.07,
+      "importeAdjudicacion": 8408.98,
+      "n_ofertas": 5
     },
     {
       "expediente": "170856",
@@ -76722,7 +78034,10 @@
       "importe": 54399.18,
       "adjudicatario": "AQUIMISA, S.L.",
       "fechaAdjudicacion": "2018-01-25",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 53525.0,
+      "importeAdjudicacion": 54399.18,
+      "n_ofertas": 2
     },
     {
       "expediente": "589/17",
@@ -76805,7 +78120,10 @@
       "importe": 14784,
       "adjudicatario": "PALEX MEDICAL, S.A.",
       "fechaAdjudicacion": "0090-08-24",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 14784.0,
+      "importeAdjudicacion": 14784.0,
+      "n_ofertas": 1
     },
     {
       "expediente": "DC-SOAYC-000601-PR",
@@ -76845,7 +78163,10 @@
       "importe": 14784,
       "adjudicatario": "PALEX MEDICAL, S.A.",
       "fechaAdjudicacion": "0020-08-24",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 14784.0,
+      "importeAdjudicacion": 14784.0,
+      "n_ofertas": 1
     },
     {
       "expediente": "EMER_HV_2020_62083400",
@@ -76858,7 +78179,10 @@
       "importe": 14784,
       "adjudicatario": "PALEX MEDICAL, S.A.",
       "fechaAdjudicacion": "0020-08-24",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 14784.0,
+      "importeAdjudicacion": 14784.0,
+      "n_ofertas": 1
     },
     {
       "expediente": "EMER_HV_2020_62083200",
@@ -76871,7 +78195,10 @@
       "importe": 14784,
       "adjudicatario": "PALEX MEDICAL, S.A.",
       "fechaAdjudicacion": "0020-08-24",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 14784.0,
+      "importeAdjudicacion": 14784.0,
+      "n_ofertas": 1
     },
     {
       "expediente": "EMER_HV_2020_62083300",
@@ -76884,7 +78211,10 @@
       "importe": 14784,
       "adjudicatario": "PALEX MEDICAL, S.A.",
       "fechaAdjudicacion": "0020-08-24",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 14784.0,
+      "importeAdjudicacion": 14784.0,
+      "n_ofertas": 1
     },
     {
       "expediente": "EMER_HV_2020_62083000",
@@ -76897,7 +78227,10 @@
       "importe": 14784,
       "adjudicatario": "PALEX MEDICAL, S.A.",
       "fechaAdjudicacion": "0020-08-24",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 14784.0,
+      "importeAdjudicacion": 14784.0,
+      "n_ofertas": 1
     },
     {
       "expediente": "EMER_HV_2020_62082900",
@@ -76910,7 +78243,10 @@
       "importe": 14784,
       "adjudicatario": "PALEX MEDICAL, S.A.",
       "fechaAdjudicacion": "0020-08-24",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 14784.0,
+      "importeAdjudicacion": 14784.0,
+      "n_ofertas": 1
     },
     {
       "expediente": "EMER_HV_2020_62077400",
@@ -76923,7 +78259,10 @@
       "importe": 14784,
       "adjudicatario": "PALEX MEDICAL, S.A.",
       "fechaAdjudicacion": "0020-08-24",
-      "fuente": "backfill"
+      "fuente": "backfill",
+      "presupuestoBase": 14784.0,
+      "importeAdjudicacion": 14784.0,
+      "n_ofertas": 1
     },
     {
       "expediente": "2023/EA02/00001199E",
