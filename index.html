@@ -912,7 +912,7 @@ body.dark .brand-logo div{ background:rgba(255,255,255,0.90)!important; }
 
   </main>
 
-  <footer class="foot"><strong>AGQ Labs</strong> · Radar de Licitaciones · Herramienta interna de apoyo comercial · Datos actualizados automáticamente desde la Plataforma de Contratación del Sector Público</footer>
+  <footer class="foot"><strong>AGQ Labs</strong> · Radar de Licitaciones · Herramienta interna de apoyo comercial · Datos actualizados automáticamente desde la Plataforma de Contratación del Sector Público · <span title="Esta herramienta utiliza IA generativa (Google Gemini) para análisis de documentos. Los resultados tienen carácter orientativo y requieren supervisión humana. Cumplimiento Reglamento (UE) 2024/1689 AI Act — sistema de riesgo mínimo.">🤖 Asistida por IA — supervisión humana requerida</span> · <span title="Esta herramienta no recoge ni trata datos personales de forma sistemática. Evita incluir datos identificables en notas y comentarios del pipeline. RGPD (UE) 2016/679.">🔒 RGPD</span></footer>
 </div>
 
 <div id="overlay"></div>
@@ -2616,6 +2616,7 @@ function openDetail(expediente){
         <h3>Notas del equipo</h3>
         <p style="font-size:10.5px;color:var(--ink-soft);margin:-4px 0 8px;">${t.notasPor ? 'Última edición de ' + escapeHtml(t.notasPor) + (t.notasEn ? ' · ' + formatDate(t.notasEn) : '') : 'Compartidas con todo el equipo en tiempo real.'}</p>
         <textarea class="notearea" id="tender-notes" placeholder="Notas, contacto, estrategia de oferta…">${escapeHtml(t.notas||'')}</textarea>
+        <p style="font-size:10px;color:var(--ink-soft);margin-top:4px;">⚠ Evita incluir datos personales identificables en las notas (RGPD). Las notas se almacenan en el repositorio compartido del equipo.</p>
         <div id="notas-sync-indicator" style="font-size:10.5px;color:var(--ink-soft);margin-top:4px;min-height:14px;"></div>
       </div>
 
