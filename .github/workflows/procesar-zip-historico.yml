@@ -4,29 +4,34 @@ on:
   workflow_dispatch:
     inputs:
       year:
-        description: 'Año (all = todos 2020-2026)'
+        description: 'Año a procesar (all = todos 2020-2026 secuencialmente)'
         required: true
         default: 'all'
 
 jobs:
   procesar:
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 60
+    strategy:
+      max-parallel: 1   # secuencial para evitar conflictos de git
+      matrix:
+        year: [2026, 2025, 2024, 2023, 2022, 2021, 2020]
 
     steps:
       - uses: actions/checkout@v4
 
-      - name: Enriquecer histórico desde ZIPs PLACSP
+      - name: Procesar año ${{ matrix.year }}
+        if: ${{ github.event.inputs.year == 'all' || github.event.inputs.year == matrix.year }}
         env:
-          TARGET_YEAR: ${{ github.event.inputs.year }}
-        run: |
-          python3 scripts/enriquecer-historico.py
+          TARGET_YEAR: ${{ matrix.year }}
+        run: python3 scripts/enriquecer-historico.py
 
-      - name: Guardar
+      - name: Guardar año ${{ matrix.year }}
+        if: ${{ github.event.inputs.year == 'all' || github.event.inputs.year == matrix.year }}
         run: |
           git config user.name "agq-radar-bot"
           git config user.email "actions@users.noreply.github.com"
-          git pull --rebase origin main || true
+          git pull --rebase origin main
           git add data/historico_adjudicaciones.json
-          git diff --staged --quiet || git commit -m "Enriquecer historico desde ZIPs: presupuestoBase, importeAdjudicacion, n_ofertas"
+          git diff --staged --quiet || git commit -m "Enriquecer historico año ${{ matrix.year }}: presupuestoBase, importeAdjudicacion, n_ofertas"
           git push
