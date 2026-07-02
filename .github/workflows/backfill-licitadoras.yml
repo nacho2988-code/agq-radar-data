@@ -1,29 +1,164 @@
-name: Backfill importeAdjudicacion y licitadoras del histórico
+name: Enriquecer histórico desde ZIPs de PLACSP
 
 on:
   workflow_dispatch:
-  schedule:
-    # Ejecutar 3 veces al día para cubrir los ~1500 req/día de Gemini
-    - cron: '0 6 * * *'   # 6:00 UTC (8:00 España)
-    - cron: '0 12 * * *'  # 12:00 UTC (14:00 España)
-    - cron: '0 18 * * *'  # 18:00 UTC (20:00 España)
 
 jobs:
-  backfill:
+  enriquecer:
     runs-on: ubuntu-latest
-    timeout-minutes: 55  # máximo productivo sin desperdiciar recursos
+    timeout-minutes: 120
 
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-      - run: npm install
 
-      - name: Enriquecer histórico con importeAdjudicacion y licitadoras
-        env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        run: node scripts/backfill-licitadoras.mjs
+      - name: Enriquecer histórico con presupuesto base, n_ofertas y rangos de oferta
+        run: |
+          python3 << 'PYEOF'
+import json, re, zipfile, io, urllib.request, os
+
+HISTORICO = 'data/historico_adjudicaciones.json'
+YEARS = [2020, 2021, 2022, 2023, 2024, 2025, 2026]
+BASE_URL = 'https://contrataciondelsectorpublico.gob.es/sindicacion/sindicacion_643/licitacionesPerfilesContratanteCompleto3_{}.zip'
+
+def tag(text, name):
+    m = re.search(fr'<(?:[^:>]*:)?{name}[^>]*>([\s\S]*?)</(?:[^:>]*:)?{name}>', text, re.I)
+    if not m: return ''
+    return re.sub(r'<[^>]+>', '', m.group(1)).strip().replace('&amp;','&').replace('&lt;','<').replace('&gt;','>').replace('&quot;','"')
+
+def to_float(s):
+    if not s: return None
+    try: return float(s.replace(',','.'))
+    except: return None
+
+# Cargar histórico
+hist = json.load(open(HISTORICO))
+entries = hist.get('entries', hist) if isinstance(hist, dict) else hist
+if not isinstance(entries, list): entries = list(hist.values())
+
+# Índice por expediente
+by_exp = {e['expediente'].strip().upper(): e for e in entries if e.get('expediente')}
+print(f"Histórico: {len(entries)} entradas | Índice: {len(by_exp)} expedientes")
+
+total_enriquecidos = 0
+total_ya_ok = sum(1 for e in entries if e.get('presupuestoBase'))
+
+print(f"Ya con presupuestoBase: {total_ya_ok}")
+
+for year in YEARS:
+    url = BASE_URL.format(year)
+    print(f"\n--- Año {year} ---")
+    try:
+        req = urllib.request.Request(url, headers={'User-Agent': 'AGQ-Radar/1.0'})
+        with urllib.request.urlopen(req, timeout=120) as r:
+            data = r.read()
+        print(f"  ZIP descargado: {len(data)//1024//1024} MB")
+    except Exception as e:
+        print(f"  Error descargando: {e}")
+        continue
+
+    try:
+        zf = zipfile.ZipFile(io.BytesIO(data))
+        xml_files = [n for n in zf.namelist() if n.endswith('.xml') or n.endswith('.atom')]
+        print(f"  Ficheros: {len(xml_files)}")
+    except Exception as e:
+        print(f"  Error ZIP: {e}")
+        continue
+
+    year_count = 0
+    for fname in xml_files:
+        try:
+            content = zf.read(fname).decode('utf-8', errors='replace')
+        except:
+            continue
+
+        # Dividir en bloques de entrada (cada contrato)
+        blocks = re.findall(r'<entry>([\s\S]*?)</entry>', content, re.I)
+        if not blocks:
+            # Intentar con el elemento raíz directamente
+            blocks = re.findall(r'<CallForTenders[^>]*>([\s\S]*?)</CallForTenders>', content, re.I)
+
+        for block in blocks:
+            # Obtener expediente
+            exp_raw = (re.search(r'<cbc:ContractFolderID>([^<]+)</cbc:ContractFolderID>', block, re.I) or
+                       re.search(r'<ContractFolderID>([^<]+)</ContractFolderID>', block, re.I))
+            if not exp_raw:
+                continue
+            exp = exp_raw.group(1).strip().upper()
+            if exp not in by_exp:
+                continue
+
+            entry = by_exp[exp]
+            changed = False
+
+            # 1. Presupuesto base: BudgetAmount > TaxExclusiveAmount
+            budget_m = re.search(r'<cac:BudgetAmount[^>]*>([\s\S]*?)</cac:BudgetAmount>', block, re.I)
+            if budget_m:
+                budget_block = budget_m.group(1)
+                presupuesto = tag(budget_block, 'TaxExclusiveAmount') or tag(budget_block, 'TotalAmount')
+                if presupuesto and not entry.get('presupuestoBase'):
+                    v = to_float(presupuesto)
+                    if v and v > 0:
+                        entry['presupuestoBase'] = v
+                        changed = True
+
+            # 2. ImporteAdjudicacion: TenderResult > PayableAmount / TaxExclusiveAmount
+            tr_m = re.search(r'<cac:TenderResult[^>]*>([\s\S]*?)</cac:TenderResult>', block, re.I)
+            if tr_m:
+                tr = tr_m.group(1)
+                if not entry.get('importeAdjudicacion'):
+                    adj_amt = tag(tr,'PayableAmount') or tag(tr,'TaxExclusiveAmount') or tag(tr,'AwardedTenderedAmount')
+                    v = to_float(adj_amt)
+                    if v and v > 0:
+                        entry['importeAdjudicacion'] = v
+                        changed = True
+
+                # n_ofertas
+                if not entry.get('n_ofertas'):
+                    no = tag(tr,'ReceivedTenderQuantity') or tag(tr,'SubmittedTenderQuantity')
+                    if no:
+                        try:
+                            n = int(float(no))
+                            if n > 0:
+                                entry['n_ofertas'] = n
+                                changed = True
+                        except: pass
+
+                # importe_min / importe_max
+                if not entry.get('importe_min'):
+                    v = to_float(tag(tr,'LowerTenderAmount'))
+                    if v and v > 0:
+                        entry['importe_min'] = v
+                        changed = True
+                if not entry.get('importe_max'):
+                    v = to_float(tag(tr,'HigherTenderAmount'))
+                    if v and v > 0:
+                        entry['importe_max'] = v
+                        changed = True
+
+            if changed:
+                year_count += 1
+                total_enriquecidos += 1
+
+    print(f"  Enriquecidas: {year_count} entradas")
+
+# Guardar
+import datetime
+if isinstance(hist, dict):
+    hist['generatedAt'] = datetime.datetime.now(datetime.timezone.utc).isoformat()
+json.dump(hist, open(HISTORICO,'w'), ensure_ascii=False, indent=2)
+
+# Estadísticas finales
+con_base = sum(1 for e in entries if e.get('presupuestoBase'))
+con_adj  = sum(1 for e in entries if e.get('importeAdjudicacion'))
+con_n    = sum(1 for e in entries if e.get('n_ofertas'))
+con_min  = sum(1 for e in entries if e.get('importe_min'))
+print(f"\n=== RESULTADO FINAL ===")
+print(f"Enriquecidas esta ejecución: {total_enriquecidos}")
+print(f"Con presupuestoBase:     {con_base}/{len(entries)} ({con_base/len(entries)*100:.1f}%)")
+print(f"Con importeAdjudicacion: {con_adj}/{len(entries)}  ({con_adj/len(entries)*100:.1f}%)")
+print(f"Con n_ofertas:           {con_n}/{len(entries)}  ({con_n/len(entries)*100:.1f}%)")
+print(f"Con importe_min/max:     {con_min}/{len(entries)}  ({con_min/len(entries)*100:.1f}%)")
+PYEOF
 
       - name: Guardar resultados
         run: |
@@ -31,5 +166,5 @@ jobs:
           git config user.email "actions@users.noreply.github.com"
           git pull --rebase origin main || true
           git add data/historico_adjudicaciones.json
-          git diff --staged --quiet || git commit -m "Backfill licitadoras: importeAdjudicacion + empresas concurrentes"
+          git diff --staged --quiet || git commit -m "Enriquecer histórico: presupuestoBase, importeAdjudicacion, n_ofertas, rangos"
           git push
