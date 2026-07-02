@@ -4,34 +4,30 @@ on:
   workflow_dispatch:
     inputs:
       year:
-        description: 'Año a procesar (all = todos 2020-2026 secuencialmente)'
+        description: 'Año a procesar (all = todos 2020-2026)'
         required: true
         default: 'all'
 
 jobs:
   procesar:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
-    strategy:
-      max-parallel: 1   # secuencial para evitar conflictos de git
-      matrix:
-        year: [2026, 2025, 2024, 2023, 2022, 2021, 2020]
+    timeout-minutes: 360
 
     steps:
       - uses: actions/checkout@v4
 
-      - name: Procesar año ${{ matrix.year }}
-        if: ${{ github.event.inputs.year == 'all' || github.event.inputs.year == matrix.year }}
+      - name: Procesar ZIPs y enriquecer histórico
         env:
-          TARGET_YEAR: ${{ matrix.year }}
+          TARGET_YEAR: ${{ github.event.inputs.year }}
         run: python3 scripts/enriquecer-historico.py
 
-      - name: Guardar año ${{ matrix.year }}
-        if: ${{ github.event.inputs.year == 'all' || github.event.inputs.year == matrix.year }}
+      - name: Commit único al finalizar
         run: |
           git config user.name "agq-radar-bot"
           git config user.email "actions@users.noreply.github.com"
-          git pull --rebase origin main
           git add data/historico_adjudicaciones.json
-          git diff --staged --quiet || git commit -m "Enriquecer historico año ${{ matrix.year }}: presupuestoBase, importeAdjudicacion, n_ofertas"
-          git push
+          git diff --staged --quiet && echo "Sin cambios" && exit 0
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin main && git push && echo "Push OK" && break
+            echo "Reintento $i..." && sleep 15
+          done
