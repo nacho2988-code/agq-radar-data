@@ -2,15 +2,16 @@ name: Backfill importeAdjudicacion y licitadoras del histórico
 
 on:
   workflow_dispatch:
-    inputs:
-      max_gemini:
-        description: 'Máx. actas a parsear con Gemini (para no agotar cuota)'
-        default: '15'
+  schedule:
+    # Ejecutar 3 veces al día para cubrir los ~1500 req/día de Gemini
+    - cron: '0 6 * * *'   # 6:00 UTC (8:00 España)
+    - cron: '0 12 * * *'  # 12:00 UTC (14:00 España)
+    - cron: '0 18 * * *'  # 18:00 UTC (20:00 España)
 
 jobs:
   backfill:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 55  # máximo productivo sin desperdiciar recursos
 
     steps:
       - uses: actions/checkout@v4
@@ -22,7 +23,6 @@ jobs:
       - name: Enriquecer histórico con importeAdjudicacion y licitadoras
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          MAX_GEMINI: ${{ github.event.inputs.max_gemini }}
         run: node scripts/backfill-licitadoras.mjs
 
       - name: Guardar resultados
