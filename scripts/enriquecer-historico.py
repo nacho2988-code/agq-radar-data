@@ -2,7 +2,7 @@ import json, re, zipfile, io, urllib.request, datetime, os, sys
 
 HISTORICO = 'data/historico_adjudicaciones.json'
 TARGET_YEAR = os.environ.get('TARGET_YEAR', 'all')
-YEARS = [2020,2021,2022,2023,2024,2025,2026] if TARGET_YEAR == 'all' else [int(TARGET_YEAR)]
+YEARS = list(range(2026, 2019, -1)) if TARGET_YEAR == 'all' else [int(TARGET_YEAR)]
 BASE_URL = 'https://contrataciondelsectorpublico.gob.es/sindicacion/sindicacion_643/licitacionesPerfilesContratanteCompleto3_{}.zip'
 
 def tag(text, name):
@@ -15,29 +15,45 @@ def to_float(s):
     try: return float(s.replace(',','.'))
     except: return None
 
+def save(hist):
+    if isinstance(hist, dict):
+        hist['generatedAt'] = datetime.datetime.now(datetime.timezone.utc).isoformat()
+    json.dump(hist, open(HISTORICO,'w'), ensure_ascii=False, indent=2)
+    print('  [guardado]', flush=True)
+
 hist = json.load(open(HISTORICO))
 entries = hist.get('entries', hist) if isinstance(hist, dict) else hist
 if not isinstance(entries, list): entries = list(hist.values())
-by_exp = {e['expediente'].strip().upper(): e for e in entries if e.get('expediente')}
-print(f"Histórico: {len(entries)} entradas | Procesando años: {YEARS}", flush=True)
+
+# Índice — solo los que aún necesitan enriquecimiento
+def necesita(e):
+    return not e.get('presupuestoBase') or not e.get('importeAdjudicacion') or not e.get('n_ofertas')
+
+by_exp = {e['expediente'].strip().upper(): e for e in entries if e.get('expediente') and necesita(e)}
+print(f"Total: {len(entries)} | Pendientes de enriquecer: {len(by_exp)} | Años: {YEARS}", flush=True)
 
 total = 0
 for year in YEARS:
+    if not by_exp:
+        print(f"\nTodo enriquecido, terminando.", flush=True)
+        break
     url = BASE_URL.format(year)
-    print(f"\n--- {year} ---", flush=True)
+    print(f"\n--- {year} ({len(by_exp)} pendientes) ---", flush=True)
     try:
         req = urllib.request.Request(url, headers={'User-Agent': 'AGQ-Radar/1.0'})
-        with urllib.request.urlopen(req, timeout=180) as r:
+        with urllib.request.urlopen(req, timeout=300) as r:
             data = r.read()
-        print(f"  {len(data)//1024//1024} MB descargados", flush=True)
+        print(f"  {len(data)//1024//1024} MB", flush=True)
     except Exception as e:
-        print(f"  Error descarga: {e}"); continue
+        print(f"  Error descarga: {e}", flush=True)
+        continue
     try:
         zf = zipfile.ZipFile(io.BytesIO(data))
         xml_files = [n for n in zf.namelist() if n.endswith('.xml') or n.endswith('.atom')]
         print(f"  {len(xml_files)} ficheros XML", flush=True)
     except Exception as e:
-        print(f"  Error ZIP: {e}"); continue
+        print(f"  Error ZIP: {e}", flush=True)
+        continue
 
     year_n = 0
     for fname in xml_files:
@@ -53,14 +69,10 @@ for year in YEARS:
             if exp not in by_exp: continue
             entry = by_exp[exp]
             changed = False
-
-            # Presupuesto base de licitación
             bm = re.search(r'<cac:BudgetAmount[^>]*>([\s\S]*?)</cac:BudgetAmount>', block, re.I)
             if bm and not entry.get('presupuestoBase'):
                 v = to_float(tag(bm.group(1),'TaxExclusiveAmount') or tag(bm.group(1),'TotalAmount'))
                 if v and v > 0: entry['presupuestoBase'] = v; changed = True
-
-            # TenderResult: importe adjudicación, n_ofertas, rangos
             trm = re.search(r'<cac:TenderResult[^>]*>([\s\S]*?)</cac:TenderResult>', block, re.I)
             if trm:
                 tr = trm.group(1)
@@ -80,22 +92,20 @@ for year in YEARS:
                 if not entry.get('importe_max'):
                     v = to_float(tag(tr,'HigherTenderAmount'))
                     if v and v > 0: entry['importe_max'] = v; changed = True
-
-            if changed: year_n += 1; total += 1; by_exp.pop(exp)  # ya procesado
+            if changed:
+                year_n += 1; total += 1
+                by_exp.pop(exp)
 
     print(f"  Enriquecidas: {year_n}", flush=True)
-
-if isinstance(hist, dict):
-    hist['generatedAt'] = datetime.datetime.now(datetime.timezone.utc).isoformat()
-json.dump(hist, open(HISTORICO,'w'), ensure_ascii=False, indent=2)
+    save(hist)  # guardar tras cada año
 
 con_base = sum(1 for e in entries if e.get('presupuestoBase'))
 con_adj  = sum(1 for e in entries if e.get('importeAdjudicacion'))
 con_n    = sum(1 for e in entries if e.get('n_ofertas'))
 con_min  = sum(1 for e in entries if e.get('importe_min'))
-print(f"\n=== RESULTADO ===")
-print(f"Enriquecidas: {total}")
+print(f"\n=== FINAL ===")
+print(f"Enriquecidas esta ejecucion: {total}")
 print(f"presupuestoBase:     {con_base}/{len(entries)} ({con_base/len(entries)*100:.1f}%)")
 print(f"importeAdjudicacion: {con_adj}/{len(entries)} ({con_adj/len(entries)*100:.1f}%)")
-print(f"n_ofertas:           {con_n}/{len(entries)}")
-print(f"importe_min/max:     {con_min}/{len(entries)}")
+print(f"n_ofertas:           {con_n}/{len(entries)} ({con_n/len(entries)*100:.1f}%)")
+print(f"importe_min/max:     {con_min}/{len(entries)} ({con_min/len(entries)*100:.1f}%)")
