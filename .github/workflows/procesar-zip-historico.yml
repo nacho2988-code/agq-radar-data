@@ -4,133 +4,29 @@ on:
   workflow_dispatch:
     inputs:
       year:
-        description: 'Año del ZIP a procesar (ej: 2023)'
+        description: 'Año (all = todos 2020-2026)'
         required: true
-        default: '2023'
+        default: 'all'
 
 jobs:
   procesar:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 120
 
     steps:
       - uses: actions/checkout@v4
 
-      - name: Descargar ZIP de PLACSP
+      - name: Enriquecer histórico desde ZIPs PLACSP
+        env:
+          TARGET_YEAR: ${{ github.event.inputs.year }}
         run: |
-          YEAR="${{ github.event.inputs.year }}"
-          URL="https://contrataciondelsectorpublico.gob.es/sindicacion/sindicacion_643/licitacionesPerfilesContratanteCompleto3_${YEAR}.zip"
-          echo "Descargando $URL..."
-          curl -L -A "Mozilla/5.0 (X11; Linux x86_64)" --retry 3 --retry-delay 5 -o /tmp/placsp_${YEAR}.zip "$URL"
-          ls -lh /tmp/placsp_${YEAR}.zip
-          python3 -c "import zipfile; zf=zipfile.ZipFile('/tmp/placsp_$YEAR.zip'); print(f'ZIP OK: {len(zf.namelist())} ficheros')"
+          python3 scripts/enriquecer-historico.py
 
-      - name: Procesar ZIP con Python
-        run: |
-          python3 << 'PYEOF'
-          import zipfile, re, json, datetime, sys, os
-
-          YEAR = "${{ github.event.inputs.year }}"
-          ZIP_PATH = f"/tmp/placsp_{YEAR}.zip"
-          OUTPUT = "data/historico_adjudicaciones.json"
-          CONFIG = "config/accreditations.json"
-
-          config = json.load(open(CONFIG))
-          CPV_SET = set(l.split()[0][:8] for l in config['cpv'] if l.strip() and l.strip()[0].isdigit())
-          allKw = list(set(k.strip().lower() for a in config['accreditations'] for k in a['keywords'].split(',') if k.strip()))
-          ambSet = set(k.lower() for k in config.get('genericAmbiguous', []))
-          actKw = [k.lower() for k in config.get('activityKeywords', [])]
-          SUPPLY = re.compile(r'\bsuministros?\s+(de|del)\b|\badquisici[oó]n\s+de\b', re.I)
-          SVC_KW = ['ensayo','ensayos','análisis','analisis','muestreo','vigilancia ambiental','inspección ambiental']
-
-          def esc(s): return re.escape(s)
-          def km(t, k): return bool(re.search(r'(^|[^a-zA-Z\u00C0-\u00FF])'+esc(k)+r'($|[^a-zA-Z\u00C0-\u00FF])', t, re.I))
-          def relevant(title, cpvs):
-              if any(c in CPV_SET for c in cpvs): return True
-              t = title.lower()
-              m = [k for k in allKw if k and km(t, k)]
-              if not m: return False
-              isS = bool(SUPPLY.search(title))
-              nA = [k for k in m if k not in ambSet]
-              if nA and not isS: return True
-              if isS: return any(km(t, k) for k in SVC_KW)
-              return any(km(t, k) for k in actKw)
-
-          def tag(xml, t):
-              m = re.search(rf'<[^:>]*:?{t}[^>]*>([^<]*)<', xml)
-              return m.group(1).strip() if m else ''
-          def all_tags(xml, t):
-              return re.findall(rf'<[^:>]*:?{t}[^>]*>([^<]*)<', xml)
-
-          def parse_entry(chunk):
-              estado = tag(chunk, 'ContractFolderStatusCode')
-              if estado not in ('RES', 'ADJ'): return None
-              cpvs = [c.strip()[:8] for c in all_tags(chunk, 'ItemClassificationCode')]
-              title = ''
-              m = re.search(r'<cac:ProcurementProject[^>]*>.*?<cbc:Name>([^<]+)', chunk, re.S)
-              if m: title = m.group(1).strip()
-              if not title: title = tag(chunk, 'title') or ''
-              if not relevant(title, cpvs): return None
-              expediente = tag(chunk, 'ContractFolderID') or ''
-              organo = ''
-              m = re.search(r'<cac:PartyName[^>]*>\s*<cbc:Name>([^<]+)', chunk)
-              if m: organo = m.group(1).strip()
-              adj = ''; imp = None; fecha = ''
-              tr_m = re.search(r'<cac:TenderResult[^>]*>(.*?)</cac:TenderResult>', chunk, re.S)
-              if tr_m:
-                  tr = tr_m.group(1)
-                  wp = re.search(r'<[^>]*WinningParty[^>]*>(.*?)</[^>]*WinningParty>', tr, re.S)
-                  if wp: adj = tag(wp.group(1), 'Name') or tag(wp.group(1), 'PartyName')
-                  if not adj: adj = tag(tr, 'WinningTendererName') or ''
-                  amt = tag(tr, 'PayableAmount') or tag(tr, 'TaxExclusiveAmount') or ''
-                  if amt:
-                      try: imp = float(amt.replace(',','.'))
-                      except: pass
-                  fecha = tag(tr, 'AwardDate') or ''
-              if not adj: return None
-              return {'expediente': expediente, 'title': title[:200], 'organo': organo[:150],
-                      'estado': 'RES', 'cpv': cpvs, 'importe': imp,
-                      'adjudicatario': adj.strip()[:150], 'fechaAdjudicacion': fecha, 'fuente': 'backfill'}
-
-          # Cargar histórico previo
-          existing = {}
-          prev_years = []
-          if os.path.exists(OUTPUT):
-              prev = json.load(open(OUTPUT))
-              existing = {e['expediente']: e for e in prev.get('entries', []) if e.get('expediente')}
-              prev_years = prev.get('years', [])
-              print(f"Histórico previo: {len(existing)} entradas, años: {prev_years}")
-
-          new_found = 0; scanned = 0
-          with zipfile.ZipFile(ZIP_PATH, 'r') as zf:
-              atom_files = sorted(f for f in zf.namelist() if f.endswith('.atom'))
-              print(f"Ficheros atom: {len(atom_files)}")
-              for i, fname in enumerate(atom_files):
-                  try: content = zf.read(fname).decode('utf-8', errors='replace')
-                  except: continue
-                  blocks = re.findall(r'<entry>[\s\S]*?</entry>', content)
-                  scanned += len(blocks)
-                  for block in blocks:
-                      e = parse_entry(block)
-                      if e and e['expediente'] and e['expediente'] not in existing:
-                          existing[e['expediente']] = e; new_found += 1
-                  if (i+1) % 200 == 0:
-                      print(f"  {i+1}/{len(atom_files)} | {scanned:,} escaneadas | {new_found} nuevas")
-
-          years = sorted(set(prev_years + [int(YEAR)]))
-          all_entries = sorted(existing.values(), key=lambda x: x.get('fechaAdjudicacion',''), reverse=True)
-          json.dump({'generatedAt': datetime.datetime.now(datetime.timezone.utc).isoformat(),
-                     'years': years, 'totalEntries': len(all_entries),
-                     'newThisRun': new_found, 'entries': all_entries},
-                    open(OUTPUT, 'w'), ensure_ascii=False, indent=2)
-          print(f"\n✓ {len(all_entries)} adjudicaciones totales ({new_found} nuevas de {YEAR})")
-          PYEOF
-
-      - name: Commitear histórico actualizado
+      - name: Guardar
         run: |
           git config user.name "agq-radar-bot"
           git config user.email "actions@users.noreply.github.com"
           git pull --rebase origin main || true
           git add data/historico_adjudicaciones.json
-          git diff --staged --quiet || git commit -m "Backfill ${{ github.event.inputs.year }}: histórico actualizado"
+          git diff --staged --quiet || git commit -m "Enriquecer historico desde ZIPs: presupuestoBase, importeAdjudicacion, n_ofertas"
           git push
